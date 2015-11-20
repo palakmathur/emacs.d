@@ -57,12 +57,11 @@
 
 
 ;; powerline customizes the mode line
-;; (add-to-list 'load-path "~/.emacs.d/vendor/emacs-powerline")
-;; (require 'powerline)
-;;(custom-set-faces
-;; '(mode-line ((t (:foreground "#333" :background "#bad063" :box nil))))
-;; ;'(mode-line-inactive ((t (:foreground "#f9f9f9" :background "#666666" :box nil))))
-;; )
+ (add-to-list 'load-path "~/.emacs.d/vendor/emacs-powerline")
+ (require 'powerline)
+(custom-set-faces
+ '(mode-line ((t (:foreground "#333" :background "#bad063" :box nil))))
+ '(mode-line-inactive ((t (:foreground "#f9f9f9" :background "#666666" :box nil)))))
 
 ;; Uncomment the lines below by removing semicolons and play with the
 ;; values in order to set the width (in characters wide) and height
