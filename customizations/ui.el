@@ -31,7 +31,7 @@
 (global-prettify-symbols-mode t)
 
 ;; Increase size for my poor eyes
-(set-face-attribute 'default nil :font "Fira Code-15")
+(set-face-attribute 'default nil :height 120 :font "Fira Code-15")
 
 ;; Better scrolling
 (setq redisplay-dont-pause t
@@ -69,9 +69,9 @@
 (if (or (equal system-name "DH.local")
         (equal system-name "waffles")) 
     (setq initial-frame-alist '((top . 0) (left . 0)
-                                (width . 177) (height . 53)))
+                                (width . 180) (height . 70)))
   (setq initial-frame-alist '((top . 0) (left . 0)
-                              (width . 177) (height . 52))))
+                              (width . 180) (height . 70 ))))
 
 ;; These settings relate to how emacs interacts with your operating system
 (setq ;; makes killing/yanking interact with the clipboard
