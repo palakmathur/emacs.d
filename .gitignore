@@ -13,7 +13,7 @@ backups
 archive-contents
 .cask
 cider
-\.mc-lists.el
+/.mc-lists.el
 .idea/
 elpa/
 .DS_Store
