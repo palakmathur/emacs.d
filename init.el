@@ -93,15 +93,24 @@
     yaml-mode
     coffee-mode
     scss-mode
+
+    ;;haskell
     haskell-mode
     company
+    company-cabal
+    company-ghci
+    ghci-completion
+    shakespeare-mode
+    company-quickhelp
+
+
     ack-and-a-half
     ag
     enh-ruby-mode))
 
-;; (dolist (p my-packages)
-;;   (when (not (package-installed-p p))
-;;     (package-install p)))
+(dolist (p my-packages)
+  (when (not (package-installed-p p))
+    (package-install p)))
 
 
 ;; Place downloaded elisp files in ~/.emacs.d/vendor. You'll then be able
@@ -147,6 +156,10 @@
 ;; For editing lisps
 (load "elisp-editing.el")
 
+;; Email
+(load "setup-vm.el")
+(load "setup-email.el")
+
 ;; helm
 (load "setup-helm.el")
 
@@ -158,12 +171,16 @@
 (load "setup-org.el")
 (load "setup-prolog.el")
 (load "setup-ruby.el")
+(load "setup-haskell.el")
+
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(coffee-tab-width 2)
+ '(send-mail-function (quote smtpmail-send-it)))
  '(ansi-color-faces-vector
    [default bold shadow italic underline bold bold-italic bold])
  '(ansi-color-names-vector

@@ -15,3 +15,6 @@ archive-contents
 cider
 \.mc-lists.el
 .idea/
+elpa/
+.DS_Store
+*~
