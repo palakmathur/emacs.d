@@ -23,3 +23,17 @@ smtpmail-smtp-server "smtp.gmail.com"
 smtpmail-smtp-service 587
 smtpmail-debug-info t)
 (require 'smtpmail)
+;;'(send-mail-function (quote smtpmail-send-it))
+
+
+;;; Set some sane defaults for VM’s replies and forwarding
+
+(setq
+vm-forwarding-subject-format "[forwarded from %F] %s"
+vm-forwarding-digest-type "rfc934"
+vm-in-reply-to-format nil
+vm-included-text-attribution-format
+"On %w, %m %d, %y at %h (%z), %F wrote:n"
+vm-reply-subject-prefix "Re: "
+vm-mail-header-from "Palak Mathur <palakmathur@gmail.com>"
+)

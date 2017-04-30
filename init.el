@@ -180,7 +180,6 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(coffee-tab-width 2)
- '(send-mail-function (quote smtpmail-send-it)))
  '(ansi-color-faces-vector
    [default bold shadow italic underline bold bold-italic bold])
  '(ansi-color-names-vector

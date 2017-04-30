@@ -1,11 +1,11 @@
 ;; Setting up stunnel for vm
 (add-to-list 'load-path
-(expand-file-name "~/.emacs.d/vendor/vm-8.2.0b/lisp"))
+(expand-file-name "~/.emacs.d/vendor/vm-8.2.0a/lisp"))
 (add-to-list 'Info-default-directory-list
-(expand-file-name "~/.emacs.d/vm-8.2.0b/info"))
+(expand-file-name "~/.emacs.d/vm-8.2.0a/info"))
 (require 'vm-autoloads)
-(setq vm-stunnel-program "/usr/local/Cellar/stunnel")
-
+(setq vm-stunnel-program "/usr/local/Cellar/stunnel/5.41/bin/stunnel")
+;;(setq vm-stunnel-program "/usr/local/etc/stunnel")
 ;; Set some sane defaults for VM’s replies and forwarding
 
 (setq
@@ -18,3 +18,4 @@ vm-reply-subject-prefix "Re: "
 vm-mail-header-from "Palak Mathur <palakmathur@gmail.com>"
 )
 
+(setq vm-mime-text/html-handler 'emacs-w3m)
