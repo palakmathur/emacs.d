@@ -10,8 +10,8 @@
              '("tromey" . "http://tromey.com/elpa/") t)
 (add-to-list 'package-archives
              '("org" . "http://orgmode.org/elpa/") t)
-;; (add-to-list 'package-archives
-;;              '("melpa" . "http://melpa.org/packages/") t)
+(add-to-list 'package-archives
+              '("melpa" . "http://melpa.org/packages/") t)
 (add-to-list 'package-archives
              '("melpa-stable" . "http://stable.melpa.org/packages/") t)
 
@@ -39,11 +39,35 @@
 (defvar predicate nil)
 (defvar inherit-input-method nil)
 
+;; (defvar my-packages
+;;   '( color-theme-sanityinc-tomorrow  company-quickhelp crux csharp-mode dockerfile-mode edn enh-ruby-mode  flycheck  git-gutter haml-mode haskell-mode helm-ag helm-descbinds helm-git-grep helm-ls-git helm-projectile helm helm-core hydra inflections  git-commit magit-popup markdown-mode markup-faces multiple-cursors noflet paredit peg php-mode popup pos-tip projectile pkg-info epl queue  seq  smex spinner tagedit s thesaurus typescript typescript-mode use-package diminish bind-key  with-editor dash async yaml-mode yasnippet))
+
 ;; The packages you want installed. You can also install these
 ;; manually with M-x package-install
 ;; Add in your own as you wish:
 (defvar my-packages
-  '(;; makes handling lisp expressions much, much easier
+  '(
+    ;;theme that I will be using
+    color-theme-sanityinc-tomorrow
+
+    
+    w3m
+    web-mode
+
+
+    ack-and-a-half
+
+    adjust-parens
+
+    ;;adhoc-mode
+
+    ag
+
+    aggressive-indent
+
+    clj-refactor
+    
+    ;; makes handling lisp expressions much, much easier
     ;; Cheatsheet: http://www.emacswiki.org/emacs/PareditCheatsheet
     paredit
 
@@ -109,7 +133,7 @@
     enh-ruby-mode
 
     typescript-mode
-   ;; tide
+    ;;tide
     ;;ng2-mode
 ))
 
@@ -196,7 +220,7 @@
  '(fci-rule-color "#373b41")
  '(package-selected-packages
    (quote
-    (tide typescript typescript-mode clojure-mode scss-mode yaml-mode web-mode use-package thesaurus tagedit smex rainbow-delimiters php-mode noflet markdown-mode magit ido-ubiquitous helm-projectile helm-ls-git helm-git-grep helm-descbinds helm-ag haskell-mode haml-mode git-gutter exec-path-from-shell enh-ruby-mode dockerfile-mode csharp-mode crux company color-theme-sanityinc-tomorrow coffee-mode clj-refactor aggressive-indent ag adoc-mode adjust-parens ack-and-a-half)))
+    (ac-emmet helm-emmet tide typescript typescript-mode clojure-mode scss-mode yaml-mode web-mode use-package thesaurus tagedit smex rainbow-delimiters php-mode noflet markdown-mode magit ido-ubiquitous helm-projectile helm-ls-git helm-git-grep helm-descbinds helm-ag haskell-mode haml-mode git-gutter exec-path-from-shell enh-ruby-mode dockerfile-mode csharp-mode crux company color-theme-sanityinc-tomorrow coffee-mode clj-refactor aggressive-indent ag adoc-mode adjust-parens ack-and-a-half)))
  '(vc-annotate-background nil)
  '(vc-annotate-color-map
    (quote
