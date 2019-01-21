@@ -25,6 +25,7 @@
 (package-initialize)
 (setq package-enable-at-startup nil)
 (require 'use-package)
+(setq use-package-always-ensure t)
 
 ;; Download the ELPA archive description if needed.
 ;; This informs Emacs about the latest versions of all packages, and
@@ -201,6 +202,7 @@
 (load "setup-prolog.el")
 (load "setup-ruby.el")
 (load "setup-haskell.el")
+(load "setup-c.el")
 
 
 (custom-set-variables
@@ -220,7 +222,7 @@
  '(fci-rule-color "#373b41")
  '(package-selected-packages
    (quote
-    (ac-emmet helm-emmet tide typescript typescript-mode clojure-mode scss-mode yaml-mode web-mode use-package thesaurus tagedit smex rainbow-delimiters php-mode noflet markdown-mode magit ido-ubiquitous helm-projectile helm-ls-git helm-git-grep helm-descbinds helm-ag haskell-mode haml-mode git-gutter exec-path-from-shell enh-ruby-mode dockerfile-mode csharp-mode crux company color-theme-sanityinc-tomorrow coffee-mode clj-refactor aggressive-indent ag adoc-mode adjust-parens ack-and-a-half)))
+    (projectile helm-mode-manager helm-mode ac-emmet helm-emmet tide typescript typescript-mode clojure-mode scss-mode yaml-mode web-mode use-package thesaurus tagedit smex rainbow-delimiters php-mode noflet markdown-mode magit ido-ubiquitous helm-projectile helm-ls-git helm-git-grep helm-descbinds helm-ag helm-gtags helm haskell-mode haml-mode git-gutter exec-path-from-shell enh-ruby-mode dockerfile-mode csharp-mode crux company color-theme-sanityinc-tomorrow coffee-mode clj-refactor aggressive-indent ag adoc-mode adjust-parens ack-and-a-half zygospore yasnippet ws-butler volatile-highlights use-package undo-tree iedit dtrt-indent counsel-projectile company clean-aindent-mode anzu)))
  '(vc-annotate-background nil)
  '(vc-annotate-color-map
    (quote
