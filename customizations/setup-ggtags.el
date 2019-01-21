@@ -6,6 +6,8 @@
             (when (derived-mode-p 'c-mode 'c++-mode 'java-mode 'asm-mode)
               (ggtags-mode 1))))
 
+(setq-local imenu-create-index-function #'ggtags-build-imenu-index)
+
 (dolist (map (list ggtags-mode-map dired-mode-map))
   (define-key map (kbd "C-c g s") 'ggtags-find-other-symbol)
   (define-key map (kbd "C-c g h") 'ggtags-view-tag-history)

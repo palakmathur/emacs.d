@@ -18,3 +18,4 @@ cider
 elpa/
 .DS_Store
 *~
+semanticdb
