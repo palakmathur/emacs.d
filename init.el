@@ -17,7 +17,7 @@
 
 (add-to-list 'package-pinned-packages '(cider . "melpa-stable") t)
 (add-to-list 'package-pinned-packages '(magit . "melpa-stable") t)
-;; (add-to-list 'package-pinned-packages '(helm-projectile . "melpa-stable") t)
+(add-to-list 'package-pinned-packages '(helm-projectile . "melpa-stable") t)
 
 ;; Load and activate emacs packages. Do this first so that the
 ;; packages are loaded before you start trying to modify them.
