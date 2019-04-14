@@ -24,7 +24,7 @@
                                (call-interactively 'compile)))
 
 ;; setup GDB
-(setq
+(setq_
  ;; use gdb-many-windows by default
  gdb-many-windows t
 
