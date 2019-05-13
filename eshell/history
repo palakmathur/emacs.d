@@ -1,0 +1,4 @@
+ls
+env
+proxy_on
+source ~/.bashrc

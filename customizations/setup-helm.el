@@ -3,6 +3,7 @@
   (progn
     (require 'helm-config)
     (require 'helm-grep)
+    (require 'helm-projectile)
     ;; To fix error at compile:
     ;; Error (bytecomp): Forgot to expand macro with-helm-buffer in
     ;; (with-helm-buffer helm-echo-input-in-header-line)

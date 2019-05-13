@@ -6,7 +6,4 @@
 ;; (require 'setup-ggtags)
 (require 'setup-cedet)
 (require 'setup-c-editing)
-
-
-
-
+(provide 'setup-c)
