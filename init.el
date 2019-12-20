@@ -1,3 +1,19 @@
+(setq url-proxy-services
+   '(("no_proxy" . "^\\(localhost\\|10.*\\)")
+     ("http" . "seaproxy.kdc.capitalone.com:8099")
+     ("https" . "seaproxy.kdc.capitalone.com:8099")))
+
+(setq url-http-proxy-basic-auth-storage
+   (list (list "seaproxy.kdc.capitalone.com:8099"
+               (cons "Input your LDAP UID !"
+                     (base64-encode-string "zsi473:India122")))))
+
+(getenv "PATH")
+ (setenv "PATH"
+(concat
+ "/Library/TeX/texbin" ":"
+
+(getenv "PATH")))
 ;;;;
 ;; Packages
 ;;;;
@@ -11,9 +27,9 @@
 (add-to-list 'package-archives
              '("org" . "http://orgmode.org/elpa/") t)
 (add-to-list 'package-archives
-              '("melpa" . "http://melpa.org/packages/") t)
+              '("melpa" . "http://melpa.org") t)
 (add-to-list 'package-archives
-             '("melpa-stable" . "http://stable.melpa.org/packages/") t)
+             '("melpa-stable" . "http://stable.melpa.org") t)
 
 (add-to-list 'package-pinned-packages '(cider . "melpa-stable") t)
 (add-to-list 'package-pinned-packages '(magit . "melpa-stable") t)
@@ -106,6 +122,9 @@
     ;; project navigation
     projectile
 
+    helm-projectile
+
+
     ;; colorful parenthesis matching
     rainbow-delimiters
 
@@ -129,7 +148,7 @@
     company-quickhelp
 
     ack-and-a-half
-    ag
+   
     enh-ruby-mode
 
     typescript-mode
@@ -155,6 +174,12 @@
 ;; Adding this code will make Emacs enter yaml mode whenever you open
 ;; a .yml file
 (add-to-list 'load-path "~/.emacs.d/vendor")
+
+;;load neotree
+(add-to-list 'load-path "~/.emacs.d/vendor/neotree-20181121.2026")
+(require 'neotree)
+(setq-default neo-show-hidden-files t) ;;show hidden files in neotree
+(setq neo-window-fixed-size nil)
 
 ;;;;
 ;; Customization

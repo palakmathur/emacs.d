@@ -2,3 +2,5 @@ ls
 env
 proxy_on
 source ~/.bashrc
+git status
+git diff coaf_application_schema.xsd

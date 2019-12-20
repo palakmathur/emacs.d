@@ -70,10 +70,10 @@
 ;; (in lines high) Emacs will have whenever you start it
 (if (or (equal system-name "DH.local")
         (equal system-name "waffles")) 
-    (setq initial-frame-alist '((top . 0) (left . 0)
-                                (width . 180) (height . 70)))
-  (setq initial-frame-alist '((top . 0) (left . 0)
-                              (width . 180) (height . 70 ))))
+    (setq initial-frame-alist '((top . 180) (left . 180)
+                                (width . 180) (height . 180)))
+  (setq initial-frame-alist '((top . 180) (left . 180)
+                              (width . 180) (height . 180 ))))
 
 ;; These settings relate to how emacs interacts with your operating system
 (setq ;; makes killing/yanking interact with the clipboard
