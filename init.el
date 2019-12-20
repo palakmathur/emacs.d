@@ -1,13 +1,3 @@
-(setq url-proxy-services
-   '(("no_proxy" . "^\\(localhost\\|10.*\\)")
-     ("http" . "seaproxy.kdc.capitalone.com:8099")
-     ("https" . "seaproxy.kdc.capitalone.com:8099")))
-
-(setq url-http-proxy-basic-auth-storage
-   (list (list "seaproxy.kdc.capitalone.com:8099"
-               (cons "Input your LDAP UID !"
-                     (base64-encode-string "zsi473:India122")))))
-
 (getenv "PATH")
  (setenv "PATH"
 (concat
@@ -227,8 +217,8 @@
 (load "setup-ruby.el")
 (load "setup-haskell.el")
 (load "setup-c.el")
-(load "setup-projectile")
-
+(load "setup-projectile.el")
+(load "setup-proxy.el")
 (add-to-list 'load-path "~/.emacs.d/vendor/function-args")
 (load "setup-function-args.el")
 

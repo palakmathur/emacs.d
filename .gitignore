@@ -19,3 +19,4 @@ elpa/
 .DS_Store
 *~
 semanticdb
+customizations/setup-proxy.el
