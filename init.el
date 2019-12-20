@@ -1,14 +1,3 @@
-(setq url-proxy-services
-   '(("no_proxy" . "^\\(localhost\\|10.*\\)")
-     ("http" . "proxy:8099")
-     ("https" . "proxy:8099")))
-
-(setq url-http-proxy-basic-auth-storage
-   (list (list "proxy:8099"
-               (cons "Input your LDAP UID !"
-                     (base64-encode-string "UserName:Password")))))
-
-
 ;;;;
 ;; Packages
 ;;;;
