@@ -1,3 +1,12 @@
+;;; 
+;; LATEX
+;;;
+(getenv "PATH")
+ (setenv "PATH"
+(concat
+ "/Library/TeX/texbin" ":"
+ (getenv "PATH")))
+
 ;;;;
 ;; Packages
 ;;;;
