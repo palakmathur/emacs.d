@@ -1,9 +1,12 @@
+;;;
+;; LATEX
+;;;
 (getenv "PATH")
  (setenv "PATH"
 (concat
  "/Library/TeX/texbin" ":"
+ (getenv "PATH")))
 
-(getenv "PATH")))
 ;;;;
 ;; Packages
 ;;;;
@@ -138,7 +141,7 @@
     company-quickhelp
 
     ack-and-a-half
-   
+
     enh-ruby-mode
 
     typescript-mode
