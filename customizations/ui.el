@@ -52,6 +52,7 @@
 ;; for a more technical explanation.
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
 (add-to-list 'load-path "~/.emacs.d/themes")
+;;(add-to-list 'load-path "~/.emacs.d/themes/emacs-material-theme")
 ;; (load-theme 'spacegray t)
 ;;(load-theme 'tomorrow-night-bright t)
 (require 'color-theme-sanityinc-tomorrow)

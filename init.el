@@ -1,12 +1,9 @@
-;;;
-;; LATEX
-;;;
 (getenv "PATH")
  (setenv "PATH"
 (concat
  "/Library/TeX/texbin" ":"
- (getenv "PATH")))
 
+(getenv "PATH")))
 ;;;;
 ;; Packages
 ;;;;
@@ -141,7 +138,7 @@
     company-quickhelp
 
     ack-and-a-half
-
+   
     enh-ruby-mode
 
     typescript-mode
@@ -168,12 +165,6 @@
 ;; a .yml file
 (add-to-list 'load-path "~/.emacs.d/vendor")
 
-;;load neotree
-(add-to-list 'load-path "~/.emacs.d/vendor/neotree-20181121.2026")
-(require 'neotree)
-(setq-default neo-show-hidden-files t) ;;show hidden files in neotree
-(setq neo-window-fixed-size nil) ;;make neotree resizable
-
 ;;;;
 ;; Customization
 ;;;;
@@ -181,6 +172,9 @@
 ;; Add a directory to our load path so that when you `load` things
 ;; below, Emacs knows where to look for the corresponding file.
 (add-to-list 'load-path "~/.emacs.d/customizations")
+
+;;load neotree
+(load "neotree.el")
 
 ;; Sets up exec-path-from-shell so that Emacs will use the correct
 ;; environment variables
@@ -243,8 +237,7 @@
  '(fci-rule-color "#373b41")
  '(package-selected-packages
    (quote
-    (speed-type sr-speedbar projectile helm-mode-manager helm-mode ac-emmet helm-emmet tide typescript typescript-mode clojure-mode scss-mode yaml-mode web-mode use-package thesaurus tagedit smex rainbow-delimiters php-mode noflet markdown-mode magit ido-ubiquitous helm-projectile helm-ls-git helm-git-grep helm-descbinds helm-ag helm-gtags helm haskell-mode haml-mode git-gutter exec-path-from-shell enh-ruby-mode dockerfile-mode csharp-mode crux company color-theme-sanityinc-tomorrow coffee-mode clj-refactor aggressive-indent ag adoc-mode adjust-parens ack-and-a-half zygospore yasnippet ws-butler volatile-highlights use-package undo-tree iedit dtrt-indent counsel-projectile company clean-aindent-mode anzu)))
- '(projectile-mode t nil (projectile))
+    (sr-speedbar projectile helm-mode-manager helm-mode ac-emmet helm-emmet tide typescript typescript-mode clojure-mode scss-mode yaml-mode web-mode use-package thesaurus tagedit smex rainbow-delimiters php-mode noflet markdown-mode magit ido-ubiquitous helm-projectile helm-ls-git helm-git-grep helm-descbinds helm-ag helm-gtags helm haskell-mode haml-mode git-gutter exec-path-from-shell enh-ruby-mode dockerfile-mode csharp-mode crux company color-theme-sanityinc-tomorrow coffee-mode clj-refactor aggressive-indent ag adoc-mode adjust-parens ack-and-a-half zygospore yasnippet ws-butler volatile-highlights use-package undo-tree iedit dtrt-indent counsel-projectile company clean-aindent-mode anzu)))
  '(vc-annotate-background nil)
  '(vc-annotate-color-map
    (quote
