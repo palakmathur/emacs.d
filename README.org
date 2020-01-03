@@ -15,9 +15,8 @@
 * Configurations
 
 ** Setup Proxy
- I use Emacs on my work laptop and there is a firewall that I need to pass through. Proxy settings allow me to do that. Save the below code under `customizations` and call it `setup-proxy.el`
-
-#+INCLUDE: "~/.emacs.d/customizations/setup-proxy-template.el" src emacs-lisp :range-begin "HttpProxy" :range-end "-HttpProxy" :lines "1-9"
+I use Emacs on my work laptop and there is a firewall that I need to pass through. Proxy settings allow me to do that. Save the below code under =customizations= and call it =setup-proxy.el=
+#+INCLUDE: "~/.emacs.d/customizations/setup-proxy-template.el" src emacs-lisp :range-begin "HttpProxy" :range-end "-HttpProxy" :lines "2-11"
 
 ** Package Configuration
 
@@ -68,6 +67,7 @@
 
 ** Configure 
 
+*** Inhibit startup screen
 #+BEGIN_SRC emacs-lisp
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -82,4 +82,3 @@
  ;; If there is more than one, they won't work right.
  )
 #+END_SRC
-

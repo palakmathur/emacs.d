@@ -1,3 +1,4 @@
+;; HttpProxy
 (setq url-proxy-services
       '(("no_proxy" . "^\\(localhost\\|10.*\\)")
         ("http" . "proxy:port")
@@ -7,3 +8,4 @@
       (list (list "proxy:port"
                   (cons "Input your LDAP UID !"
                         (base64-encode-string "UserName:Password")))))
+;; -HttpProxy
