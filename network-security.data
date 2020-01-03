@@ -1,4 +1,5 @@
 (
+ (:id "sha1:6d4eb958390599243ba9f5035cb671fa8dd6a93a" :fingerprint "sha1:22:83:ad:07:b2:fd:9f:a4:6f:34:e0:e3:29:c2:af:e1:7e:14:3a:ee" :host "elpa.gnu.org:443" :conditions (:unknown-ca :invalid))
  (:id "sha1:24c7a1e6369fef1e50de1deb1a9e5bbc68f80c8b" :fingerprint "sha1:0c:d1:76:a5:8f:7c:c5:8e:b2:2d:b5:00:57:63:7f:54:27:a6:30:83" :host "orgmode.org:443" :conditions (:insecure :unknown-ca :invalid))
  (:id "sha1:85457c729378cc93c732b6a3941c8e4f9c2e60f3" :fingerprint "sha1:ab:a6:d7:6a:b3:d3:63:fa:19:0d:65:41:60:23:6e:ef:d3:2a:46:dc" :host "marmalade-repo.org:443" :conditions (:expired :insecure :unknown-ca :invalid))
 )

@@ -4,6 +4,20 @@
  "/Library/TeX/texbin" ":"
 
 (getenv "PATH")))
+
+;; Add a directory to our load path so that when you `load` things
+;; below, Emacs knows where to look for the corresponding file.
+(add-to-list 'load-path "~/.emacs.d/customizations")
+;; Setup proxy
+(load "setup-proxy.el")
+
+;;Setup local package repo
+(add-to-list 'load-path "~/.emacs.d/package-sites/elpa-mirror")
+(require 'elpa-mirror)
+
+(setq package-archives '(("myelpa" . "~/.emacs.d/.myelpa/")))
+
+
 ;;;;
 ;; Packages
 ;;;;
@@ -17,19 +31,20 @@
 (add-to-list 'package-archives
              '("org" . "http://orgmode.org/elpa/") t)
 (add-to-list 'package-archives
-              '("melpa" . "http://melpa.org") t)
+              '("melpa" . "http://melpa.org/packages/") t)
 (add-to-list 'package-archives
-             '("melpa-stable" . "http://stable.melpa.org") t)
+             '("melpa-stable" . "http://stable.melpa.org/packages/") t)
 
 (add-to-list 'package-pinned-packages '(cider . "melpa-stable") t)
 (add-to-list 'package-pinned-packages '(magit . "melpa-stable") t)
-;;(add-to-list 'package-pinned-packages '(helm-projectile . "melpa-stable") t)
+(add-to-list 'package-pinned-packages '(helm-projectile . "melpa-stable") t)
 
 ;; Load and activate emacs packages. Do this first so that the
 ;; packages are loaded before you start trying to modify them.
 ;; This also sets the load path.
 (package-initialize)
 (setq package-enable-at-startup nil)
+(package-refresh-contents)
 (require 'use-package)
 (setq use-package-always-ensure t)
 
@@ -61,6 +76,7 @@
     w3m
     web-mode
 
+    ;;lsp-java
 
     ack-and-a-half
 
@@ -145,6 +161,8 @@
     ;;tide
     ;;ng2-mode
     ivy
+    yasnippet
+    yasnippet-snippets
 ))
 
 (dolist (p my-packages)
@@ -168,10 +186,6 @@
 ;;;;
 ;; Customization
 ;;;;
-
-;; Add a directory to our load path so that when you `load` things
-;; below, Emacs knows where to look for the corresponding file.
-(add-to-list 'load-path "~/.emacs.d/customizations")
 
 ;;load neotree
 (load "neotree.el")
@@ -214,11 +228,16 @@
 (load "setup-ruby.el")
 (load "setup-haskell.el")
 (load "setup-c.el")
+;;(load "setup-java.el")
+
 (load "setup-projectile.el")
-(load "setup-proxy.el")
+
 (add-to-list 'load-path "~/.emacs.d/vendor/function-args")
 (load "setup-function-args.el")
-(load "setup-emacs.el")
+;;(load "setup-emacs.el")
+
+;;YASnippets
+(load "setup-yasnippets.el")
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -237,7 +256,7 @@
  '(fci-rule-color "#373b41")
  '(package-selected-packages
    (quote
-    (sr-speedbar projectile helm-mode-manager helm-mode ac-emmet helm-emmet tide typescript typescript-mode clojure-mode scss-mode yaml-mode web-mode use-package thesaurus tagedit smex rainbow-delimiters php-mode noflet markdown-mode magit ido-ubiquitous helm-projectile helm-ls-git helm-git-grep helm-descbinds helm-ag helm-gtags helm haskell-mode haml-mode git-gutter exec-path-from-shell enh-ruby-mode dockerfile-mode csharp-mode crux company color-theme-sanityinc-tomorrow coffee-mode clj-refactor aggressive-indent ag adoc-mode adjust-parens ack-and-a-half zygospore yasnippet ws-butler volatile-highlights use-package undo-tree iedit dtrt-indent counsel-projectile company clean-aindent-mode anzu)))
+    (yasnippet-snippets lsp-java sr-speedbar projectile helm-mode-manager helm-mode ac-emmet helm-emmet tide typescript typescript-mode clojure-mode scss-mode yaml-mode web-mode use-package thesaurus tagedit smex rainbow-delimiters php-mode noflet markdown-mode magit ido-ubiquitous helm-projectile helm-ls-git helm-git-grep helm-descbinds helm-ag helm-gtags helm haskell-mode haml-mode git-gutter exec-path-from-shell enh-ruby-mode dockerfile-mode csharp-mode crux company color-theme-sanityinc-tomorrow coffee-mode clj-refactor aggressive-indent ag adoc-mode adjust-parens ack-and-a-half zygospore yasnippet ws-butler volatile-highlights use-package undo-tree iedit dtrt-indent counsel-projectile company clean-aindent-mode anzu)))
  '(vc-annotate-background nil)
  '(vc-annotate-color-map
    (quote

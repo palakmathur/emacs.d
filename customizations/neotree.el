@@ -3,3 +3,5 @@
 (require 'neotree)
 (setq-default neo-show-hidden-files t) ;;show hidden files in neotree
 (setq neo-window-fixed-size nil) ;;make neotree resizable
+;;(global-set-key C-c C-n 'neotree-toggle)
+        
