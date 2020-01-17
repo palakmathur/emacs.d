@@ -1,16 +1,16 @@
-#+TITLE: rambunctious-emacs (ram-emacs)
+#+TITLE: Palak Mathur's personal emacs config
 #+AUTHOR: Palak Mathur
 #+PROPERTY: header-args :tangle yes
 
-* rambunctious-emacs
+* Palak's Emacs
 :PROPERTIES:
 :VISIBILITY: children
 :END:
 
 * Table of Contents     :TOC_5_gh:
-- [[#rambunctious-emacs][rambunctious-emacs]]
+- [[#palaks-emacs][Palak's Emacs]]
 - [[#why-emacs][Why Emacs?]]
-- [[#about-rambunctious-emacs-ram-emacs][About rambunctious-emacs (ram-emacs)]]
+- [[#about][About]]
 - [[#configurations][Configurations]]
   - [[#about-this-file][About this file]]
     - [[#org-file-tweaks][Org File Tweaks]]
@@ -81,15 +81,14 @@
     on the other hand is an Operating System in itself. You can configure it the way you want and for your comfort and
     there is a huge community to help, guide and support you.
 
-* About rambunctious-emacs (ram-emacs)
+* About
 This is my personal Emacs configuration. Over past few years, I had been using Emacs configuration by others.
 I used to modify few things here and there in my old configuration but not before spending several hours and without
 understanding what is going on. So, after reading =r/emacs= discussions, I decided that I will get rid of all the Emacs
 configurations and start it at the very beginning. I have not used Emacs for any coding purposes. I code in Java and
 IntelliJ IDEA is the best IDE for that. Therefore, I decided that in the beginning, I do not need many configurations
 . Since the discussion on the =r/emacs= was all about Literate Programming and how =org-mode= facilitates that, I
-decided to start with setting up org-mode first.
-
+decided to start with setting up org-mode first
 * Configurations
 ** About this file 
 *** Org File Tweaks
