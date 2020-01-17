@@ -1,0 +1,603 @@
+#+TITLE: rambunctious-emacs (ram-emacs)
+#+AUTHOR: Palak Mathur
+#+PROPERTY: header-args :tangle yes
+
+* rambunctious-emacs
+:PROPERTIES:
+:VISIBILITY: children
+:END:
+
+* Table of Contents     :TOC_5_gh:
+- [[#rambunctious-emacs][rambunctious-emacs]]
+- [[#why-emacs][Why Emacs?]]
+- [[#about-rambunctious-emacs-ram-emacs][About rambunctious-emacs (ram-emacs)]]
+- [[#configurations][Configurations]]
+  - [[#about-this-file][About this file]]
+    - [[#org-file-tweaks][Org File Tweaks]]
+      - [[#automatically-tangle][Automatically Tangle]]
+      - [[#visibility-settings][Visibility Settings]]
+      - [[#table-of-contents][Table of Contents]]
+  - [[#global-settings][Global Settings]]
+    - [[#setup-proxy][Setup Proxy]]
+    - [[#garbage-collection][Garbage Collection]]
+    - [[#package-configuration][Package Configuration]]
+    - [[#install-and-configure-use-package][Install and Configure use-package]]
+    - [[#packages][Packages]]
+      - [[#ivy][Ivy]]
+      - [[#counsel][Counsel]]
+      - [[#swiper][Swiper]]
+      - [[#magit][Magit]]
+      - [[#projectile][Projectile]]
+      - [[#org][Org]]
+      - [[#toc-org][Toc-org]]
+      - [[#org-sidebar][Org-sidebar]]
+      - [[#abbrev-mode][Abbrev Mode]]
+      - [[#treemacs][Treemacs]]
+      - [[#lsp-mode][LSP Mode]]
+      - [[#hydra][Hydra]]
+      - [[#company-lsp][Company LSP]]
+      - [[#flycheck][Flycheck]]
+      - [[#idle-highlight][IDLE-HIGHLIGHT]]
+      - [[#yasnippet][YASnippet]]
+      - [[#yasnippet-snippets][YASnippet-Snippets]]
+    - [[#ui-customization][UI Customization]]
+      - [[#lean-and-mean][Lean and mean]]
+        - [[#disablre-startupsplash-screen][Disablre startup/splash screen]]
+        - [[#setup-initial-major-mode-to-org-mode][Setup initial major mode to Org-mode]]
+        - [[#remove-scratch-message][Remove scratch message]]
+        - [[#disable-unnecessary-interface][Disable Unnecessary Interface]]
+        - [[#reduce-the-delay-echoing-the-keystrokes][Reduce the delay echoing the keystrokes]]
+      - [[#dark-tango][Dark tango]]
+      - [[#deja-vu][Deja Vu]]
+      - [[#forbidden-fruit][Forbidden Fruit]]
+      - [[#line-numbers][Line Numbers]]
+      - [[#modeline-time-and-battery][Modeline Time and Battery]]
+      - [[#lsp-ui][LSP UI]]
+    - [[#text-manipulation][Text Manipulation]]
+      - [[#move-text][Move text]]
+    - [[#string-manipulations][String manipulations]]
+    - [[#shortcuts-longcuts-miscellaneous-configs][Shortcuts, Longcuts, Miscellaneous Configs]]
+      - [[#enable-ido][Enable Ido]]
+      - [[#clipboard-copy-from-terminal-emacs-to-the-x-clipboard][Clipboard. Copy from terminal emacs to the X clipboard.]]
+      - [[#simplify-yesno-prompts][Simplify Yes/No Prompts]]
+      - [[#but-make-it-hard-to-accidentally-exit][But make it hard to accidentally exit]]
+      - [[#make-finding-file-easy][Make finding file easy]]
+      - [[#utf-8-coding-syjbstem][UTF-8 Coding Syjbstem]]
+        - [[#todo][TODO]]
+      - [[#shut-up-the-bell][Shut up the bell]]
+    - [[#custom-functions][Custom Functions]]
+      - [[#java][Java]]
+    - [[#programming][Programming]]
+      - [[#java-1][Java]]
+      - [[#dap-mode][DAP Mode]]
+      - [[#dap-java][DAP Java]]
+    - [[#post-initialization][Post Initialization]]
+
+* Why Emacs?
+
+    I started using Emacs in 2010 and my relationship with it has been on and off. I mostly use Jetbrains IntelliJ IDEA
+    for my work. But the idea of Emacs - everything inside is awesome. You can configure IDEA to an extent but after that
+    it just gives up. Checking emails, managing schedule, and taking notes - few things that are lacking in IDEA. Emacs
+    on the other hand is an Operating System in itself. You can configure it the way you want and for your comfort and
+    there is a huge community to help, guide and support you.
+
+* About rambunctious-emacs (ram-emacs)
+This is my personal Emacs configuration. Over past few years, I had been using Emacs configuration by others.
+I used to modify few things here and there in my old configuration but not before spending several hours and without
+understanding what is going on. So, after reading =r/emacs= discussions, I decided that I will get rid of all the Emacs
+configurations and start it at the very beginning. I have not used Emacs for any coding purposes. I code in Java and
+IntelliJ IDEA is the best IDE for that. Therefore, I decided that in the beginning, I do not need many configurations
+. Since the discussion on the =r/emacs= was all about Literate Programming and how =org-mode= facilitates that, I
+decided to start with setting up org-mode first.
+
+* Configurations
+** About this file 
+*** Org File Tweaks
+ There are a few tweaks included in this org file that make it a little easier to
+ work with.
+
+**** Automatically Tangle
+ First there is a property defined on the file:
+
+ #+BEGIN_SRC :tangle no
+ header-args :tangle yes
+ #+END_SRC
+
+ This tells emacs to automatically tangle (include) all code blocks in this file when
+ generating the code for the config, unless the code block explicitly includes
+ =:tangle no= as the above code block does.
+
+**** Visibility Settings
+ Next we have a property that defines the visibility for org to show it's direct children on startup. This way a clean outline of all
+ sub headings under Configuration is shown each time this file is opened in org-mode.
+
+#+BEGIN_SRC :tangle no
+:PROPERTIES:
+:VISIBILITY: children
+:END:
+#+END_SRC
+
+**** Table of Contents
+ Finally, there is a [[Table of Contents][Table of Contents]] heading that includes the tag: =:TOC_3_gh:=. This
+ tells an org-mode package =toc-org= to generate a table of contents under this heading
+ that has a max depth of 3 and is created using Github-style hrefs. This table of contents
+ is updated everytime the file is saved and makes for a functional table of contents that
+ works property directly on github.
+
+** Global Settings
+*** Setup Proxy
+ I use Emacs on my work laptop and there is a firewall that I need to pass through. Proxy settings allow me to do that. Save the below code under =customizations= and call it =setup-proxy.el=
+ #+INCLUDE: "~/.emacs.d/customizations/setup-proxy-template.el" src emacs-lisp :range-begin "HttpProxy" :range-end "-HttpProxy" :lines "2-11"
+
+*** Garbage Collection
+*** Package Configuration
+
+    Define package repositories
+
+ #+BEGIN_SRC emacs-lisp
+ (require 'package)
+ (setq-default
+    load-prefer-newer t
+    package-enable-at-startup nil)
+ (add-to-list 'package-archives
+              '("gnu" . "https://elpa.gnu.org/packages/") t)
+ (add-to-list 'package-archives
+              '("marmalade" . "http://marmalade-repo.org/packages/") t)
+ (add-to-list 'package-archives
+              '("tromey" . "http://tromey.com/elpa/") t)
+ (add-to-list 'package-archives
+              '("org" . "http://orgmode.org/elpa/") t)
+ (add-to-list 'package-archives
+               '("melpa" . "http://melpa.org/packages/") t)
+ (add-to-list 'package-archives
+              '("melpa-stable" . "http://stable.melpa.org/packages/") t)
+ (package-initialize)
+ #+END_SRC
+
+*** Install and Configure use-package
+
+ #+BEGIN_SRC emacs-lisp
+ (unless (package-installed-p 'use-package)
+       (package-refresh-contents)
+       (package-install 'use-package t))
+ (setq-default use-package-always-defer t
+	       use-package-always-ensure t)
+ #+END_SRC
+*** Packages
+**** Ivy
+ Generic completion frontend that's just awesome! Let's install and enable it.
+
+ #+BEGIN_SRC emacs-lisp
+ (use-package ivy
+   :demand t)
+ #+END_SRC
+r
+**** Counsel
+Counsel allows us to utilize ivy by replacing many built-in and common functions
+with richer versions. Let's install it!
+
+#+BEGIN_SRC emacs-lisp
+(use-package counsel-projectile)
+(use-package counsel
+  :demand t)
+#+END_SRC
+
+**** Swiper
+Swiper is an awesome searching utility with a quick preview. Let's install it and
+load it when =swiper= or =swiper-all= is called.
+
+#+BEGIN_SRC emacs-lisp
+(use-package swiper
+  :commands (swiper swiper-all))
+#+END_SRC
+
+**** Magit
+ The magical git client. Let's load magit only when one of the several entry pont
+ functions we invoke regularly outside of magit is called.
+
+ #+BEGIN_SRC emacs-lisp
+;; (use-package magit
+;;  :bind ("C-x g" . magit-status))
+ 
+ (use-package magit
+  :commands (magit-status magit-blame magit-log-buffer-file magit-log-all))
+
+ #+END_SRC
+
+**** Projectile
+ Projectile is a quick and easy project management package that "just works". We're
+ going to install it and make sure it's loaded immediately.
+
+ #+BEGIN_SRC emacs-lisp
+(use-package projectile
+  :ensure t
+  :bind-keymap
+  ("C-c p" . projectile-command-map)
+  :config
+  (projectile-mode +1))
+ #+END_SRC
+
+**** Org
+ Let's include a newer version of org-mode than the one that is built in. We're going
+ to manually remove the org directories from the load path, to ensure the version we
+ want is prioritized instead.
+
+ #+BEGIN_SRC emacs-lisp
+ (use-package org
+   :ensure org-plus-contrib
+   :pin org
+   :defer t
+   :config (setq org-log-done 'time
+                 org-log-done 'note)
+  :init
+   (define-key global-map (kbd "C-c l") 'org-store-link)
+   (define-key global-map (kbd "C-c a") 'org-agenda)  
+   )
+#+END_SRC 
+
+**** Toc-org
+Let's install and load the =toc-org= package after org mode is loaded. This is the
+package that automatically generates an up to date table of contents for us.
+
+#+BEGIN_SRC emacs-lisp
+(use-package toc-org
+  :after org
+  :init (add-hook 'org-mode-hook #'toc-org-enable))
+#+END_SRC
+
+**** Org-sidebar
+When I write, I need a map of the document or the table of content on the side. Org-sidebar helps with that:
+
+#+BEGIN_SRC emacs-lisp
+(use-package org-sidebar
+  :custom (org-sidebar-tree-side 'left))
+#+END_SRC
+
+**** Abbrev Mode
+
+#+BEGIN_SRC emacs-lisp
+(use-package abbrev
+  :after org
+  :ensure nil
+  :init (add-hook 'org-mode-hook  #'abbrev-mode))
+(setq abbrev-file-name             ;; tell emacs where to read abbrev
+        "~/.emacs.d/abbrev_defs") 
+(setq save-abbrevs 'silent)      
+#+END_SRC
+
+**** Treemacs
+#+BEGIN_SRC emacs-lisp
+(use-package treemacs
+   :init
+   (add-hook 'treemacs-mode-hook
+             (lambda () (treemacs-resize-icons 15))))
+#+END_SRC
+**** LSP Mode
+#+BEGIN_SRC emacs-lisp
+(use-package lsp-mode :ensure t
+  :bind (("\C-\M-b" . lsp-find-implementation)
+         ("M-RET" . lsp-execute-code-action))
+  :config
+  (setq lsp-inhibit-message t
+        lsp-eldoc-render-all nil
+        lsp-enable-file-watchers nil
+        lsp-highlight-symbol-at-point nil))
+
+#+END_SRC
+
+**** Hydra
+#+BEGIN_SRC emacs-lisp
+(use-package hydra :ensure t)
+#+END_SRC
+
+**** Company LSP
+#+BEGIN_SRC emacs-lisp
+(use-package company-lsp :ensure t)
+#+END_SRC
+
+**** Flycheck
+
+#+BEGIN_SRC emacs-lisp
+(use-package flycheck
+  :init
+  (add-to-list 'display-buffer-alist
+               `(,(rx bos "*Flycheck errors*" eos)
+                 (display-buffer-reuse-window
+                  display-buffer-in-side-window)
+                 (side            . bottom)
+                 (reusable-frames . visible)
+                 (window-height   . 0.15))))
+
+#+END_SRC
+**** IDLE-HIGHLIGHT
+
+#+BEGIN_SRC emacs-lisp
+(use-package idle-highlight)
+#+END_SRC
+
+**** YASnippet
+#+BEGIN_SRC emacs-lisp
+(use-package yasnippet
+  :init
+  (setq yas/root-directory '("~/.emacs.d/snippets"))
+
+  :config
+  (autoload 'yas/expand "yasnippet" t)
+  (autoload 'yas/load-directory "yasnippet" t)
+  (mapc 'yas/load-directory yas/root-directory)
+  (yas-global-mode 1))
+#+END_SRC
+**** YASnippet-Snippets
+#+BEGIN_SRC emacs-lisp
+(use-package yasnippet-snippets 
+  :after yasnippet)
+#+END_SRC
+*** UI Customization
+Some of these settings were copied from Sergei Nosov's [[https://github.com/snosov1/dot-emacs#ui-customization][configurations.]]
+
+**** Lean and mean
+Emacs doesn’t need a lot of UI elements - it should be lean and mean. Well, and clean. 
+***** Disablre startup/splash screen
+#+BEGIN_SRC emacs-lisp
+(setq inhibit-startup-screen t)
+#+END_SRC
+
+***** Setup initial major mode to Org-mode
+#+BEGIN_SRC emacs-lisp 
+(setq-default initial-major-mode (quote org-mode))
+#+END_SRC
+
+***** Remove scratch message
+#+BEGIN_SRC emacs-lisp
+(setq-default initial-scratch-message nil)
+#+END_SRC
+
+***** Disable Unnecessary Interface
+#+BEGIN_SRC emacs-lisp
+(menu-bar-mode -1)
+(unless (and (display-graphic-p) (eq system-type 'darwin))
+  (push '(menu-bar-lines . 0) default-frame-alist))
+(push '(tool-bar-lines . 0) default-frame-alist)
+(push '(vertical-scroll-bars) default-frame-alist)
+#+END_SRC
+***** Reduce the delay echoing the keystrokes
+When you press C-x, for example, and hesitate with a next character, C-x will be displayed in the echo-area after some time. But I don’t see any reason why you should wait for it.
+#+BEGIN_SRC emacs-lisp
+(setq echo-keystrokes 0.001)
+#+END_SRC
+
+**** Dark tango
+For some reason, my eyes like dark background. Not pitch black, but pretty black.
+#+BEGIN_SRC emacs-lisp
+(funcall
+ (defun configure-theme ()
+   "Make Emacs pretty"
+   (load-theme 'tango-dark t)
+   ;; make background a little bit darker
+   (set-background-color "#1d1f21")
+   (setq-default frame-background-mode (quote dark))))
+#+END_SRC
+
+**** Deja Vu
+
+DejaVu fonts family is the best one out there. And DejaVu Sans Mono is its brightest child:
+
+- it’s sans-serif
+- it’s mono-space
+- it covers a great amount of Unicode symbols
+- it’s community-driven and MIT/public domain licensed
+- it makes l, 1 and I clearly distinguishable, as well as 0 and O
+- it’s beautiful
+
+Basically, DejaVu Sans Mono is a “font done right” for technical work.
+
+#+BEGIN_SRC emacs-lisp
+(set-face-attribute 'default nil :family "DejaVu Sans Mono")
+#+END_SRC
+i
+**** Forbidden Fruit
+This setting modifies the Mac key to act like Meta key. I am just keeping it here for reference. I am not going to modify it though. See /:tangle no/, it will not put it in the compiled /emacs.el/ file.
+
+#+BEGIN_SRC emacs-lisp :tangle no
+(setq-default mac-command-modifier 'meta)
+#+END_SRC 
+
+**** Line Numbers
+Display line numbers, and column numbers in modeline.
+
+#+BEGIN_SRC emacs-lisp                                                                                            
+;; Hook line numbers to only when files are opened, also use linum-mode for emacs-version< 26
+(if (version< emacs-version "26")
+    (global-linum-mode)
+  (add-hook 'text-mode-hook #'display-line-numbers-mode)
+  (add-hook 'prog-mode-hook #'display-line-numbers-mode))
+;; Display column numbers in modeline
+(column-number-mode 1)                                                                                     
+#+END_SRC
+**** Modeline Time and Battery
+#+BEGIN_SRC emacs-lisp
+(display-time-mode 1)
+(display-battery-mode 1)
+#+END_SRC
+**** LSP UI
+#+BEGIN_SRC emacs-lisp
+(use-package lsp-ui
+  :ensure t
+  :config
+  (setq lsp-prefer-flymake nil
+        lsp-ui-doc-delay 5.0
+        lsp-ui-sideline-enable nil
+        lsp-ui-sideline-show-symbol nil))
+
+#+END_SRC
+*** Text Manipulation
+**** Move text
+Most of the time, I need to move a the text up an down a bit. There is a /transpose-line/ command that maps to /C-x C-t/, which is cumbersome and most of the time it messes-up with my flow. So, here we will map it to /M-n/ and /M-p/ following the convention of movement keys. 
+Note: If you need to move the text to some pretty distant place, then, of course, it’s easier to kill and yank it.
+
+#+BEGIN_SRC emacs-lisp
+(eval-after-load "move-text-autoloads"
+  '(progn
+     (if (require 'move-text nil t)
+         (progn
+           (define-key global-map (kbd "M-n") 'move-text-down)
+           (define-key global-map (kbd "M-p") 'move-text-up))
+       (message "WARNING: move-text not found"))))
+#+END_SRC
+b
+*** String manipulations
+Emacs 24.4 came with a subr-x library with routines for string manipulations, like string-trim, string-join and etc. It’s better to always have these at hand.
+
+#+BEGIN_SRC emacs-lisp
+(require 'subr-x nil t)
+#+END_SRC
+
+*** Shortcuts, Longcuts, Miscellaneous Configs
+**** Enable Ido
+
+#+BEGIN_SRC emacs-lisp
+(use-package ido
+  :init 
+  (ido-mode 1)
+  :config
+  (setq ido-enable-flex-matching t
+        ido-everywhere t
+        ido-use-filename-at-point 'guess
+        ido-file-extensions-order '(".org" ".txt" ".el" ".emacs")))
+#+END_SRC
+
+**** Clipboard. Copy from terminal emacs to the X clipboard.
+#+BEGIN_SRC emacs-lisp
+(use-package xclip
+  :ensure t
+  :config
+  (xclip-mode 1))
+
+#+END_SRC
+**** Simplify Yes/No Prompts
+#+BEGIN_SRC emacs-lisp
+(fset 'yes-or-no-p 'y-or-n-p)
+#+END_SRC
+
+**** But make it hard to accidentally exit
+#+BEGIN_SRC emacs-lisp
+(setq-default confirm-kill-emacs (quote y-or-n-p))
+#+END_SRC
+
+**** Make finding file easy
+#+BEGIN_SRC emacs-lisp
+(global-set-key (kbd "C-x f")    'find-file)
+#+END_SRC
+
+**** UTF-8 Coding Syjbstem
+Use UTF-8 as much as possible with unix line endings.
+***** TODO
+
+**** Shut up the bell
+#+BEGIN_SRC emacs-lisp
+(setq ring-bell-function 'ignore) ;; shut up the bell
+#+END_SRC
+*** Custom Functions
+**** Java
+#+BEGIN_SRC emacs-lisp
+(defun my-java-mode-hook ()
+  (auto-fill-mode)
+  (flycheck-mode)
+  (git-gutter+-mode)
+  (gtags-mode)
+  (idle-highlight)
+  (subword-mode)
+  (yas-minor-mode)
+  (set-fringe-style '(8 . 0))
+  (define-key c-mode-base-map (kbd "C-M-j") 'tkj-insert-serial-version-uuid)
+  (define-key c-mode-base-map (kbd "C-m") 'c-context-line-break)
+  (define-key c-mode-base-map (kbd "S-<f7>") 'gtags-find-tag-from-here)
+
+  ;; Fix indentation for anonymous classes
+  (c-set-offset 'substatement-open 0)
+  (if (assoc 'inexpr-class c-offsets-alist)
+      (c-set-offset 'inexpr-class 0))
+
+  ;; Indent arguments on the next line as indented body.
+  (c-set-offset 'arglist-intro '++))
+(add-hook 'java-mode-hook 'my-java-mode-hook)
+
+
+#+END_SRC
+*** Programming
+**** Java 
+#+BEGIN_SRC emacs-lisp
+(use-package lsp-java
+  :ensure t
+  :after lsp
+  :init
+  (setq lsp-java-vmargs
+        (list
+         "-noverify"
+         "-Xmx1G"
+         "-XX:+UseG1GC"
+         "-XX:+UseStringDeduplication"
+         "-javaagent:~/.m2/repository/org/projectlombok/lombok/1.18.6/lombok-1.18.10.jar"
+         )
+
+        ;; Don't organise imports on save
+        lsp-java-save-action-organize-imports nil
+
+        ;; Currently (2019-04-24), dap-mode works best with Oracle
+        ;; JDK, see https://github.com/emacs-lsp/dap-mode/issues/31
+        ;;
+        ;; lsp-java-java-path "~/.emacs.d/oracle-jdk-12.0.1/bin/java"
+        lsp-java-java-path "/usr/bin/java"
+        )
+
+  :config
+  (add-hook 'java-mode-hook 'lsp))
+#+END_SRC
+
+**** DAP Mode 
+#+BEGIN_SRC emacs-lisp
+(use-package dap-mode
+  :ensure t
+  :after lsp-mode
+  :config
+  (dap-mode t)
+  (dap-ui-mode t)
+  (dap-tooltip-mode 1)
+  (tooltip-mode 1)
+  (dap-register-debug-template
+   "localhost:5005"
+   (list :type "java"
+         :request "attach"
+         :hostName "localhost"
+         :port 5005)))
+
+#+END_SRC
+
+**** DAP Java
+We need this for debugging Java
+#+BEGIN_SRC emacs-lisp
+(use-package dap-java
+  :ensure nil
+  :after (lsp-java)
+
+  ;; The :bind here makes use-package fail to loadd the dap-java block!
+  ;; :bind
+  ;; (("C-c R" . dap-java-run-test-class)
+  ;;  ("C-c d" . dap-java-debug-test-method)
+  ;;  ("C-c r" . dap-java-run-test-method)
+  ;;  )
+
+  :config
+  (global-set-key (kbd "<f7>") 'dap-step-in)
+  (global-set-key (kbd "<f8>") 'dap-next)
+  (global-set-key (kbd "<f9>") 'dap-continue)
+  )
+
+#+END_SRC
+*** Post Initialization
+Let's lower our GC thresholds back down to a sane level.
+
+#+BEGIN_SRC emacs-lisp
+(setq gc-cons-threshold 16777216
+      gc-cons-percentage 0.1)
+#+END_SRC

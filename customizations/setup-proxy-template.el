@@ -1,3 +1,5 @@
+;;; setup-proxy-template.el --- -*- lexical-binding: t -*-,.
+
 ;; HttpProxy
 (setq url-proxy-services
       '(("no_proxy" . "^\\(localhost\\|10.*\\)")
