@@ -1,0 +1,84 @@
+#+TITLE: rambunctious-emacs (ram-emacs)
+#+AUTHOR: Palak Mathur
+
+#+HTML:<div align=center><a href="https://github.com/pmathur33/rabunctious-emacs"><img alt="Emacs Logo" width="240" height="240" src="https://upload.wikimedia.org/wikipedia/commons/0/08/EmacsIcon.svg"></a>
+ #+HTML:</div>
+* Why Emacs?
+
+    I started using Emacs in 2010 and my relationship with it has been on and off. I mostly use Jetbrains IntelliJ IDEA
+    for my work. But the idea of Emacs - everything inside is awesome. You can configure IDEA to an extent but after that
+    it just gives up. Checking emails, managing schedule, and taking notes - few things that are lacking in IDEA. Emacs
+    on the other hand is an Operating System in itself. You can configure it the way you want and for your comfort and
+    there is a huge community to help, guide and support you.
+
+* About rambunctious-emacs (ram-emacs)
+* Configurations
+
+** Setup Proxy
+I use Emacs on my work laptop and there is a firewall that I need to pass through. Proxy settings allow me to do that. Save the below code under =customizations= and call it =setup-proxy.el=
+#+INCLUDE: "~/.emacs.d/customizations/setup-proxy-template.el" src emacs-lisp :range-begin "HttpProxy" :range-end "-HttpProxy" :lines "2-11"
+
+** Package Configuration
+
+   Define package repositories
+
+#+BEGIN_SRC emacs-lisp
+(require 'package)
+(setq-default
+   load-prefer-newer t
+   package-enable-at-startup nil)
+(add-to-list 'package-archives
+             '("gnu" . "https://elpa.gnu.org/packages/") t)
+(add-to-list 'package-archives
+             '("marmalade" . "http://marmalade-repo.org/packages/") t)
+(add-to-list 'package-archives
+             '("tromey" . "http://tromey.com/elpa/") t)
+(add-to-list 'package-archives
+             '("org" . "http://orgmode.org/elpa/") t)
+(add-to-list 'package-archives
+              '("melpa" . "http://melpa.org/packages/") t)
+(add-to-list 'package-archives
+             '("melpa-stable" . "http://stable.melpa.org/packages/") t)
+(package-initialize)
+#+END_SRC
+
+** Install and Configure use-package
+
+#+BEGIN_SRC emacs-lisp
+(unless (package-installed-p 'use-package)
+      (package-refresh-contents)
+      (package-install 'use-package t))
+(setq-default use-package-always-defer t
+	      use-package-always-ensure t)
+#+END_SRC
+
+
+ Use latest org
+
+#+BEGIN_SRC emacs-lisp
+(use-package org :ensure org-plus-contrib
+	     :bind(:map org-mode-map
+			("<C-return>" . save-buffer))
+	     :config
+	     (use-package org-tempo
+			  :demand t
+			  :ensure nil))
+#+END_SRC
+
+** Configure 
+
+#+BEGIN_SRC emacs-lisp
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(inhibit-startup-screen t))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
+#+END_SRC
+

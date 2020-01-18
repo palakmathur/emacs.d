@@ -40,6 +40,8 @@
       - [[#idle-highlight][IDLE-HIGHLIGHT]]
       - [[#yasnippet][YASnippet]]
       - [[#yasnippet-snippets][YASnippet-Snippets]]
+    - [[#communication][Communication]]
+      - [[#slack][Slack]]
     - [[#ui-customization][UI Customization]]
       - [[#lean-and-mean][Lean and mean]]
         - [[#disablre-startupsplash-screen][Disablre startup/splash screen]]
@@ -48,7 +50,7 @@
         - [[#disable-unnecessary-interface][Disable Unnecessary Interface]]
         - [[#reduce-the-delay-echoing-the-keystrokes][Reduce the delay echoing the keystrokes]]
       - [[#dark-tango][Dark tango]]
-      - [[#deja-vu][Deja Vu]]
+      - [[#fonts][Fonts]]
       - [[#forbidden-fruit][Forbidden Fruit]]
       - [[#line-numbers][Line Numbers]]
       - [[#modeline-time-and-battery][Modeline Time and Battery]]
@@ -331,6 +333,36 @@ When I write, I need a map of the document or the table of content on the side. 
 (use-package yasnippet-snippets 
   :after yasnippet)
 #+END_SRC
+*** Communication
+**** Slack
+#+BEGIN_SRC emacs-lisp
+  ;; I'm using use-package and el-get and evil
+
+  ;;(el-get-bundle slack)
+  (use-package slack
+    :commands (slack-start)
+    :init
+    (setq slack-buffer-emojify t) ;; if you want to enable emoji, default nil
+    (setq slack-prefer-current-team t)
+    :config
+    (slack-register-team
+     :name "fstech-capitalone"
+     :default t
+     :token "xoxs-194540594981-203789560839-899883966227-30b02158c08144b0e8cae054f5ead44dad396847782b51fbd7b623e63bb6c59e"
+     :subscribed-channels '(clo_microservices)
+     :full-and-display-names t)
+
+    ;; (slack-register-team
+    ;;  :name "test"
+    ;;  :token "xoxs-yyyyyyyyyy-zzzzzzzzzzz-hhhhhhhhhhh-llllllllll"
+    ;;  :subscribed-channels '(hoge fuga))
+   )
+   
+  (use-package alert
+    :commands (alert)
+    :init
+    (setq alert-default-style 'notifier))
+#+END_SRC
 *** UI Customization
 Some of these settings were copied from Sergei Nosov's [[https://github.com/snosov1/dot-emacs#ui-customization][configurations.]]
 
@@ -377,7 +409,7 @@ For some reason, my eyes like dark background. Not pitch black, but pretty black
    (setq-default frame-background-mode (quote dark))))
 #+END_SRC
 
-**** Deja Vu
+**** Fonts
 
 DejaVu fonts family is the best one out there. And DejaVu Sans Mono is its brightest child:
 
@@ -491,7 +523,6 @@ Emacs 24.4 came with a subr-x library with routines for string manipulations, li
 **** UTF-8 Coding Syjbstem
 Use UTF-8 as much as possible with unix line endings.
 ***** TODO
-
 **** Shut up the bell
 #+BEGIN_SRC emacs-lisp
 (setq ring-bell-function 'ignore) ;; shut up the bell
