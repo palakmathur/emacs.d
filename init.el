@@ -89,3 +89,10 @@
 
 ;; Setup initial major mode to Org-mode
 (setq-default initial-major-mode (quote org-mode))
+
+;; Remove scratch message file
+(setq-default initial-scratch-message nil)
+
+;;hen you press C-x, for example, and hesitate with a next character, C-x will be displayed in the echo-area after some time.
+;; But I don’t see any reason why you should wait for it.
+(setq echo-keystrokes 0.001)
