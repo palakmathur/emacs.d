@@ -85,7 +85,15 @@
 
 ;; UI Customizations
 ;; Disable startup/splash screen
-    (setq inhibit-startup-screen t)
+(setq inhibit-startup-screen t)
+
+;; Disable unnecessary interfaces
+;;(menu-bar-mode -1)
+(menu-bar-mode -1)
+(unless (and (display-graphic-p) (eq system-type 'darwin))
+  (push '(menu-bar-lines . 0) default-frame-alist))
+(push '(tool-bar-lines . 0) default-frame-alist)
+(push '(vertical-scroll-bars) default-frame-alist)
 
 ;; Setup initial major mode to Org-mode
 (setq-default initial-major-mode (quote org-mode))
@@ -93,6 +101,18 @@
 ;; Remove scratch message file
 (setq-default initial-scratch-message nil)
 
-;;hen you press C-x, for example, and hesitate with a next character, C-x will be displayed in the echo-area after some time.
+;; When you press C-x, for example, and hesitate with a next character, C-x will be displayed in the echo-area after some time.
 ;; But I don’t see any reason why you should wait for it.
 (setq echo-keystrokes 0.001)
+
+;; Simply Yes/No Prompts
+(fset 'yes-or-no-p 'y-or-n-p)
+
+;; But make it hard to accidentally exit
+(setq-default confirm-kill-emacs (quote y-or-n-p))
+
+;; Shut up the bell
+(setq ring-bell-function 'ignore)
+
+;; Set font
+(set-face-attribute 'default nil :family "DejaVu Sans Mono")
