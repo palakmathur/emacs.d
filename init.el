@@ -42,25 +42,31 @@
          :pin org
          :defer t
          :config (setq org-log-done 'time
-                       org-log-done 'note
-                       org-agenda-files '("~/org/gtd.org"
-                                          "~/org/inbox.org"
-                                          "~/org/tickler.org")
-                       org-refile-targets '(( "~/org/gtd.org" :maxlevel . 3)
-                                            ( "~/org/someday.org" :level .1)
-                                            ( "~/org/tickler.org" :maxlevel .2))
-                       org-capture-templates '(("t" "Todo [inbox]" entry
-                                                      (file+headline "~/org/inbox.org" "Tasks")
-                                                      "* TODO %i%?")
-                                               ("T" "Tickler" entry
-                                                      (file+headline "~/org/tickler.org" "Tickler")
-                                                      "* %i%? \n %U"))
-                       org-todo-keywords '((sequence "TODO(t)" "WAITING(w)" "|" "DONE(d)" "CANCELLED(c)")))
+		       org-log-done 'note
+		       org-agenda-files (list "~/org/inbox.org"
+                             "~/org/gtd.org" 
+                             "~/org/tickler.org"
+			     "~/org/references.org")
+				org-capture-templates '(("t" "Todo [inbox]" entry
+							                       (file+headline "~/org/inbox.org" "Tasks")
+									       "* TODO %i%?")
+							                 ("T" "Tickler" entry
+									       (file+headline "~/org/tickler.org" "Tickler")
+									       "* %i%? \n %U"))
+				org-todo-keywords '((sequence "TODO(t)" "IN-PROGRESS" "WAITING(w)" "|" "DONE(d)" "CANCELLED(c)")))
          :init
              (define-key global-map (kbd "C-c l") 'org-store-link)
              (define-key global-map (kbd "C-c a") 'org-agenda)
              (define-key global-map (kbd "C-c c") 'org-capture)
          )
+
+;; (setq  org-refile-targets '(("~/org/gtd.org" :maxlevel . 3)
+;;                                                        ("~/org/someday.org" :maxlevel . 1)
+;;                                                        ("~/org/tickler.org" :maxlevel . 2)))
+
+(setq org-refile-targets '((org-agenda-files :maxlevel . 4)
+					                ("~/org/someday.org" :maxlevel . 1)))
+
 
 ;; Projectile is a quick and easy project management package that "just works".
 ;; We're going to install it and make sure it's loaded immediately.
