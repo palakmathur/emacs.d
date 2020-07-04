@@ -53,7 +53,7 @@
 							                 ("T" "Tickler" entry
 									       (file+headline "~/org/tickler.org" "Tickler")
 									       "* %i%? \n %U"))
-				org-todo-keywords '((sequence "TODO(t)" "IN-PROGRESS" "WAITING(w)" "|" "DONE(d)" "CANCELLED(c)")))
+				org-todo-keywords '((sequence "TODO(t)" "IN-PROGRESS" "WAITING(w)" "|" "DONE(d)" "CANCELLED(c)" "HOLD(h)")))
          :init
              (define-key global-map (kbd "C-c l") 'org-store-link)
              (define-key global-map (kbd "C-c a") 'org-agenda)
@@ -90,6 +90,16 @@
         :custom (org-sidebar-tree-side 'left))
 
 ;; UI Customizations
+
+;; Load Theme
+(use-package ample-theme
+  :init (progn (load-theme 'ample t t)
+               (load-theme 'ample-flat t t)
+               (load-theme 'ample-light t t)
+               (enable-theme 'ample-light))
+  :defer t
+  :ensure t)
+
 ;; Disable startup/splash screen
 (setq inhibit-startup-screen t)
 
@@ -122,3 +132,20 @@
 
 ;; Set font
 (set-face-attribute 'default nil :family "DejaVu Sans Mono")
+
+(load "setup-speedtest.el")
+(put 'upcase-region 'disabled nil)
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   (quote
+    (ample-theme dracula-theme yasnippet-snippets xclip use-package toc-org slack org-sidebar org-plus-contrib magit lsp-ui lsp-java idle-highlight flycheck dap-mode counsel-projectile company-lsp))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )

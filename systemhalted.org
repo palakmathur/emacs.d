@@ -1,14 +1,14 @@
-#+TITLE: Palak Mathur's personal emacs config
-#+AUTHOR: Palak Mathur
+#+TITLE: systemhalted's  personal emacs config
+#+AUTHOR: systemhalted
 #+PROPERTY: header-args :tangle yes
 
-* Palak's Emacs
+* sytemhalted's Emacs
 :PROPERTIES:
 :VISIBILITY: children
 :END:
 
 * Table of Contents     :TOC_5_gh:
-- [[#palaks-emacs][Palak's Emacs]]
+- [[#sytemhalteds-emacs][sytemhalted's Emacs]]
 - [[#why-emacs][Why Emacs?]]
 - [[#about][About]]
 - [[#configurations][Configurations]]
@@ -42,6 +42,8 @@
       - [[#yasnippet-snippets][YASnippet-Snippets]]
     - [[#communication][Communication]]
       - [[#slack][Slack]]
+    - [[#keymapping][Keymapping]]
+    - [[#map-caps-lock-to-ctrl][Map Caps Lock to Ctrl]]
     - [[#ui-customization][UI Customization]]
       - [[#lean-and-mean][Lean and mean]]
         - [[#disablre-startupsplash-screen][Disablre startup/splash screen]]
@@ -49,7 +51,7 @@
         - [[#remove-scratch-message][Remove scratch message]]
         - [[#disable-unnecessary-interface][Disable Unnecessary Interface]]
         - [[#reduce-the-delay-echoing-the-keystrokes][Reduce the delay echoing the keystrokes]]
-      - [[#dark-tango][Dark tango]]
+      - [[#theme][Theme]]
       - [[#fonts][Fonts]]
       - [[#forbidden-fruit][Forbidden Fruit]]
       - [[#line-numbers][Line Numbers]]
@@ -236,6 +238,7 @@ load it when =swiper= or =swiper-all= is called.
    )
 #+END_SRC 
 
+
 **** Toc-org
 Let's install and load the =toc-org= package after org mode is loaded. This is the
 package that automatically generates an up to date table of contents for us.
@@ -363,7 +366,13 @@ When I write, I need a map of the document or the table of content on the side. 
     :init
     (setq alert-default-style 'notifier))
 #+END_SRC
+*** Keymapping
+*** Map Caps Lock to Ctrl
+#+BEGIN_SRC
+(mac-control-modifier)
+
 *** UI Customization
+
 Some of these settings were copied from Sergei Nosov's [[https://github.com/snosov1/dot-emacs#ui-customization][configurations.]]
 
 **** Lean and mean
@@ -397,16 +406,16 @@ When you press C-x, for example, and hesitate with a next character, C-x will be
 (setq echo-keystrokes 0.001)
 #+END_SRC
 
-**** Dark tango
+**** Theme
 For some reason, my eyes like dark background. Not pitch black, but pretty black.
 #+BEGIN_SRC emacs-lisp
-(funcall
- (defun configure-theme ()
-   "Make Emacs pretty"
-   (load-theme 'tango-dark t)
-   ;; make background a little bit darker
-   (set-background-color "#1d1f21")
-   (setq-default frame-background-mode (quote dark))))
+(use-package ample-theme
+  :init (progn (load-theme 'ample t t)
+               (load-theme 'ample-flat t t)
+               (load-theme 'ample-light t t)
+               (enable-theme 'ample-flat))
+  :defer t
+  :ensure t)
 #+END_SRC
 
 **** Fonts
