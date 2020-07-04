@@ -66,16 +66,19 @@
       - [[#simplify-yesno-prompts][Simplify Yes/No Prompts]]
       - [[#but-make-it-hard-to-accidentally-exit][But make it hard to accidentally exit]]
       - [[#make-finding-file-easy][Make finding file easy]]
-      - [[#utf-8-coding-syjbstem][UTF-8 Coding Syjbstem]]
+      - [[#utf-8-coding-system][UTF-8 Coding System]]
         - [[#todo][TODO]]
       - [[#shut-up-the-bell][Shut up the bell]]
+      - [[#disabled-commands][Disabled Commands]]
     - [[#custom-functions][Custom Functions]]
+      - [[#speedtest][SpeedTest]]
       - [[#java][Java]]
     - [[#programming][Programming]]
       - [[#java-1][Java]]
       - [[#dap-mode][DAP Mode]]
       - [[#dap-java][DAP Java]]
     - [[#post-initialization][Post Initialization]]
+      - [[#garbage-collection-1][Garbage Collection]]
 
 * Why Emacs?
 
@@ -130,7 +133,7 @@ decided to start with setting up org-mode first
 ** Global Settings
 *** Setup Proxy
  I use Emacs on my work laptop and there is a firewall that I need to pass through. Proxy settings allow me to do that. Save the below code under =customizations= and call it =setup-proxy.el=
- #+INCLUDE: "~/.emacs.d/customizations/setup-proxy-template.el" src emacs-lisp :range-begin "HttpProxy" :range-end "-HttpProxy" :lines "2-11"
+;; #+INCLUDE: "~/.emacs.d/customizations/setup-proxy-template.el" src emacs-lisp :range-begin "HttpProxy" :range-end "-HttpProxy" :lines "2-11"
 
 *** Garbage Collection
 *** Package Configuration
@@ -174,7 +177,7 @@ decided to start with setting up org-mode first
  (use-package ivy
    :demand t)
  #+END_SRC
-r
+
 **** Counsel
 Counsel allows us to utilize ivy by replacing many built-in and common functions
 with richer versions. Let's install it!
@@ -226,16 +229,37 @@ load it when =swiper= or =swiper-all= is called.
  want is prioritized instead.
 
  #+BEGIN_SRC emacs-lisp
- (use-package org
-   :ensure org-plus-contrib
-   :pin org
-   :defer t
-   :config (setq org-log-done 'time
-                 org-log-done 'note)
-  :init
-   (define-key global-map (kbd "C-c l") 'org-store-link)
-   (define-key global-map (kbd "C-c a") 'org-agenda)  
-   )
+      (use-package org
+         :ensure org-plus-contrib
+         :pin org
+         :defer t
+         :config (setq org-log-done 'time
+		       org-log-done 'note
+		       org-agenda-files (list "~/org/inbox.org"
+                             "~/org/gtd.org" 
+                             "~/org/tickler.org"
+			     "~/org/references.org")
+				org-capture-templates '(("t" "Todo [inbox]" entry
+							                       (file+headline "~/org/inbox.org" "Tasks")
+									       "* TODO %i%?")
+							                 ("T" "Tickler" entry
+									       (file+headline "~/org/tickler.org" "Tickler")
+									       "* %i%? \n %U"))
+				org-todo-keywords '((sequence "TODO(t)" "IN-PROGRESS" "WAITING(w)" "|" "DONE(d)" "CANCELLED(c)" "HOLD(h)")))
+         :init
+             (define-key global-map (kbd "C-c l") 'org-store-link)
+             (define-key global-map (kbd "C-c a") 'org-agenda)
+             (define-key global-map (kbd "C-c c") 'org-capture)
+         )
+
+;; (setq  org-refile-targets '(("~/org/gtd.org" :maxlevel . 3)
+;;                                                        ("~/org/someday.org" :maxlevel . 1)
+;;                                                        ("~/org/tickler.org" :maxlevel . 2)))
+
+(setq org-refile-targets '((org-agenda-files :maxlevel . 4)
+					                ("~/org/someday.org" :maxlevel . 1)))
+
+
 #+END_SRC 
 
 
@@ -413,7 +437,7 @@ For some reason, my eyes like dark background. Not pitch black, but pretty black
   :init (progn (load-theme 'ample t t)
                (load-theme 'ample-flat t t)
                (load-theme 'ample-light t t)
-               (enable-theme 'ample-flat))
+               (enable-theme 'ample-light))
   :defer t
   :ensure t)
 #+END_SRC
@@ -529,14 +553,25 @@ Emacs 24.4 came with a subr-x library with routines for string manipulations, li
 (global-set-key (kbd "C-x f")    'find-file)
 #+END_SRC
 
-**** UTF-8 Coding Syjbstem
+**** UTF-8 Coding System
 Use UTF-8 as much as possible with unix line endings.
 ***** TODO
 **** Shut up the bell
 #+BEGIN_SRC emacs-lisp
 (setq ring-bell-function 'ignore) ;; shut up the bell
 #+END_SRC
+
+**** Disabled Commands
+Change nil to t to disable the command. 
+#+BEGIN_SRC emacs-lisp
+(put 'upcase-region 'disabled nil) 
+#+END_SRC
+
 *** Custom Functions
+**** SpeedTest
+#+BEGIN_SRC emacs-lisp
+(load "setup-speedtest.el")
+#+END_SRC
 **** Java
 #+BEGIN_SRC emacs-lisp
 (defun my-java-mode-hook ()
@@ -619,7 +654,7 @@ We need this for debugging Java
   :ensure nil
   :after (lsp-java)
 
-  ;; The :bind here makes use-package fail to loadd the dap-java block!
+  ;; The :bind here makes use-package fail to load the dap-java block!
   ;; :bind
   ;; (("C-c R" . dap-java-run-test-class)
   ;;  ("C-c d" . dap-java-debug-test-method)
@@ -634,6 +669,7 @@ We need this for debugging Java
 
 #+END_SRC
 *** Post Initialization
+**** Garbage Collection
 Let's lower our GC thresholds back down to a sane level.
 
 #+BEGIN_SRC emacs-lisp
