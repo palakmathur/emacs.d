@@ -51,6 +51,7 @@
         - [[#remove-scratch-message][Remove scratch message]]
         - [[#disable-unnecessary-interface][Disable Unnecessary Interface]]
         - [[#reduce-the-delay-echoing-the-keystrokes][Reduce the delay echoing the keystrokes]]
+        - [[#full-screen][Full Screen]]
       - [[#theme][Theme]]
       - [[#fonts][Fonts]]
       - [[#forbidden-fruit][Forbidden Fruit]]
@@ -262,7 +263,6 @@ load it when =swiper= or =swiper-all= is called.
 
 #+END_SRC 
 
-
 **** Toc-org
 Let's install and load the =toc-org= package after org mode is loaded. This is the
 package that automatically generates an up to date table of contents for us.
@@ -429,7 +429,10 @@ When you press C-x, for example, and hesitate with a next character, C-x will be
 #+BEGIN_SRC emacs-lisp
 (setq echo-keystrokes 0.001)
 #+END_SRC
-
+***** Full Screen
+#+BEGIN_SRC emacs-lisp
+(toggle-frame-fullscreen)
+#+END_SRC
 **** Theme
 For some reason, my eyes like dark background. Not pitch black, but pretty black.
 #+BEGIN_SRC emacs-lisp
