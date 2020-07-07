@@ -254,12 +254,13 @@ load it when =swiper= or =swiper-all= is called.
              (define-key global-map (kbd "C-c c") 'org-capture)
          )
 
-;; (setq  org-refile-targets '(("~/org/gtd.org" :maxlevel . 3)
-;;                                                        ("~/org/someday.org" :maxlevel . 1)
-;;                                                        ("~/org/tickler.org" :maxlevel . 2)))
+ (setq  org-refile-targets '(("~/org/gtd.org" :maxlevel . 3)
+                                                        ("~/org/someday.org" :maxlevel . 1)
+                                                        ("~/org/archive.org" :maxlevel . 1)
+                                                      ("~/org/tickler.org" :maxlevel . 2)))
 
-(setq org-refile-targets '((org-agenda-files :maxlevel . 4)
-					                ("~/org/someday.org" :maxlevel . 1)))
+;;(setq org-refile-targets '((org-agenda-files :maxlevel . 4)
+;;					                ("~/org/someday.org" :maxlevel . 1)))
 
 
 #+END_SRC 
