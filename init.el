@@ -8,15 +8,9 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(haskell-process-auto-import-loaded-modules t)
- '(haskell-process-log t)
- '(haskell-process-suggest-remove-import-lines t)
- '(haskell-process-type (quote cabal-repl))
- '(haskell-tags-on-save t)
- '(org-sidebar-tree-side (quote left) t)
  '(package-selected-packages
    (quote
-    (spacemacs-theme yasnippet-snippets xclip use-package toc-org slack org-sidebar org-plus-contrib magit lsp-ui lsp-java idle-highlight flycheck dap-mode counsel-projectile company-lsp ample-theme))))
+    (xclip idle-highlight treemacs use-package toc-org projectile org-sidebar org-plus-contrib nova-theme nov magit ivy ereader define-word ample-theme))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

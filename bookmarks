@@ -1,0 +1,25 @@
+;;;; Emacs Bookmark Format Version 1 ;;;; -*- coding: utf-8-emacs -*- 
+;;; This format is meant to be slightly human-readable;
+;;; nevertheless, you probably don't want to edit it.
+;;; -*- End Of Bookmark File Format Version Stamp -*-
+(("mastering-emacs-v2.epub"
+ (filename . "/Users/zsi473/Downloads/mastering-emacs-v2.epub")
+ (index . 4)
+ (position . 12712)
+ (handler . nov-bookmark-jump-handler))
+("org-capture-last-stored-marker"
+ (filename . "~/org/gtd.org")
+ (front-context-string . "** TODO Call Rya")
+ (rear-context-string . "deos   \n\n* Call\n")
+ (position . 623))
+("org-refile-last-stored"
+ (filename . "~/org/archive.org")
+ (front-context-string . "** DONE Add ASVB")
+ (rear-context-string . "cation service.\n")
+ (position . 7600))
+("org-capture-last-stored"
+ (filename . "~/org/inbox.org")
+ (front-context-string . "** TODO Mid-year")
+ (rear-context-string . "ging Discussion\n")
+ (position . 414))
+)

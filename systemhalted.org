@@ -24,26 +24,19 @@
     - [[#install-and-configure-use-package][Install and Configure use-package]]
     - [[#packages][Packages]]
       - [[#ivy][Ivy]]
-      - [[#counsel][Counsel]]
-      - [[#swiper][Swiper]]
       - [[#magit][Magit]]
       - [[#projectile][Projectile]]
       - [[#org][Org]]
       - [[#toc-org][Toc-org]]
       - [[#org-sidebar][Org-sidebar]]
-      - [[#abbrev-mode][Abbrev Mode]]
+      - [[#nov-mode][Nov Mode]]
+      - [[#define-word][define-word]]
       - [[#treemacs][Treemacs]]
-      - [[#lsp-mode][LSP Mode]]
-      - [[#hydra][Hydra]]
-      - [[#company-lsp][Company LSP]]
-      - [[#flycheck][Flycheck]]
       - [[#idle-highlight][IDLE-HIGHLIGHT]]
-      - [[#yasnippet][YASnippet]]
-      - [[#yasnippet-snippets][YASnippet-Snippets]]
     - [[#communication][Communication]]
       - [[#slack][Slack]]
     - [[#keymapping][Keymapping]]
-    - [[#map-caps-lock-to-ctrl][Map Caps Lock to Ctrl]]
+      - [[#map-caps-lock-to-ctrl][Map Caps Lock to Ctrl]]
     - [[#ui-customization][UI Customization]]
       - [[#lean-and-mean][Lean and mean]]
         - [[#disablre-startupsplash-screen][Disablre startup/splash screen]]
@@ -57,12 +50,10 @@
       - [[#forbidden-fruit][Forbidden Fruit]]
       - [[#line-numbers][Line Numbers]]
       - [[#modeline-time-and-battery][Modeline Time and Battery]]
-      - [[#lsp-ui][LSP UI]]
     - [[#text-manipulation][Text Manipulation]]
       - [[#move-text][Move text]]
     - [[#string-manipulations][String manipulations]]
     - [[#shortcuts-longcuts-miscellaneous-configs][Shortcuts, Longcuts, Miscellaneous Configs]]
-      - [[#enable-ido][Enable Ido]]
       - [[#clipboard-copy-from-terminal-emacs-to-the-x-clipboard][Clipboard. Copy from terminal emacs to the X clipboard.]]
       - [[#simplify-yesno-prompts][Simplify Yes/No Prompts]]
       - [[#but-make-it-hard-to-accidentally-exit][But make it hard to accidentally exit]]
@@ -73,11 +64,7 @@
       - [[#disabled-commands][Disabled Commands]]
     - [[#custom-functions][Custom Functions]]
       - [[#speedtest][SpeedTest]]
-      - [[#java][Java]]
     - [[#programming][Programming]]
-      - [[#java-1][Java]]
-      - [[#dap-mode][DAP Mode]]
-      - [[#dap-java][DAP Java]]
       - [[#haskell][Haskell]]
     - [[#post-initialization][Post Initialization]]
       - [[#garbage-collection-1][Garbage Collection]]
@@ -171,32 +158,15 @@ decided to start with setting up org-mode first
  (setq-default use-package-always-defer t
 	       use-package-always-ensure t)
  #+END_SRC
+
+
 *** Packages
+
 **** Ivy
- Generic completion frontend that's just awesome! Let's install and enable it.
-
- #+BEGIN_SRC emacs-lisp
- (use-package ivy
-   :demand t)
- #+END_SRC
-
-**** Counsel
-Counsel allows us to utilize ivy by replacing many built-in and common functions
-with richer versions. Let's install it!
 
 #+BEGIN_SRC emacs-lisp
-(use-package counsel-projectile)
-(use-package counsel
-  :demand t)
-#+END_SRC
-
-**** Swiper
-Swiper is an awesome searching utility with a quick preview. Let's install it and
-load it when =swiper= or =swiper-all= is called.
-
-#+BEGIN_SRC emacs-lisp
-(use-package swiper
-  :commands (swiper swiper-all))
+  (use-package ivy
+        :demand t)
 #+END_SRC
 
 **** Magit
@@ -254,14 +224,14 @@ load it when =swiper= or =swiper-all= is called.
              (define-key global-map (kbd "C-c c") 'org-capture)
          )
 
- (setq  org-refile-targets '(("~/org/gtd.org" :maxlevel . 3)
-                                                        ("~/org/someday.org" :maxlevel . 1)
-                                                        ("~/org/archive.org" :maxlevel . 1)
-                                                      ("~/org/tickler.org" :maxlevel . 2)))
+;; (setq  org-refile-targets '(("~/org/gtd.org" :maxlevel . 3)
+;;                                                        ("~/org/someday.org" :maxlevel . 1)
+;;                                                        ("~/org/tickler.org" :maxlevel . 2)))
 
-;;(setq org-refile-targets '((org-agenda-files :maxlevel . 4)
-;;					                ("~/org/someday.org" :maxlevel . 1)))
-
+(setq org-refile-targets '((org-agenda-files :maxlevel . 4)
+			   ("~/org/someday.org" :maxlevel . 1)
+			   ("~/org/archive.org" :maxlevel . 4)
+			   ))
 
 #+END_SRC 
 
@@ -283,88 +253,48 @@ When I write, I need a map of the document or the table of content on the side. 
   :custom (org-sidebar-tree-side 'left))
 #+END_SRC
 
-**** Abbrev Mode
+**** Nov Mode 
+I prefer reading EPUB books on Emacs. Nov Mode allows me do that
 
 #+BEGIN_SRC emacs-lisp
-(use-package abbrev
-  :after org
-  :ensure nil
-  :init (add-hook 'org-mode-hook  #'abbrev-mode))
-(setq abbrev-file-name             ;; tell emacs where to read abbrev
-        "~/.emacs.d/abbrev_defs") 
-(setq save-abbrevs 'silent)      
+(use-package nov 
+  :demand t)
+
+(add-to-list 'auto-mode-alist '("\\.epub\\'" . nov-mode))
+
+;; set unzip
+(setq nov-unzip-program "/usr/bin/unzip") ;;nov needs to know the location of unzip package
+#+END_SRC
+
+**** define-word
+Word and their meanings and what better way to have this information at point. 
+
+#+BEGIN_SRC emacs-lisp
+(use-package define-word
+  :defer t
+  :ensure t
+  :init (global-set-key (kbd "C-c d") 'define-word-at-point)
+         (global-set-key (kbd "C-c D") 'define-word))
+
 #+END_SRC
 
 **** Treemacs
 #+BEGIN_SRC emacs-lisp
-(use-package treemacs
+(use-package treemacs 
    :init
    (add-hook 'treemacs-mode-hook
              (lambda () (treemacs-resize-icons 15))))
 #+END_SRC
-**** LSP Mode
-#+BEGIN_SRC emacs-lisp
-(use-package lsp-mode :ensure t
-  :bind (("\C-\M-b" . lsp-find-implementation)
-         ("M-RET" . lsp-execute-code-action))
-  :config
-  (setq lsp-inhibit-message t
-        lsp-eldoc-render-all nil
-        lsp-enable-file-watchers nil
-        lsp-highlight-symbol-at-point nil))
 
-#+END_SRC
-
-**** Hydra
-#+BEGIN_SRC emacs-lisp
-(use-package hydra :ensure t)
-#+END_SRC
-
-**** Company LSP
-#+BEGIN_SRC emacs-lisp
-(use-package company-lsp :ensure t)
-#+END_SRC
-
-**** Flycheck
-
-#+BEGIN_SRC emacs-lisp
-(use-package flycheck
-  :init
-  (add-to-list 'display-buffer-alist
-               `(,(rx bos "*Flycheck errors*" eos)
-                 (display-buffer-reuse-window
-                  display-buffer-in-side-window)
-                 (side            . bottom)
-                 (reusable-frames . visible)
-                 (window-height   . 0.15))))
-
-#+END_SRC
 **** IDLE-HIGHLIGHT
 
 #+BEGIN_SRC emacs-lisp
 (use-package idle-highlight)
 #+END_SRC
 
-**** YASnippet
-#+BEGIN_SRC emacs-lisp
-(use-package yasnippet
-  :init
-  (setq yas/root-directory '("~/.emacs.d/snippets"))
-
-  :config
-  (autoload 'yas/expand "yasnippet" t)
-  (autoload 'yas/load-directory "yasnippet" t)
-  (mapc 'yas/load-directory yas/root-directory)
-  (yas-global-mode 1))
-#+END_SRC
-**** YASnippet-Snippets
-#+BEGIN_SRC emacs-lisp
-(use-package yasnippet-snippets 
-  :after yasnippet)
-#+END_SRC
 *** Communication
 **** Slack
-#+BEGIN_SRC emacs-lisp
+#+BEGIN_SRC emacs-lisp :tangle no
   ;; I'm using use-package and el-get and evil
 
   ;;(el-get-bundle slack)
@@ -392,11 +322,14 @@ When I write, I need a map of the document or the table of content on the side. 
     :init
     (setq alert-default-style 'notifier))
 #+END_SRC
-*** Keymapping
-*** Map Caps Lock to Ctrl
-#+BEGIN_SRC
-(mac-control-modifier)
 
+
+*** Keymapping
+
+**** Map Caps Lock to Ctrl
+#+BEGIN_SRC emacs-lisp :tangle no
+(mac-control-modifier)
+#+END_SRC
 *** UI Customization
 
 Some of these settings were copied from Sergei Nosov's [[https://github.com/snosov1/dot-emacs#ui-customization][configurations.]]
@@ -435,8 +368,9 @@ When you press C-x, for example, and hesitate with a next character, C-x will be
 #+BEGIN_SRC emacs-lisp
 (toggle-frame-fullscreen)
 #+END_SRC
+
 **** Theme
-For some reason, my eyes like dark background. Not pitch black, but pretty black.
+
 #+BEGIN_SRC emacs-lisp
 (use-package ample-theme
   :init (progn (load-theme 'ample t t)
@@ -447,11 +381,11 @@ For some reason, my eyes like dark background. Not pitch black, but pretty black
   :ensure t)
 #+END_SRC
 
-;#+BEGIN_SRC emacs-lisp
+#+BEGIN_SRC emacs-lisp :tangle no
 (use-package spacemacs-common
     :ensure spacemacs-theme
     :config (load-theme 'spacemacs-light t))
-;#+END_SRC
+#+END_SRC
 
 
 **** Fonts
@@ -470,7 +404,7 @@ Basically, DejaVu Sans Mono is a “font done right” for technical work.
 #+BEGIN_SRC emacs-lisp
 (set-face-attribute 'default nil :family "DejaVu Sans Mono")
 #+END_SRC
-i
+
 **** Forbidden Fruit
 This setting modifies the Mac key to act like Meta key. I am just keeping it here for reference. I am not going to modify it though. See /:tangle no/, it will not put it in the compiled /emacs.el/ file.
 
@@ -494,18 +428,9 @@ Display line numbers, and column numbers in modeline.
 #+BEGIN_SRC emacs-lisp
 (display-time-mode 1)
 (display-battery-mode 1)
-#+END_SRC
-**** LSP UI
-#+BEGIN_SRC emacs-lisp
-(use-package lsp-ui
-  :ensure t
-  :config
-  (setq lsp-prefer-flymake nil
-        lsp-ui-doc-delay 5.0
-        lsp-ui-sideline-enable nil
-        lsp-ui-sideline-show-symbol nil))
 
 #+END_SRC
+
 *** Text Manipulation
 **** Move text
 Most of the time, I need to move a the text up an down a bit. There is a /transpose-line/ command that maps to /C-x C-t/, which is cumbersome and most of the time it messes-up with my flow. So, here we will map it to /M-n/ and /M-p/ following the convention of movement keys. 
@@ -520,7 +445,7 @@ Note: If you need to move the text to some pretty distant place, then, of course
            (define-key global-map (kbd "M-p") 'move-text-up))
        (message "WARNING: move-text not found"))))
 #+END_SRC
-b
+
 *** String manipulations
 Emacs 24.4 came with a subr-x library with routines for string manipulations, like string-trim, string-join and etc. It’s better to always have these at hand.
 
@@ -529,18 +454,6 @@ Emacs 24.4 came with a subr-x library with routines for string manipulations, li
 #+END_SRC
 
 *** Shortcuts, Longcuts, Miscellaneous Configs
-**** Enable Ido
-
-#+BEGIN_SRC emacs-lisp
-(use-package ido
-  :init 
-  (ido-mode 1)
-  :config
-  (setq ido-enable-flex-matching t
-        ido-everywhere t
-        ido-use-filename-at-point 'guess
-        ido-file-extensions-order '(".org" ".txt" ".el" ".emacs")))
-#+END_SRC
 
 **** Clipboard. Copy from terminal emacs to the X clipboard.
 #+BEGIN_SRC emacs-lisp
@@ -575,7 +488,8 @@ Use UTF-8 as much as possible with unix line endings.
 
 **** Disabled Commands
 Change nil to t to disable the command. 
-#+BEGIN_SRC emacs-lisp
+Note: currently not using it. But this is the way to do it
+#+BEGIN_SRC emacs-lisp :tangle no
 (put 'upcase-region 'disabled nil) 
 #+END_SRC
 
@@ -584,106 +498,11 @@ Change nil to t to disable the command.
 #+BEGIN_SRC emacs-lisp
 (load "setup-speedtest.el")
 #+END_SRC
-**** Java
-#+BEGIN_SRC emacs-lisp
-(defun my-java-mode-hook ()
-  (auto-fill-mode)
-  (flycheck-mode)
-  (git-gutter+-mode)
-  (gtags-mode)
-  (idle-highlight)
-  (subword-mode)
-  (yas-minor-mode)
-  (set-fringe-style '(8 . 0))
-  (define-key c-mode-base-map (kbd "C-M-j") 'tkj-insert-serial-version-uuid)
-  (define-key c-mode-base-map (kbd "C-m") 'c-context-line-break)
-  (define-key c-mode-base-map (kbd "S-<f7>") 'gtags-find-tag-from-here)
 
-  ;; Fix indentation for anonymous classes
-  (c-set-offset 'substatement-open 0)
-  (if (assoc 'inexpr-class c-offsets-alist)
-      (c-set-offset 'inexpr-class 0))
-
-  ;; Indent arguments on the next line as indented body.
-  (c-set-offset 'arglist-intro '++))
-(add-hook 'java-mode-hook 'my-java-mode-hook)
-
-
-#+END_SRC
 *** Programming
-**** Java 
-#+BEGIN_SRC emacs-lisp
-(use-package lsp-java
-  :ensure t
-  :after lsp
-  :init
-  (setq lsp-java-vmargs
-        (list
-         "-noverify"
-         "-Xmx1G"
-         "-XX:+UseG1GC"
-         "-XX:+UseStringDeduplication"
-         "-javaagent:~/.m2/repository/org/projectlombok/lombok/1.18.6/lombok-1.18.10.jar"
-         )
-
-        ;; Don't organise imports on save
-        lsp-java-save-action-organize-imports nil
-
-        ;; Currently (2019-04-24), dap-mode works best with Oracle
-        ;; JDK, see https://github.com/emacs-lsp/dap-mode/issues/31
-        ;;
-        ;; lsp-java-java-path "~/.emacs.d/oracle-jdk-12.0.1/bin/java"
-        lsp-java-java-path "/usr/bin/java"
-        )
-
-  :config
-  (add-hook 'java-mode-hook 'lsp))
-#+END_SRC
-
-**** DAP Mode 
-#+BEGIN_SRC emacs-lisp
-(use-package dap-mode
-  :ensure t
-  :after lsp-mode
-  :config
-  (dap-mode t)
-  (dap-ui-mode t)
-  (dap-tooltip-mode 1)
-  (tooltip-mode 1)
-  (dap-register-debug-template
-   "localhost:5005"
-   (list :type "java"
-         :request "attach"
-         :hostName "localhost"
-         :port 5005)))
-
-#+END_SRC
-
-**** DAP Java
-We need this for debugging Java
-#+BEGIN_SRC emacs-lisp
-(use-package dap-java
-  :ensure nil
-  :after (lsp-java)
-
-  ;; The :bind here makes use-package fail to load the dap-java block!
-  ;; :bind
-  ;; (("C-c R" . dap-java-run-test-class)
-  ;;  ("C-c d" . dap-java-debug-test-method)
-  ;;  ("C-c r" . dap-java-run-test-method)
-  ;;  )
-
-  :config
-  (global-set-key (kbd "<f7>") 'dap-step-in)
-  (global-set-key (kbd "<f8>") 'dap-next)
-  (global-set-key (kbd "<f9>") 'dap-continue)
-  )
-
-#+END_SRC
-
 **** Haskell
 
-#+BEGIN_SRC emacs-lisp
+#+BEGIN_SRC emacs-lisp :tangle no
 (use-package haskell-mode
   :defer t
   :init
@@ -705,17 +524,7 @@ We need this for debugging Java
     (define-key haskell-mode-map (kbd "C-c C-l")
       'haskell-process-load-or-reload)
     (define-key haskell-mode-map (kbd "C-c C-z")
-      'haskell-interactive-switch)
-    (define-key haskell-mode-map (kbd "C-c C-n C-t")
-      'haskell-process-do-type)
-    (define-key haskell-mode-map (kbd "C-c C-n C-i")
-      'haskell-process-do-info)
-    (define-key haskell-mode-map (kbd "C-c C-n C-c")
-      'haskell-process-cabal-build)
-    (define-key haskell-mode-map (kbd "C-c C-n c")
-      'haskell-process-cabal)
-    (define-key haskell-mode-map (kbd "SPC")
-      'haskell-mode-contextual-space)
+
 
     (eval-after-load 'haskell-cabal
       '(progn
