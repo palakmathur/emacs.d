@@ -2,13 +2,12 @@
 #+AUTHOR: systemhalted
 #+PROPERTY: header-args :tangle yes
 
-* sytemhalted's Emacs
+* sytemhalted's Emacs :noexport:
 :PROPERTIES:
 :VISIBILITY: children
 :END:
 
 * Table of Contents     :TOC_5_gh:
-- [[#sytemhalteds-emacs][sytemhalted's Emacs]]
 - [[#why-emacs][Why Emacs?]]
 - [[#about][About]]
 - [[#configurations][Configurations]]
@@ -59,7 +58,6 @@
       - [[#but-make-it-hard-to-accidentally-exit][But make it hard to accidentally exit]]
       - [[#make-finding-file-easy][Make finding file easy]]
       - [[#utf-8-coding-system][UTF-8 Coding System]]
-        - [[#todo][TODO]]
       - [[#shut-up-the-bell][Shut up the bell]]
       - [[#disabled-commands][Disabled Commands]]
     - [[#custom-functions][Custom Functions]]
@@ -158,7 +156,6 @@ decided to start with setting up org-mode first
  (setq-default use-package-always-defer t
 	       use-package-always-ensure t)
  #+END_SRC
-
 
 *** Packages
 
@@ -284,6 +281,7 @@ Word and their meanings and what better way to have this information at point.
    :init
    (add-hook 'treemacs-mode-hook
              (lambda () (treemacs-resize-icons 15))))
+
 #+END_SRC
 
 **** IDLE-HIGHLIGHT
@@ -291,7 +289,6 @@ Word and their meanings and what better way to have this information at point.
 #+BEGIN_SRC emacs-lisp
 (use-package idle-highlight)
 #+END_SRC
-
 *** Communication
 **** Slack
 #+BEGIN_SRC emacs-lisp :tangle no
@@ -322,7 +319,6 @@ Word and their meanings and what better way to have this information at point.
     :init
     (setq alert-default-style 'notifier))
 #+END_SRC
-
 
 *** Keymapping
 
@@ -371,7 +367,7 @@ When you press C-x, for example, and hesitate with a next character, C-x will be
 
 **** Theme
 
-#+BEGIN_SRC emacs-lisp
+#+BEGIN_SRC emacs-lisp :tangle no
 (use-package ample-theme
   :init (progn (load-theme 'ample t t)
                (load-theme 'ample-flat t t)
@@ -387,6 +383,10 @@ When you press C-x, for example, and hesitate with a next character, C-x will be
     :config (load-theme 'spacemacs-light t))
 #+END_SRC
 
+#+BEGIN_SRC emacs-lisp :tangle no
+(use-package leuven-theme
+   :config (load-theme 'leuven t))
+#+END_SRC
 
 **** Fonts
 
@@ -401,8 +401,11 @@ DejaVu fonts family is the best one out there. And DejaVu Sans Mono is its brigh
 
 Basically, DejaVu Sans Mono is a “font done right” for technical work.
 
-#+BEGIN_SRC emacs-lisp
+NOTE: This has been disabled because it messes up some of the things like the embedded calendar
+
+#+BEGIN_SRC emacs-lisp :tangle no
 (set-face-attribute 'default nil :family "DejaVu Sans Mono")
+(set-face-attribute 'default nil :height 165)
 #+END_SRC
 
 **** Forbidden Fruit
@@ -411,7 +414,6 @@ This setting modifies the Mac key to act like Meta key. I am just keeping it her
 #+BEGIN_SRC emacs-lisp :tangle no
 (setq-default mac-command-modifier 'meta)
 #+END_SRC 
-
 **** Line Numbers
 Display line numbers, and column numbers in modeline.
 
@@ -454,7 +456,6 @@ Emacs 24.4 came with a subr-x library with routines for string manipulations, li
 #+END_SRC
 
 *** Shortcuts, Longcuts, Miscellaneous Configs
-
 **** Clipboard. Copy from terminal emacs to the X clipboard.
 #+BEGIN_SRC emacs-lisp
 (use-package xclip
@@ -480,7 +481,6 @@ Emacs 24.4 came with a subr-x library with routines for string manipulations, li
 
 **** UTF-8 Coding System
 Use UTF-8 as much as possible with unix line endings.
-***** TODO
 **** Shut up the bell
 #+BEGIN_SRC emacs-lisp
 (setq ring-bell-function 'ignore) ;; shut up the bell

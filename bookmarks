@@ -1,4 +1,4 @@
-;;;; Emacs Bookmark Format Version 1 ;;;; -*- coding: utf-8-emacs -*- 
+;;;; Emacs Bookmark Format Version 1 ;;;; -*- coding: utf-8-emacs -*-
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
@@ -13,13 +13,13 @@
  (rear-context-string . "deos   \n\n* Call\n")
  (position . 623))
 ("org-refile-last-stored"
- (filename . "~/org/archive.org")
- (front-context-string . "** DONE Add ASVB")
- (rear-context-string . "cation service.\n")
- (position . 7600))
+ (filename . "~/org/gtd.org")
+ (front-context-string . "*** TODO Ask tea")
+ (rear-context-string . "9-01 Tue 13:24]\n")
+ (position . 734))
 ("org-capture-last-stored"
  (filename . "~/org/inbox.org")
- (front-context-string . "** TODO Mid-year")
- (rear-context-string . "ging Discussion\n")
- (position . 414))
+ (front-context-string . "** TODO Onboard ")
+ (rear-context-string . "vening stand up\n")
+ (position . 202))
 )
