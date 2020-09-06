@@ -319,6 +319,7 @@ Word and their meanings and what better way to have this information at point.
 *** Keymapping
 
 **** Map Caps Lock to Ctrl
+Disabled as I control this through Mac settings. 
 #+BEGIN_SRC emacs-lisp :tangle no
 (mac-control-modifier)
 #+END_SRC
