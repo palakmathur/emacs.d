@@ -43,6 +43,8 @@
         - [[#remove-scratch-message][Remove scratch message]]
         - [[#disable-unnecessary-interface][Disable Unnecessary Interface]]
         - [[#reduce-the-delay-echoing-the-keystrokes][Reduce the delay echoing the keystrokes]]
+        - [[#join-following-line][Join following line]]
+        - [[#duplicate-the-current-line][Duplicate the current line]]
         - [[#full-screen][Full Screen]]
       - [[#theme][Theme]]
       - [[#fonts][Fonts]]
@@ -171,8 +173,6 @@ decided to start with setting up org-mode first
  functions we invoke regularly outside of magit is called.
 
  #+BEGIN_SRC emacs-lisp
-;; (use-package magit
-;;  :bind ("C-x g" . magit-status))
  
  (use-package magit
   :commands (magit-status magit-blame magit-log-buffer-file magit-log-all))
@@ -221,16 +221,12 @@ decided to start with setting up org-mode first
              (define-key global-map (kbd "C-c c") 'org-capture)
          )
 
-;; (setq  org-refile-targets '(("~/org/gtd.org" :maxlevel . 3)
-;;                                                        ("~/org/someday.org" :maxlevel . 1)
-;;                                                        ("~/org/tickler.org" :maxlevel . 2)))
-
-(setq org-refile-targets '((org-agenda-files :maxlevel . 4)
+	 (setq org-refile-targets '((org-agenda-files :maxlevel . 4)
 			   ("~/org/someday.org" :maxlevel . 1)
 			   ("~/org/archive.org" :maxlevel . 4)
 			   ))
 
-#+END_SRC 
+ #+END_SRC 
 
 **** Toc-org
 Let's install and load the =toc-org= package after org mode is loaded. This is the
@@ -360,10 +356,58 @@ When you press C-x, for example, and hesitate with a next character, C-x will be
 #+BEGIN_SRC emacs-lisp
 (setq echo-keystrokes 0.001)
 #+END_SRC
+***** Join following line
+
+#+BEGIN_SRC emacs-lisp
+(define-key global-map (kbd "C-c j")
+  (defun join-following-line (arg)
+    "Joins the following line or the whole selected region"
+    (interactive "P")
+    (if (use-region-p)
+        (let ((fill-column (point-max)))
+          (fill-region (region-beginning) (region-end)))
+      (join-line -1))))
+#+END_SRC
+
+***** Duplicate the current line
+Equivalent of Ctrl+d (Command+d on Mac)
+Source: https://www.emacswiki.org/emacs/CopyingWholeLines#toc12
+
+#+BEGIN_SRC emacs-lisp 
+(define-key global-map (kbd "C-c k")
+  (defun duplicate-line-or-region (&optional n)
+      "Duplicate current line, or region if active.
+    With argument N, make N copies.
+    With negative N, comment out original line and use the absolute value."
+      (interactive "*p")
+      (let ((use-region (use-region-p)))
+        (save-excursion
+          (let ((text (if use-region        ;Get region if active, otherwise line
+                          (buffer-substring (region-beginning) (region-end))
+                        (prog1 (thing-at-point 'line)
+                          (end-of-line)
+                          (if (< 0 (forward-line 1)) ;Go to beginning of next line, or make a new one
+                              (newline))))))
+            (dotimes (i (abs (or n 1)))     ;Insert N times, or once if not specified
+              (insert text))))
+        (if use-region nil                  ;Only if we're working with a line (not a region)
+          (let ((pos (- (point) (line-beginning-position)))) ;Save column
+            (if (> 0 n)                             ;Comment out original with negative arg
+                (comment-region (line-beginning-position) (line-end-position)))
+            (forward-line 1)
+            (forward-char pos))))))
+#+END_SRC
+
 ***** Full Screen
 #+BEGIN_SRC emacs-lisp
-(toggle-frame-fullscreen)
+  (toggle-frame-fullscreen)
+  (add-to-list 'default-frame-alist '(fullscreen . fullboth))
+;;(add-hook 'window-setup-hook 'toggle-frame-maximized t).
 #+END_SRC
+
+#+RESULTS:
+: ((fullscreen . maximized))
+
 **** Theme
 
 #+BEGIN_SRC emacs-lisp :tangle no
