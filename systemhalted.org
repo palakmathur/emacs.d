@@ -38,7 +38,7 @@
       - [[#map-caps-lock-to-ctrl][Map Caps Lock to Ctrl]]
     - [[#ui-customization][UI Customization]]
       - [[#lean-and-mean][Lean and mean]]
-        - [[#disablre-startupsplash-screen][Disablre startup/splash screen]]
+        - [[#disable-startupsplash-screen][Disable startup/splash screen]]
         - [[#setup-initial-major-mode-to-org-mode][Setup initial major mode to Org-mode]]
         - [[#remove-scratch-message][Remove scratch message]]
         - [[#disable-unnecessary-interface][Disable Unnecessary Interface]]
@@ -332,7 +332,7 @@ Some of these settings were copied from Sergei Nosov's [[https://github.com/snos
 
 **** Lean and mean
 Emacs doesn’t need a lot of UI elements - it should be lean and mean. Well, and clean. 
-***** Disablre startup/splash screen
+***** Disable startup/splash screen
 #+BEGIN_SRC emacs-lisp
 (setq inhibit-startup-screen t)
 #+END_SRC
@@ -364,11 +364,10 @@ When you press C-x, for example, and hesitate with a next character, C-x will be
 #+BEGIN_SRC emacs-lisp
 (toggle-frame-fullscreen)
 #+END_SRC
-
 **** Theme
 
 #+BEGIN_SRC emacs-lisp :tangle no
-(use-package ample-theme
+(use-package ample-theme 
   :init (progn (load-theme 'ample t t)
                (load-theme 'ample-flat t t)
                (load-theme 'ample-light t t)
@@ -383,7 +382,7 @@ When you press C-x, for example, and hesitate with a next character, C-x will be
     :config (load-theme 'spacemacs-light t))
 #+END_SRC
 
-#+BEGIN_SRC emacs-lisp :tangle no
+#+BEGIN_SRC emacs-lisp
 (use-package leuven-theme
    :config (load-theme 'leuven t))
 #+END_SRC
