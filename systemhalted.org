@@ -50,6 +50,7 @@
         - [[#join-following-line][Join following line]]
         - [[#duplicate-the-current-line][Duplicate the current line]]
         - [[#full-screen][Full Screen]]
+      - [[#pdf][PDF]]
       - [[#theme][Theme]]
       - [[#fonts][Fonts]]
       - [[#forbidden-fruit][Forbidden Fruit]]
@@ -474,6 +475,10 @@ Source: https://www.emacswiki.org/emacs/CopyingWholeLines#toc12
 #+RESULTS:
 : ((fullscreen . maximized))
 
+**** PDF
+#+BEGIN_SRC emacs-lisp
+(setq doc-view-continuous t)
+#+END_SRC
 **** Theme
 
 #+BEGIN_SRC emacs-lisp :tangle no
