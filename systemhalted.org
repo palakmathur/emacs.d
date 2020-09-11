@@ -1,5 +1,6 @@
 #+TITLE: systemhalted's  personal emacs config
 #+AUTHOR: systemhalted
+#+Language: en
 #+PROPERTY: header-args :tangle yes
 
 * sytemhalted's Emacs :noexport:
@@ -410,6 +411,7 @@ Emacs doesn’t need a lot of UI elements - it should be lean and mean. Well, an
 ***** Disable Unnecessary Interface
 #+BEGIN_SRC emacs-lisp
 (menu-bar-mode -1)
+(tool-bar-mode -1)
 (unless (and (display-graphic-p) (eq system-type 'darwin))
   (push '(menu-bar-lines . 0) default-frame-alist))
 (push '(tool-bar-lines . 0) default-frame-alist)
@@ -418,7 +420,7 @@ Emacs doesn’t need a lot of UI elements - it should be lean and mean. Well, an
 ***** Reduce the delay echoing the keystrokes
 When you press C-x, for example, and hesitate with a next character, C-x will be displayed in the echo-area after some time. But I don’t see any reason why you should wait for it.
 #+BEGIN_SRC emacs-lisp
-(setq echo-keystrokes 0.001)
+(setq echo-keystrokes 0.00111)
 #+END_SRC
 ***** Join following line
 
@@ -490,7 +492,7 @@ Source: https://www.emacswiki.org/emacs/CopyingWholeLines#toc12
     :config (load-theme 'spacemacs-light t))
 #+END_SRC
 
-#+BEGIN_SRC emacs-lisp
+#+BEGIN_SRC emacs-lisp :tangle yes
 (use-package leuven-theme
    :config (load-theme 'leuven t))
 #+END_SRC

@@ -2,7 +2,7 @@
 (add-to-list 'load-path "~/.emacs.d/customizations")
 (load "setup-proxy.el")
 
-(org-babel-load-file "~/.emacs.d/systemhalted.org")
+(org-babel-load-file "~/.emacs.d/systemhalted.org") 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
