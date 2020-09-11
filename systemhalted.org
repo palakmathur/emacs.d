@@ -22,6 +22,9 @@
     - [[#package-configuration][Package Configuration]]
     - [[#install-and-configure-use-package][Install and Configure use-package]]
     - [[#packages][Packages]]
+      - [[#ido][IDO]]
+      - [[#smex][SMEX]]
+      - [[#ibuffer][iBuffer]]
       - [[#ivy][Ivy]]
       - [[#magit][Magit]]
       - [[#projectile][Projectile]]
@@ -160,6 +163,52 @@ decided to start with setting up org-mode first
  #+END_SRC
 
 *** Packages
+**** IDO
+
+#+BEGIN_SRC emacs-lisp
+(use-package ido
+  :config
+  (setq ido-everywhere t
+    ido-virtual-buffers t
+    ido-use-faces t
+    ido-default-buffer-method 'selected-window
+    ido-auto-merge-work-directories-length -1
+    ido-enable-flex-matching nil
+    ido-create-new-buffer 'always)
+  (ido-mode 1))
+
+(use-package flx-ido :requires ido :config (flx-ido-mode))
+
+(use-package ido-vertical-mode  
+        :requires ido 
+	:init (ido-vertical-mode 1)
+        :config 
+           (setq ido-vertical-define-keys 'C-n-and-C-p-only))
+
+
+(use-package ido-completing-read+ :requires ido
+  :config
+  (setq ido-ubiquitous-max-items 50000
+    ido-cr+-max-items 50000)
+  (ido-ubiquitous-mode +1))
+
+#+END_SRC
+
+**** SMEX
+ #+BEGIN_SRC emacs-lisp
+   (use-package smex
+      :ensure t
+      :init (smex-initialize)
+      :bind 
+      ("M-x" . smex))
+ #+END_SRC
+
+**** iBuffer
+Before iPhone, there was iBuffer
+
+#+BEGIN_SRC emacs-lisp
+ (global-set-key (kbd "C-x C-b") 'ibuffer)
+#+END_SRC 
 
 **** Ivy
 
