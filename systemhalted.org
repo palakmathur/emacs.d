@@ -116,7 +116,7 @@ decided to start with setting up org-mode first
 #+END_SRC
 
 **** Table of Contents
- Finally, there is a [[Table of Contents][Table of Contents]] heading that includes the tag: =:TOC_3_gh:=. This
+ Finally, there is a [[Table of Contents][Table of Contents]] heading that includes the tag: =:TOC_5_gh:=. This
  tells an org-mode package =toc-org= to generate a table of contents under this heading
  that has a max depth of 3 and is created using Github-style hrefs. This table of contents
  is updated everytime the file is saved and makes for a functional table of contents that
@@ -183,7 +183,17 @@ decided to start with setting up org-mode first
         :requires ido 
 	:init (ido-vertical-mode 1)
         :config 
-           (setq ido-vertical-define-keys 'C-n-and-C-p-only))
+           (setq ido-vertical-define-keys 'C-n-C-p-up-down-left-right))
+
+(setq ido-use-faces t)
+(set-face-attribute 'ido-vertical-first-match-face nil
+                    :background nil
+                    :foreground "orange")
+(set-face-attribute 'ido-vertical-only-match-face nil
+                    :background nil
+                    :foreground nil)
+(set-face-attribute 'ido-vertical-match-face nil
+                    :foreground nil)
 
 
 (use-package ido-completing-read+ :requires ido
