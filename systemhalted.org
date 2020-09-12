@@ -23,6 +23,7 @@
     - [[#package-configuration][Package Configuration]]
     - [[#install-and-configure-use-package][Install and Configure use-package]]
     - [[#packages][Packages]]
+      - [[#which-key][Which Key?]]
       - [[#ido][IDO]]
       - [[#smex][SMEX]]
       - [[#ibuffer][iBuffer]]
@@ -48,7 +49,6 @@
         - [[#disable-unnecessary-interface][Disable Unnecessary Interface]]
         - [[#reduce-the-delay-echoing-the-keystrokes][Reduce the delay echoing the keystrokes]]
         - [[#join-following-line][Join following line]]
-        - [[#duplicate-the-current-line][Duplicate the current line]]
         - [[#full-screen][Full Screen]]
       - [[#pdf][PDF]]
       - [[#theme][Theme]]
@@ -56,8 +56,11 @@
       - [[#forbidden-fruit][Forbidden Fruit]]
       - [[#line-numbers][Line Numbers]]
       - [[#modeline-time-and-battery][Modeline Time and Battery]]
+      - [[#spaceline][Spaceline]]
+      - [[#cursor-position][Cursor Position]]
     - [[#text-manipulation][Text Manipulation]]
       - [[#move-text][Move text]]
+      - [[#duplicate-the-current-line][Duplicate the current line]]
     - [[#string-manipulations][String manipulations]]
     - [[#shortcuts-longcuts-miscellaneous-configs][Shortcuts, Longcuts, Miscellaneous Configs]]
       - [[#clipboard-copy-from-terminal-emacs-to-the-x-clipboard][Clipboard. Copy from terminal emacs to the X clipboard.]]
@@ -165,6 +168,25 @@ decided to start with setting up org-mode first
  #+END_SRC
 
 *** Packages
+**** Which Key?
+#+BEGIN_SRC emacs-lisp
+  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  ;; (use-package which-key				   ;;
+  ;;   :init						   ;;
+  ;;   (which-key-mode)					   ;;
+  ;;   :config						   ;;
+  ;;   (which-key-setup-side-window-right-bottom)		   ;;
+  ;;   (setq which-key-sort-order 'which-key-key-order-alpha ;;
+  ;;     which-key-side-window-max-width 0.33		   ;;
+  ;;     which-key-idle-delay 0.05)			   ;;
+  ;;   :diminish which-key-mode)				   ;;
+  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(use-package which-key
+  :ensure t
+  :config
+    (which-key-mode))
+#+END_SRC
 **** IDO
 
 #+BEGIN_SRC emacs-lisp
@@ -436,35 +458,6 @@ When you press C-x, for example, and hesitate with a next character, C-x will be
       (join-line -1))))
 #+END_SRC
 
-***** Duplicate the current line
-Equivalent of Ctrl+d (Command+d on Mac)
-Source: https://www.emacswiki.org/emacs/CopyingWholeLines#toc12
-
-#+BEGIN_SRC emacs-lisp 
-(define-key global-map (kbd "C-c k")
-  (defun duplicate-line-or-region (&optional n)
-      "Duplicate current line, or region if active.
-    With argument N, make N copies.
-    With negative N, comment out original line and use the absolute value."
-      (interactive "*p")
-      (let ((use-region (use-region-p)))
-        (save-excursion
-          (let ((text (if use-region        ;Get region if active, otherwise line
-                          (buffer-substring (region-beginning) (region-end))
-                        (prog1 (thing-at-point 'line)
-                          (end-of-line)
-                          (if (< 0 (forward-line 1)) ;Go to beginning of next line, or make a new one
-                              (newline))))))
-            (dotimes (i (abs (or n 1)))     ;Insert N times, or once if not specified
-              (insert text))))
-        (if use-region nil                  ;Only if we're working with a line (not a region)
-          (let ((pos (- (point) (line-beginning-position)))) ;Save column
-            (if (> 0 n)                             ;Comment out original with negative arg
-                (comment-region (line-beginning-position) (line-end-position)))
-            (forward-line 1)
-            (forward-char pos))))))
-#+END_SRC
-
 ***** Full Screen
 #+BEGIN_SRC emacs-lisp
   (toggle-frame-fullscreen)
@@ -477,7 +470,7 @@ Source: https://www.emacswiki.org/emacs/CopyingWholeLines#toc12
 
 **** PDF
 #+BEGIN_SRC emacs-lisp
-(setq doc-view-continuous t)
+  (setq doc-view-continuous t)
 #+END_SRC
 **** Theme
 
@@ -546,7 +539,23 @@ Display line numbers, and column numbers in modeline.
 (display-battery-mode 1)
 
 #+END_SRC
-
+**** Spaceline
+#+BEGIN_SRC emacs-lisp
+(use-package spaceline
+  :ensure t
+  :config
+  (require 'spaceline-config)
+    (setq spaceline-buffer-encoding-abbrev-p nil)
+    (setq spaceline-line-column-p nil)
+    (setq spaceline-line-p nil)
+    (setq powerline-default-separator (quote arrow))
+    (spaceline-spacemacs-theme))
+#+END_SRC
+**** Cursor Position
+#+BEGIN_SRC emacs-lisp
+(setq line-number-mode t)
+(setq column-number-mode t)
+#+END_SRC
 *** Text Manipulation
 **** Move text
 Most of the time, I need to move a the text up an down a bit. There is a /transpose-line/ command that maps to /C-x C-t/, which is cumbersome and most of the time it messes-up with my flow. So, here we will map it to /M-n/ and /M-p/ following the convention of movement keys. 
@@ -561,6 +570,35 @@ Note: If you need to move the text to some pretty distant place, then, of course
            (define-key global-map (kbd "M-p") 'move-text-up))
        (message "WARNING: move-text not found"))))
 #+END_SRC
+
+**** Duplicate the current line
+ Equivalent of Ctrl+d (Command+d on Mac)
+ Source: https://www.emacswiki.org/emacs/CopyingWholeLines#toc12
+
+ #+BEGIN_SRC emacs-lisp 
+ (define-key global-map (kbd "C-c k")
+   (defun systemhalted/duplicate-line-or-region (&optional n)
+       "Duplicate current line, or region if active.
+     With argument N, make N copies.
+     With negative N, comment out original line and use the absolute value."
+       (interactive "*p")
+       (let ((use-region (use-region-p)))
+         (save-excursion
+           (let ((text (if use-region        ;Get region if active, otherwise line
+                           (buffer-substring (region-beginning) (region-end))
+                         (prog1 (thing-at-point 'line)
+                           (end-of-line)
+                           (if (< 0 (forward-line 1)) ;Go to beginning of next line, or make a new one
+                               (newline))))))
+             (dotimes (i (abs (or n 1)))     ;Insert N times, or once if not specified
+               (insert text))))
+         (if use-region nil                  ;Only if we're working with a line (not a region)
+           (let ((pos (- (point) (line-beginning-position)))) ;Save column
+             (if (> 0 n)                             ;Comment out original with negative arg
+                 (comment-region (line-beginning-position) (line-end-position)))
+             (forward-line 1)
+             (forward-char pos))))))
+ #+END_SRC
 
 *** String manipulations
 Emacs 24.4 came with a subr-x library with routines for string manipulations, like string-trim, string-join and etc. It’s better to always have these at hand.
