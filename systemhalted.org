@@ -8,7 +8,7 @@
 :VISIBILITY: children
 :END:
 
-* Table of Contents     :TOC_5_gh:
+* Table of Contents    :noexport:
 - [[#why-emacs][Why Emacs?]]
 - [[#about][About]]
 - [[#configurations][Configurations]]
@@ -22,26 +22,6 @@
     - [[#garbage-collection][Garbage Collection]]
     - [[#package-configuration][Package Configuration]]
     - [[#install-and-configure-use-package][Install and Configure use-package]]
-  - [[#packages][Packages]]
-      - [[#which-key][Which Key?]]
-      - [[#ido][IDO]]
-      - [[#smex][SMEX]]
-      - [[#ibuffer][iBuffer]]
-      - [[#ivy][Ivy]]
-      - [[#magit][Magit]]
-      - [[#projectile][Projectile]]
-      - [[#org][Org]]
-  - [[#org-bullets][Org Bullets]]
-      - [[#toc-org][Toc-org]]
-      - [[#org-sidebar][Org-sidebar]]
-      - [[#nov-mode][Nov Mode]]
-      - [[#define-word][define-word]]
-      - [[#treemacs][Treemacs]]
-      - [[#idle-highlight][IDLE-HIGHLIGHT]]
-  - [[#communication][Communication]]
-      - [[#slack][Slack]]
-  - [[#keymapping][Keymapping]]
-      - [[#map-caps-lock-to-ctrl][Map Caps Lock to Ctrl]]
   - [[#ui-customization][UI Customization]]
     - [[#lean-and-mean][Lean and mean]]
       - [[#disable-startupsplash-screen][Disable startup/splash screen]]
@@ -53,9 +33,6 @@
       - [[#full-screen][Full Screen]]
     - [[#pdf][PDF]]
     - [[#theme][Theme]]
-    - [[#fonts][Fonts]]
-    - [[#forbidden-fruit][Forbidden Fruit]]
-    - [[#line-numbers][Line Numbers]]
     - [[#modeline-time-and-battery][Modeline Time and Battery]]
     - [[#spaceline][Spaceline]]
     - [[#cursor-position][Cursor Position]]
@@ -76,6 +53,24 @@
     - [[#reload-config][Reload Config]]
     - [[#electric][Electric]]
     - [[#show--parens][Show  Parens]]
+  - [[#packages][Packages]]
+    - [[#which-key][Which Key?]]
+    - [[#helm][Helm]]
+    - [[#smex][SMEX]]
+    - [[#ibuffer][iBuffer]]
+    - [[#ivy][Ivy]]
+    - [[#magit][Magit]]
+    - [[#projectile][Projectile]]
+    - [[#org][Org]]
+    - [[#org-bullets][Org Bullets]]
+    - [[#toc-org][Toc-org]]
+    - [[#org-sidebar][Org-sidebar]]
+    - [[#nov-mode][Nov Mode]]
+    - [[#define-word][define-word]]
+    - [[#treemacs][Treemacs]]
+    - [[#idle-highlight][IDLE-HIGHLIGHT]]
+  - [[#communication][Communication]]
+      - [[#slack][Slack]]
   - [[#custom-functions][Custom Functions]]
       - [[#speedtest][SpeedTest]]
   - [[#programming][Programming]]
@@ -170,7 +165,7 @@ decided to start with setting up org-mode first
  #+END_SRC
 
 *** Install and Configure use-package
-
+++
  #+BEGIN_SRC emacs-lisp
  (unless (package-installed-p 'use-package)
        (package-refresh-contents)
@@ -179,72 +174,324 @@ decided to start with setting up org-mode first
 	       use-package-always-ensure t)
  #+END_SRC
 
-** Packages
-**** Which Key?
-#+BEGIN_SRC emacs-lisp
-  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-  ;; (use-package which-key				   ;;
-  ;;   :init						   ;;
-  ;;   (which-key-mode)					   ;;
-  ;;   :config						   ;;
-  ;;   (which-key-setup-side-window-right-bottom)		   ;;
-  ;;   (setq which-key-sort-order 'which-key-key-order-alpha ;;
-  ;;     which-key-side-window-max-width 0.33		   ;;
-  ;;     which-key-idle-delay 0.05)			   ;;
-  ;;   :diminish which-key-mode)				   ;;
-  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+** UI Customization
 
-(use-package which-key
+Some of these settings were copied from Sergei Nosov's [[https://github.com/snosov1/dot-emacs#ui-customization][configurations.]]
+
+*** Lean and mean
+Emacs doesn’t need a lot of UI elements - it should be lean and mean. Well, and clean. 
+**** Disable startup/splash screen
+#+BEGIN_SRC emacs-lisp :tangle yes
+(setq inhibit-startup-screen t)
+#+END_SRC
+
+**** Setup initial major mode to Org-mode
+#+BEGIN_SRC emacs-lisp :tangle no
+(setq-default initial-major-mode (quote org-mode))
+#+END_SRC
+
+**** Remove scratch message 
+#+BEGIN_SRC emacs-lisp :tangle yes
+(setq-default initial-scratch-message nil)
+#+END_SRC
+
+**** Disable Unnecessary Interface
+#+BEGIN_SRC emacs-lisp :tangle yes
+(menu-bar-mode -1)
+(tool-bar-mode -1)
+(unless (and (display-graphic-p) (eq system-type 'darwin))
+  (push '(menu-bar-lines . 0) default-frame-alist))
+(push '(tool-bar-lines . 0) default-frame-alist)
+(push '(vertical-scroll-bars) default-frame-alist)
+#+END_SRC
+**** Reduce the delay echoing the keystrokes
+When you press C-x, for example, and hesitate with a next character, C-x will be displayed in the echo-area after some time. But I don’t see any reason why you should wait for it.
+#+BEGIN_SRC emacs-lisp :tangle yes
+(setq echo-keystrokes 0.00111)
+#+END_SRC
+**** Join following line
+
+#+BEGIN_SRC emacs-lisp :tangle yes
+(define-key global-map (kbd "C-c j")
+  (defun systemhalted/join-following-line (arg)
+    "Joins the following line or the whole selected region"
+    (interactive "P")
+    (if (use-region-p)
+        (let ((fill-column (point-max)))
+          (fill-region (region-beginning) (region-end)))
+      (join-line -1))))
+#+END_SRC
+
+**** Full Screen
+#+BEGIN_SRC emacs-lisp :tangle yes
+  (toggle-frame-fullscreen)
+  (add-to-list 'default-frame-alist '(fullscreen . fullboth))
+;;(add-hook 'window-setup-hook 'toggle-frame-maximized t).
+#+END_SRC
+
+
+*** PDF
+#+BEGIN_SRC emacs-lisp :tangle yes
+  (setq doc-view-continuous t)
+#+END_SRC
+*** Theme
+
+#+BEGIN_SRC emacs-lisp :tangle no
+(use-package ample-theme 
+  :init (progn (load-theme 'ample t t)
+               (load-theme 'ample-flat t t)
+               (load-theme 'ample-light t t)
+               (enable-theme 'ample-light))
+  :defer t
+  :ensure t)
+#+END_SRC
+
+#+BEGIN_SRC emacs-lisp :tangle :tangle yes
+(use-package spacemacs-common
+    :ensure spacemacs-theme
+    :config (load-theme 'spacemacs-dark t))
+#+END_SRC
+
+#+BEGIN_SRC emacs-lisp :tangle no
+(use-package leuven-theme
+   :config (load-theme 'leuven t))
+#+END_SRC
+
+*** Modeline Time and Battery
+#+BEGIN_SRC emacs-lisp :tangle no
+(display-time-mode 1)
+(display-battery-mode 1)
+#+END_SRC
+
+*** Spaceline
+#+BEGIN_SRC emacs-lisp :tangle yes
+(use-package spaceline :ensure t
+  :config
+  (use-package spaceline-config
+    :config
+    (spaceline-toggle-minor-modes-off)
+    (spaceline-toggle-buffer-encoding-off)
+    (spaceline-toggle-buffer-encoding-abbrev-off)
+    (setq powerline-default-separator 'rounded)
+    (setq spaceline-highlight-face-func 'spaceline-highlight-face-evil-state)
+    (spaceline-define-segment line-column
+      "The current line and column numbers."
+      "l:%l c:%2c")
+    (spaceline-define-segment time
+      "The current time."
+      (format-time-string "%H:%M"))
+    (spaceline-define-segment date
+      "The current date."
+      (format-time-string "%h %d"))
+    (spaceline-toggle-time-on)
+    (spaceline-emacs-theme 'date 'time)))
+
+#+END_SRC
+*** Cursor Position
+#+BEGIN_SRC emacs-lisp :tangle yes
+(setq line-number-mode t)
+(setq column-number-mode t)
+#+END_SRC
+** Text Manipulation
+*** Move text
+Most of the time, I need to move a the text up an down a bit. There is a /transpose-line/ command that maps to /C-x C-t/, which is cumbersome and most of the time it messes-up with my flow. So, here we will map it to /M-n/ and /M-p/ following the convention of movement keys. 
+Note: If you need to move the text to some pretty distant place, then, of course, it’s easier to kill and yank it.
+
+#+BEGIN_SRC emacs-lisp :tangle yes
+(eval-after-load "move-text-autoloads"
+  '(progn
+     (if (require 'move-text nil t)
+         (progn
+           (define-key global-map (kbd "M-n") 'move-text-down)
+           (define-key global-map (kbd "M-p") 'move-text-up))
+       (message "WARNING: move-text not found"))))
+#+END_SRC
+
+*** Duplicate the current line
+ Equivalent of Ctrl+d (Command+d on Mac) in IntelliJ IDEA
+ Source: https://www.emacswiki.org/emacs/CopyingWholeLines#toc12
+
+ #+BEGIN_SRC emacs-lisp :tangle yes
+ (define-key global-map (kbd "C-c k")
+   (defun systemhalted/duplicate-line-or-region (&optional n)
+       "Duplicate current line, or region if active.
+     With argument N, make N copies.
+     With negative N, comment out original line and use the absolute value."
+       (interactive "*p")
+       (let ((use-region (use-region-p)))
+         (save-excursion
+           (let ((text (if use-region        ;Get region if active, otherwise line
+                           (buffer-substring (region-beginning) (region-end))
+                         (prog1 (thing-at-point 'line)
+                           (end-of-line)
+                           (if (< 0 (forward-line 1)) ;Go to beginning of next line, or make a new one
+                               (newline))))))
+             (dotimes (i (abs (or n 1)))     ;Insert N times, or once if not specified
+               (insert text))))
+         (if use-region nil                  ;Only if we're working with a line (not a region)
+           (let ((pos (- (point) (line-beginning-position)))) ;Save column
+             (if (> 0 n)                             ;Comment out original with negative arg
+                 (comment-region (line-beginning-position) (line-end-position)))
+             (forward-line 1)
+             (forward-char pos))))))
+ #+END_SRC
+
+*** String manipulations
+Emacs 24.4 came with a subr-x library with routines for string manipulations, like string-trim, string-join and etc. It’s better to always have these at hand.
+
+#+BEGIN_SRC emacs-lisp :tangle yes
+(require 'subr-x nil t)
+#+END_SRC
+
+** Shortcuts, Longcuts, Miscellaneous Configs
+*** Clipboard. Copy from terminal emacs to the X clipboard.
+#+BEGIN_SRC emacs-lisp :tangle yes
+(use-package xclip
   :ensure t
   :config
-    (which-key-mode))
-#+END_SRC
-**** IDO
-
-#+BEGIN_SRC emacs-lisp
-(use-package ido
-  :config
-  (setq ido-everywhere t
-    ido-virtual-buffers t
-    ido-use-faces t
-    ido-default-buffer-method 'selected-window
-    ido-auto-merge-work-directories-length -1
-    ido-enable-flex-matching nil
-    ido-create-new-buffer 'always)
-  (ido-mode 1))
-
-(use-package flx-ido :requires ido :config (flx-ido-mode))
-
-(use-package ido-vertical-mode  
-        :requires ido 
-	:init (ido-vertical-mode 1)
-        :config 
-           (setq ido-vertical-define-keys 'C-n-C-p-up-down-left-right))
-
-(setq ido-use-faces t)
-(set-face-attribute 'ido-vertical-first-match-face nil
-                    :background nil
-                    :foreground "orange")
-(set-face-attribute 'ido-vertical-only-match-face nil
-                    :background nil
-                    :foreground nil)
-(set-face-attribute 'ido-vertical-match-face nil
-                    :foreground nil)
-
-
-(use-package ido-completing-read+ :requires ido
-  :config
-  (setq ido-ubiquitous-max-items 50000
-    ido-cr+-max-items 50000)
-  (ido-ubiquitous-mode +1))
-
-
-(global-set-key  (kbd "C-x C-b") 'ido-switch-buffer)
+  (xclip-mode 1))
 
 #+END_SRC
+*** Simplify Yes/No Prompts
+#+BEGIN_SRC emacs-lisp :tangle yes
+(fset 'yes-or-no-p 'y-or-n-p)
+#+END_SRC
 
-**** SMEX
- #+BEGIN_SRC emacs-lisp
+*** But make it hard to accidentally exit
+#+BEGIN_SRC emacs-lisp :tangle yes
+(setq-default confirm-kill-emacs (quote y-or-n-p))
+#+END_SRC
+
+*** Make finding file easy
+#+BEGIN_SRC emacs-lisp :tangle no
+(global-set-key (kbd "C-x f")    'find-file)
+#+END_SRC
+
+*** UTF-8 Coding System
+Use UTF-8 as much as possible
+#+BEGIN_SRC emacs-lisp :tangle yes
+ (set-language-environment 'utf-8)                                                           
+  (setq locale-coding-system 'utf-8)                                                          
+
+  ;; set the default encoding system                                                          
+  (prefer-coding-system 'utf-8)                                                               
+  (setq default-file-name-coding-system 'utf-8)                                               
+  (set-default-coding-systems 'utf-8)                                                         
+  (set-terminal-coding-system 'utf-8)                                                         
+  (set-keyboard-coding-system 'utf-8)                                                         
+
+  ;; Treat clipboard input as UTF-8 string first; compound text next, etc.                    
+  (setq x-select-request-type '(UTF8_STRING COMPOUND_TEXT TEXT STRING)) 
+#+END_SRC
+*** Shut up the bell
+#+BEGIN_SRC emacs-lisp :tangle yes
+(setq ring-bell-function 'ignore) 
+#+END_SRC
+
+*** Disabled Commands
+Change nil to t to disable the command. 
+Note: currently not using it. But this is the way to do it
+#+BEGIN_SRC emacs-lisp :tangle no
+(put 'upcase-region 'disabled nil) 
+#+END_SRC
+
+*** Always kill the buffer 
+#+BEGIN_SRC emacs-lisp :tangle yes
+  (defun kill-current-buffer ()
+    "Kills the current buffer."
+    (interactive)
+    (kill-buffer (current-buffer)))
+  (global-set-key (kbd "C-x k") 'kill-current-buffer)
+#+END_SRC
+*** Visit systemhalted.org
+#+BEGIN_SRC emacs-lisp :tangle yes
+(defun config-visit ()
+  (interactive)
+  (find-file "~/.emacs.d/systemhalted.org"))
+(global-set-key (kbd "C-c e") 'config-visit)
+#+END_SRC
+*** Reload Config
+#+BEGIN_SRC emacs-lisp :tangle yes
+  (defun config-reload ()
+    "Reloads ~/.emacs.d/systemhalted.org at runtime"
+    (interactive)
+    (org-babel-load-file (expand-file-name "~/.emacs.d/systemhalted.org")))
+  (global-set-key (kbd "C-c r") 'config-reload)
+#+END_SRC
+*** Electric
+
+#+BEGIN_SRC emacs-lisp :tangle no
+  (setq electric-pair-pairs '(
+			     (?\{ . ?\})
+			     (?\( . ?\))
+			     (?\[ . ?\])
+			     (?\" . ?\")
+			     ))
+
+  (electric-pair-mode t)
+#+END_SRC
+*** Show  Parens
+#+BEGIN_SRC emacs-lisp :tangle yes
+  (show-paren-mode 1)
+#+END_SRC
+** Packages
+*** Which Key?
+#+BEGIN_SRC emacs-lisp :tangle yes
+
+  (use-package which-key				   
+    :init						   
+    (which-key-mode)					   
+    :config						   
+    (which-key-setup-side-window-bottom)		   
+    (setq which-key-sort-order 'which-key-key-order-alpha 
+          which-key-side-window-max-width 0.33		   
+          which-key-idle-delay 0.05)			   
+    :diminish which-key-mode)				  
+ 
+
+#+END_SRC
+*** Helm
+
+#+BEGIN_SRC emacs-lisp :tangle yes
+(use-package helm 
+  :ensure t
+  :bind
+  ("C-x C-f" . 'helm-find-files)
+  ("C-x C-b" . 'helm-buffers-list)
+  ("M-x" . 'helm-M-x)
+  :config
+  (defun systemhalted/helm-hide-minibuffer ()
+    (when (with-helm-buffer helm-echo-input-in-header-line)
+      (let ((ov (make-overlay (point-min) (point-max) nil nil t)))
+        (overlay-put ov 'window (selected-window))
+        (overlay-put ov 'face
+                     (let ((bg-color (face-background 'default nil)))
+                       `(:background ,bg-color :foreground ,bg-color)))
+        (setq-local cursor-type nil))))
+  (add-hook 'helm-minibuffer-set-up-hook 'systemhalted/helm-hide-minibuffer)
+  (setq helm-autoresize-max-height 0
+        helm-autoresize-min-height 40
+        helm-M-x-fuzzy-match t
+        helm-buffers-fuzzy-matching t
+        helm-recentf-fuzzy-match t
+        helm-semantic-fuzzy-match t
+        helm-imenu-fuzzy-match t
+        helm-split-window-in-side-p nil
+        helm-move-to-line-cycle-in-source nil
+        helm-ff-search-library-in-sexp t
+        helm-scroll-amount 8 
+        helm-echo-input-in-header-line t)
+  :init
+  (helm-mode 1))
+
+(require 'helm-config)    
+(helm-autoresize-mode 1)
+(define-key helm-find-files-map (kbd "C-b") 'helm-find-files-up-one-level)
+(define-key helm-find-files-map (kbd "C-f") 'helm-execute-persistent-action)
+
+#+END_SRC
+*** SMEX
+ #+BEGIN_SRC emacs-lisp :tangle yes
    (use-package smex
       :ensure t
       :init (smex-initialize)
@@ -252,37 +499,37 @@ decided to start with setting up org-mode first
       ("M-x" . smex))
  #+END_SRC
 
-**** iBuffer
+*** iBuffer
 Before iPhone, there was iBuffer
 
-#+BEGIN_SRC emacs-lisp
+#+BEGIN_SRC emacs-lisp :tangle yes
  (global-set-key (kbd "C-x b") 'ibuffer)
  (setq ibuffer-expert t)
 #+END_SRC 
 
-**** Ivy
+*** Ivy
 
-#+BEGIN_SRC emacs-lisp
+#+BEGIN_SRC emacs-lisp :tangle yes
   (use-package ivy
         :demand t)
 #+END_SRC
 
-**** Magit
+*** Magit
  The magical git client. Let's load magit only when one of the several entry pont
  functions we invoke regularly outside of magit is called.
 
- #+BEGIN_SRC emacs-lisp
+ #+BEGIN_SRC emacs-lisp :tangle yes
  
  (use-package magit
   :commands (magit-status magit-blame magit-log-buffer-file magit-log-all))
 
  #+END_SRC
 
-**** Projectile
+*** Projectile
  Projectile is a quick and easy project management package that "just works". We're
  going to install it and make sure it's loaded immediately.
 
- #+BEGIN_SRC emacs-lisp
+ #+BEGIN_SRC emacs-lisp :tangle yes
 (use-package projectile
   :ensure t
   :bind-keymap
@@ -291,12 +538,12 @@ Before iPhone, there was iBuffer
   (projectile-mode +1))
  #+END_SRC
 
-**** Org
+*** Org
  Let's include a newer version of org-mode than the one that is built in. We're going
  to manually remove the org directories from the load path, to ensure the version we
  want is prioritized instead.
 
- #+BEGIN_SRC emacs-lisp
+ #+BEGIN_SRC emacs-lisp :tangle yes
       (use-package org
          :ensure org-plus-contrib
          :pin org
@@ -313,7 +560,7 @@ Before iPhone, there was iBuffer
 							                 ("T" "Tickler" entry
 									       (file+headline "~/org/tickler.org" "Tickler")
 									       "* %i%? \n %U"))
-				org-todo-keywords '((sequence "TODO(t)" "IN-PROGRESS" "WAITING(w)" "|" "DONE(d)" "CANCELLED(c)" "HOLD(h)")))
+				org-todo-keywords '((sequence "TODO(t)" "Started(s)" "WAITING(w)" "|" "DONE(d)" "CANCELLED(c)" "HOLD(h)")))
          :init
              (define-key global-map (kbd "C-c l") 'org-store-link)
              (define-key global-map (kbd "C-c a") 'org-agenda)
@@ -326,36 +573,36 @@ Before iPhone, there was iBuffer
 			   ))
 
  #+END_SRC 
-** Org Bullets
+*** Org Bullets
 Makes it all look a bit nicer, I hate looking at asterisks.
-#+BEGIN_SRC emacs-lisp
+#+BEGIN_SRC emacs-lisp :tangle yes
   (use-package org-bullets
     :ensure t
     :config
-      (add-hook 'org-mode-hook (lambda () (org-bullets-mode))))
+      (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
 #+END_SRC
-**** Toc-org
+*** Toc-org
 Let's install and load the =toc-org= package after org mode is loaded. This is the
 package that automatically generates an up to date table of contents for us.
 
-#+BEGIN_SRC emacs-lisp
+#+BEGIN_SRC emacs-lisp :tangle yes
 (use-package toc-org
   :after org
   :init (add-hook 'org-mode-hook #'toc-org-enable))
 #+END_SRC
 
-**** Org-sidebar
+*** Org-sidebar
 When I write, I need a map of the document or the table of content on the side. Org-sidebar helps with that:
 
-#+BEGIN_SRC emacs-lisp
+#+BEGIN_SRC emacs-lisp :tangle yes
 (use-package org-sidebar
   :custom (org-sidebar-tree-side 'left))
 #+END_SRC
 
-**** Nov Mode 
+*** Nov Mode 
 I prefer reading EPUB books on Emacs. Nov Mode allows me do that
 
-#+BEGIN_SRC emacs-lisp
+#+BEGIN_SRC emacs-lisp :tangle yes
 (use-package nov 
   :demand t)
 
@@ -365,10 +612,10 @@ I prefer reading EPUB books on Emacs. Nov Mode allows me do that
 (setq nov-unzip-program "/usr/bin/unzip") ;;nov needs to know the location of unzip package
 #+END_SRC
 
-**** define-word
+*** define-word
 Word and their meanings and what better way to have this information at point. 
 
-#+BEGIN_SRC emacs-lisp
+#+BEGIN_SRC emacs-lisp :tangle no
 (use-package define-word
   :defer t
   :ensure t
@@ -377,8 +624,8 @@ Word and their meanings and what better way to have this information at point.
 
 #+END_SRC
 
-**** Treemacs
-#+BEGIN_SRC emacs-lisp
+*** Treemacs
+#+BEGIN_SRC emacs-lisp :tangle yes
 (use-package treemacs 
    :init
    (add-hook 'treemacs-mode-hook
@@ -386,11 +633,13 @@ Word and their meanings and what better way to have this information at point.
 
 #+END_SRC
 
-**** IDLE-HIGHLIGHT
+*** IDLE-HIGHLIGHT
 
-#+BEGIN_SRC emacs-lisp
+#+BEGIN_SRC emacs-lisp :tangle yes
 (use-package idle-highlight)
 #+END_SRC
+
+
 ** Communication
 **** Slack
 #+BEGIN_SRC emacs-lisp :tangle no
@@ -422,296 +671,17 @@ Word and their meanings and what better way to have this information at point.
     (setq alert-default-style 'notifier))
 #+END_SRC
 
-** Keymapping
 
-**** Map Caps Lock to Ctrl
-Disabled as I control this through Mac settings. 
-#+BEGIN_SRC emacs-lisp :tangle no
-(mac-control-modifier)
-#+END_SRC
-** UI Customization
-
-Some of these settings were copied from Sergei Nosov's [[https://github.com/snosov1/dot-emacs#ui-customization][configurations.]]
-
-*** Lean and mean
-Emacs doesn’t need a lot of UI elements - it should be lean and mean. Well, and clean. 
-**** Disable startup/splash screen
-#+BEGIN_SRC emacs-lisp
-(setq inhibit-startup-screen t)
-#+END_SRC
-
-**** Setup initial major mode to Org-mode
-#+BEGIN_SRC emacs-lisp 
-(setq-default initial-major-mode (quote org-mode))
-#+END_SRC
-
-**** Remove scratch message
-#+BEGIN_SRC emacs-lisp
-(setq-default initial-scratch-message nil)
-#+END_SRC
-
-**** Disable Unnecessary Interface
-#+BEGIN_SRC emacs-lisp
-(menu-bar-mode -1)
-(tool-bar-mode -1)
-(unless (and (display-graphic-p) (eq system-type 'darwin))
-  (push '(menu-bar-lines . 0) default-frame-alist))
-(push '(tool-bar-lines . 0) default-frame-alist)
-(push '(vertical-scroll-bars) default-frame-alist)
-#+END_SRC
-**** Reduce the delay echoing the keystrokes
-When you press C-x, for example, and hesitate with a next character, C-x will be displayed in the echo-area after some time. But I don’t see any reason why you should wait for it.
-#+BEGIN_SRC emacs-lisp
-(setq echo-keystrokes 0.00111)
-#+END_SRC
-**** Join following line
-
-#+BEGIN_SRC emacs-lisp
-(define-key global-map (kbd "C-c j")
-  (defun join-following-line (arg)
-    "Joins the following line or the whole selected region"
-    (interactive "P")
-    (if (use-region-p)
-        (let ((fill-column (point-max)))
-          (fill-region (region-beginning) (region-end)))
-      (join-line -1))))
-#+END_SRC
-
-**** Full Screen
-#+BEGIN_SRC emacs-lisp
-  (toggle-frame-fullscreen)
-  (add-to-list 'default-frame-alist '(fullscreen . fullboth))
-;;(add-hook 'window-setup-hook 'toggle-frame-maximized t).
-#+END_SRC
-
-#+RESULTS:
-: ((fullscreen . maximized))
-
-*** PDF
-#+BEGIN_SRC emacs-lisp
-  (setq doc-view-continuous t)
-#+END_SRC
-*** Theme
-
-#+BEGIN_SRC emacs-lisp :tangle no
-(use-package ample-theme 
-  :init (progn (load-theme 'ample t t)
-               (load-theme 'ample-flat t t)
-               (load-theme 'ample-light t t)
-               (enable-theme 'ample-light))
-  :defer t
-  :ensure t)
-#+END_SRC
-
-#+BEGIN_SRC emacs-lisp :tangle no
-(use-package spacemacs-common
-    :ensure spacemacs-theme
-    :config (load-theme 'spacemacs-light t))
-#+END_SRC
-
-#+BEGIN_SRC emacs-lisp :tangle yes
-(use-package leuven-theme
-   :config (load-theme 'leuven t))
-#+END_SRC
-
-*** Fonts
-
-DejaVu fonts family is the best one out there. And DejaVu Sans Mono is its brightest child:
-
-- it’s sans-serif
-- it’s mono-space
-- it covers a great amount of Unicode symbols
-- it’s community-driven and MIT/public domain licensed
-- it makes l, 1 and I clearly distinguishable, as well as 0 and O
-- it’s beautiful
-
-Basically, DejaVu Sans Mono is a “font done right” for technical work.
-
-NOTE: This has been disabled because it messes up some of the things like the embedded calendar
-
-#+BEGIN_SRC emacs-lisp :tangle no
-(set-face-attribute 'default nil :family "DejaVu Sans Mono")
-(set-face-attribute 'default nil :height 165)
-#+END_SRC
-
-*** Forbidden Fruit
-This setting modifies the Mac key to act like Meta key. I am just keeping it here for reference. I am not going to modify it though. See /:tangle no/, it will not put it in the compiled /emacs.el/ file.
-
-#+BEGIN_SRC emacs-lisp :tangle no
-(setq-default mac-command-modifier 'meta)
-#+END_SRC 
-*** Line Numbers
-Display line numbers, and column numbers in modeline.
-
-#+BEGIN_SRC emacs-lisp                                                                                            
-;; Hook line numbers to only when files are opened, also use linum-mode for emacs-version< 26
-(if (version< emacs-version "26")
-    (global-linum-mode)
-  (add-hook 'text-mode-hook #'display-line-numbers-mode)
-  (add-hook 'prog-mode-hook #'display-line-numbers-mode))
-;; Display column numbers in modeline
-(column-number-mode 1)                                                                                     
-#+END_SRC
-*** Modeline Time and Battery
-#+BEGIN_SRC emacs-lisp
-(display-time-mode 1)
-(display-battery-mode 1)
-
-#+END_SRC
-*** Spaceline
-#+BEGIN_SRC emacs-lisp
-(use-package spaceline
-  :ensure t
-  :config
-  (require 'spaceline-config)
-    (setq spaceline-buffer-encoding-abbrev-p nil)
-    (setq spaceline-line-column-p nil)
-    (setq spaceline-line-p nil)
-    (setq powerline-default-separator (quote arrow))
-    (spaceline-spacemacs-theme))
-#+END_SRC
-*** Cursor Position
-#+BEGIN_SRC emacs-lisp
-(setq line-number-mode t)
-(setq column-number-mode t)
-#+END_SRC
-** Text Manipulation
-*** Move text
-Most of the time, I need to move a the text up an down a bit. There is a /transpose-line/ command that maps to /C-x C-t/, which is cumbersome and most of the time it messes-up with my flow. So, here we will map it to /M-n/ and /M-p/ following the convention of movement keys. 
-Note: If you need to move the text to some pretty distant place, then, of course, it’s easier to kill and yank it.
-
-#+BEGIN_SRC emacs-lisp
-(eval-after-load "move-text-autoloads"
-  '(progn
-     (if (require 'move-text nil t)
-         (progn
-           (define-key global-map (kbd "M-n") 'move-text-down)
-           (define-key global-map (kbd "M-p") 'move-text-up))
-       (message "WARNING: move-text not found"))))
-#+END_SRC
-
-*** Duplicate the current line
- Equivalent of Ctrl+d (Command+d on Mac)
- Source: https://www.emacswiki.org/emacs/CopyingWholeLines#toc12
-
- #+BEGIN_SRC emacs-lisp 
- (define-key global-map (kbd "C-c k")
-   (defun systemhalted/duplicate-line-or-region (&optional n)
-       "Duplicate current line, or region if active.
-     With argument N, make N copies.
-     With negative N, comment out original line and use the absolute value."
-       (interactive "*p")
-       (let ((use-region (use-region-p)))
-         (save-excursion
-           (let ((text (if use-region        ;Get region if active, otherwise line
-                           (buffer-substring (region-beginning) (region-end))
-                         (prog1 (thing-at-point 'line)
-                           (end-of-line)
-                           (if (< 0 (forward-line 1)) ;Go to beginning of next line, or make a new one
-                               (newline))))))
-             (dotimes (i (abs (or n 1)))     ;Insert N times, or once if not specified
-               (insert text))))
-         (if use-region nil                  ;Only if we're working with a line (not a region)
-           (let ((pos (- (point) (line-beginning-position)))) ;Save column
-             (if (> 0 n)                             ;Comment out original with negative arg
-                 (comment-region (line-beginning-position) (line-end-position)))
-             (forward-line 1)
-             (forward-char pos))))))
- #+END_SRC
-
-*** String manipulations
-Emacs 24.4 came with a subr-x library with routines for string manipulations, like string-trim, string-join and etc. It’s better to always have these at hand.
-
-#+BEGIN_SRC emacs-lisp
-(require 'subr-x nil t)
-#+END_SRC
-
-** Shortcuts, Longcuts, Miscellaneous Configs
-*** Clipboard. Copy from terminal emacs to the X clipboard.
-#+BEGIN_SRC emacs-lisp
-(use-package xclip
-  :ensure t
-  :config
-  (xclip-mode 1))
-
-#+END_SRC
-*** Simplify Yes/No Prompts
-#+BEGIN_SRC emacs-lisp
-(fset 'yes-or-no-p 'y-or-n-p)
-#+END_SRC
-
-*** But make it hard to accidentally exit
-#+BEGIN_SRC emacs-lisp
-(setq-default confirm-kill-emacs (quote y-or-n-p))
-#+END_SRC
-
-*** Make finding file easy
-#+BEGIN_SRC emacs-lisp
-(global-set-key (kbd "C-x f")    'find-file)
-#+END_SRC
-
-*** UTF-8 Coding System
-Use UTF-8 as much as possible with unix line endings.
-*** Shut up the bell
-#+BEGIN_SRC emacs-lisp
-(setq ring-bell-function 'ignore) ;; shut up the bell
-#+END_SRC
-
-*** Disabled Commands
-Change nil to t to disable the command. 
-Note: currently not using it. But this is the way to do it
-#+BEGIN_SRC emacs-lisp :tangle no
-(put 'upcase-region 'disabled nil) 
-#+END_SRC
-
-*** Always kill the buffer
-#+BEGIN_SRC emacs-lisp
-(defun kill-current-buffer ()
-  "Kills the current buffer."
-  (interactive)
-  (kill-buffer (current-buffer)))
-(global-set-key (kbd "C-x k") 'kill-current-buffer)
-#+END_SRC
-*** Visit systemhalted.org
-#+BEGIN_SRC emacs-lisp
-(defun config-visit ()
-  (interactive)
-  (find-file "~/.emacs.d/systemhalted.org"))
-(global-set-key (kbd "C-c e") 'config-visit)
-#+END_SRC
-*** Reload Config
-#+BEGIN_SRC emacs-lisp
-  (defun config-reload ()
-    "Reloads ~/.emacs.d/systemhalted.org at runtime"
-    (interactive)
-    (org-babel-load-file (expand-file-name "~/.emacs.d/systemhalted.org")))
-  (global-set-key (kbd "C-c r") 'config-reload)
-#+END_SRC
-*** Electric
-
-#+BEGIN_SRC emacs-lisp
-  (setq electric-pair-pairs '(
-			     (?\{ . ?\})
-			     (?\( . ?\))
-			     (?\[ . ?\])
-			     (?\" . ?\")
-			     ))
-
-  (electric-pair-mode t)
-#+END_SRC
-*** Show  Parens
-#+BEGIN_SRC emacs-lisp
-  (show-paren-mode 1)
-#+END_SRC
 ** Custom Functions
 **** SpeedTest
-#+BEGIN_SRC emacs-lisp
+#+BEGIN_SRC emacs-lisp :tangle yes
 (load "setup-speedtest.el")
 #+END_SRC
 
+
 ** Programming
 *** yasnippet
-#+BEGIN_SRC emacs-lisp
+#+BEGIN_SRC emacs-lisp  :tangle yes
     (use-package yasnippet
       :ensure t
       :config
@@ -721,7 +691,7 @@ Note: currently not using it. But this is the way to do it
 #+END_SRC
 
 *** flycheck
-#+BEGIN_SRC emacs-lisp
+#+BEGIN_SRC emacs-lisp :tangle yes
   (use-package flycheck
     :ensure t)
 #+END_SRC
@@ -730,24 +700,24 @@ Note: currently not using it. But this is the way to do it
 I set the delay for company mode to kick in to half a second, I also make sure that
 it starts doing its magic after typing in only 2 characters.
 
-#+BEGIN_SRC emacs-lisp
+#+BEGIN_SRC emacs-lisp :tangle yes
   (use-package company
     :ensure t
     :config
     (setq company-idle-delay 0)
     (setq company-minimum-prefix-length 3))
 
-  ;; (with-eval-after-load 'company
-  ;;   (define-key company-active-map (kbd "M-n") nil)
-  ;;   (define-key company-active-map (kbd "M-p") nil)
-  ;;   (define-key company-active-map (kbd "C-n") #'company-select-next)
-  ;;   (define-key company-active-map (kbd "C-p") #'company-select-previous)
-  ;;   (define-key company-active-map (kbd "SPC") #'company-abort))
+   (with-eval-after-load 'company
+   (define-key company-active-map (kbd "M-n") nil)
+   (define-key company-active-map (kbd "M-p") nil)
+   (define-key company-active-map (kbd "C-n") #'company-select-next)
+   (define-key company-active-map (kbd "C-p") #'company-select-previous)
+   (define-key company-active-map (kbd "SPC") #'company-abort))
 #+END_SRC
 
 *** Languages
 **** C/C++
-#+BEGIN_SRC emacs-lisp
+#+BEGIN_SRC emacs-lisp :tangle yes
   (add-hook 'c++-mode-hook 'yas-minor-mode)
   (add-hook 'c-mode-hook 'yas-minor-mode)
 
@@ -779,7 +749,6 @@ it starts doing its magic after typing in only 2 characters.
     (add-hook 'c-mode-hook 'irony-mode)
     (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options))
 #+END_SRC
-
 
 **** Haskell
 
@@ -827,17 +796,16 @@ it starts doing its magic after typing in only 2 characters.
 
 **** Easy-to-add emacs-lisp template
 Hitting tab after an "<el" in an org-mode file will create a template for elisp insertion.
-#+BEGIN_SRC emacs-lisp
+#+BEGIN_SRC emacs-lisp :tangle yes
   (add-to-list 'org-structure-template-alist
 	       '("el" "#+BEGIN_SRC emacs-lisp\n?\n#+END_SRC"))
 #+END_SRC
-
 
 ** Post Initialization
 **** Garbage Collection
 Let's lower our GC thresholds back down to a sane level.
 
-#+BEGIN_SRC emacs-lisp
+#+BEGIN_SRC emacs-lisp :tangle yes
 (setq gc-cons-threshold 16777216
       gc-cons-percentage 0.1)
 #+END_SRC
