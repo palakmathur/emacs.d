@@ -1,4 +1,4 @@
-#+TITLE: systemhalted's  personal emacs config
+#+TITLE: systemhalted's personal emacs config
 #+AUTHOR: systemhalted
 #+Language: en
 #+PROPERTY: header-args :tangle yes
@@ -8,7 +8,7 @@
 :VISIBILITY: children
 :END:
 
-* Table of Contents    :noexport:
+* Table of Contents    :TOC_5_gh: :noexport:
 - [[#why-emacs][Why Emacs?]]
 - [[#about][About]]
 - [[#configurations][Configurations]]
@@ -71,7 +71,7 @@
     - [[#idle-highlight][IDLE-HIGHLIGHT]]
   - [[#communication][Communication]]
       - [[#slack][Slack]]
-  - [[#custom-functions][Custom Functions]]
+ - [[#custom-functions][Custom Functions]]
       - [[#speedtest][SpeedTest]]
   - [[#programming][Programming]]
     - [[#yasnippet][yasnippet]]
@@ -637,6 +637,11 @@ Word and their meanings and what better way to have this information at point.
 
 #+BEGIN_SRC emacs-lisp :tangle yes
 (use-package idle-highlight)
+#+END_SRC
+
+*** Font-lock
+#+BEGIN_SRC emacs-lisp :tangle yes
+  (require 'font-lock)
 #+END_SRC
 
 
