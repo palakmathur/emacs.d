@@ -229,7 +229,6 @@ When you press C-x, for example, and hesitate with a next character, C-x will be
 ;;(add-hook 'window-setup-hook 'toggle-frame-maximized t).
 #+END_SRC
 
-
 *** PDF
 #+BEGIN_SRC emacs-lisp :tangle yes
   (setq doc-view-continuous t)
@@ -539,6 +538,8 @@ Before iPhone, there was iBuffer
  #+END_SRC
 
 *** Org
+
+**** Org Agenda and Todo setup
  Let's include a newer version of org-mode than the one that is built in. We're going
  to manually remove the org directories from the load path, to ensure the version we
  want is prioritized instead.
@@ -573,15 +574,24 @@ Before iPhone, there was iBuffer
 			   ))
 
  #+END_SRC 
-*** Org Bullets
-Makes it all look a bit nicer, I hate looking at asterisks.
+
+**** Code editing in same window
+#+begin_src emacs-lisp
+  (setq org-src-window-setup 'current-window)
+#+end_src
+**** Org Tempo
+    Makes it all look a bit nicer, I hate looking at asterisks.
 #+BEGIN_SRC emacs-lisp :tangle yes
   (use-package org-bullets
     :ensure t
-    :config
-      (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
+    :hook
+       (org-bullets-mode))
 #+END_SRC
-*** Toc-org
+**** Org Bullets
+  #+begin_src emacs-lisp :tangle yes
+    (require 'org-tempo)
+  #+end_src
+**** Toc-org
 Let's install and load the =toc-org= package after org mode is loaded. This is the
 package that automatically generates an up to date table of contents for us.
 
@@ -591,7 +601,7 @@ package that automatically generates an up to date table of contents for us.
   :init (add-hook 'org-mode-hook #'toc-org-enable))
 #+END_SRC
 
-*** Org-sidebar
+**** Org-sidebar
 When I write, I need a map of the document or the table of content on the side. Org-sidebar helps with that:
 
 #+BEGIN_SRC emacs-lisp :tangle yes
@@ -615,7 +625,7 @@ I prefer reading EPUB books on Emacs. Nov Mode allows me do that
 *** define-word
 Word and their meanings and what better way to have this information at point. 
 
-#+BEGIN_SRC emacs-lisp :tangle no
+#+BEGIN_SRC emacs-lisp :tangle yes
 (use-package define-word
   :defer t
   :ensure t
@@ -803,7 +813,7 @@ it starts doing its magic after typing in only 2 characters.
 Hitting tab after an "<el" in an org-mode file will create a template for elisp insertion.
 #+BEGIN_SRC emacs-lisp :tangle yes
   (add-to-list 'org-structure-template-alist
-	       '("el" "#+BEGIN_SRC emacs-lisp\n?\n#+END_SRC"))
+	       '("el" .  "#+BEGIN_SRC emacs-lisp\n?\n#+END_SRC"))
 #+END_SRC
 
 ** Post Initialization
@@ -814,3 +824,9 @@ Let's lower our GC thresholds back down to a sane level.
 (setq gc-cons-threshold 16777216
       gc-cons-percentage 0.1)
 #+END_SRC
+
+#+begin_src emacs-lisp
+
+#+end_src
+
+
