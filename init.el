@@ -1,8 +1,15 @@
 ;;; init.el --- -*- lexical-binding: t -*-,.
+
+;; Customizations
 (add-to-list 'load-path "~/.emacs.d/customizations")
+;; -Customizations
 (load "setup-proxy.el")
 
+
+;; OrgBabel
 (org-babel-load-file "~/.emacs.d/systemhalted.org")
+;; -OrgBabel
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

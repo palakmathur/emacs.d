@@ -3,10 +3,10 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-09-13 Sun 18:53 -->
+<!-- 2020-09-14 Mon 23:02 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>systemhalted's  personal emacs config</title>
+<title>systemhalted's personal emacs config</title>
 <meta name="generator" content="Org mode" />
 <meta name="author" content="systemhalted" />
 <style type="text/css">
@@ -242,99 +242,96 @@ for the JavaScript code in this tag.
 </head>
 <body>
 <div id="content">
-<h1 class="title">systemhalted's  personal emacs config</h1>
+<h1 class="title">systemhalted's personal emacs config</h1>
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgd4b19d2">1. Why Emacs?</a></li>
-<li><a href="#org6f4f3e0">2. About</a></li>
-<li><a href="#orgba3c873">3. Configurations</a>
+<li><a href="#org3f4ffe5">1. Why Emacs?</a></li>
+<li><a href="#org0621e26">2. About</a></li>
+<li><a href="#org58c15fe">3. Configurations</a>
 <ul>
-<li><a href="#orgc95c414">3.1. About this file</a>
+<li><a href="#org5821354">3.1. About this file</a>
 <ul>
-<li><a href="#orgd0d7832">3.1.1. Org File Tweaks</a></li>
+<li><a href="#orgcbfd699">3.1.1. Org File Tweaks</a></li>
 </ul>
 </li>
-<li><a href="#orgcfd6ab6">3.2. Global Settings</a>
+<li><a href="#orgd4edea5">3.2. Global Settings</a>
 <ul>
-<li><a href="#org196cd3b">3.2.1. Setup Proxy</a></li>
-<li><a href="#orgc2eaa0f">3.2.2. Garbage Collection</a></li>
-<li><a href="#org694acdd">3.2.3. Package Configuration</a></li>
-<li><a href="#org7f268e0">3.2.4. Install and Configure use-package</a></li>
+<li><a href="#orgcdb5d37">3.2.1. Load Customizations from folder</a></li>
+<li><a href="#org6dcc586">3.2.2. Setup Proxy</a></li>
+<li><a href="#orge8d0c78">3.2.3. Package Configuration</a></li>
+<li><a href="#org91bce27">3.2.4. Install and Configure use-package</a></li>
 </ul>
 </li>
-<li><a href="#org2c0f3ed">3.3. UI Customization</a>
+<li><a href="#org993c8d3">3.3. UI Customization</a>
 <ul>
-<li><a href="#orgd56c3f4">3.3.1. Lean and mean</a></li>
-<li><a href="#orgc943406">3.3.2. PDF</a></li>
-<li><a href="#org7fb41bb">3.3.3. Theme</a></li>
-<li><a href="#orgefe60ea">3.3.4. Modeline Time and Battery</a></li>
-<li><a href="#orgd706e1e">3.3.5. Spaceline</a></li>
-<li><a href="#org4b456c8">3.3.6. Cursor Position</a></li>
+<li><a href="#org230cee9">3.3.1. Lean and mean</a></li>
+<li><a href="#orgfb50505">3.3.2. PDF</a></li>
+<li><a href="#org2b94fc7">3.3.3. Theme</a></li>
+<li><a href="#org7f25e16">3.3.4. Modeline Time and Battery</a></li>
+<li><a href="#orgc931503">3.3.5. Spaceline</a></li>
+<li><a href="#org100ad3e">3.3.6. Cursor Position</a></li>
 </ul>
 </li>
-<li><a href="#orgd193f8d">3.4. Text Manipulation</a>
+<li><a href="#org8695d7e">3.4. Text Manipulation</a>
 <ul>
-<li><a href="#orgd9a7441">3.4.1. Move text</a></li>
-<li><a href="#orgeb5b0bf">3.4.2. Duplicate the current line</a></li>
-<li><a href="#orgcce6b7b">3.4.3. String manipulations</a></li>
+<li><a href="#orga4ce5b6">3.4.1. Move text</a></li>
+<li><a href="#orga4a59a7">3.4.2. Duplicate the current line</a></li>
+<li><a href="#orgb1cf6e7">3.4.3. String manipulations</a></li>
 </ul>
 </li>
-<li><a href="#orgfbf7710">3.5. Shortcuts, Longcuts, Miscellaneous Configs</a>
+<li><a href="#org0f54748">3.5. Shortcuts, Longcuts, Miscellaneous Configs</a>
 <ul>
-<li><a href="#org0312c01">3.5.1. Clipboard. Copy from terminal emacs to the X clipboard.</a></li>
-<li><a href="#orgeead915">3.5.2. Simplify Yes/No Prompts</a></li>
-<li><a href="#org0ad8fc3">3.5.3. But make it hard to accidentally exit</a></li>
-<li><a href="#orge4b3dc2">3.5.4. Make finding file easy</a></li>
-<li><a href="#orgfad2adf">3.5.5. UTF-8 Coding System</a></li>
-<li><a href="#org499048c">3.5.6. Shut up the bell</a></li>
-<li><a href="#org3ee970d">3.5.7. Disabled Commands</a></li>
-<li><a href="#org54656d2">3.5.8. Always kill the buffer</a></li>
-<li><a href="#orgae740cf">3.5.9. Visit systemhalted.org</a></li>
-<li><a href="#org1c0fb4b">3.5.10. Reload Config</a></li>
-<li><a href="#org96b93b3">3.5.11. Electric</a></li>
-<li><a href="#orge880ffe">3.5.12. Show  Parens</a></li>
+<li><a href="#orga3ad15d">3.5.1. Clipboard. Copy from terminal emacs to the X clipboard.</a></li>
+<li><a href="#org5ae3607">3.5.2. Simplify Yes/No Prompts</a></li>
+<li><a href="#org77a8b7c">3.5.3. But make it hard to accidentally exit</a></li>
+<li><a href="#org8a79064">3.5.4. Make finding file easy</a></li>
+<li><a href="#org5fedc67">3.5.5. UTF-8 Coding System</a></li>
+<li><a href="#org8b01461">3.5.6. Shut up the bell</a></li>
+<li><a href="#org089de79">3.5.7. Disabled Commands</a></li>
+<li><a href="#orgb925723">3.5.8. Always kill the buffer</a></li>
+<li><a href="#org19bab8e">3.5.9. Visit systemhalted.org</a></li>
+<li><a href="#org831068a">3.5.10. Reload Config</a></li>
+<li><a href="#orgcf56f5d">3.5.11. Electric</a></li>
+<li><a href="#org46eb5eb">3.5.12. Show  Parens</a></li>
 </ul>
 </li>
-<li><a href="#org8bdf0a8">3.6. Packages</a>
+<li><a href="#orgb5c353b">3.6. Packages</a>
 <ul>
-<li><a href="#org48fb972">3.6.1. Which Key?</a></li>
-<li><a href="#orgd6410ec">3.6.2. Helm</a></li>
-<li><a href="#orgcb9acdd">3.6.3. SMEX</a></li>
-<li><a href="#org58cb113">3.6.4. iBuffer</a></li>
-<li><a href="#org2fe4807">3.6.5. Ivy</a></li>
-<li><a href="#orgcb4d77b">3.6.6. Magit</a></li>
-<li><a href="#org9f9ed45">3.6.7. Projectile</a></li>
-<li><a href="#org6c2c4d1">3.6.8. Org</a></li>
-<li><a href="#orgda23442">3.6.9. Org Bullets</a></li>
-<li><a href="#org4a09cba">3.6.10. Toc-org</a></li>
-<li><a href="#orge5187a0">3.6.11. Org-sidebar</a></li>
-<li><a href="#org18a25d2">3.6.12. Nov Mode</a></li>
-<li><a href="#orga12dfeb">3.6.13. define-word</a></li>
-<li><a href="#org816c298">3.6.14. Treemacs</a></li>
-<li><a href="#org548bb14">3.6.15. IDLE-HIGHLIGHT</a></li>
+<li><a href="#org59611d4">3.6.1. Which Key?</a></li>
+<li><a href="#org9b7b0aa">3.6.2. Helm</a></li>
+<li><a href="#orgbca154d">3.6.3. SMEX</a></li>
+<li><a href="#org685e00c">3.6.4. iBuffer</a></li>
+<li><a href="#org1150a72">3.6.5. Ivy</a></li>
+<li><a href="#org9370596">3.6.6. Magit</a></li>
+<li><a href="#org55c63ce">3.6.7. Projectile</a></li>
+<li><a href="#org08bed9e">3.6.8. Org</a></li>
+<li><a href="#org16d47b9">3.6.9. Nov Mode</a></li>
+<li><a href="#org9a0a4cf">3.6.10. define-word</a></li>
+<li><a href="#orgad243a7">3.6.11. Treemacs</a></li>
+<li><a href="#org058feef">3.6.12. IDLE-HIGHLIGHT</a></li>
+<li><a href="#org774f4c5">3.6.13. Font-lock</a></li>
 </ul>
 </li>
-<li><a href="#orgbb2f5bc">3.7. Communication</a></li>
-<li><a href="#orgbc4c766">3.8. Custom Functions</a></li>
-<li><a href="#org310ce3f">3.9. Programming</a>
+<li><a href="#orgb37f00e">3.7. Custom Functions</a></li>
+<li><a href="#orgae2ec75">3.8. Programming</a>
 <ul>
-<li><a href="#org3c75274">3.9.1. yasnippet</a></li>
-<li><a href="#org8e34986">3.9.2. flycheck</a></li>
-<li><a href="#org8515d6b">3.9.3. company mode</a></li>
-<li><a href="#orgd1918b0">3.9.4. Languages</a></li>
+<li><a href="#orgb082198">3.8.1. yasnippet</a></li>
+<li><a href="#orgd20dc75">3.8.2. flycheck</a></li>
+<li><a href="#orgb3e3353">3.8.3. company mode</a></li>
+<li><a href="#org6da420c">3.8.4. Languages</a></li>
 </ul>
 </li>
-<li><a href="#org2e59613">3.10. Post Initialization</a></li>
+<li><a href="#org9967b32">3.9. Post Initialization</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgd4b19d2" class="outline-2">
-<h2 id="orgd4b19d2"><span class="section-number-2">1</span> Why Emacs?</h2>
+<div id="outline-container-org3f4ffe5" class="outline-2">
+<h2 id="org3f4ffe5"><span class="section-number-2">1</span> Why Emacs?</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 I started using Emacs in 2010 and my relationship with it has been on and off. I mostly use Jetbrains IntelliJ IDEA
@@ -346,8 +343,8 @@ there is a huge community to help, guide and support you.
 </div>
 </div>
 
-<div id="outline-container-org6f4f3e0" class="outline-2">
-<h2 id="org6f4f3e0"><span class="section-number-2">2</span> About</h2>
+<div id="outline-container-org0621e26" class="outline-2">
+<h2 id="org0621e26"><span class="section-number-2">2</span> About</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 This is my personal Emacs configuration. Over past few years, I had been using Emacs configuration by others.
@@ -360,16 +357,16 @@ decided to start with setting up org-mode first
 </p>
 </div>
 </div>
-<div id="outline-container-orgba3c873" class="outline-2">
-<h2 id="orgba3c873"><span class="section-number-2">3</span> Configurations</h2>
+<div id="outline-container-org58c15fe" class="outline-2">
+<h2 id="org58c15fe"><span class="section-number-2">3</span> Configurations</h2>
 <div class="outline-text-2" id="text-3">
 </div>
-<div id="outline-container-orgc95c414" class="outline-3">
-<h3 id="orgc95c414"><span class="section-number-3">3.1</span> About this file</h3>
+<div id="outline-container-org5821354" class="outline-3">
+<h3 id="org5821354"><span class="section-number-3">3.1</span> About this file</h3>
 <div class="outline-text-3" id="text-3-1">
 </div>
-<div id="outline-container-orgd0d7832" class="outline-4">
-<h4 id="orgd0d7832"><span class="section-number-4">3.1.1</span> Org File Tweaks</h4>
+<div id="outline-container-orgcbfd699" class="outline-4">
+<h4 id="orgcbfd699"><span class="section-number-4">3.1.1</span> Org File Tweaks</h4>
 <div class="outline-text-4" id="text-3-1-1">
 <p>
 There are a few tweaks included in this org file that make it a little easier to
@@ -378,7 +375,7 @@ work with.
 </div>
 
 <ol class="org-ol">
-<li><a id="orgfbfc11b"></a>Automatically Tangle<br />
+<li><a id="orgd612ded"></a>Automatically Tangle<br />
 <div class="outline-text-5" id="text-3-1-1-1">
 <p>
 First there is a property defined on the file:
@@ -397,7 +394,7 @@ generating the code for the config, unless the code block explicitly includes
 </div>
 </li>
 
-<li><a id="orgb008168"></a>Visibility Settings<br />
+<li><a id="orge19b38e"></a>Visibility Settings<br />
 <div class="outline-text-5" id="text-3-1-1-2">
 <p>
 Next we have a property that defines the visibility for org to show it's direct children on startup. This way a clean outline of all
@@ -413,10 +410,10 @@ sub headings under Configuration is shown each time this file is opened in org-m
 </div>
 </li>
 
-<li><a id="org1d1b260"></a>Table of Contents<br />
+<li><a id="orgd36e226"></a>Table of Contents<br />
 <div class="outline-text-5" id="text-3-1-1-3">
 <p>
-Finally, there is a <a href="#org1d1b260">Table of Contents</a> heading that includes the tag: <code>:TOC_5_gh:</code>. This
+Finally, there is a <a href="#orgd36e226">Table of Contents</a> heading that includes the tag: <code>:TOC_5_gh:</code>. This
 tells an org-mode package <code>toc-org</code> to generate a table of contents under this heading
 that has a max depth of 3 and is created using Github-style hrefs. This table of contents
 is updated everytime the file is saved and makes for a functional table of contents that
@@ -424,29 +421,67 @@ works property directly on github.
 </p>
 </div>
 </li>
+
+<li><a id="org104162a"></a>Org Babel<br />
+<div class="outline-text-5" id="text-3-1-1-4">
+<p>
+This file is loaded using <i>org-babel</i>. Create <i>init.el</i> file in <i>.emacs.d</i> folder and put following code
+</p>
+
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(org-babel-load-file "~/.emacs.d/systemhalted.org")
+</pre>
+</div>
+</div>
+</li>
 </ol>
 </div>
 </div>
 
-<div id="outline-container-orgcfd6ab6" class="outline-3">
-<h3 id="orgcfd6ab6"><span class="section-number-3">3.2</span> Global Settings</h3>
+
+
+<div id="outline-container-orgd4edea5" class="outline-3">
+<h3 id="orgd4edea5"><span class="section-number-3">3.2</span> Global Settings</h3>
 <div class="outline-text-3" id="text-3-2">
 </div>
-<div id="outline-container-org196cd3b" class="outline-4">
-<h4 id="org196cd3b"><span class="section-number-4">3.2.1</span> Setup Proxy</h4>
+<div id="outline-container-orgcdb5d37" class="outline-4">
+<h4 id="orgcdb5d37"><span class="section-number-4">3.2.1</span> Load Customizations from folder</h4>
 <div class="outline-text-4" id="text-3-2-1">
 <p>
- I use Emacs on my work laptop and there is a firewall that I need to pass through. Proxy settings allow me to do that. Save the below code under <code>customizations</code> and call it <code>setup-proxy.el</code>
-;; #+INCLUDE: "~/.emacs.d/customizations/setup-proxy-template.el" src emacs-lisp :range-begin "HttpProxy" :range-end "-HttpProxy" :lines "2-11"
+I put some scripts in <i>customizations</i> folder. Lets load it. 
 </p>
+
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(add-to-list 'load-path "~/.emacs.d/customizations")
+</pre>
+</div>
 </div>
 </div>
 
-<div id="outline-container-orgc2eaa0f" class="outline-4">
-<h4 id="orgc2eaa0f"><span class="section-number-4">3.2.2</span> Garbage Collection</h4>
+<div id="outline-container-org6dcc586" class="outline-4">
+<h4 id="org6dcc586"><span class="section-number-4">3.2.2</span> Setup Proxy</h4>
+<div class="outline-text-4" id="text-3-2-2">
+<p>
+I use Emacs on my work laptop and there is a firewall that I need to pass through. Proxy settings allow me to do that. Save the below code under <code>customizations</code> and call it <code>setup-proxy.el</code>
+</p>
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">;; HttpProxy
+(setq url-proxy-services
+      '(("no_proxy" . "^\\(localhost\\|10.*\\)")
+	("http" . "proxy:port")
+	("https" . "proxy:prt")))
+
+(setq url-http-proxy-basic-auth-storage
+      (list (list "proxy:port"
+		  (cons "Input your LDAP UID !"
+			(base64-encode-string "UserName:Password")))))
+</pre>
 </div>
-<div id="outline-container-org694acdd" class="outline-4">
-<h4 id="org694acdd"><span class="section-number-4">3.2.3</span> Package Configuration</h4>
+</div>
+</div>
+
+<div id="outline-container-orge8d0c78" class="outline-4">
+<h4 id="orge8d0c78"><span class="section-number-4">3.2.3</span> Package Configuration</h4>
 <div class="outline-text-4" id="text-3-2-3">
 <p>
 Define package repositories
@@ -475,12 +510,9 @@ Define package repositories
 </div>
 </div>
 
-<div id="outline-container-org7f268e0" class="outline-4">
-<h4 id="org7f268e0"><span class="section-number-4">3.2.4</span> Install and Configure use-package</h4>
+<div id="outline-container-org91bce27" class="outline-4">
+<h4 id="org91bce27"><span class="section-number-4">3.2.4</span> Install and Configure use-package</h4>
 <div class="outline-text-4" id="text-3-2-4">
-<p>
-++
-</p>
 <div class="org-src-container">
 <pre class="src src-emacs-lisp">(unless (package-installed-p 'use-package)
       (package-refresh-contents)
@@ -493,23 +525,23 @@ Define package repositories
 </div>
 </div>
 
-<div id="outline-container-org2c0f3ed" class="outline-3">
-<h3 id="org2c0f3ed"><span class="section-number-3">3.3</span> UI Customization</h3>
+<div id="outline-container-org993c8d3" class="outline-3">
+<h3 id="org993c8d3"><span class="section-number-3">3.3</span> UI Customization</h3>
 <div class="outline-text-3" id="text-3-3">
 <p>
 Some of these settings were copied from Sergei Nosov's <a href="https://github.com/snosov1/dot-emacs#ui-customization">configurations.</a>
 </p>
 </div>
 
-<div id="outline-container-orgd56c3f4" class="outline-4">
-<h4 id="orgd56c3f4"><span class="section-number-4">3.3.1</span> Lean and mean</h4>
+<div id="outline-container-org230cee9" class="outline-4">
+<h4 id="org230cee9"><span class="section-number-4">3.3.1</span> Lean and mean</h4>
 <div class="outline-text-4" id="text-3-3-1">
 <p>
 Emacs doesn’t need a lot of UI elements - it should be lean and mean. Well, and clean. 
 </p>
 </div>
 <ol class="org-ol">
-<li><a id="orgdb8c263"></a>Disable startup/splash screen<br />
+<li><a id="orgc4ab5ff"></a>Disable startup/splash screen<br />
 <div class="outline-text-5" id="text-3-3-1-1">
 <div class="org-src-container">
 <pre class="src src-emacs-lisp">(setq inhibit-startup-screen t)
@@ -518,7 +550,7 @@ Emacs doesn’t need a lot of UI elements - it should be lean and mean. Well, an
 </div>
 </li>
 
-<li><a id="org149968b"></a>Setup initial major mode to Org-mode<br />
+<li><a id="org9edb182"></a>Setup initial major mode to Org-mode<br />
 <div class="outline-text-5" id="text-3-3-1-2">
 <div class="org-src-container">
 <pre class="src src-emacs-lisp">(setq-default initial-major-mode (quote org-mode))
@@ -527,7 +559,7 @@ Emacs doesn’t need a lot of UI elements - it should be lean and mean. Well, an
 </div>
 </li>
 
-<li><a id="orge9bec7b"></a>Remove scratch message<br />
+<li><a id="orgda3efc3"></a>Remove scratch message<br />
 <div class="outline-text-5" id="text-3-3-1-3">
 <div class="org-src-container">
 <pre class="src src-emacs-lisp">(setq-default initial-scratch-message nil)
@@ -536,7 +568,7 @@ Emacs doesn’t need a lot of UI elements - it should be lean and mean. Well, an
 </div>
 </li>
 
-<li><a id="orgc4f712d"></a>Disable Unnecessary Interface<br />
+<li><a id="orgbc82b77"></a>Disable Unnecessary Interface<br />
 <div class="outline-text-5" id="text-3-3-1-4">
 <div class="org-src-container">
 <pre class="src src-emacs-lisp">(menu-bar-mode -1)
@@ -549,7 +581,7 @@ Emacs doesn’t need a lot of UI elements - it should be lean and mean. Well, an
 </div>
 </div>
 </li>
-<li><a id="org5e180ef"></a>Reduce the delay echoing the keystrokes<br />
+<li><a id="org63b3975"></a>Reduce the delay echoing the keystrokes<br />
 <div class="outline-text-5" id="text-3-3-1-5">
 <p>
 When you press C-x, for example, and hesitate with a next character, C-x will be displayed in the echo-area after some time. But I don’t see any reason why you should wait for it.
@@ -560,7 +592,7 @@ When you press C-x, for example, and hesitate with a next character, C-x will be
 </div>
 </div>
 </li>
-<li><a id="orgdcf086c"></a>Join following line<br />
+<li><a id="org689c444"></a>Join following line<br />
 <div class="outline-text-5" id="text-3-3-1-6">
 <div class="org-src-container">
 <pre class="src src-emacs-lisp">(define-key global-map (kbd "C-c j")
@@ -576,7 +608,7 @@ When you press C-x, for example, and hesitate with a next character, C-x will be
 </div>
 </li>
 
-<li><a id="orgaeb2bd3"></a>Full Screen<br />
+<li><a id="org51b5197"></a>Full Screen<br />
 <div class="outline-text-5" id="text-3-3-1-7">
 <div class="org-src-container">
 <pre class="src src-emacs-lisp">  (toggle-frame-fullscreen)
@@ -589,9 +621,8 @@ When you press C-x, for example, and hesitate with a next character, C-x will be
 </ol>
 </div>
 
-
-<div id="outline-container-orgc943406" class="outline-4">
-<h4 id="orgc943406"><span class="section-number-4">3.3.2</span> PDF</h4>
+<div id="outline-container-orgfb50505" class="outline-4">
+<h4 id="orgfb50505"><span class="section-number-4">3.3.2</span> PDF</h4>
 <div class="outline-text-4" id="text-3-3-2">
 <div class="org-src-container">
 <pre class="src src-emacs-lisp">(setq doc-view-continuous t)
@@ -599,8 +630,8 @@ When you press C-x, for example, and hesitate with a next character, C-x will be
 </div>
 </div>
 </div>
-<div id="outline-container-org7fb41bb" class="outline-4">
-<h4 id="org7fb41bb"><span class="section-number-4">3.3.3</span> Theme</h4>
+<div id="outline-container-org2b94fc7" class="outline-4">
+<h4 id="org2b94fc7"><span class="section-number-4">3.3.3</span> Theme</h4>
 <div class="outline-text-4" id="text-3-3-3">
 <div class="org-src-container">
 <pre class="src src-emacs-lisp">(use-package ample-theme 
@@ -628,8 +659,8 @@ When you press C-x, for example, and hesitate with a next character, C-x will be
 </div>
 </div>
 
-<div id="outline-container-orgefe60ea" class="outline-4">
-<h4 id="orgefe60ea"><span class="section-number-4">3.3.4</span> Modeline Time and Battery</h4>
+<div id="outline-container-org7f25e16" class="outline-4">
+<h4 id="org7f25e16"><span class="section-number-4">3.3.4</span> Modeline Time and Battery</h4>
 <div class="outline-text-4" id="text-3-3-4">
 <div class="org-src-container">
 <pre class="src src-emacs-lisp">(display-time-mode 1)
@@ -639,8 +670,8 @@ When you press C-x, for example, and hesitate with a next character, C-x will be
 </div>
 </div>
 
-<div id="outline-container-orgd706e1e" class="outline-4">
-<h4 id="orgd706e1e"><span class="section-number-4">3.3.5</span> Spaceline</h4>
+<div id="outline-container-orgc931503" class="outline-4">
+<h4 id="orgc931503"><span class="section-number-4">3.3.5</span> Spaceline</h4>
 <div class="outline-text-4" id="text-3-3-5">
 <div class="org-src-container">
 <pre class="src src-emacs-lisp">(use-package spaceline :ensure t
@@ -668,8 +699,8 @@ When you press C-x, for example, and hesitate with a next character, C-x will be
 </div>
 </div>
 </div>
-<div id="outline-container-org4b456c8" class="outline-4">
-<h4 id="org4b456c8"><span class="section-number-4">3.3.6</span> Cursor Position</h4>
+<div id="outline-container-org100ad3e" class="outline-4">
+<h4 id="org100ad3e"><span class="section-number-4">3.3.6</span> Cursor Position</h4>
 <div class="outline-text-4" id="text-3-3-6">
 <div class="org-src-container">
 <pre class="src src-emacs-lisp">(setq line-number-mode t)
@@ -679,12 +710,12 @@ When you press C-x, for example, and hesitate with a next character, C-x will be
 </div>
 </div>
 </div>
-<div id="outline-container-orgd193f8d" class="outline-3">
-<h3 id="orgd193f8d"><span class="section-number-3">3.4</span> Text Manipulation</h3>
+<div id="outline-container-org8695d7e" class="outline-3">
+<h3 id="org8695d7e"><span class="section-number-3">3.4</span> Text Manipulation</h3>
 <div class="outline-text-3" id="text-3-4">
 </div>
-<div id="outline-container-orgd9a7441" class="outline-4">
-<h4 id="orgd9a7441"><span class="section-number-4">3.4.1</span> Move text</h4>
+<div id="outline-container-orga4ce5b6" class="outline-4">
+<h4 id="orga4ce5b6"><span class="section-number-4">3.4.1</span> Move text</h4>
 <div class="outline-text-4" id="text-3-4-1">
 <p>
 Most of the time, I need to move a the text up an down a bit. There is a <i>transpose-line</i> command that maps to <i>C-x C-t</i>, which is cumbersome and most of the time it messes-up with my flow. So, here we will map it to <i>M-n</i> and <i>M-p</i> following the convention of movement keys. 
@@ -704,8 +735,8 @@ Note: If you need to move the text to some pretty distant place, then, of course
 </div>
 </div>
 
-<div id="outline-container-orgeb5b0bf" class="outline-4">
-<h4 id="orgeb5b0bf"><span class="section-number-4">3.4.2</span> Duplicate the current line</h4>
+<div id="outline-container-orga4a59a7" class="outline-4">
+<h4 id="orga4a59a7"><span class="section-number-4">3.4.2</span> Duplicate the current line</h4>
 <div class="outline-text-4" id="text-3-4-2">
 <p>
 Equivalent of Ctrl+d (Command+d on Mac) in IntelliJ IDEA
@@ -740,8 +771,8 @@ Source: <a href="https://www.emacswiki.org/emacs/CopyingWholeLines#toc12">https:
 </div>
 </div>
 
-<div id="outline-container-orgcce6b7b" class="outline-4">
-<h4 id="orgcce6b7b"><span class="section-number-4">3.4.3</span> String manipulations</h4>
+<div id="outline-container-orgb1cf6e7" class="outline-4">
+<h4 id="orgb1cf6e7"><span class="section-number-4">3.4.3</span> String manipulations</h4>
 <div class="outline-text-4" id="text-3-4-3">
 <p>
 Emacs 24.4 came with a subr-x library with routines for string manipulations, like string-trim, string-join and etc. It’s better to always have these at hand.
@@ -755,12 +786,12 @@ Emacs 24.4 came with a subr-x library with routines for string manipulations, li
 </div>
 </div>
 
-<div id="outline-container-orgfbf7710" class="outline-3">
-<h3 id="orgfbf7710"><span class="section-number-3">3.5</span> Shortcuts, Longcuts, Miscellaneous Configs</h3>
+<div id="outline-container-org0f54748" class="outline-3">
+<h3 id="org0f54748"><span class="section-number-3">3.5</span> Shortcuts, Longcuts, Miscellaneous Configs</h3>
 <div class="outline-text-3" id="text-3-5">
 </div>
-<div id="outline-container-org0312c01" class="outline-4">
-<h4 id="org0312c01"><span class="section-number-4">3.5.1</span> Clipboard. Copy from terminal emacs to the X clipboard.</h4>
+<div id="outline-container-orga3ad15d" class="outline-4">
+<h4 id="orga3ad15d"><span class="section-number-4">3.5.1</span> Clipboard. Copy from terminal emacs to the X clipboard.</h4>
 <div class="outline-text-4" id="text-3-5-1">
 <div class="org-src-container">
 <pre class="src src-emacs-lisp">(use-package xclip
@@ -772,8 +803,8 @@ Emacs 24.4 came with a subr-x library with routines for string manipulations, li
 </div>
 </div>
 </div>
-<div id="outline-container-orgeead915" class="outline-4">
-<h4 id="orgeead915"><span class="section-number-4">3.5.2</span> Simplify Yes/No Prompts</h4>
+<div id="outline-container-org5ae3607" class="outline-4">
+<h4 id="org5ae3607"><span class="section-number-4">3.5.2</span> Simplify Yes/No Prompts</h4>
 <div class="outline-text-4" id="text-3-5-2">
 <div class="org-src-container">
 <pre class="src src-emacs-lisp">(fset 'yes-or-no-p 'y-or-n-p)
@@ -782,8 +813,8 @@ Emacs 24.4 came with a subr-x library with routines for string manipulations, li
 </div>
 </div>
 
-<div id="outline-container-org0ad8fc3" class="outline-4">
-<h4 id="org0ad8fc3"><span class="section-number-4">3.5.3</span> But make it hard to accidentally exit</h4>
+<div id="outline-container-org77a8b7c" class="outline-4">
+<h4 id="org77a8b7c"><span class="section-number-4">3.5.3</span> But make it hard to accidentally exit</h4>
 <div class="outline-text-4" id="text-3-5-3">
 <div class="org-src-container">
 <pre class="src src-emacs-lisp">(setq-default confirm-kill-emacs (quote y-or-n-p))
@@ -792,8 +823,8 @@ Emacs 24.4 came with a subr-x library with routines for string manipulations, li
 </div>
 </div>
 
-<div id="outline-container-orge4b3dc2" class="outline-4">
-<h4 id="orge4b3dc2"><span class="section-number-4">3.5.4</span> Make finding file easy</h4>
+<div id="outline-container-org8a79064" class="outline-4">
+<h4 id="org8a79064"><span class="section-number-4">3.5.4</span> Make finding file easy</h4>
 <div class="outline-text-4" id="text-3-5-4">
 <div class="org-src-container">
 <pre class="src src-emacs-lisp">(global-set-key (kbd "C-x f")    'find-file)
@@ -802,8 +833,8 @@ Emacs 24.4 came with a subr-x library with routines for string manipulations, li
 </div>
 </div>
 
-<div id="outline-container-orgfad2adf" class="outline-4">
-<h4 id="orgfad2adf"><span class="section-number-4">3.5.5</span> UTF-8 Coding System</h4>
+<div id="outline-container-org5fedc67" class="outline-4">
+<h4 id="org5fedc67"><span class="section-number-4">3.5.5</span> UTF-8 Coding System</h4>
 <div class="outline-text-4" id="text-3-5-5">
 <p>
 Use UTF-8 as much as possible
@@ -825,8 +856,8 @@ Use UTF-8 as much as possible
 </div>
 </div>
 </div>
-<div id="outline-container-org499048c" class="outline-4">
-<h4 id="org499048c"><span class="section-number-4">3.5.6</span> Shut up the bell</h4>
+<div id="outline-container-org8b01461" class="outline-4">
+<h4 id="org8b01461"><span class="section-number-4">3.5.6</span> Shut up the bell</h4>
 <div class="outline-text-4" id="text-3-5-6">
 <div class="org-src-container">
 <pre class="src src-emacs-lisp">(setq ring-bell-function 'ignore) 
@@ -835,8 +866,8 @@ Use UTF-8 as much as possible
 </div>
 </div>
 
-<div id="outline-container-org3ee970d" class="outline-4">
-<h4 id="org3ee970d"><span class="section-number-4">3.5.7</span> Disabled Commands</h4>
+<div id="outline-container-org089de79" class="outline-4">
+<h4 id="org089de79"><span class="section-number-4">3.5.7</span> Disabled Commands</h4>
 <div class="outline-text-4" id="text-3-5-7">
 <p>
 Change nil to t to disable the command. 
@@ -849,8 +880,8 @@ Note: currently not using it. But this is the way to do it
 </div>
 </div>
 
-<div id="outline-container-org54656d2" class="outline-4">
-<h4 id="org54656d2"><span class="section-number-4">3.5.8</span> Always kill the buffer</h4>
+<div id="outline-container-orgb925723" class="outline-4">
+<h4 id="orgb925723"><span class="section-number-4">3.5.8</span> Always kill the buffer</h4>
 <div class="outline-text-4" id="text-3-5-8">
 <div class="org-src-container">
 <pre class="src src-emacs-lisp">(defun kill-current-buffer ()
@@ -862,8 +893,8 @@ Note: currently not using it. But this is the way to do it
 </div>
 </div>
 </div>
-<div id="outline-container-orgae740cf" class="outline-4">
-<h4 id="orgae740cf"><span class="section-number-4">3.5.9</span> Visit systemhalted.org</h4>
+<div id="outline-container-org19bab8e" class="outline-4">
+<h4 id="org19bab8e"><span class="section-number-4">3.5.9</span> Visit systemhalted.org</h4>
 <div class="outline-text-4" id="text-3-5-9">
 <div class="org-src-container">
 <pre class="src src-emacs-lisp">(defun config-visit ()
@@ -874,8 +905,8 @@ Note: currently not using it. But this is the way to do it
 </div>
 </div>
 </div>
-<div id="outline-container-org1c0fb4b" class="outline-4">
-<h4 id="org1c0fb4b"><span class="section-number-4">3.5.10</span> Reload Config</h4>
+<div id="outline-container-org831068a" class="outline-4">
+<h4 id="org831068a"><span class="section-number-4">3.5.10</span> Reload Config</h4>
 <div class="outline-text-4" id="text-3-5-10">
 <div class="org-src-container">
 <pre class="src src-emacs-lisp">(defun config-reload ()
@@ -887,8 +918,8 @@ Note: currently not using it. But this is the way to do it
 </div>
 </div>
 </div>
-<div id="outline-container-org96b93b3" class="outline-4">
-<h4 id="org96b93b3"><span class="section-number-4">3.5.11</span> Electric</h4>
+<div id="outline-container-orgcf56f5d" class="outline-4">
+<h4 id="orgcf56f5d"><span class="section-number-4">3.5.11</span> Electric</h4>
 <div class="outline-text-4" id="text-3-5-11">
 <div class="org-src-container">
 <pre class="src src-emacs-lisp">(setq electric-pair-pairs '(
@@ -903,8 +934,8 @@ Note: currently not using it. But this is the way to do it
 </div>
 </div>
 </div>
-<div id="outline-container-orge880ffe" class="outline-4">
-<h4 id="orge880ffe"><span class="section-number-4">3.5.12</span> Show  Parens</h4>
+<div id="outline-container-org46eb5eb" class="outline-4">
+<h4 id="org46eb5eb"><span class="section-number-4">3.5.12</span> Show  Parens</h4>
 <div class="outline-text-4" id="text-3-5-12">
 <div class="org-src-container">
 <pre class="src src-emacs-lisp">(show-paren-mode 1)
@@ -913,12 +944,12 @@ Note: currently not using it. But this is the way to do it
 </div>
 </div>
 </div>
-<div id="outline-container-org8bdf0a8" class="outline-3">
-<h3 id="org8bdf0a8"><span class="section-number-3">3.6</span> Packages</h3>
+<div id="outline-container-orgb5c353b" class="outline-3">
+<h3 id="orgb5c353b"><span class="section-number-3">3.6</span> Packages</h3>
 <div class="outline-text-3" id="text-3-6">
 </div>
-<div id="outline-container-org48fb972" class="outline-4">
-<h4 id="org48fb972"><span class="section-number-4">3.6.1</span> Which Key?</h4>
+<div id="outline-container-org59611d4" class="outline-4">
+<h4 id="org59611d4"><span class="section-number-4">3.6.1</span> Which Key?</h4>
 <div class="outline-text-4" id="text-3-6-1">
 <div class="org-src-container">
 <pre class="src src-emacs-lisp">
@@ -937,8 +968,8 @@ Note: currently not using it. But this is the way to do it
 </div>
 </div>
 </div>
-<div id="outline-container-orgd6410ec" class="outline-4">
-<h4 id="orgd6410ec"><span class="section-number-4">3.6.2</span> Helm</h4>
+<div id="outline-container-org9b7b0aa" class="outline-4">
+<h4 id="org9b7b0aa"><span class="section-number-4">3.6.2</span> Helm</h4>
 <div class="outline-text-4" id="text-3-6-2">
 <div class="org-src-container">
 <pre class="src src-emacs-lisp">(use-package helm 
@@ -981,8 +1012,8 @@ Note: currently not using it. But this is the way to do it
 </div>
 </div>
 </div>
-<div id="outline-container-orgcb9acdd" class="outline-4">
-<h4 id="orgcb9acdd"><span class="section-number-4">3.6.3</span> SMEX</h4>
+<div id="outline-container-orgbca154d" class="outline-4">
+<h4 id="orgbca154d"><span class="section-number-4">3.6.3</span> SMEX</h4>
 <div class="outline-text-4" id="text-3-6-3">
 <div class="org-src-container">
 <pre class="src src-emacs-lisp">(use-package smex
@@ -995,8 +1026,8 @@ Note: currently not using it. But this is the way to do it
 </div>
 </div>
 
-<div id="outline-container-org58cb113" class="outline-4">
-<h4 id="org58cb113"><span class="section-number-4">3.6.4</span> iBuffer</h4>
+<div id="outline-container-org685e00c" class="outline-4">
+<h4 id="org685e00c"><span class="section-number-4">3.6.4</span> iBuffer</h4>
 <div class="outline-text-4" id="text-3-6-4">
 <p>
 Before iPhone, there was iBuffer
@@ -1010,8 +1041,8 @@ Before iPhone, there was iBuffer
 </div>
 </div>
 
-<div id="outline-container-org2fe4807" class="outline-4">
-<h4 id="org2fe4807"><span class="section-number-4">3.6.5</span> Ivy</h4>
+<div id="outline-container-org1150a72" class="outline-4">
+<h4 id="org1150a72"><span class="section-number-4">3.6.5</span> Ivy</h4>
 <div class="outline-text-4" id="text-3-6-5">
 <div class="org-src-container">
 <pre class="src src-emacs-lisp">(use-package ivy
@@ -1021,8 +1052,8 @@ Before iPhone, there was iBuffer
 </div>
 </div>
 
-<div id="outline-container-orgcb4d77b" class="outline-4">
-<h4 id="orgcb4d77b"><span class="section-number-4">3.6.6</span> Magit</h4>
+<div id="outline-container-org9370596" class="outline-4">
+<h4 id="org9370596"><span class="section-number-4">3.6.6</span> Magit</h4>
 <div class="outline-text-4" id="text-3-6-6">
 <p>
 The magical git client. Let's load magit only when one of the several entry pont
@@ -1039,8 +1070,8 @@ functions we invoke regularly outside of magit is called.
 </div>
 </div>
 
-<div id="outline-container-org9f9ed45" class="outline-4">
-<h4 id="org9f9ed45"><span class="section-number-4">3.6.7</span> Projectile</h4>
+<div id="outline-container-org55c63ce" class="outline-4">
+<h4 id="org55c63ce"><span class="section-number-4">3.6.7</span> Projectile</h4>
 <div class="outline-text-4" id="text-3-6-7">
 <p>
 Projectile is a quick and easy project management package that "just works". We're
@@ -1059,9 +1090,13 @@ going to install it and make sure it's loaded immediately.
 </div>
 </div>
 
-<div id="outline-container-org6c2c4d1" class="outline-4">
-<h4 id="org6c2c4d1"><span class="section-number-4">3.6.8</span> Org</h4>
+<div id="outline-container-org08bed9e" class="outline-4">
+<h4 id="org08bed9e"><span class="section-number-4">3.6.8</span> Org</h4>
 <div class="outline-text-4" id="text-3-6-8">
+</div>
+<ol class="org-ol">
+<li><a id="org7e9e48c"></a>Org Agenda and Todo setup<br />
+<div class="outline-text-5" id="text-3-6-8-1">
 <p>
 Let's include a newer version of org-mode than the one that is built in. We're going
 to manually remove the org directories from the load path, to ensure the version we
@@ -1100,25 +1135,41 @@ want is prioritized instead.
 </pre>
 </div>
 </div>
+</li>
+
+<li><a id="org513b9cc"></a>Code editing in same window<br />
+<div class="outline-text-5" id="text-3-6-8-2">
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(setq org-src-window-setup 'current-window)
+</pre>
 </div>
-<div id="outline-container-orgda23442" class="outline-4">
-<h4 id="orgda23442"><span class="section-number-4">3.6.9</span> Org Bullets</h4>
-<div class="outline-text-4" id="text-3-6-9">
+</div>
+</li>
+<li><a id="org6ad8cc7"></a>Org Tempo<br />
+<div class="outline-text-5" id="text-3-6-8-3">
 <p>
 Makes it all look a bit nicer, I hate looking at asterisks.
 </p>
 <div class="org-src-container">
 <pre class="src src-emacs-lisp">(use-package org-bullets
   :ensure t
-  :config
-    (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
+  :hook
+     (org-bullets-mode))
 </pre>
 </div>
 </div>
+</li>
+
+<li><a id="org9a8a7d5"></a>Org Bullets<br />
+<div class="outline-text-5" id="text-3-6-8-4">
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(require 'org-tempo)
+</pre>
 </div>
-<div id="outline-container-org4a09cba" class="outline-4">
-<h4 id="org4a09cba"><span class="section-number-4">3.6.10</span> Toc-org</h4>
-<div class="outline-text-4" id="text-3-6-10">
+</div>
+</li>
+<li><a id="orgece6289"></a>Toc-org<br />
+<div class="outline-text-5" id="text-3-6-8-5">
 <p>
 Let's install and load the <code>toc-org</code> package after org mode is loaded. This is the
 package that automatically generates an up to date table of contents for us.
@@ -1131,11 +1182,10 @@ package that automatically generates an up to date table of contents for us.
 </pre>
 </div>
 </div>
-</div>
+</li>
 
-<div id="outline-container-orge5187a0" class="outline-4">
-<h4 id="orge5187a0"><span class="section-number-4">3.6.11</span> Org-sidebar</h4>
-<div class="outline-text-4" id="text-3-6-11">
+<li><a id="orge462ab2"></a>Org-sidebar<br />
+<div class="outline-text-5" id="text-3-6-8-6">
 <p>
 When I write, I need a map of the document or the table of content on the side. Org-sidebar helps with that:
 </p>
@@ -1146,11 +1196,13 @@ When I write, I need a map of the document or the table of content on the side. 
 </pre>
 </div>
 </div>
+</li>
+</ol>
 </div>
 
-<div id="outline-container-org18a25d2" class="outline-4">
-<h4 id="org18a25d2"><span class="section-number-4">3.6.12</span> Nov Mode</h4>
-<div class="outline-text-4" id="text-3-6-12">
+<div id="outline-container-org16d47b9" class="outline-4">
+<h4 id="org16d47b9"><span class="section-number-4">3.6.9</span> Nov Mode</h4>
+<div class="outline-text-4" id="text-3-6-9">
 <p>
 I prefer reading EPUB books on Emacs. Nov Mode allows me do that
 </p>
@@ -1168,9 +1220,9 @@ I prefer reading EPUB books on Emacs. Nov Mode allows me do that
 </div>
 </div>
 
-<div id="outline-container-orga12dfeb" class="outline-4">
-<h4 id="orga12dfeb"><span class="section-number-4">3.6.13</span> define-word</h4>
-<div class="outline-text-4" id="text-3-6-13">
+<div id="outline-container-org9a0a4cf" class="outline-4">
+<h4 id="org9a0a4cf"><span class="section-number-4">3.6.10</span> define-word</h4>
+<div class="outline-text-4" id="text-3-6-10">
 <p>
 Word and their meanings and what better way to have this information at point. 
 </p>
@@ -1187,9 +1239,9 @@ Word and their meanings and what better way to have this information at point.
 </div>
 </div>
 
-<div id="outline-container-org816c298" class="outline-4">
-<h4 id="org816c298"><span class="section-number-4">3.6.14</span> Treemacs</h4>
-<div class="outline-text-4" id="text-3-6-14">
+<div id="outline-container-orgad243a7" class="outline-4">
+<h4 id="orgad243a7"><span class="section-number-4">3.6.11</span> Treemacs</h4>
+<div class="outline-text-4" id="text-3-6-11">
 <div class="org-src-container">
 <pre class="src src-emacs-lisp">(use-package treemacs 
    :init
@@ -1201,67 +1253,35 @@ Word and their meanings and what better way to have this information at point.
 </div>
 </div>
 
-<div id="outline-container-org548bb14" class="outline-4">
-<h4 id="org548bb14"><span class="section-number-4">3.6.15</span> IDLE-HIGHLIGHT</h4>
-<div class="outline-text-4" id="text-3-6-15">
+<div id="outline-container-org058feef" class="outline-4">
+<h4 id="org058feef"><span class="section-number-4">3.6.12</span> IDLE-HIGHLIGHT</h4>
+<div class="outline-text-4" id="text-3-6-12">
 <div class="org-src-container">
 <pre class="src src-emacs-lisp">(use-package idle-highlight)
 </pre>
 </div>
 </div>
 </div>
-</div>
 
-
-<div id="outline-container-orgbb2f5bc" class="outline-3">
-<h3 id="orgbb2f5bc"><span class="section-number-3">3.7</span> Communication</h3>
-<div class="outline-text-3" id="text-3-7">
-</div>
-<ol class="org-ol">
-<li><a id="org95747c2"></a>Slack<br />
-<div class="outline-text-5" id="text-3-7-0-1">
+<div id="outline-container-org774f4c5" class="outline-4">
+<h4 id="org774f4c5"><span class="section-number-4">3.6.13</span> Font-lock</h4>
+<div class="outline-text-4" id="text-3-6-13">
 <div class="org-src-container">
-<pre class="src src-emacs-lisp">;; I'm using use-package and el-get and evil
-
-;;(el-get-bundle slack)
-(use-package slack
-  :commands (slack-start)
-  :init
-  (setq slack-buffer-emojify t) ;; if you want to enable emoji, default nil
-  (setq slack-prefer-current-team t)
-  :config
-  (slack-register-team
-   :name "fstech-capitalone"
-   :default t
-   :token "xoxs-194540594981-203789560839-899883966227-30b02158c08144b0e8cae054f5ead44dad396847782b51fbd7b623e63bb6c59e"
-   :subscribed-channels '(clo_microservices)
-   :full-and-display-names t)
-
-  ;; (slack-register-team
-  ;;  :name "test"
-  ;;  :token "xoxs-yyyyyyyyyy-zzzzzzzzzzz-hhhhhhhhhhh-llllllllll"
-  ;;  :subscribed-channels '(hoge fuga))
- )
-
-(use-package alert
-  :commands (alert)
-  :init
-  (setq alert-default-style 'notifier))
+<pre class="src src-emacs-lisp">(require 'font-lock)
 </pre>
 </div>
 </div>
-</li>
-</ol>
+</div>
 </div>
 
 
-<div id="outline-container-orgbc4c766" class="outline-3">
-<h3 id="orgbc4c766"><span class="section-number-3">3.8</span> Custom Functions</h3>
-<div class="outline-text-3" id="text-3-8">
+<div id="outline-container-orgb37f00e" class="outline-3">
+<h3 id="orgb37f00e"><span class="section-number-3">3.7</span> Custom Functions</h3>
+<div class="outline-text-3" id="text-3-7">
 </div>
 <ol class="org-ol">
-<li><a id="orge7f54c1"></a>SpeedTest<br />
-<div class="outline-text-5" id="text-3-8-0-1">
+<li><a id="org4291f90"></a>SpeedTest<br />
+<div class="outline-text-5" id="text-3-7-0-1">
 <div class="org-src-container">
 <pre class="src src-emacs-lisp">(load "setup-speedtest.el")
 </pre>
@@ -1272,13 +1292,13 @@ Word and their meanings and what better way to have this information at point.
 </div>
 
 
-<div id="outline-container-org310ce3f" class="outline-3">
-<h3 id="org310ce3f"><span class="section-number-3">3.9</span> Programming</h3>
-<div class="outline-text-3" id="text-3-9">
+<div id="outline-container-orgae2ec75" class="outline-3">
+<h3 id="orgae2ec75"><span class="section-number-3">3.8</span> Programming</h3>
+<div class="outline-text-3" id="text-3-8">
 </div>
-<div id="outline-container-org3c75274" class="outline-4">
-<h4 id="org3c75274"><span class="section-number-4">3.9.1</span> yasnippet</h4>
-<div class="outline-text-4" id="text-3-9-1">
+<div id="outline-container-orgb082198" class="outline-4">
+<h4 id="orgb082198"><span class="section-number-4">3.8.1</span> yasnippet</h4>
+<div class="outline-text-4" id="text-3-8-1">
 <div class="org-src-container">
 <pre class="src src-emacs-lisp">(use-package yasnippet
   :ensure t
@@ -1291,9 +1311,9 @@ Word and their meanings and what better way to have this information at point.
 </div>
 </div>
 
-<div id="outline-container-org8e34986" class="outline-4">
-<h4 id="org8e34986"><span class="section-number-4">3.9.2</span> flycheck</h4>
-<div class="outline-text-4" id="text-3-9-2">
+<div id="outline-container-orgd20dc75" class="outline-4">
+<h4 id="orgd20dc75"><span class="section-number-4">3.8.2</span> flycheck</h4>
+<div class="outline-text-4" id="text-3-8-2">
 <div class="org-src-container">
 <pre class="src src-emacs-lisp">(use-package flycheck
   :ensure t)
@@ -1302,9 +1322,9 @@ Word and their meanings and what better way to have this information at point.
 </div>
 </div>
 
-<div id="outline-container-org8515d6b" class="outline-4">
-<h4 id="org8515d6b"><span class="section-number-4">3.9.3</span> company mode</h4>
-<div class="outline-text-4" id="text-3-9-3">
+<div id="outline-container-orgb3e3353" class="outline-4">
+<h4 id="orgb3e3353"><span class="section-number-4">3.8.3</span> company mode</h4>
+<div class="outline-text-4" id="text-3-8-3">
 <p>
 I set the delay for company mode to kick in to half a second, I also make sure that
 it starts doing its magic after typing in only 2 characters.
@@ -1328,13 +1348,13 @@ it starts doing its magic after typing in only 2 characters.
 </div>
 </div>
 
-<div id="outline-container-orgd1918b0" class="outline-4">
-<h4 id="orgd1918b0"><span class="section-number-4">3.9.4</span> Languages</h4>
-<div class="outline-text-4" id="text-3-9-4">
+<div id="outline-container-org6da420c" class="outline-4">
+<h4 id="org6da420c"><span class="section-number-4">3.8.4</span> Languages</h4>
+<div class="outline-text-4" id="text-3-8-4">
 </div>
 <ol class="org-ol">
-<li><a id="org4b98321"></a>C/C++<br />
-<div class="outline-text-5" id="text-3-9-4-1">
+<li><a id="org3d0e6f7"></a>C/C++<br />
+<div class="outline-text-5" id="text-3-8-4-1">
 <div class="org-src-container">
 <pre class="src src-emacs-lisp">(add-hook 'c++-mode-hook 'yas-minor-mode)
 (add-hook 'c-mode-hook 'yas-minor-mode)
@@ -1371,8 +1391,8 @@ it starts doing its magic after typing in only 2 characters.
 </div>
 </li>
 
-<li><a id="orge73e236"></a>Haskell<br />
-<div class="outline-text-5" id="text-3-9-4-2">
+<li><a id="org71dcc0d"></a>Haskell<br />
+<div class="outline-text-5" id="text-3-8-4-2">
 <div class="org-src-container">
 <pre class="src src-emacs-lisp">(use-package haskell-mode
   :defer t
@@ -1418,14 +1438,14 @@ it starts doing its magic after typing in only 2 characters.
 </div>
 </li>
 
-<li><a id="orgaf762b0"></a>Easy-to-add emacs-lisp template<br />
-<div class="outline-text-5" id="text-3-9-4-3">
+<li><a id="org0b6922e"></a>Easy-to-add emacs-lisp template<br />
+<div class="outline-text-5" id="text-3-8-4-3">
 <p>
 Hitting tab after an "&lt;el" in an org-mode file will create a template for elisp insertion.
 </p>
 <div class="org-src-container">
 <pre class="src src-emacs-lisp">(add-to-list 'org-structure-template-alist
-	     '("el" "#+BEGIN_SRC emacs-lisp\n?\n#+END_SRC"))
+	     '("le" .  "#+BEGIN_SRC emacs-lisp\n?\n#+END_SRC"))
 </pre>
 </div>
 </div>
@@ -1434,13 +1454,13 @@ Hitting tab after an "&lt;el" in an org-mode file will create a template for eli
 </div>
 </div>
 
-<div id="outline-container-org2e59613" class="outline-3">
-<h3 id="org2e59613"><span class="section-number-3">3.10</span> Post Initialization</h3>
-<div class="outline-text-3" id="text-3-10">
+<div id="outline-container-org9967b32" class="outline-3">
+<h3 id="org9967b32"><span class="section-number-3">3.9</span> Post Initialization</h3>
+<div class="outline-text-3" id="text-3-9">
 </div>
 <ol class="org-ol">
-<li><a id="org7e1f845"></a>Garbage Collection<br />
-<div class="outline-text-5" id="text-3-10-0-1">
+<li><a id="org033e640"></a>Garbage Collection<br />
+<div class="outline-text-5" id="text-3-9-0-1">
 <p>
 Let's lower our GC thresholds back down to a sane level.
 </p>
@@ -1458,7 +1478,7 @@ Let's lower our GC thresholds back down to a sane level.
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: systemhalted</p>
-<p class="date">Created: 2020-09-13 Sun 18:53</p>
+<p class="date">Created: 2020-09-14 Mon 23:02</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

@@ -134,12 +134,25 @@ decided to start with setting up org-mode first
  is updated everytime the file is saved and makes for a functional table of contents that
  works property directly on github.
 
+**** Org Babel
+
+     This file is loaded using /org-babel/. Create /init.el/ file in /.emacs.d/ folder and put following code
+ 
+  #+INCLUDE: "~/.emacs.d/init.el" src emacs-lisp :range-begin "OrgBabel" :range-end "-OrgBabel" :lines "10-11"
+
+
+
 ** Global Settings
+*** Load Customizations from folder
+
+  I put some scripts in /customizations/ folder. Lets load it. 
+
+  #+INCLUDE: "~/.emacs.d/init.el" src emacs-lisp :range-begin "Customizations" :range-end "-Customizations" :lines "4-5"
+
 *** Setup Proxy
  I use Emacs on my work laptop and there is a firewall that I need to pass through. Proxy settings allow me to do that. Save the below code under =customizations= and call it =setup-proxy.el=
-;; #+INCLUDE: "~/.emacs.d/customizations/setup-proxy-template.el" src emacs-lisp :range-begin "HttpProxy" :range-end "-HttpProxy" :lines "2-11"
+  #+INCLUDE: "~/.emacs.d/customizations/setup-proxy-template.el" src emacs-lisp :range-begin "HttpProxy" :range-end "-HttpProxy" :lines "2-13"
 
-*** Garbage Collection
 *** Package Configuration
 
     Define package repositories
@@ -165,7 +178,7 @@ decided to start with setting up org-mode first
  #+END_SRC
 
 *** Install and Configure use-package
-++
+
  #+BEGIN_SRC emacs-lisp
  (unless (package-installed-p 'use-package)
        (package-refresh-contents)
@@ -587,6 +600,10 @@ Before iPhone, there was iBuffer
     :hook
        (org-bullets-mode))
 #+END_SRC
+
+#+RESULTS:
+| org-bullets |
+
 **** Org Bullets
   #+begin_src emacs-lisp :tangle yes
     (require 'org-tempo)
@@ -655,9 +672,9 @@ Word and their meanings and what better way to have this information at point.
 #+END_SRC
 
 
-** Communication
-**** Slack
-#+BEGIN_SRC emacs-lisp :tangle no
+** Communication :noexport:
+**** Slack 
+#+BEGIN_SRC emacs-lisp :tangle no 
   ;; I'm using use-package and el-get and evil
 
   ;;(el-get-bundle slack)
@@ -813,7 +830,7 @@ it starts doing its magic after typing in only 2 characters.
 Hitting tab after an "<el" in an org-mode file will create a template for elisp insertion.
 #+BEGIN_SRC emacs-lisp :tangle yes
   (add-to-list 'org-structure-template-alist
-	       '("el" .  "#+BEGIN_SRC emacs-lisp\n?\n#+END_SRC"))
+	       '("le" .  "#+BEGIN_SRC emacs-lisp\n?\n#+END_SRC"))
 #+END_SRC
 
 ** Post Initialization
@@ -824,9 +841,4 @@ Let's lower our GC thresholds back down to a sane level.
 (setq gc-cons-threshold 16777216
       gc-cons-percentage 0.1)
 #+END_SRC
-
-#+begin_src emacs-lisp
-
-#+end_src
-
 
