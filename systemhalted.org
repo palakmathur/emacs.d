@@ -258,15 +258,21 @@ When you press C-x, for example, and hesitate with a next character, C-x will be
   :ensure t)
 #+END_SRC
 
-#+BEGIN_SRC emacs-lisp :tangle :tangle yes
+#+BEGIN_SRC emacs-lisp :tangle :tangle no
 (use-package spacemacs-common
     :ensure spacemacs-theme
     :config (load-theme 'spacemacs-dark t))
 #+END_SRC
 
-#+BEGIN_SRC emacs-lisp :tangle no
+#+BEGIN_SRC emacs-lisp :tangle yes
 (use-package leuven-theme
    :config (load-theme 'leuven t))
+#+END_SRC
+
+#+BEGIN_SRC emacs-lisp :tangle no
+  (add-to-list 'load-path "~/.emacs.d/elegant-emacs")
+  (require 'elegance)
+  (require 'sanity)
 #+END_SRC
 
 *** Modeline Time and Battery
@@ -299,6 +305,7 @@ When you press C-x, for example, and hesitate with a next character, C-x will be
     (spaceline-emacs-theme 'date 'time)))
 
 #+END_SRC
+
 *** Cursor Position
 #+BEGIN_SRC emacs-lisp :tangle yes
 (setq line-number-mode t)
@@ -828,9 +835,9 @@ it starts doing its magic after typing in only 2 characters.
 
 **** Easy-to-add emacs-lisp template
 Hitting tab after an "<el" in an org-mode file will create a template for elisp insertion.
-#+BEGIN_SRC emacs-lisp :tangle yes
+#+BEGIN_SRC emacs-lisp :tangle no
   (add-to-list 'org-structure-template-alist
-	       '("le" .  "#+BEGIN_SRC emacs-lisp\n?\n#+END_SRC"))
+	       '("le" .  "#+BEGIN_SRC emacs-lisp\n \n#+END_SRC"))
 #+END_SRC
 
 ** Post Initialization
