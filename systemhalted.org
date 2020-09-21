@@ -437,9 +437,10 @@ Note: currently not using it. But this is the way to do it
     (org-babel-load-file (expand-file-name "~/.emacs.d/systemhalted.org")))
   (global-set-key (kbd "C-c r") 'config-reload)
 #+END_SRC
+
 *** Electric
 
-#+BEGIN_SRC emacs-lisp :tangle no
+#+BEGIN_SRC emacs-lisp :tangle yes
   (setq electric-pair-pairs '(
 			     (?\{ . ?\})
 			     (?\( . ?\))
@@ -633,6 +634,14 @@ When I write, I need a map of the document or the table of content on the side. 
   :custom (org-sidebar-tree-side 'left))
 #+END_SRC
 
+**** Git Auto commit for Org files
+     #+begin_src emacs-lisp
+	      (use-package git-auto-commit-mode
+		:ensure t)
+
+     #+end_src
+
+
 *** Nov Mode 
 I prefer reading EPUB books on Emacs. Nov Mode allows me do that
 
@@ -677,7 +686,6 @@ Word and their meanings and what better way to have this information at point.
 #+BEGIN_SRC emacs-lisp :tangle yes
   (require 'font-lock)
 #+END_SRC
-
 
 ** Communication :noexport:
 **** Slack 
