@@ -264,7 +264,7 @@
 	:config (load-theme 'spacemacs-dark t))
     #+END_SRC
 
-    #+BEGIN_SRC emacs-lisp :tangle yes
+    #+BEGIN_SRC emacs-lisp :tangle no
       (use-package leuven-theme
 	:config (load-theme 'leuven t))
     #+END_SRC
@@ -597,22 +597,18 @@
      #+END_SRC 
 
 **** Code editing in same window
-     #+begin_src emacs-lisp
+     #+begin_src emacs-lisp :tangle yes
        (setq org-src-window-setup 'current-window)
      #+end_src
-**** Org Tempo
+**** Org Bullets
      Makes it all look a bit nicer, I hate looking at asterisks.
      #+BEGIN_SRC emacs-lisp :tangle yes
        (use-package org-bullets
-	 :ensure t
 	 :hook
-	 (org-bullets-mode))
+	 (( org-mode ) . org-bullets-mode))
      #+END_SRC
 
-     #+RESULTS:
-     | org-bullets |
-
-**** Org Bullets
+**** Org Tempo
      #+begin_src emacs-lisp :tangle yes
        (require 'org-tempo)
      #+end_src
@@ -635,10 +631,16 @@
      #+END_SRC
 
 **** Git Auto commit for Org files
-     #+begin_src emacs-lisp
-       (use-package git-auto-commit-mode
-	 :ensure t)
+     #+begin_src emacs-lisp :tangle yes
+       (use-package git-auto-commit-mode)
+     #+end_src
 
+**** HTMLIZE
+     Org-mode supports HTML export natively but syntax highlighting is added through htmlize.el.  
+     #+begin_src emacs-lisp :tangle yes
+       (use-package htmlize
+	 :config
+	 (setq org-src-fontify-natively t))
      #+end_src
 
 
