@@ -1,0 +1,30 @@
+;; -*- emacs-lisp -*- <20/09/27 10:15:07 /Users/aqualogic/.emacs.d/tramp>
+;; Tramp connection history.  Don't change this file.
+;; You can delete it, forcing Tramp to reapply the checks.
+
+(((tramp-file-name "ssh" "cs6340" nil "localhost" "1308" nil nil)
+  ("uname" "Linux 4.15.0-99-generic")
+  ("locale" "LC_ALL=en_US.utf8")
+  ("test" "test")
+  ("remote-path"
+   ("/bin" "/usr/bin" "/sbin" "/usr/sbin" "/usr/local/bin" "/usr/local/sbin"))
+  ("remote-shell" "/bin/sh")
+  ("~" "/home/cs6340")
+  ("file-exists" "test -e")
+  ("stat" "env QUOTING_STYLE=locale \\stat")
+  ("id" "/usr/bin/id")
+  ("gid-integer" 1000)
+  ("gid-string" "cs6340")
+  ("perl-file-spec" t)
+  ("perl-cwd-realpath" t)
+  ("perl" "\\perl")
+  ("case-insensitive" nil)
+  ("readlink" "\\readlink")
+  ("git" "\\git")
+  ("uid-integer" 1000)
+  ("tmpdir" "/ssh:cs6340@localhost#1308:/tmp")
+  ("touch-t" t)
+  ("touch" "\\touch")
+  ("ls" "/bin/ls --color=never")
+  ("ls-quoting-style" t)
+  ("env-u-option" t)))
