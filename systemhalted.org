@@ -277,14 +277,15 @@
       (require 'sanity)
     #+END_SRC
 
-*** Modeline Time and Battery
-    #+BEGIN_SRC emacs-lisp :tangle no
+*** Modeline 
+**** Time and Battery
+     #+BEGIN_SRC emacs-lisp :tangle no
       (display-time-mode 1)
       (display-battery-mode 1)
-    #+END_SRC
+     #+END_SRC
 
-*** Spaceline
-    #+BEGIN_SRC emacs-lisp :tangle yes
+**** Spaceline
+     #+BEGIN_SRC emacs-lisp :tangle no
       (use-package spaceline :ensure t
 	:config
 	(use-package spaceline-config
@@ -306,8 +307,16 @@
 	  (spaceline-toggle-time-on)
 	  (spaceline-emacs-theme 'date 'time)))
 
-    #+END_SRC
+     #+END_SRC
+  
+**** Doom Modeline
+     #+begin_src emacs-lisp :tangle yes
+     (use-package all-the-icons)     
+     
+     (use-package doom-modeline
+     :init (doom-modeline-mode 1))
 
+     #+end_src
 *** Cursor Position
     #+BEGIN_SRC emacs-lisp :tangle yes
       (setq line-number-mode t)
@@ -865,7 +874,7 @@
 
 **** Common Lisp/Slime
 
- Slime stands for Superior Lisp Interaction Mode for Emacs. For a quick intro, [[http://gigamonkeys.com/book/lather-rinse-repeat-a-tour-of-the-repl.html][read this]].
+     Slime stands for Superior Lisp Interaction Mode for Emacs. For a quick intro, [[http://gigamonkeys.com/book/lather-rinse-repeat-a-tour-of-the-repl.html][read this]].
      #+BEGIN_SRC emacs-lisp
 	(use-package slime
 	  :ensure t
