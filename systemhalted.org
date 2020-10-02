@@ -280,7 +280,7 @@
 
 *** Modeline 
 **** Time and Battery
-     #+BEGIN_SRC emacs-lisp :tangle no
+     #+BEGIN_SRC emacs-lisp :tangle yes
       (display-time-mode 1)
       (display-battery-mode 1)
      #+END_SRC
