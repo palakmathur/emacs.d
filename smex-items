@@ -1,13 +1,13 @@
 
 ;; ----- smex-history -----
 (
+ shell
+ eww
+ list-packages
  toggle-debug-on-error
  emacs-version
  org-bullets-mode
  magit-status
- eshell
- comment-region
- emacs-uptime
 )
 
 ;; ----- smex-data -----
@@ -26,4 +26,7 @@
  (org-bullets . 1)
  (org-bullets-mode . 1)
  (toggle-debug-on-error . 2)
+ (list-packages . 1)
+ (eww . 1)
+ (shell . 2)
 )
