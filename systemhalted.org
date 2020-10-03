@@ -244,7 +244,23 @@
        (add-to-list 'default-frame-alist '(fullscreen . fullboth))
        ;;(add-hook 'window-setup-hook 'toggle-frame-maximized t).
      #+END_SRC
+**** Display Line Numbers on the side
 
+     #+begin_src emacs-lisp :tangle yes
+       (global-display-line-numbers-mode t)
+     #+end_src
+
+**** But disable line numbers for certain modes
+
+     #+begin_src emacs-lisp :tangle yes
+       (dolist (mode '(org-mode-hook
+		       term-mode-hook
+		       shell-mode-hook
+		       eshell-mode-hook))
+	 (add-hook mode (lambda() (display-line-numbers-mode 0))))
+
+     #+end_src
+     
 *** PDF
     #+BEGIN_SRC emacs-lisp :tangle yes
       (setq doc-view-continuous t)
@@ -789,10 +805,16 @@
 	(yas-reload-all))
     #+END_SRC
 
+
+*** Rainbow Delimiters
+    #+begin_src emacs-lisp :tangle yes
+	    (use-package rainbow-delimiters
+	      :hook (prog-mode . rainbow-delimiters-mode))
+    #+end_src
+    
 *** flycheck
     #+BEGIN_SRC emacs-lisp :tangle yes
-      (use-package flycheck
-	:ensure t)
+      (use-package flycheck)
     #+END_SRC
 
 *** company mode
