@@ -1,13 +1,13 @@
 
 ;; ----- smex-history -----
 (
+ load-theme
+ beginning-of-buffer
+ compose-mail
+ gnus
  toggle-debug-on-error
  emacs-version
- org-bullets-mode
- magit-status
  eshell
- comment-region
- emacs-uptime
 )
 
 ;; ----- smex-data -----
@@ -26,4 +26,9 @@
  (org-bullets . 1)
  (org-bullets-mode . 1)
  (toggle-debug-on-error . 2)
+ (gnus . 3)
+ (compose-mail . 1)
+ (message-send . 1)
+ (beginning-of-buffer . 1)
+ (load-theme . 4)
 )

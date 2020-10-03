@@ -155,7 +155,7 @@
 
 *** Package Configuration
 
-    Define package repositories
+    Emacs is an ecosystem of packages, which are important to make Emacs your home. Traditionally, [["https://elpa.gnu.org/packages/"][ELPA]] was the repository of choice for Emacs but lately more modern repositories have started flourishing. If you type command =M-x list-packages= in the Emacs without loading this config file, you will see a list of packages from ELPA. Here we will define the repositories to let Emacs know where to go and fetch the packages from. 
 
     #+BEGIN_SRC emacs-lisp
       (require 'package)
@@ -179,7 +179,7 @@
 
 *** Install and Configure use-package
 
-    We are going to use =use-package for most of our setup. It is easy to use it. In case you need a tutorial on few of its keywords, [[https://jwiegley.github.io/use-package/keywords/#preface-init-config][read this]].
+    We are going to use ~use-package~ for most of our setup. It is easy to use it. In case you need a tutorial on few of its keywords, [[https://jwiegley.github.io/use-package/keywords/#preface-init-config][read this]].
 
     #+BEGIN_SRC emacs-lisp
       (unless (package-installed-p 'use-package)
@@ -277,9 +277,16 @@
       (require 'sanity)
     #+END_SRC
 
+    #+begin_src emacs-lisp :tangle yes
+       (load-theme 'wombat)
+
+    #+end_src
+
+    
+
 *** Modeline 
 **** Time and Battery
-     #+BEGIN_SRC emacs-lisp :tangle no
+     #+BEGIN_SRC emacs-lisp :tangle yes
       (display-time-mode 1)
       (display-battery-mode 1)
      #+END_SRC
@@ -311,10 +318,11 @@
   
 **** Doom Modeline
      #+begin_src emacs-lisp :tangle yes
-     (use-package all-the-icons)     
+	    (use-package all-the-icons)     
      
-     (use-package doom-modeline
-     :init (doom-modeline-mode 1))
+	    (use-package doom-modeline
+	    :init (doom-modeline-mode 1)
+	    :custom (doom-modeline-height 15))
 
      #+end_src
 *** Cursor Position
@@ -558,9 +566,13 @@
 
 *** Ivy
 
+    Ivy provides quick and easy way to select item from a list when you are searching for say a file in a minbuffer.
+    
+
     #+BEGIN_SRC emacs-lisp :tangle yes
-      (use-package ivy
-	:demand t)
+	    (use-package ivy
+	      :demand t
+	      :config (ivy-mode 1))
     #+END_SRC
 
 *** Magit
