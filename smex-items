@@ -8,6 +8,14 @@
  toggle-debug-on-error
  emacs-version
  eshell
+ shell
+ eww
+ list-packages
+ toggle-debug-on-error
+ emacs-version
+ org-bullets-mode
+ magit-status
+
 )
 
 ;; ----- smex-data -----
@@ -31,4 +39,7 @@
  (message-send . 1)
  (beginning-of-buffer . 1)
  (load-theme . 4)
+ (list-packages . 1)
+ (eww . 1)
+ (shell . 2)
 )

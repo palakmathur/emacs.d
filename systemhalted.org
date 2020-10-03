@@ -100,6 +100,7 @@
   IntelliJ IDEA is the best IDE for that. Therefore, I decided that in the beginning, I do not need many configurations
   . Since the discussion on the =r/emacs= was all about Literate Programming and how =org-mode= facilitates that, I
   decided to start with setting up org-mode first
+  
 * Configurations
 ** About this file 
 *** Org File Tweaks
@@ -492,6 +493,14 @@
 	     vc-cvs-stay-local nil)
     #+end_src
 
+*** PDFLatex
+
+    #+begin_src emacs-lisp
+    
+    (setenv "PATH" (concat (getenv "PATH") ":/Library/TeX/texbin/pdflatex"))
+
+    #+end_src
+
 
 ** Packages
 *** Which Key?
@@ -623,7 +632,7 @@
 					       ("T" "Tickler" entry
 						(file+headline "~/org/tickler.org" "Tickler")
 						"* %i%? \n %U"))
-		       org-todo-keywords '((sequence "TODO(t)" "Started(s)" "WAITING(w)" "|" "DONE(d)" "CANCELLED(c)" "HOLD(h)")))
+		       org-todo-keywords '((sequence "TODO(t)" "START(s)" "WAIT(w)" "|" "DONE(d)" "CANCEL(c)" "HOLD(h)" "DELEGATE(g)")))
 	 :init
 	 (define-key global-map (kbd "C-c l") 'org-store-link)
 	 (define-key global-map (kbd "C-c a") 'org-agenda)
