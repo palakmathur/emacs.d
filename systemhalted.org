@@ -201,7 +201,7 @@
      #+END_SRC
 
 **** Setup initial major mode to Org-mode
-     #+BEGIN_SRC emacs-lisp :tangle no
+     #+BEGIN_SRC emacs-lisp :tangle yes
        (setq-default initial-major-mode (quote org-mode))
      #+END_SRC
 
@@ -268,7 +268,8 @@
     #+END_SRC
 *** Theme and Modeline
 
-    #+BEGIN_SRC emacs-lisp :tangle no
+**** Theme
+    #+BEGIN_SRC emacs-lisp :tangle no :noexport:
       (use-package ample-theme 
 	:init (progn (load-theme 'ample t t)
 		     (load-theme 'ample-flat t t)
@@ -278,18 +279,18 @@
 	:ensure t)
     #+END_SRC
 
-    #+BEGIN_SRC emacs-lisp :tangle :tangle no
+    #+BEGIN_SRC emacs-lisp :tangle :tangle no :noexport:
       (use-package spacemacs-common
 	:ensure spacemacs-theme
 	:config (load-theme 'spacemacs-dark t))
     #+END_SRC
 
-    #+BEGIN_SRC emacs-lisp :tangle no
+    #+BEGIN_SRC emacs-lisp :tangle no :noexport:
       (use-package leuven-theme
 	:config (load-theme 'leuven t))
     #+END_SRC
 
-    #+BEGIN_SRC emacs-lisp :tangle no
+    #+BEGIN_SRC emacs-lisp :tangle no :noexport:
       (add-to-list 'load-path "~/.emacs.d/elegant-emacs")
       (require 'elegance)
       (require 'sanity)
