@@ -266,7 +266,14 @@
     #+BEGIN_SRC emacs-lisp :tangle yes
       (setq doc-view-continuous t)
     #+END_SRC
-*** Theme and Modeline
+*** Fonts, Theme and Modeline
+**** Font
+     #+begin_src emacs-lisp
+       (defvar systemhalted/default-font-size 100)
+       (set-face-attribute 'default nil
+			   :font "Fira Code"
+			   :height systemhalted/default-font-size)
+     #+end_src
 
 **** Theme
     #+BEGIN_SRC emacs-lisp :tangle no :noexport:
