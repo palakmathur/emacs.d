@@ -7,81 +7,7 @@
   :VISIBILITY: children
   :END:
   
-* Table of Contents    :TOC_5_gh: :noexport:
-  - [[#why-emacs][Why Emacs?]]
-  - [[#about][About]]
-  - [[#configurations][Configurations]]
-    - [[#about-this-file][About this file]]
-      - [[#org-file-tweaks][Org File Tweaks]]
-	- [[#automatically-tangle][Automatically Tangle]]
-	- [[#visibility-settings][Visibility Settings]]
-	- [[#table-of-contents][Table of Contents]]
-    - [[#global-settings][Global Settings]]
-      - [[#setup-proxy][Setup Proxy]]
-      - [[#garbage-collection][Garbage Collection]]
-      - [[#package-configuration][Package Configuration]]
-      - [[#install-and-configure-use-package][Install and Configure use-package]]
-    - [[#ui-customization][UI Customization]]
-      - [[#lean-and-mean][Lean and mean]]
-	- [[#disable-startupsplash-screen][Disable startup/splash screen]]
-	- [[#setup-initial-major-mode-to-org-mode][Setup initial major mode to Org-mode]]
-	- [[#remove-scratch-message][Remove scratch message]]
-	- [[#disable-unnecessary-interface][Disable Unnecessary Interface]]
-	- [[#reduce-the-delay-echoing-the-keystrokes][Reduce the delay echoing the keystrokes]]
-	- [[#join-following-line][Join following line]]
-	- [[#full-screen][Full Screen]]
-      - [[#pdf][PDF]]
-      - [[#theme][Theme]]
-      - [[#modeline-time-and-battery][Modeline Time and Battery]]
-      - [[#spaceline][Spaceline]]
-      - [[#cursor-position][Cursor Position]]
-    - [[#text-manipulation][Text Manipulation]]
-      - [[#move-text][Move text]]
-      - [[#duplicate-the-current-line][Duplicate the current line]]
-      - [[#string-manipulations][String manipulations]]
-    - [[#shortcuts-longcuts-miscellaneous-configs][Shortcuts, Longcuts, Miscellaneous Configs]]
-      - [[#clipboard-copy-from-terminal-emacs-to-the-x-clipboard][Clipboard. Copy from terminal emacs to the X clipboard.]]
-      - [[#simplify-yesno-prompts][Simplify Yes/No Prompts]]
-      - [[#but-make-it-hard-to-accidentally-exit][But make it hard to accidentally exit]]
-      - [[#make-finding-file-easy][Make finding file easy]]
-      - [[#utf-8-coding-system][UTF-8 Coding System]]
-      - [[#shut-up-the-bell][Shut up the bell]]
-      - [[#disabled-commands][Disabled Commands]]
-      - [[#always-kill-the-buffer][Always kill the buffer]]
-      - [[#visit-systemhaltedorg][Visit systemhalted.org]]
-      - [[#reload-config][Reload Config]]
-      - [[#electric][Electric]]
-      - [[#show--parens][Show  Parens]]
-    - [[#packages][Packages]]
-      - [[#which-key][Which Key?]]
-      - [[#helm][Helm]]
-      - [[#smex][SMEX]]
-      - [[#ibuffer][iBuffer]]
-      - [[#ivy][Ivy]]
-      - [[#magit][Magit]]
-      - [[#projectile][Projectile]]
-      - [[#org][Org]]
-      - [[#org-bullets][Org Bullets]]
-      - [[#toc-org][Toc-org]]
-      - [[#org-sidebar][Org-sidebar]]
-      - [[#nov-mode][Nov Mode]]
-      - [[#define-word][define-word]]
-      - [[#treemacs][Treemacs]]
-      - [[#idle-highlight][IDLE-HIGHLIGHT]]
-    - [[#communication][Communication]]
-      - [[#slack][Slack]]
-    - [[#custom-functions][Custom Functions]]
-      - [[#speedtest][SpeedTest]]
-      - [[#programming][Programming]]
-	- [[#yasnippet][yasnippet]]
-	- [[#flycheck][flycheck]]
-	- [[#company-mode][company mode]]
-	- [[#languages][Languages]]
-	  - [[#cc][C/C++]]
-	  - [[#haskell][Haskell]]
-	  - [[#easy-to-add-emacs-lisp-template][Easy-to-add emacs-lisp template]]
-      - [[#post-initialization][Post Initialization]]
-	- [[#garbage-collection-1][Garbage Collection]]
+* Table of Contents                                                :TOC_5_gh:                   
 
 * Why Emacs?
 
@@ -141,7 +67,6 @@
      #+INCLUDE: "~/.emacs.d/init.el" src emacs-lisp :range-begin "OrgBabel" :range-end "-OrgBabel" :lines "10-11"
 
 
-
 ** Global Settings
 *** Load Customizations from folder
 
@@ -155,7 +80,7 @@
 
 *** Package Configuration
 
-    Emacs is an ecosystem of packages, which are important to make Emacs your home. Traditionally, [["https://elpa.gnu.org/packages/"][ELPA]] was the repository of choice for Emacs but lately more modern repositories have started flourishing. If you type command =M-x list-packages= in the Emacs without loading this config file, you will see a list of packages from ELPA. Here we will define the repositories to let Emacs know where to go and fetch the packages from. 
+    Emacs is an ecosystem of packages, which are important to make Emacs your home. Traditionally, Elpa was the repository of choice for Emacs but lately more modern repositories have started flourishing. If you type command =M-x list-packages= in the Emacs without loading this config file, you will see a list of packages from ELPA. Here we will define the repositories to let Emacs know where to go and fetch the packages from. 
 
     #+BEGIN_SRC emacs-lisp
       (require 'package)
@@ -225,7 +150,6 @@
        (setq echo-keystrokes 0.00111)
      #+END_SRC
 
-
 **** Join following line
 
      #+BEGIN_SRC emacs-lisp :tangle yes
@@ -269,90 +193,89 @@
 *** Fonts, Theme and Modeline
 **** Font
      #+begin_src emacs-lisp
-       (defvar systemhalted/default-font-size 100)
+       (defvar systemhalted/default-font-size 120)
        (set-face-attribute 'default nil
 			   :font "Fira Code"
 			   :height systemhalted/default-font-size)
      #+end_src
 
 **** Theme
-    #+BEGIN_SRC emacs-lisp :tangle no :noexport:
-      (use-package ample-theme 
-	:init (progn (load-theme 'ample t t)
-		     (load-theme 'ample-flat t t)
-		     (load-theme 'ample-light t t)
-		     (enable-theme 'ample-light))
-	:defer t
-	:ensure t)
-    #+END_SRC
+     #+BEGIN_SRC emacs-lisp :tangle no :noexport:
+       (use-package ample-theme 
+	 :init (progn (load-theme 'ample t t)
+		      (load-theme 'ample-flat t t)
+		      (load-theme 'ample-light t t)
+		      (enable-theme 'ample-light))
+	 :defer t
+	 :ensure t)
+     #+END_SRC
 
-    #+BEGIN_SRC emacs-lisp :tangle :tangle no :noexport:
-      (use-package spacemacs-common
-	:ensure spacemacs-theme
-	:config (load-theme 'spacemacs-dark t))
-    #+END_SRC
+     #+BEGIN_SRC emacs-lisp :tangle :tangle no :noexport:
+       (use-package spacemacs-common
+	 :ensure spacemacs-theme
+	 :config (load-theme 'spacemacs-dark t))
+     #+END_SRC
 
-    #+BEGIN_SRC emacs-lisp :tangle no :noexport:
-      (use-package leuven-theme
-	:config (load-theme 'leuven t))
-    #+END_SRC
+     #+BEGIN_SRC emacs-lisp :tangle no :noexport:
+       (use-package leuven-theme
+	 :config (load-theme 'leuven t))
+     #+END_SRC
 
-    #+BEGIN_SRC emacs-lisp :tangle no :noexport:
-      (add-to-list 'load-path "~/.emacs.d/elegant-emacs")
-      (require 'elegance)
-      (require 'sanity)
-    #+END_SRC
+     #+BEGIN_SRC emacs-lisp :tangle no :noexport:
+       (add-to-list 'load-path "~/.emacs.d/elegant-emacs")
+       (require 'elegance)
+       (require 'sanity)
+     #+END_SRC
 
-    #+begin_src emacs-lisp :tangle no
+     #+begin_src emacs-lisp :tangle no
        (load-theme 'wombat)
+     #+end_src
 
-    #+end_src
+     #+begin_src emacs-lisp :tangle yes
+       (use-package doom-themes
+	 :init (load-theme 'doom-palenight t))
 
-    #+begin_src emacs-lisp :tangle yes
-	    (use-package doom-themes
-	      :init (load-theme 'doom-palenight t))
-
-    #+end_src
+     #+end_src
     
 **** Modeline 
 ***** Time and Battery
       #+BEGIN_SRC emacs-lisp :tangle yes
-       (display-time-mode 1)
-       (display-battery-mode 1)
+	(display-time-mode 1)
+	(display-battery-mode 1)
       #+END_SRC
 
 ***** Spaceline
       #+BEGIN_SRC emacs-lisp :tangle no
-       (use-package spaceline :ensure t
-	 :config
-	 (use-package spaceline-config
-	   :config
-	   (spaceline-toggle-minor-modes-off)
-	   (spaceline-toggle-buffer-encoding-off)
-	   (spaceline-toggle-buffer-encoding-abbrev-off)
-	   (setq powerline-default-separator 'rounded)
-	   (setq spaceline-highlight-face-func 'spaceline-highlight-face-evil-state)
-	   (spaceline-define-segment line-column
-				     "The current line and column numbers."
-				     "l:%l c:%2c")
-	   (spaceline-define-segment time
-				     "The current time."
-				     (format-time-string "%H:%M"))
-	   (spaceline-define-segment date
-				     "The current date."
-				     (format-time-string "%h %d"))
-	   (spaceline-toggle-time-on)
-	   (spaceline-emacs-theme 'date 'time)))
+	(use-package spaceline :ensure t
+	  :config
+	  (use-package spaceline-config
+	    :config
+	    (spaceline-toggle-minor-modes-off)
+	    (spaceline-toggle-buffer-encoding-off)
+	    (spaceline-toggle-buffer-encoding-abbrev-off)
+	    (setq powerline-default-separator 'rounded)
+	    (setq spaceline-highlight-face-func 'spaceline-highlight-face-evil-state)
+	    (spaceline-define-segment line-column
+				      "The current line and column numbers."
+				      "l:%l c:%2c")
+	    (spaceline-define-segment time
+				      "The current time."
+				      (format-time-string "%H:%M"))
+	    (spaceline-define-segment date
+				      "The current date."
+				      (format-time-string "%h %d"))
+	    (spaceline-toggle-time-on)
+	    (spaceline-emacs-theme 'date 'time)))
 
       #+END_SRC
   
 ***** Doom Modeline
       #+begin_src emacs-lisp :tangle yes
-	     (use-package all-the-icons)     
-     
-	     (use-package doom-modeline
-	     :init (doom-modeline-mode 1)
-	     :custom (doom-modeline-height 15))
+	(use-package all-the-icons)     
+
+	(use-package doom-modeline
+	  :init (doom-modeline-mode 1)
+	  :custom (doom-modeline-height 15))
 
       #+end_src
 *** Cursor Position
@@ -501,9 +424,9 @@
     #+END_SRC
 *** Show  Parens
 
-#+BEGIN_SRC emacs-lisp :tangle yes
-  (show-paren-mode 1)
-#+END_SRC
+    #+BEGIN_SRC emacs-lisp :tangle yes
+      (show-paren-mode 1)
+    #+END_SRC
 
 *** Exile the backup files
 
@@ -512,24 +435,23 @@
     Reference: Somehwhere on Reddit (find the post and link here)
     
     #+begin_src emacs-lisp :tangle yes
-       (setq backup-by-copying t
-	     backup-directory-alist `(("." . ,(concat user-emacs-directory "backups")))
-	     tramp-backup-directory-alist backup-directory-alist
-	     delete-old-versions t
-	     kept-new-versions 3
-	     kept-old-versions 2
-	     version-control t
-	     vc-cvs-stay-local nil)
+      (setq backup-by-copying t
+	    backup-directory-alist `(("." . ,(concat user-emacs-directory "backups")))
+	    tramp-backup-directory-alist backup-directory-alist
+	    delete-old-versions t
+	    kept-new-versions 3
+	    kept-old-versions 2
+	    version-control t
+	    vc-cvs-stay-local nil)
     #+end_src
 
 *** PDFLatex
 
     #+begin_src emacs-lisp
-    
-    (setenv "PATH" (concat (getenv "PATH") ":/Library/TeX/texbin/pdflatex"))
+
+      (setenv "PATH" (concat (getenv "PATH") ":/Library/TeX/texbin/pdflatex"))
 
     #+end_src
-
 
 ** Packages
 *** Which Key?
@@ -540,13 +462,12 @@
 	:config						   
 	(which-key-setup-side-window-bottom)		   
 	(setq which-key-sort-order 'which-key-key-order-alpha 
-	     ;; which-key-side-window-max-width 0.33		   
+	      ;; which-key-side-window-max-width 0.33		   
 	      which-key-idle-delay 0.05)			   
 	:diminish which-key-mode)				  
     #+END_SRC
 
   
-    
 *** Helm
 
     #+BEGIN_SRC emacs-lisp :tangle yes
@@ -610,9 +531,9 @@
     
 
     #+BEGIN_SRC emacs-lisp :tangle yes
-	    (use-package ivy
-	      :demand t
-	      :config (ivy-mode 1))
+      (use-package ivy
+	:demand t
+	:config (ivy-mode 1))
     #+END_SRC
 
 *** Magit
@@ -724,7 +645,6 @@
 	 (setq org-src-fontify-natively t))
      #+end_src
 
-
 *** Nov Mode 
     I prefer reading EPUB books on Emacs. Nov Mode allows me do that
 
@@ -801,13 +721,11 @@
 	 (setq alert-default-style 'notifier))
      #+END_SRC
 
-
 ** Custom Functions
 **** SpeedTest
      #+BEGIN_SRC emacs-lisp :tangle yes
        (load "setup-speedtest.el")
      #+END_SRC
-
 
 ** Programming
 *** yasnippet
@@ -820,11 +738,10 @@
 	(yas-reload-all))
     #+END_SRC
 
-
 *** Rainbow Delimiters
     #+begin_src emacs-lisp :tangle yes
-	    (use-package rainbow-delimiters
-	      :hook (prog-mode . rainbow-delimiters-mode))
+      (use-package rainbow-delimiters
+	:hook (prog-mode . rainbow-delimiters-mode))
     #+end_src
     
 *** flycheck
@@ -934,12 +851,12 @@
 
      Slime stands for Superior Lisp Interaction Mode for Emacs. For a quick intro, [[http://gigamonkeys.com/book/lather-rinse-repeat-a-tour-of-the-repl.html][read this]].
      #+BEGIN_SRC emacs-lisp
-	(use-package slime
-	  :ensure t
-	  :config
-	  (setq inferior-lisp-program "/usr/local/bin/sbcl"))
+       (use-package slime
+	 :ensure t
+	 :config
+	 (setq inferior-lisp-program "/usr/local/bin/sbcl"))
 
-	(slime-setup '(slime-fancy))
+       (slime-setup '(slime-fancy))
      #+END_SRC
 
 **** Easy-to-add emacs-lisp template
@@ -958,3 +875,4 @@
 	     gc-cons-percentage 0.1)
      #+END_SRC
 
+     
