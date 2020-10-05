@@ -397,14 +397,14 @@
     #+END_SRC
 *** Visit systemhalted.org
     #+BEGIN_SRC emacs-lisp :tangle yes
-      (defun config-visit ()
+      (defun systemhalted/config-visit ()
 	(interactive)
 	(find-file "~/.emacs.d/systemhalted.org"))
       (global-set-key (kbd "C-c e") 'config-visit)
     #+END_SRC
 *** Reload Config
     #+BEGIN_SRC emacs-lisp :tangle yes
-      (defun config-reload ()
+      (defun systemhalted/config-reload ()
 	"Reloads ~/.emacs.d/systemhalted.org at runtime"
 	(interactive)
 	(org-babel-load-file (expand-file-name "~/.emacs.d/systemhalted.org")))
