@@ -513,14 +513,6 @@
       (define-key helm-find-files-map (kbd "C-f") 'helm-execute-persistent-action)
 
     #+END_SRC
-*** SMEX
-    #+BEGIN_SRC emacs-lisp :tangle yes
-      (use-package smex
-	:ensure t
-	:init (smex-initialize)
-	:bind 
-	("M-x" . smex))
-    #+END_SRC
 
 *** iBuffer
     Before iPhone, there was iBuffer
