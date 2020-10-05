@@ -66,7 +66,6 @@
  
      #+INCLUDE: "~/.emacs.d/init.el" src emacs-lisp :range-begin "OrgBabel" :range-end "-OrgBabel" :lines "10-11"
 
-
 ** Global Settings
 *** Load Customizations from folder
 
@@ -286,10 +285,10 @@
       #+end_src
     
 ***** Cursor Position
-    #+BEGIN_SRC emacs-lisp :tangle yes
-      (setq line-number-mode t)
-      (setq column-number-mode t)
-    #+END_SRC
+      #+BEGIN_SRC emacs-lisp :tangle yes
+	(setq line-number-mode t)
+	(setq column-number-mode t)
+      #+END_SRC
 ** Text Manipulation
 *** Move text
     Most of the time, I need to move a the text up an down a bit. There is a /transpose-line/ command that maps to /C-x C-t/, which is cumbersome and most of the time it messes-up with my flow. So, here we will map it to /M-n/ and /M-p/ following the convention of movement keys. 
@@ -473,8 +472,7 @@
 	      which-key-idle-delay 0.05)			   
 	:diminish which-key-mode)				  
     #+END_SRC
-
-  
+    
 *** Helm
 
     #+BEGIN_SRC emacs-lisp :tangle yes
@@ -572,43 +570,43 @@
 **** Org Setup
 
      #+BEGIN_SRC emacs-lisp :tangle no
-				    (use-package org
-				      :ensure org-plus-contrib
-				      :pin org
-				      :defer t
-				      :config (setq org-ellipsis " ▾")
-     #+END_SRC
-     
+       (use-package org
+	 :ensure org-plus-contrib
+	 :pin org
+	 :defer t
+	 :hook (org-mode . systemhalted/org-mode-look-feel)
+	 :config (systemhalted/org-agenda-setup)
+	 (systemhalted/org-font-setup)
+	 :init 
+	 (define-key global-map (kbd "C-c l") 'org-store-link)
+	 (define-key global-map (kbd "C-c a") 'org-agenda)
+	 (define-key global-map (kbd "C-c c") 'org-capture))
 
+     #+END_SRC
+          
+    
 **** Org Agenda and Todo Setup
      Let's include a newer version of org-mode than the one that is built in. We're going
      to manually remove the org directories from the load path, to ensure the version we
      want is prioritized instead.
 
      #+BEGIN_SRC emacs-lisp :tangle yes
-       (use-package org
-	 :ensure org-plus-contrib
-	 :pin org
-	 :defer t
-	 :config (setq org-log-done 'time
-		       org-log-done 'note
-		       org-ellipsis " ▾"
-		       org-agenda-files (list "~/org/inbox.org"
-					      "~/org/gtd.org" 
-					      "~/org/tickler.org"
-					      "~/org/references.org")
-		       org-capture-templates '(("t" "Todo [inbox]" entry
-						(file+headline "~/org/inbox.org" "Tasks")
-						"* TODO %i%?")
-					       ("T" "Tickler" entry
-						(file+headline "~/org/tickler.org" "Tickler")
-						"* %i%? \n %U"))
-		       org-todo-keywords '((sequence "TODO(t)" "START(s)" "WAIT(w)" "|" "DONE(d)" "CANCEL(c)" "HOLD(h)" "DELEGATE(g)")))
-	 :init
-	 (define-key global-map (kbd "C-c l") 'org-store-link)
-	 (define-key global-map (kbd "C-c a") 'org-agenda)
-	 (define-key global-map (kbd "C-c c") 'org-capture)
-	 )
+       (defun systemhalted/org-agenda-setup ()
+	 setq org-log-done 'time
+	 org-log-done 'note
+	 org-ellipsis " ▾"
+	 org-agenda-files (list "~/org/inbox.org"
+				"~/org/gtd.org" 
+				"~/org/tickler.org"
+				"~/org/references.org")
+	 org-capture-templates '(("t" "Todo [inbox]" entry
+				  (file+headline "~/org/inbox.org" "Tasks")
+				  "* TODO %i%?")
+				 ("T" "Tickler" entry
+				  (file+headline "~/org/tickler.org" "Tickler")
+				  "* %i%? \n %U"))
+	 org-todo-keywords '((sequence "TODO(t)" "START(s)" "WAIT(w)" "|" "DONE(d)" "CANCEL(c)" "HOLD(h)" "DELEGATE(g)")))
+
 
        (setq org-refile-targets '((org-agenda-files :maxlevel . 4)
 				  ("~/org/someday.org" :maxlevel . 1)
@@ -628,7 +626,7 @@
 	 :hook
 	 (( org-mode ) . org-bullets-mode))
      #+END_SRC
-
+     
 **** Org Tempo
      #+begin_src emacs-lisp :tangle yes
        (require 'org-tempo)
@@ -664,27 +662,47 @@
 	 (setq org-src-fontify-natively t))
      #+end_src
 
-**** Set org faces
+**** Setup Org Look and Feel
      #+begin_src emacs-lisp
-       ;; Set faces for heading levels
-       (dolist (face '((org-level-1 . 1.2)
-		       (org-level-2 . 1.1)
-		       (org-level-3 . 1.05)
-		       (org-level-4 . 1.0)
-		       (org-level-5 . 1.1)
-		       (org-level-6 . 1.1)
-		       (org-level-7 . 1.1)
-		       (org-level-8 . 1.1)))
-	 (set-face-attribute (car face) nil :font "Cantarell" :weight 'regular :height (cdr face)))
 
-       ;; Ensure that anything that should be fixed-pitch in Org files appears that way
-       (set-face-attribute 'org-block nil :foreground nil :inherit 'fixed-pitch)
-       (set-face-attribute 'org-code nil   :inherit '(shadow fixed-pitch))
-       (set-face-attribute 'org-table nil   :inherit '(shadow fixed-pitch))
-       (set-face-attribute 'org-verbatim nil :inherit '(shadow fixed-pitch))
-       (set-face-attribute 'org-special-keyword nil :inherit '(font-lock-comment-face fixed-pitch))
-       (set-face-attribute 'org-meta-line nil :inherit '(font-lock-comment-face fixed-pitch))
-       (set-face-attribute 'org-checkbox nil :inherit 'fixed-pitch))
+       (defun systemhalted/org-mode-look-feel ()
+	 (org-indent-mode)
+	 (variable-pitch-mode 1)
+	 (visual-line-mode 1))
+
+       (defun systemhalted/org-mode-visual-fill ()
+	 (setq visual-fill-column-width 100
+	       visual-fill-column-center-text t)
+	 (visual-fill-column-mode 1))
+
+       (use-package visual-fill-column
+	 :hook (org-mode . systemhalted/org-mode-visual-fill))
+
+       (defun systemhalted/org-font-setup ()
+	 ;; Replace list hyphen with dot
+	 (font-lock-add-keywords 'org-mode
+				 '(("^ *\\([-]\\) "
+				    (0 (prog1 () (compose-region (match-beginning 1) (match-end 1) "•"))))))
+
+	 ;; Set faces for heading levels
+	 (dolist (face '((org-level-1 . 1.2)
+			 (org-level-2 . 1.1)
+			 (org-level-3 . 1.05)
+			 (org-level-4 . 1.0)
+			 (org-level-5 . 1.1)
+			 (org-level-6 . 1.1)
+			 (org-level-7 . 1.1)
+			 (org-level-8 . 1.1)))
+	   (set-face-attribute (car face) nil :font "Cantarell" :weight 'regular :height (cdr face)))
+
+	 ;; Ensure that anything that should be fixed-pitch in Org files appears that way
+	 (set-face-attribute 'org-block nil :foreground nil :inherit 'fixed-pitch)
+	 (set-face-attribute 'org-code nil   :inherit '(shadow fixed-pitch))
+	 (set-face-attribute 'org-table nil   :inherit '(shadow fixed-pitch))
+	 (set-face-attribute 'org-verbatim nil :inherit '(shadow fixed-pitch))
+	 (set-face-attribute 'org-special-keyword nil :inherit '(font-lock-comment-face fixed-pitch))
+	 (set-face-attribute 'org-meta-line nil :inherit '(font-lock-comment-face fixed-pitch))
+	 (set-face-attribute 'org-checkbox nil :inherit 'fixed-pitch))
      #+end_src
      
 
@@ -905,8 +923,8 @@
 **** Easy-to-add emacs-lisp template
      Hitting tab after an "<el" in an org-mode file will create a template for elisp insertion.
      #+BEGIN_SRC emacs-lisp :tangle yes
-	(add-to-list 'org-structure-template-alist
-			   '("el" .  "src emacs-lisp\n"))
+       (add-to-list 'org-structure-template-alist
+		    '("el" .  "src emacs-lisp\n"))
      #+END_SRC
 
 ** Post Initialization
@@ -917,5 +935,3 @@
        (setq gc-cons-threshold 16777216
 	     gc-cons-percentage 0.1)
      #+END_SRC
-
-     
