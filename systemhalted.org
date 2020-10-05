@@ -359,11 +359,6 @@
       (setq-default confirm-kill-emacs (quote y-or-n-p))
     #+END_SRC
 
-*** Make finding file easy
-    #+BEGIN_SRC emacs-lisp :tangle no
-      (global-set-key (kbd "C-x f")    'find-file)
-    #+END_SRC
-
 *** UTF-8 Coding System
     Use UTF-8 as much as possible
     #+BEGIN_SRC emacs-lisp :tangle yes
