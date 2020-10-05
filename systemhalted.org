@@ -177,11 +177,12 @@
 **** But disable line numbers for certain modes
 
      #+begin_src emacs-lisp :tangle yes
-       (dolist (mode '(org-mode-hook
-		       term-mode-hook
-		       shell-mode-hook
-		       eshell-mode-hook))
-	 (add-hook mode (lambda() (display-line-numbers-mode 0))))
+	      (dolist (mode '(org-mode-hook
+			      term-mode-hook
+			      shell-mode-hook
+			      eshell-mode-hook
+			      helm-mode))
+		(add-hook mode (lambda() (display-line-numbers-mode 0))))
 
      #+end_src
      
@@ -205,36 +206,6 @@
      #+end_src
 
 **** Theme
-     #+BEGIN_SRC emacs-lisp :tangle no :noexport:
-       (use-package ample-theme 
-	 :init (progn (load-theme 'ample t t)
-		      (load-theme 'ample-flat t t)
-		      (load-theme 'ample-light t t)
-		      (enable-theme 'ample-light))
-	 :defer t
-	 :ensure t)
-     #+END_SRC
-
-     #+BEGIN_SRC emacs-lisp :tangle :tangle no :noexport:
-       (use-package spacemacs-common
-	 :ensure spacemacs-theme
-	 :config (load-theme 'spacemacs-dark t))
-     #+END_SRC
-
-     #+BEGIN_SRC emacs-lisp :tangle no :noexport:
-       (use-package leuven-theme
-	 :config (load-theme 'leuven t))
-     #+END_SRC
-
-     #+BEGIN_SRC emacs-lisp :tangle no :noexport:
-       (add-to-list 'load-path "~/.emacs.d/elegant-emacs")
-       (require 'elegance)
-       (require 'sanity)
-     #+END_SRC
-
-     #+begin_src emacs-lisp :tangle no
-       (load-theme 'wombat)
-     #+end_src
 
      #+begin_src emacs-lisp :tangle yes
        (use-package doom-themes
@@ -249,31 +220,6 @@
 	(display-battery-mode 1)
       #+END_SRC
 
-***** Spaceline
-      #+BEGIN_SRC emacs-lisp :tangle no
-	(use-package spaceline :ensure t
-	  :config
-	  (use-package spaceline-config
-	    :config
-	    (spaceline-toggle-minor-modes-off)
-	    (spaceline-toggle-buffer-encoding-off)
-	    (spaceline-toggle-buffer-encoding-abbrev-off)
-	    (setq powerline-default-separator 'rounded)
-	    (setq spaceline-highlight-face-func 'spaceline-highlight-face-evil-state)
-	    (spaceline-define-segment line-column
-				      "The current line and column numbers."
-				      "l:%l c:%2c")
-	    (spaceline-define-segment time
-				      "The current time."
-				      (format-time-string "%H:%M"))
-	    (spaceline-define-segment date
-				      "The current date."
-				      (format-time-string "%h %d"))
-	    (spaceline-toggle-time-on)
-	    (spaceline-emacs-theme 'date 'time)))
-
-      #+END_SRC
-  
 ***** Doom Modeline
       #+begin_src emacs-lisp :tangle yes
 	(use-package all-the-icons)     
