@@ -23,7 +23,7 @@
   understanding what is going on. So, after reading =r/emacs= discussions, I decided that I will get rid of all the Emacs
   configurations and start it at the very beginning. I have not used Emacs for any coding purposes. I code in Java and
   IntelliJ IDEA is the best IDE for that. Therefore, I decided that in the beginning, I do not need many configurations
-  . Since the discussion on the =r/emacs= was all about Literate Programming and how =org-mode= facilitates that, I
+  . Since the discussion on the ~r/emacs~ was all about Literate Programming and how =org-mode= facilitates that, I
   decided to start with setting up org-mode first
   
 * Configurations
@@ -36,7 +36,7 @@
      First there is a property defined on the file:
 
      #+BEGIN_SRC :tangle no
- header-args :tangle yes
+         header-args :tangle yes
      #+END_SRC
 
      This tells emacs to automatically tangle (include) all code blocks in this file when
@@ -48,9 +48,9 @@
      sub headings under Configuration is shown each time this file is opened in org-mode.
 
      #+BEGIN_SRC :tangle no
-:PROPERTIES:
-:VISIBILITY: children
-:END:
+      :PROPERTIES:
+          :VISIBILITY: children
+      :END:
      #+END_SRC
 
 **** Table of Contents
@@ -197,6 +197,12 @@
        (set-face-attribute 'default nil
 			   :font "Fira Code"
 			   :height systemhalted/default-font-size)
+
+       ;; Set the fixed pitch face
+       (set-face-attribute 'fixed-pitch nil :font "Fira Code" :height 120)
+
+       ;; Set the variable pitch face
+       (set-face-attribute 'variable-pitch nil :font "Cantarell" :height 180 :weight 'regular)
      #+end_src
 
 **** Theme
@@ -275,10 +281,11 @@
 
 	(use-package doom-modeline
 	  :init (doom-modeline-mode 1)
-	  :custom (doom-modeline-height 15))
+	  :custom (doom-modeline-height 10))
 
       #+end_src
-*** Cursor Position
+    
+***** Cursor Position
     #+BEGIN_SRC emacs-lisp :tangle yes
       (setq line-number-mode t)
       (setq column-number-mode t)
@@ -561,8 +568,19 @@
     #+END_SRC
 
 *** Org
+    
+**** Org Setup
 
-**** Org Agenda and Todo setup
+     #+BEGIN_SRC emacs-lisp :tangle no
+				    (use-package org
+				      :ensure org-plus-contrib
+				      :pin org
+				      :defer t
+				      :config (setq org-ellipsis " ▾")
+     #+END_SRC
+     
+
+**** Org Agenda and Todo Setup
      Let's include a newer version of org-mode than the one that is built in. We're going
      to manually remove the org directories from the load path, to ensure the version we
      want is prioritized instead.
@@ -574,6 +592,7 @@
 	 :defer t
 	 :config (setq org-log-done 'time
 		       org-log-done 'note
+		       org-ellipsis " ▾"
 		       org-agenda-files (list "~/org/inbox.org"
 					      "~/org/gtd.org" 
 					      "~/org/tickler.org"
@@ -644,6 +663,30 @@
 	 :config
 	 (setq org-src-fontify-natively t))
      #+end_src
+
+**** Set org faces
+     #+begin_src emacs-lisp
+       ;; Set faces for heading levels
+       (dolist (face '((org-level-1 . 1.2)
+		       (org-level-2 . 1.1)
+		       (org-level-3 . 1.05)
+		       (org-level-4 . 1.0)
+		       (org-level-5 . 1.1)
+		       (org-level-6 . 1.1)
+		       (org-level-7 . 1.1)
+		       (org-level-8 . 1.1)))
+	 (set-face-attribute (car face) nil :font "Cantarell" :weight 'regular :height (cdr face)))
+
+       ;; Ensure that anything that should be fixed-pitch in Org files appears that way
+       (set-face-attribute 'org-block nil :foreground nil :inherit 'fixed-pitch)
+       (set-face-attribute 'org-code nil   :inherit '(shadow fixed-pitch))
+       (set-face-attribute 'org-table nil   :inherit '(shadow fixed-pitch))
+       (set-face-attribute 'org-verbatim nil :inherit '(shadow fixed-pitch))
+       (set-face-attribute 'org-special-keyword nil :inherit '(font-lock-comment-face fixed-pitch))
+       (set-face-attribute 'org-meta-line nil :inherit '(font-lock-comment-face fixed-pitch))
+       (set-face-attribute 'org-checkbox nil :inherit 'fixed-pitch))
+     #+end_src
+     
 
 *** Nov Mode 
     I prefer reading EPUB books on Emacs. Nov Mode allows me do that
@@ -861,9 +904,9 @@
 
 **** Easy-to-add emacs-lisp template
      Hitting tab after an "<el" in an org-mode file will create a template for elisp insertion.
-     #+BEGIN_SRC emacs-lisp :tangle no
-       (add-to-list 'org-structure-template-alist
-		    '("le" .  "#+BEGIN_SRC emacs-lisp\n \n#+END_SRC"))
+     #+BEGIN_SRC emacs-lisp :tangle yes
+	(add-to-list 'org-structure-template-alist
+			   '("el" .  "src emacs-lisp\n"))
      #+END_SRC
 
 ** Post Initialization
