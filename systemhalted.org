@@ -601,7 +601,7 @@ package that automatically generates an up to date table of contents for us.
 #+BEGIN_SRC emacs-lisp :tangle yes
   (use-package toc-org
     :after org
-    :init (add-hook 'org-mode-hook 'toc-org-enable))
+    :hook (org-mode . toc-org-mode))
 #+END_SRC
 
 **** Org-sidebar
@@ -624,6 +624,19 @@ Org-mode supports HTML export natively but syntax highlighting is added through 
     :config
     (setq org-src-fontify-natively t))
 #+end_src
+
+*** Markdown mode
+
+#+begin_src emacs-lisp
+(use-package markdown-mode
+  :ensure t
+  :commands (markdown-mode gfm-mode)
+  :mode (("README\\.md\\'" . gfm-mode)
+         ("\\.md\\'" . markdown-mode)
+         ("\\.markdown\\'" . markdown-mode))
+  :init (setq markdown-command "multimarkdown"))
+#+end_src
+
 
 *** Nov Mode 
 I prefer reading EPUB books on Emacs. Nov Mode allows me do that
