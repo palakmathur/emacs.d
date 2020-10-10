@@ -171,16 +171,16 @@ When you press C-x, for example, and hesitate with a next character, C-x will be
 *** Fonts, Theme and Modeline
 **** Font
 #+begin_src emacs-lisp
-  (defvar systemhalted/default-font-size 120)
+  (defvar systemhalted/default-font-size 140)
   (set-face-attribute 'default nil
                       :font "Fira Code"
                       :height systemhalted/default-font-size)
 
   ;; Set the fixed pitch face
-  (set-face-attribute 'fixed-pitch nil :font "Fira Code" :height 120)
+  (set-face-attribute 'fixed-pitch nil :font "Fira Code" :height 160)
 
   ;; Set the variable pitch face
-  (set-face-attribute 'variable-pitch nil :font "Cantarell" :height 140 :weight 'regular)
+  (set-face-attribute 'variable-pitch nil :font "Cantarell" :height 160 :weight 'regular)
 #+end_src
 
 **** Theme
