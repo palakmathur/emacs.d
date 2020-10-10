@@ -876,12 +876,3 @@ Hitting tab after an "<el" in an org-mode file will create a template for elisp 
   (add-to-list 'org-structure-template-alist
                '("el" .  "src emacs-lisp\n"))
 #+END_SRC
-
-** Post Initialization
-**** Garbage Collection
-Let's lower our GC thresholds back down to a sane level.
-
-#+BEGIN_SRC emacs-lisp :tangle yes
-  (setq gc-cons-threshold 16777216
-        gc-cons-percentage 0.1)
-#+END_SRC
