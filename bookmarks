@@ -19,7 +19,7 @@
  (position . 10478))
 ("org-capture-last-stored"
  (filename . "~/org/inbox.org")
- (front-context-string . "** TODO Two reso")
- (rear-context-string . "2020-10-01 Thu>\n")
- (position . 45723))
+ (front-context-string . "** TODO Subscrib")
+ (rear-context-string . "office for Adam\n")
+ (position . 48550))
 )

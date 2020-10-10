@@ -413,6 +413,7 @@ Reference: Somehwhere on Reddit (find the post and link here)
     ("C-x C-f" . 'helm-find-files)
     ("C-x C-b" . 'helm-buffers-list)
     ("M-x" . 'helm-M-x)
+    ("C-x f" . 'helm-recentf)
     :config
     (defun systemhalted/helm-hide-minibuffer ()
       (when (with-helm-buffer helm-echo-input-in-header-line)
@@ -474,18 +475,35 @@ functions we invoke regularly outside of magit is called.
     :commands (magit-status magit-blame magit-log-buffer-file magit-log-all))
 
 #+END_SRC
+*** Forge
+Forge uses access to Github and provides a way to interact with PRs, Issues, etc. 
 
+#+begin_src emacs-lisp :tangle no
+(use-package forge)
+
+#+end_src
 *** Projectile
 Projectile is a quick and easy project management package that "just works". We're
 going to install it and make sure it's loaded immediately.
 
 #+BEGIN_SRC emacs-lisp :tangle yes
-  (use-package projectile
-    :ensure t
-    :bind-keymap
-    ("C-c p" . projectile-command-map)
-    :config
-    (projectile-mode +1))
+    (use-package projectile
+      :diminish projectile-mode
+      :custom ((projectile-completion-system 'helm))
+      :bind-keymap
+      ("C-c p" . projectile-command-map)
+      :config
+      (projectile-mode)
+      :init
+      (when (file-directory-p "~/Workspace")
+         (setq projectile-project-search-path '("~/Workspace")))
+      (setq projectile-switch-project-action 'helm-projectile)
+      (setq projectile-indexing-method 'alien))
+
+    (use-package helm-projectile
+      :config (helm-projectile-on))
+
+
 #+END_SRC
 
 *** Org
