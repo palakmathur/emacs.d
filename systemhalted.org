@@ -511,15 +511,6 @@ As a newbie (and also as an experienced) [[https://irreal.org/blog/?p=6026][Emac
     ("M-x" . 'helm-M-x)
     ("C-x f" . 'helm-recentf)
     :config
-    (defun systemhalted/helm-hide-minibuffer ()
-      (when (with-helm-buffer helm-echo-input-in-header-line)
-        (let ((ov (make-overlay (point-min) (point-max) nil nil t)))
-          (overlay-put ov 'window (selected-window))
-          (overlay-put ov 'face
-                       (let ((bg-color (face-background 'default nil)))
-                         `(:background ,bg-color :foreground ,bg-color)))
-          (setq-local cursor-type nil))))
-    (add-hook 'helm-minibuffer-set-up-hook 'systemhalted/helm-hide-minibuffer)
     (setq helm-autoresize-max-height 0
           helm-autoresize-min-height 40
           helm-M-x-fuzzy-match t
