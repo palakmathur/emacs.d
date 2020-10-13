@@ -61,10 +61,11 @@
     - [[#pdflatex][PDFLatex]]
   - [[#packages][Packages]]
     - [[#which-key][Which Key?]]
-    - [[#helm][Helm]]
+    - [[#emacs-helm][Emacs-Helm]]
     - [[#ibuffer][iBuffer]]
     - [[#ivy][Ivy]]
     - [[#magit][Magit]]
+    - [[#forge][Forge]]
     - [[#projectile][Projectile]]
     - [[#org][Org]]
       - [[#org-agenda-and-todo-setup][Org Agenda and Todo Setup]]
@@ -95,8 +96,6 @@
       - [[#haskell][Haskell]]
       - [[#common-lispslime][Common Lisp/Slime]]
       - [[#easy-to-add-emacs-lisp-template][Easy-to-add emacs-lisp template]]
-  - [[#post-initialization][Post Initialization]]
-      - [[#garbage-collection][Garbage Collection]]
 
 * Why Emacs?
 
@@ -124,6 +123,8 @@ This tells emacs to automatically tangle (include) all code blocks in this file 
 generating the code for the config, unless the code block explicitly includes
 =:tangle no= as the above code block does.
 
+You will notice that I explicitly use =:tangle= property in all source blocks. It is a temporary thing as I am still trying to test out my configuration by turning on and off the source code blocks from auto tangle. 
+
 **** Visibility Settings
 Next we have a property that defines the visibility for org to show it's direct children on startup. This way a clean outline of all sub headings under Configuration is shown each time this file is opened in org-mode.
 
@@ -142,7 +143,7 @@ works property directly on github.
 
 **** Org Babel
 
-This file is loaded using /org-babel/. Create /init.el/ file in /.emacs.d/ folder and put following code
+This file is loaded using ~org-babel~. Create ~init.el~ file in ~/.emacs.d/~ folder and put following code
  
 #+INCLUDE: "~/.emacs.d/init.el" src emacs-lisp :range-begin "OrgBabel" :range-end "-OrgBabel" :lines "10-11"
 
@@ -181,9 +182,11 @@ Emacs is an ecosystem of packages, which are important to make Emacs your home. 
   (package-initialize)
 #+END_SRC
 
+Here, we asked Emacs to load a package called ~package~, which is the package manager that comes with Emacs out of the box. Also, we defined a list of package-archives. In the end we initialized and ask Emacs to refresh it’s package list.
+
 *** Install and Configure use-package
 
-We are going to use ~use-package~ for most of our setup. It is easy to use it. In case you need a tutorial on few of its keywords, [[https://jwiegley.github.io/use-package/keywords/#preface-init-config][read this]].
+We will be using a few packages that don’t ship with Emacs. We’ll be using ~use-package~ to define the configurations. We could have continued using the built-in package manager, but use-package makes the configuration file look neat and clean. In itself it is not a package manager but an efficient way to load packages. It is easy to use. In case you need a tutorial on few of its keywords, [[https://jwiegley.github.io/use-package/keywords/#preface-init-config][read this]].
 
 #+BEGIN_SRC emacs-lisp
   (unless (package-installed-p 'use-package)
@@ -192,6 +195,8 @@ We are going to use ~use-package~ for most of our setup. It is easy to use it. I
   (setq-default use-package-always-defer t
                 use-package-always-ensure t)
 #+END_SRC
+
+We are setting two properties, viz., =:defer= and =:ensure= to always be =true= when using ~use-package~. In other words we are setting this globally for all the packages. Setting =:defer= to =true= means, that we are expecting another package to do something to load a particular package by say, =:bind=. The =:ensure= settings tell the package manager to install the package automatically if it is not already present. 
 
 ** UI Customization
 
@@ -369,7 +374,6 @@ Emacs 24.4 came with a subr-x library with routines for string manipulations, li
 *** Clipboard. Copy from terminal emacs to the X clipboard.
 #+BEGIN_SRC emacs-lisp :tangle yes
   (use-package xclip
-    :ensure t
     :config
     (xclip-mode 1))
 
@@ -481,6 +485,8 @@ Reference: Somehwhere on Reddit (find the post and link here)
 
 ** Packages
 *** Which Key?
+As a newbie (and also as an experienced) [[https://irreal.org/blog/?p=6026][Emacser]], it is difficult to remember all the keybindings. And I do not think that anyone needs to remember all of them. Here is where [[https://github.com/justbur/emacs-which-key][which-key]] package comes into picture. It is an [[https://www.gnu.org/software/emacs/manual/html_node/emacs/Minor-Modes.html#:~:text=A%20minor%20mode%20is%20an,off%20(disabled)%20in%20others.][Emacs Minor Mode]], that displays the key bindings following your currently entered incomplete command (a prefix).
+
 #+BEGIN_SRC emacs-lisp :tangle yes
   (use-package which-key				   
     :init						   
@@ -493,11 +499,12 @@ Reference: Somehwhere on Reddit (find the post and link here)
     :diminish which-key-mode)				  
 #+END_SRC
     
-*** Helm
+*** Emacs-Helm
+
+[[https://emacs-helm.github.io/helm/][Helm]] is a framework for incremental completion and selection written for Emacs. It helps to rapidly complete file names, buffer names, or any other Emacs interactions requiring selecting an item from a list of possible choices. I am still learning it. I will update this as and when I get  more knowledge on this package. 
 
 #+BEGIN_SRC emacs-lisp :tangle yes
   (use-package helm 
-    :ensure t
     :bind
     ("C-x C-f" . 'helm-find-files)
     ("C-x C-b" . 'helm-buffers-list)
@@ -536,7 +543,7 @@ Reference: Somehwhere on Reddit (find the post and link here)
 #+END_SRC
 
 *** iBuffer
-Before iPhone, there was iBuffer
+Before iPhone, there was iBuffer. 
 
 #+BEGIN_SRC emacs-lisp :tangle yes
   (global-set-key (kbd "C-x b") 'ibuffer)
@@ -736,7 +743,6 @@ Org-mode supports HTML export natively but syntax highlighting is added through 
 
 #+begin_src emacs-lisp
 (use-package markdown-mode
-  :ensure t
   :commands (markdown-mode gfm-mode)
   :mode (("README\\.md\\'" . gfm-mode)
          ("\\.md\\'" . markdown-mode)
@@ -764,7 +770,6 @@ Word and their meanings and what better way to have this information at point.
 #+BEGIN_SRC emacs-lisp :tangle yes
   (use-package define-word
     :defer t
-    :ensure t
     :init (global-set-key (kbd "C-c d") 'define-word-at-point)
     (global-set-key (kbd "C-c D") 'define-word))
 
@@ -831,10 +836,8 @@ Word and their meanings and what better way to have this information at point.
 *** yasnippet
 #+BEGIN_SRC emacs-lisp  :tangle yes
   (use-package yasnippet
-    :ensure t
     :config
-    (use-package yasnippet-snippets
-      :ensure t)
+    (use-package yasnippet-snippets)
     (yas-reload-all))
 #+END_SRC
 
@@ -855,7 +858,6 @@ it starts doing its magic after typing in only 2 characters.
 
 #+BEGIN_SRC emacs-lisp :tangle yes
   (use-package company
-    :ensure t
     :config
     (setq company-idle-delay 0)
     (setq company-minimum-prefix-length 3))
@@ -875,7 +877,6 @@ it starts doing its magic after typing in only 2 characters.
   (add-hook 'c-mode-hook 'yas-minor-mode)
 
   (use-package flycheck-clang-analyzer
-    :ensure t
     :config
     (with-eval-after-load 'flycheck
       (require 'flycheck-clang-analyzer)
@@ -885,18 +886,15 @@ it starts doing its magic after typing in only 2 characters.
     (add-hook 'c++-mode-hook 'company-mode)
     (add-hook 'c-mode-hook 'company-mode))
 
-  (use-package company-c-headers
-    :ensure t)
+  (use-package company-c-headers)
 
   (use-package company-irony
-    :ensure t
     :config
     (setq company-backends '((company-c-headers
                               company-dabbrev-code
                               company-irony))))
 
   (use-package irony
-    :ensure t
     :config
     (add-hook 'c++-mode-hook 'irony-mode)
     (add-hook 'c-mode-hook 'irony-mode)
@@ -952,7 +950,6 @@ it starts doing its magic after typing in only 2 characters.
 Slime stands for Superior Lisp Interaction Mode for Emacs. For a quick intro, [[http://gigamonkeys.com/book/lather-rinse-repeat-a-tour-of-the-repl.html][read this]].
 #+BEGIN_SRC emacs-lisp
   (use-package slime
-    :ensure t
     :config
     (setq inferior-lisp-program "/usr/local/bin/sbcl"))
 
