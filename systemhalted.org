@@ -20,6 +20,7 @@
   - [[#global-settings][Global Settings]]
     - [[#load-customizations-from-folder][Load Customizations from folder]]
     - [[#setup-proxy][Setup Proxy]]
+    - [[#custom-file][Custom File]]
     - [[#package-configuration][Package Configuration]]
     - [[#install-and-configure-use-package][Install and Configure use-package]]
   - [[#ui-customization][UI Customization]]
@@ -157,6 +158,17 @@ I put some scripts in /customizations/ folder. Lets load this folder.
 *** Setup Proxy
 I use Emacs on my work laptop and there is a firewall that I need to pass through. Proxy settings allow me to do that. Save the below code under ~customizations~ and call it ~setup-proxy.el~
 #+INCLUDE: "~/.emacs.d/customizations/setup-proxy-template.el" src emacs-lisp :range-begin "HttpProxy" :range-end "-HttpProxy" :lines "2-13"
+
+*** Custom File
+
+  Emacs has an [[https://www.gnu.org/software/emacs/manual/html_node/emacs/Easy-Customization.html][Easy Customization]] Interface, which can be invoked by =M-x customize=. When you use it, it puts the =custom-set-variables= in ~init.el~. But I hardly use it as I have all my configurations as part of this config file. Thus, I want Emacs to use a different file to put these configurations. And since Emacs is Emacs, [[https://www.gnu.org/software/emacs/manual/html_node/emacs/Saving-Customizations.html#Saving-Customizations][it does not mind]]. 
+
+#+begin_src emacs-lisp
+(setq custom-file "~/.emacs.d/emacs-custom.el")
+(load custom-file)  
+#+end_src
+
+Here we are asking Emacs to use a different file ~emacs-custom.el~ to store these customizations and are loading this file so that in case anything is there, it can be loaded for next session.
 
 *** Package Configuration
 
