@@ -62,6 +62,7 @@
     - [[#pdflatex][PDFLatex]]
   - [[#packages][Packages]]
     - [[#which-key][Which Key?]]
+    - [[#try][Try]]
     - [[#emacs-helm][Emacs-Helm]]
     - [[#ibuffer][iBuffer]]
     - [[#ivy][Ivy]]
@@ -80,6 +81,7 @@
       - [[#git-auto-commit-for-org-files][Git Auto commit for Org files]]
       - [[#htmlize][HTMLIZE]]
     - [[#markdown-mode][Markdown mode]]
+    - [[#yaml-mode][YAML mode]]
     - [[#nov-mode][Nov Mode]]
     - [[#define-word][define-word]]
     - [[#treemacs][Treemacs]]
@@ -274,7 +276,9 @@ When you press C-x, for example, and hesitate with a next character, C-x will be
 #+BEGIN_SRC emacs-lisp :tangle yes
   (setq doc-view-continuous t)
 #+END_SRC
+
 *** Fonts, Theme and Modeline
+
 **** Font
 #+begin_src emacs-lisp
   (defvar systemhalted/default-font-size 140)
@@ -510,7 +514,17 @@ As a newbie (and also as an experienced) [[https://irreal.org/blog/?p=6026][Emac
           which-key-idle-delay 0.05)			   
     :diminish which-key-mode)				  
 #+END_SRC
-    
+
+*** Try
+Try is a package that allows you to try out Emacs packages without installing them. 
+#+begin_src emacs-lisp
+
+  (use-package try)
+
+#+end_src
+
+
+
 *** Emacs-Helm
 
 [[https://emacs-helm.github.io/helm/][Helm]] is a framework for incremental completion and selection written for Emacs. It helps to rapidly complete file names, buffer names, or any other Emacs interactions requiring selecting an item from a list of possible choices. I am still learning it. I will update this as and when I get  more knowledge on this package. 
@@ -751,6 +765,18 @@ Org-mode supports HTML export natively but syntax highlighting is added through 
          ("\\.md\\'" . markdown-mode)
          ("\\.markdown\\'" . markdown-mode))
   :init (setq markdown-command "multimarkdown"))
+#+end_src
+
+*** YAML mode
+
+#+begin_src emacs-lisp
+      (use-package yaml-mode
+        :mode (("\\.yml\\'" . yaml-mode)
+               ("Bogiefile" . yaml-mode))
+        :init (add-hook 'yaml-mode-hook
+        '(lambda ()
+          (define-key yaml-mode-map "\C-m" 'newline-and-indent))))
+
 #+end_src
 
 
