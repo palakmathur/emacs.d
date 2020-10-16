@@ -771,15 +771,15 @@ Org-mode supports HTML export natively but syntax highlighting is added through 
 *** YAML mode
 
 #+begin_src emacs-lisp
-      (use-package yaml-mode
-        :mode (("\\.yml\\'" . yaml-mode)
-               ("Bogiefile" . yaml-mode))
-        :init (add-hook 'yaml-mode-hook
-        '(lambda ()
-          (define-key yaml-mode-map "\C-m" 'newline-and-indent))))
+  (use-package yaml-mode
+    :mode (("\\.yml\\'" . yaml-mode)
+           ("Bogiefile" . yaml-mode))
+    :init
+    (add-hook 'yaml-mode-hook
+    '(lambda ()
+      (define-key yaml-mode-map "\C-m" 'newline-and-indent))))
 
 #+end_src
-
 
 *** Nov Mode 
 I prefer reading EPUB books on Emacs. Nov Mode allows me do that
