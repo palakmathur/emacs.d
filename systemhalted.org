@@ -98,6 +98,7 @@
       - [[#cc][C/C++]]
       - [[#haskell][Haskell]]
       - [[#common-lispslime][Common Lisp/Slime]]
+      - [[#rust][Rust]]
       - [[#easy-to-add-emacs-lisp-template][Easy-to-add emacs-lisp template]]
 
 * Why Emacs?
@@ -890,7 +891,7 @@ it starts doing its magic after typing in only 2 characters.
   (use-package company
     :config
     (setq company-idle-delay 0)
-    (setq company-minimum-prefix-length 3))
+    (setq company-minimum-prefix-length 1))
 
   (with-eval-after-load 'company
     (define-key company-active-map (kbd "M-n") nil)
@@ -985,6 +986,47 @@ Slime stands for Superior Lisp Interaction Mode for Emacs. For a quick intro, [[
 
   (slime-setup '(slime-fancy))
 #+END_SRC
+
+**** Rust
+
+#+begin_src emacs-lisp
+
+      (use-package rust-mode
+        :bind (:map rust-mode-map
+                    (("C-c C-t" . racer-describe)
+                        ([?\t] . company-indent-or-complete-common))))
+      (use-package flycheck-rust)
+
+      (use-package cargo
+             :hook (rust-mode . cargo-minor-mode)
+             :bind ("C-c C-c C-n" . cargo-process-new))
+
+      (use-package racer
+        :hook (rust-mode . racer-mode)
+        :config
+         (progn
+           (defun systemhalted/racer-mode-hook ()
+             (set (make-local-variable 'company-backends)
+                   '((company-capf company-files)))
+             (setq company-minimum-prefix-length 1)
+             (setq indent-tabs-mode nil))
+           (add-hook 'racer-mode-hook 'systemhalted/racer-mode-hook)
+           (add-hook 'racer-mode-hook #'company-mode)
+           (add-hook 'racer-mode-hook #'eldoc-mode)))
+
+
+
+      (add-hook 'rust-mode-hook 'flycheck-mode)
+      (add-hook 'flycheck-mode-hook 'flycheck-rust-setup)
+
+      (add-hook 'before-save-hook (lambda ()
+                                    (when (eq major-mode 'rust-mode)
+                                      (rust-format-buffer))))
+
+
+
+
+#+end_src
 
 **** Easy-to-add emacs-lisp template
 Hitting tab after an "<el" in an org-mode file will create a template for elisp insertion.
