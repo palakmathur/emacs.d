@@ -1,4 +1,4 @@
-;; -*- emacs-lisp -*- <20/10/13 20:40:20 /Users/aqualogic/.emacs.d/tramp>
+;; -*- emacs-lisp -*- <20/10/21 22:01:55 /Users/aqualogic/.emacs.d/tramp>
 ;; Tramp connection history.  Don't change this file.
 ;; Run `M-x tramp-cleanup-all-connections' instead.
 
@@ -29,4 +29,6 @@
   ("ls-quoting-style" t)
   ("env-u-option" t)
   ("pipe-buf" 4096)
-  ("bzr" nil)))
+  ("bzr" nil)
+  ("hg" nil)
+  ("ls--quoting-style=literal --show-control-chars" "--quoting-style=literal --show-control-chars")))

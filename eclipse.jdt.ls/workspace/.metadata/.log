@@ -1,0 +1,2647 @@
+!SESSION 2020-10-21 22:08:19.114 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=11.0.2
+java.vendor=Oracle Corporation
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=en_US
+Framework arguments:  --add-modules=ALL-SYSTEM --add-opens java.base/java.util=ALL-UNNAMED --add-opens java.base/java.lang=ALL-UNNAMED
+Command-line arguments:  -data /Users/aqualogic/.emacs.d/eclipse.jdt.ls/workspace/ --add-modules=ALL-SYSTEM --add-opens java.base/java.util=ALL-UNNAMED --add-opens java.base/java.lang=ALL-UNNAMED
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:08:21.951
+!MESSAGE class org.eclipse.jdt.ls.core.internal.JavaLanguageServerPlugin is started
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:08:22.189
+!MESSAGE Main thread is waiting
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:08:22.244
+!MESSAGE >> initialize
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:08:22.260
+!MESSAGE Initializing Java Language Server 0.64.0.202010202236
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:08:22.297
+!MESSAGE Installed reference:file:/Users/aqualogic/.emacs.d/eclipse.jdt.ls/server/bundles/com.microsoft.java.test.plugin-0.24.1.jar
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:08:22.302
+!MESSAGE Installed reference:file:/Users/aqualogic/.emacs.d/eclipse.jdt.ls/server/bundles/com.microsoft.jdtls.ext.core-0.5.1.jar
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:08:22.306
+!MESSAGE Installed reference:file:/Users/aqualogic/.emacs.d/eclipse.jdt.ls/server/bundles/dg.jdt.ls.decompiler.cfr-0.0.2-201802221740.jar
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:08:22.309
+!MESSAGE Installed reference:file:/Users/aqualogic/.emacs.d/eclipse.jdt.ls/server/bundles/dg.jdt.ls.decompiler.common-0.0.2-201802221740.jar
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:08:22.312
+!MESSAGE Installed reference:file:/Users/aqualogic/.emacs.d/eclipse.jdt.ls/server/bundles/dg.jdt.ls.decompiler.fernflower-0.0.2-201802221740.jar
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:08:22.316
+!MESSAGE Installed reference:file:/Users/aqualogic/.emacs.d/eclipse.jdt.ls/server/bundles/dg.jdt.ls.decompiler.procyon-0.0.2-201802221740.jar
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:08:22.326
+!MESSAGE Installed reference:file:/Users/aqualogic/.emacs.d/eclipse.jdt.ls/server/bundles/io.projectreactor.reactor-core.jar
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:08:22.331
+!MESSAGE Installed reference:file:/Users/aqualogic/.emacs.d/eclipse.jdt.ls/server/bundles/java.debug.plugin.jar
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:08:22.336
+!MESSAGE Installed reference:file:/Users/aqualogic/.emacs.d/eclipse.jdt.ls/server/bundles/jdt-ls-commons.jar
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:08:22.344
+!MESSAGE Installed reference:file:/Users/aqualogic/.emacs.d/eclipse.jdt.ls/server/bundles/jdt-ls-extension.jar
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:08:22.348
+!MESSAGE Installed reference:file:/Users/aqualogic/.emacs.d/eclipse.jdt.ls/server/bundles/org.apiguardian_1.1.0.v20190826-0900.jar
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:08:22.356
+!MESSAGE Installed reference:file:/Users/aqualogic/.emacs.d/eclipse.jdt.ls/server/bundles/org.eclipse.jdt.junit4.runtime_1.1.1200.v20200214-0716.jar
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:08:22.363
+!MESSAGE Installed reference:file:/Users/aqualogic/.emacs.d/eclipse.jdt.ls/server/bundles/org.eclipse.jdt.junit5.runtime_1.0.900.v20200513-0617.jar
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:08:22.368
+!MESSAGE Installed reference:file:/Users/aqualogic/.emacs.d/eclipse.jdt.ls/server/bundles/org.junit.jupiter.api_5.6.0.v20200203-2009.jar
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:08:22.374
+!MESSAGE Installed reference:file:/Users/aqualogic/.emacs.d/eclipse.jdt.ls/server/bundles/org.junit.jupiter.engine_5.6.0.v20200203-2009.jar
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:08:22.380
+!MESSAGE Installed reference:file:/Users/aqualogic/.emacs.d/eclipse.jdt.ls/server/bundles/org.junit.jupiter.migrationsupport_5.6.0.v20200203-2009.jar
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:08:22.399
+!MESSAGE Installed reference:file:/Users/aqualogic/.emacs.d/eclipse.jdt.ls/server/bundles/org.junit.jupiter.params_5.6.0.v20200203-2009.jar
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:08:22.411
+!MESSAGE Installed reference:file:/Users/aqualogic/.emacs.d/eclipse.jdt.ls/server/bundles/org.junit.platform.commons_1.6.0.v20200203-2009.jar
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:08:22.417
+!MESSAGE Installed reference:file:/Users/aqualogic/.emacs.d/eclipse.jdt.ls/server/bundles/org.junit.platform.engine_1.6.0.v20200203-2009.jar
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:08:22.421
+!MESSAGE Installed reference:file:/Users/aqualogic/.emacs.d/eclipse.jdt.ls/server/bundles/org.junit.platform.launcher_1.6.0.v20200203-2009.jar
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:08:22.428
+!MESSAGE Installed reference:file:/Users/aqualogic/.emacs.d/eclipse.jdt.ls/server/bundles/org.junit.platform.runner_1.6.0.v20200203-2009.jar
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:08:22.432
+!MESSAGE Installed reference:file:/Users/aqualogic/.emacs.d/eclipse.jdt.ls/server/bundles/org.junit.platform.suite.api_1.6.0.v20200203-2009.jar
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:08:22.436
+!MESSAGE Installed reference:file:/Users/aqualogic/.emacs.d/eclipse.jdt.ls/server/bundles/org.junit.vintage.engine_5.6.0.v20200203-2009.jar
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:08:22.439
+!MESSAGE Installed reference:file:/Users/aqualogic/.emacs.d/eclipse.jdt.ls/server/bundles/org.opentest4j_1.2.0.v20190826-0900.jar
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:08:22.444
+!MESSAGE Installed reference:file:/Users/aqualogic/.emacs.d/eclipse.jdt.ls/server/bundles/org.reactivestreams.reactive-streams.jar
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:08:22.579
+!MESSAGE Started reference:file:/Users/aqualogic/.emacs.d/eclipse.jdt.ls/server/bundles/org.junit.platform.engine_1.6.0.v20200203-2009.jar
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:08:22.580
+!MESSAGE Started reference:file:/Users/aqualogic/.emacs.d/eclipse.jdt.ls/server/bundles/org.junit.platform.runner_1.6.0.v20200203-2009.jar
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:08:22.582
+!MESSAGE Started reference:file:/Users/aqualogic/.emacs.d/eclipse.jdt.ls/server/bundles/com.microsoft.java.test.plugin-0.24.1.jar
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:08:22.583
+!MESSAGE Started reference:file:/Users/aqualogic/.emacs.d/eclipse.jdt.ls/server/bundles/org.apiguardian_1.1.0.v20190826-0900.jar
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:08:22.584
+!MESSAGE Started reference:file:/Users/aqualogic/.emacs.d/eclipse.jdt.ls/server/bundles/org.opentest4j_1.2.0.v20190826-0900.jar
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:08:22.586
+!MESSAGE Started reference:file:/Users/aqualogic/.emacs.d/eclipse.jdt.ls/server/bundles/org.junit.platform.commons_1.6.0.v20200203-2009.jar
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:08:22.587
+!MESSAGE Started reference:file:/Users/aqualogic/.emacs.d/eclipse.jdt.ls/server/bundles/org.reactivestreams.reactive-streams.jar
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:08:22.588
+!MESSAGE Started reference:file:/Users/aqualogic/.emacs.d/eclipse.jdt.ls/server/bundles/java.debug.plugin.jar
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:08:22.590
+!MESSAGE Started reference:file:/Users/aqualogic/.emacs.d/eclipse.jdt.ls/server/bundles/dg.jdt.ls.decompiler.fernflower-0.0.2-201802221740.jar
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:08:22.592
+!MESSAGE Started reference:file:/Users/aqualogic/.emacs.d/eclipse.jdt.ls/server/bundles/org.junit.jupiter.api_5.6.0.v20200203-2009.jar
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:08:22.594
+!MESSAGE Started reference:file:/Users/aqualogic/.emacs.d/eclipse.jdt.ls/server/bundles/dg.jdt.ls.decompiler.cfr-0.0.2-201802221740.jar
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:08:22.595
+!MESSAGE Started reference:file:/Users/aqualogic/.emacs.d/eclipse.jdt.ls/server/bundles/org.junit.jupiter.migrationsupport_5.6.0.v20200203-2009.jar
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:08:22.598
+!MESSAGE Started reference:file:/Users/aqualogic/.emacs.d/eclipse.jdt.ls/server/bundles/jdt-ls-extension.jar
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:08:22.599
+!MESSAGE Started reference:file:/Users/aqualogic/.emacs.d/eclipse.jdt.ls/server/bundles/org.junit.vintage.engine_5.6.0.v20200203-2009.jar
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:08:22.601
+!MESSAGE Started reference:file:/Users/aqualogic/.emacs.d/eclipse.jdt.ls/server/bundles/dg.jdt.ls.decompiler.common-0.0.2-201802221740.jar
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:08:22.602
+!MESSAGE Started reference:file:/Users/aqualogic/.emacs.d/eclipse.jdt.ls/server/bundles/jdt-ls-commons.jar
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:08:22.604
+!MESSAGE Started reference:file:/Users/aqualogic/.emacs.d/eclipse.jdt.ls/server/bundles/org.eclipse.jdt.junit5.runtime_1.0.900.v20200513-0617.jar
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:08:22.605
+!MESSAGE Started reference:file:/Users/aqualogic/.emacs.d/eclipse.jdt.ls/server/bundles/org.junit.platform.launcher_1.6.0.v20200203-2009.jar
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:08:22.610
+!MESSAGE Started reference:file:/Users/aqualogic/.emacs.d/eclipse.jdt.ls/server/bundles/io.projectreactor.reactor-core.jar
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:08:22.612
+!MESSAGE Started reference:file:/Users/aqualogic/.emacs.d/eclipse.jdt.ls/server/bundles/org.junit.platform.suite.api_1.6.0.v20200203-2009.jar
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:08:22.621
+!MESSAGE Started reference:file:/Users/aqualogic/.emacs.d/eclipse.jdt.ls/server/bundles/org.eclipse.jdt.junit4.runtime_1.1.1200.v20200214-0716.jar
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:08:22.623
+!MESSAGE Started reference:file:/Users/aqualogic/.emacs.d/eclipse.jdt.ls/server/bundles/com.microsoft.jdtls.ext.core-0.5.1.jar
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:08:22.627
+!MESSAGE Started reference:file:/Users/aqualogic/.emacs.d/eclipse.jdt.ls/server/bundles/dg.jdt.ls.decompiler.procyon-0.0.2-201802221740.jar
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:08:22.632
+!MESSAGE Started reference:file:/Users/aqualogic/.emacs.d/eclipse.jdt.ls/server/bundles/org.junit.jupiter.engine_5.6.0.v20200203-2009.jar
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:08:22.633
+!MESSAGE Started reference:file:/Users/aqualogic/.emacs.d/eclipse.jdt.ls/server/bundles/org.junit.jupiter.params_5.6.0.v20200203-2009.jar
+
+!ENTRY org.eclipse.jdt.ls.core 4 0 2020-10-21 22:08:22.638
+!MESSAGE Failed to load extension bundles 
+!STACK 1
+org.eclipse.core.runtime.CoreException: Load bundle list
+	at org.eclipse.jdt.ls.core.internal.handlers.BundleUtils.loadBundles(BundleUtils.java:169)
+	at org.eclipse.jdt.ls.core.internal.handlers.InitHandler.handleInitializationOptions(InitHandler.java:77)
+	at org.eclipse.jdt.ls.core.internal.handlers.BaseInitHandler.initialize(BaseInitHandler.java:64)
+	at org.eclipse.jdt.ls.core.internal.handlers.JDTLanguageServer.initialize(JDTLanguageServer.java:228)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.lambda$null$0(GenericEndpoint.java:65)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.request(GenericEndpoint.java:120)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.handleRequest(RemoteEndpoint.java:261)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.consume(RemoteEndpoint.java:190)
+	at org.eclipse.jdt.ls.core.internal.ParentProcessWatcher.lambda$0(ParentProcessWatcher.java:123)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.handleMessage(StreamMessageProducer.java:194)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.listen(StreamMessageProducer.java:94)
+	at org.eclipse.lsp4j.jsonrpc.json.ConcurrentMessageProcessor.run(ConcurrentMessageProcessor.java:113)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+Contains: Failed to get bundleInfo for bundle from /Users/aqualogic/.emacs.d/eclipse.jdt.ls/server/bundles/com.microsoft.java.test.runner.jar
+!SUBENTRY 1 org.eclipse.jdt.ls.core 4 0 2020-10-21 22:08:22.643
+!MESSAGE Load bundle list
+!SUBENTRY 2 org.eclipse.jdt.ls.core 4 0 2020-10-21 22:08:22.652
+!MESSAGE Failed to get bundleInfo for bundle from /Users/aqualogic/.emacs.d/eclipse.jdt.ls/server/bundles/com.microsoft.java.test.runner.jar
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:08:22.677
+!MESSAGE Static Commands: []
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:08:22.678
+!MESSAGE Non-Static Commands: [java.edit.organizeImports, java.project.refreshDiagnostics, java.project.import, java.project.removeFromSourcePath, java.project.listSourcePaths, java.project.provideSemanticTokens, java.project.getAll, java.project.isTestFile, java.project.getClasspaths, java.project.getSemanticTokensLegend, java.project.getSettings, java.project.updateSourceAttachment, java.project.resolveSourceAttachment, java.project.addToSourcePath]
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:08:22.679
+!MESSAGE Static Commands: []
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:08:22.680
+!MESSAGE Non-Static Commands: [vscode.java.checkProjectSettings, vscode.java.isOnClasspath, vscode.java.fetchUsageData, vscode.java.validateLaunchConfig, vscode.java.resolveMainMethod, vscode.java.resolveClasspath, vscode.java.resolveBuildFiles, vscode.java.resolveMainClass, vscode.java.updateDebugSettings, vscode.java.buildWorkspace, vscode.java.startDebugSession, vscode.java.inferLaunchCommandLength, vscode.java.resolveElementAtSelection]
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:08:22.682
+!MESSAGE Static Commands: []
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:08:22.683
+!MESSAGE Non-Static Commands: [sts.java.addClasspathListener, sts.java.removeClasspathListener]
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:08:22.684
+!MESSAGE Static Commands: []
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:08:22.685
+!MESSAGE Non-Static Commands: [sts.java.javadoc]
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:08:22.686
+!MESSAGE Static Commands: []
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:08:22.687
+!MESSAGE Non-Static Commands: [sts.java.type]
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:08:22.688
+!MESSAGE Static Commands: []
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:08:22.690
+!MESSAGE Non-Static Commands: [sts.java.javadocHoverLink]
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:08:22.691
+!MESSAGE Static Commands: []
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:08:22.692
+!MESSAGE Non-Static Commands: [sts.java.location]
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:08:22.693
+!MESSAGE Static Commands: []
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:08:22.694
+!MESSAGE Non-Static Commands: [sts.java.search.packages, sts.java.search.types]
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:08:22.695
+!MESSAGE Static Commands: []
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:08:22.696
+!MESSAGE Non-Static Commands: [sts.java.hierarchy.supertypes, sts.java.hierarchy.subtypes]
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:08:22.786
+!MESSAGE >> initialized
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:08:22.799
+!MESSAGE Creating the Java project jdt.ls-java-project
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:08:23.108
+!MESSAGE Static Commands: []
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:08:23.109
+!MESSAGE Non-Static Commands: [java.project.list, java.getPackageData, java.resolvePath]
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:08:23.112
+!MESSAGE Static Commands: []
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:08:23.113
+!MESSAGE Non-Static Commands: [vscode.java.test.search.codelens, vscode.java.test.search.items.all, vscode.java.test.search.location, vscode.java.test.search.items, vscode.java.test.get.testpath, vscode.java.test.junit.argument]
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:08:25.418
+!MESSAGE Default VM Install changed from  null to net.java.openjdk.11.0.2.jdk-/Library/Java/JavaVirtualMachines/jdk-11.0.2.jdk/Contents/Home
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:08:25.433
+!MESSAGE defaultVMInstallChanged -> force update of jdt.ls-java-project
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:08:25.472
+!MESSAGE Finished creating the Java project jdt.ls-java-project
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:08:33.975
+!MESSAGE Importing Maven project(s)
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:08:41.682
+!MESSAGE Workspace initialized in 18979ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:08:41.733
+!MESSAGE >> initialization job finished
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:08:41.745
+!MESSAGE >> workspace/didChangeConfiguration
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:08:41.760
+!MESSAGE >> New configuration: {java={codeGeneration={toString={limitElements=0.0, listArrayContents=true, skipNullValues=false, codeStyle=STRING_CONCATENATION, template=${object.className} [${member.name()}=${member.value}, ${otherMembers}]}, generateComments=false, useBlocks=false, hashCodeEquals={useInstanceof=false, useJava7Objects=false}}, format={onType={enabled=true}, comments={enabled=true}, enabled=true}, progressReports={enabled=true}, foldingRange={enabled=true}, completion={importOrder=[java, javax, com, org], favoriteStaticMembers=[org.junit.Assert.*, org.junit.Assume.*, org.junit.jupiter.api.Assertions.*, org.junit.jupiter.api.Assumptions.*, org.junit.jupiter.api.DynamicContainer.*, org.junit.jupiter.api.DynamicTest.*, org.mockito.Mockito.*, org.mockito.ArgumentMatchers.*, org.mockito.Answers.*], guessMethodArguments=true, overwrite=true, enabled=true, filteredTypes=[java.awt.*, com.sun.*], maxResults=0.0}, maxConcurrentBuilds=1.0, autobuild={enabled=true}, selection={enabled=true}, import={exclusions=[**/node_modules/**, **/.metadata/**, **/archetype-resources/**, **/META-INF/maven/**], maven={enabled=true}, gradle={enabled=true, wrapper={enabled=true}, offline={enabled=false}}}, saveActions={organizeImports=false}, implementationsCodeLens={enabled=false}, signatureHelp={enabled=true}, referencesCodeLens={enabled=false}, maven={downloadSources=false, updateSnapshots=false}, trace={server=off}, configuration={updateBuildConfiguration=automatic, checkProjectSettingsExclusions=true}, errors={incompleteClasspath={severity=warning}}, dependency={packagePresentation=flat}, project={importHint=true, importOnFirstTimeStartup=automatic, referencedLibraries=[lib/**/*.jar], resourceFilters=[node_modules, .metadata, archetype-resources, META-INF/maven]}, imports={gradle={wrapper={checksums=[]}}}, sources={organizeImports={staticStarThreshold=99.0, starThreshold=99.0}}, server={launchMode=Hybrid}, showBuildStatusOnStart={enabled=false}, selectionRange={enabled=true}}}
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:08:41.764
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:08:41.772
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:08:41.778
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:08:41.780
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 4 0 2020-10-21 22:08:42.028
+!MESSAGE Failed to create linked resource from file:///Users/aqualogic/Workspace/experiments-lsp-java/src/main/java/in/palakmathur/experiment/App.java to jdt.ls-java-project
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException(/jdt.ls-java-project/src/in)[374]: java.lang.Exception: Resource '/jdt.ls-java-project/src/in' already exists.
+	at org.eclipse.core.internal.resources.ResourceException.provideStackTrace(ResourceException.java:42)
+	at org.eclipse.core.internal.resources.ResourceException.<init>(ResourceException.java:38)
+	at org.eclipse.core.internal.resources.Resource.checkDoesNotExist(Resource.java:309)
+	at org.eclipse.core.internal.resources.Resource.checkDoesNotExist(Resource.java:296)
+	at org.eclipse.core.internal.resources.Folder.assertCreateRequirements(Folder.java:33)
+	at org.eclipse.core.internal.resources.Folder.create(Folder.java:93)
+	at org.eclipse.core.internal.resources.Folder.create(Folder.java:121)
+	at org.eclipse.jdt.ls.core.internal.JDTUtils.createFolders(JDTUtils.java:282)
+	at org.eclipse.jdt.ls.core.internal.JDTUtils.createFolders(JDTUtils.java:279)
+	at org.eclipse.jdt.ls.core.internal.JDTUtils.createFolders(JDTUtils.java:279)
+	at org.eclipse.jdt.ls.core.internal.JDTUtils.getFakeCompilationUnit(JDTUtils.java:263)
+	at org.eclipse.jdt.ls.core.internal.JDTUtils.resolveCompilationUnit(JDTUtils.java:179)
+	at org.eclipse.jdt.ls.core.internal.JDTUtils.resolveTypeRoot(JDTUtils.java:404)
+	at org.eclipse.jdt.ls.core.internal.handlers.HoverHandler.hover(HoverHandler.java:37)
+	at org.eclipse.jdt.ls.core.internal.handlers.JDTLanguageServer.lambda$6(JDTLanguageServer.java:550)
+	at org.eclipse.jdt.ls.core.internal.BaseJDTLanguageServer.lambda$0(BaseJDTLanguageServer.java:75)
+	at java.base/java.util.concurrent.CompletableFuture$UniApply.tryFire(CompletableFuture.java:642)
+	at java.base/java.util.concurrent.CompletableFuture$Completion.exec(CompletableFuture.java:479)
+	at java.base/java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:290)
+	at java.base/java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(ForkJoinPool.java:1020)
+	at java.base/java.util.concurrent.ForkJoinPool.scan(ForkJoinPool.java:1656)
+	at java.base/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1594)
+	at java.base/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:177)
+!SUBENTRY 1 org.eclipse.core.resources 4 374 2020-10-21 22:08:42.028
+!MESSAGE Resource '/jdt.ls-java-project/src/in' already exists.
+!STACK 0
+java.lang.Exception: Resource '/jdt.ls-java-project/src/in' already exists.
+	at org.eclipse.core.internal.resources.ResourceException.provideStackTrace(ResourceException.java:42)
+	at org.eclipse.core.internal.resources.ResourceException.<init>(ResourceException.java:38)
+	at org.eclipse.core.internal.resources.Resource.checkDoesNotExist(Resource.java:309)
+	at org.eclipse.core.internal.resources.Resource.checkDoesNotExist(Resource.java:296)
+	at org.eclipse.core.internal.resources.Folder.assertCreateRequirements(Folder.java:33)
+	at org.eclipse.core.internal.resources.Folder.create(Folder.java:93)
+	at org.eclipse.core.internal.resources.Folder.create(Folder.java:121)
+	at org.eclipse.jdt.ls.core.internal.JDTUtils.createFolders(JDTUtils.java:282)
+	at org.eclipse.jdt.ls.core.internal.JDTUtils.createFolders(JDTUtils.java:279)
+	at org.eclipse.jdt.ls.core.internal.JDTUtils.createFolders(JDTUtils.java:279)
+	at org.eclipse.jdt.ls.core.internal.JDTUtils.getFakeCompilationUnit(JDTUtils.java:263)
+	at org.eclipse.jdt.ls.core.internal.JDTUtils.resolveCompilationUnit(JDTUtils.java:179)
+	at org.eclipse.jdt.ls.core.internal.JDTUtils.resolveTypeRoot(JDTUtils.java:404)
+	at org.eclipse.jdt.ls.core.internal.handlers.HoverHandler.hover(HoverHandler.java:37)
+	at org.eclipse.jdt.ls.core.internal.handlers.JDTLanguageServer.lambda$6(JDTLanguageServer.java:550)
+	at org.eclipse.jdt.ls.core.internal.BaseJDTLanguageServer.lambda$0(BaseJDTLanguageServer.java:75)
+	at java.base/java.util.concurrent.CompletableFuture$UniApply.tryFire(CompletableFuture.java:642)
+	at java.base/java.util.concurrent.CompletableFuture$Completion.exec(CompletableFuture.java:479)
+	at java.base/java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:290)
+	at java.base/java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(ForkJoinPool.java:1020)
+	at java.base/java.util.concurrent.ForkJoinPool.scan(ForkJoinPool.java:1656)
+	at java.base/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1594)
+	at java.base/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:177)
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:08:46.206
+!MESSAGE >> build jobs finished
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:08:46.346
+!MESSAGE >> registerWatchers'
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:08:46.351
+!MESSAGE >> registerFeature 'workspace/didChangeWatchedFiles'
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:08:46.769
+!MESSAGE >> registerWatchers'
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:08:46.770
+!MESSAGE >> watchers registered
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:08:48.390
+!MESSAGE >> document/didOpen
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:08:48.777
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:08:48.809
+!MESSAGE Reconciled 0. Took 3 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:08:49.288
+!MESSAGE begin problem for /App.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:08:49.290
+!MESSAGE 1 problems reported for /App.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:08:49.291
+!MESSAGE Validated 1. Took 77 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:08:55.899
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:08:56.874
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:08:57.094
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:08:57.289
+!MESSAGE Reconciled 0. Took 7 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:08:57.293
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:08:57.309
+!MESSAGE >> document/completion
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:08:57.554
+!MESSAGE Completion request completed
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:08:57.699
+!MESSAGE Reconciled 0. Took 2 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:08:58.134
+!MESSAGE begin problem for /App.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:08:58.136
+!MESSAGE 1 problems reported for /App.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:08:58.137
+!MESSAGE Validated 1. Took 35 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:08:59.119
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:08:59.233
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:08:59.457
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:08:59.642
+!MESSAGE Reconciled 0. Took 3 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:09:00.099
+!MESSAGE begin problem for /App.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:09:00.102
+!MESSAGE Duplicate local variable strList is of type RedefinedLocal
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:09:00.102
+!MESSAGE 3 problems reported for /App.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:09:00.104
+!MESSAGE Validated 1. Took 57 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:09:00.754
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:09:00.849
+!MESSAGE >> document/completion
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:09:00.861
+!MESSAGE Completion request completed
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:09:01.163
+!MESSAGE Reconciled 0. Took 3 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:09:01.310
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:09:01.596
+!MESSAGE begin problem for /App.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:09:01.597
+!MESSAGE 1 problems reported for /App.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:09:01.598
+!MESSAGE Validated 1. Took 29 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:09:01.609
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:09:01.648
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:09:01.872
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:09:02.030
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:09:02.164
+!MESSAGE >> document/completion
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:09:02.183
+!MESSAGE Completion request completed
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:09:02.362
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:09:02.438
+!MESSAGE Reconciled 0. Took 3 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:09:02.871
+!MESSAGE begin problem for /App.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:09:02.872
+!MESSAGE Duplicate local variable strList is of type RedefinedLocal
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:09:02.872
+!MESSAGE 3 problems reported for /App.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:09:02.873
+!MESSAGE Validated 1. Took 32 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:09:03.121
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:09:03.368
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:09:03.530
+!MESSAGE Reconciled 0. Took 5 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:09:03.574
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:09:03.704
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:09:03.724
+!MESSAGE >> document/completion
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:09:03.906
+!MESSAGE Completion request completed
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:09:03.943
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:09:04.110
+!MESSAGE Reconciled 0. Took 2 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:09:04.558
+!MESSAGE begin problem for /App.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:09:04.559
+!MESSAGE 1 problems reported for /App.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:09:04.560
+!MESSAGE Validated 1. Took 49 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:09:05.150
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:09:05.355
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:09:05.720
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:09:05.763
+!MESSAGE Reconciled 0. Took 3 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:09:06.200
+!MESSAGE begin problem for /App.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:09:06.201
+!MESSAGE Duplicate local variable strList is of type RedefinedLocal
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:09:06.202
+!MESSAGE 3 problems reported for /App.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:09:06.203
+!MESSAGE Validated 1. Took 38 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:09:06.448
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:09:06.697
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:09:06.699
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:09:06.821
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:09:07.058
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:09:07.230
+!MESSAGE Reconciled 0. Took 4 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:09:07.258
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:09:07.494
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:09:07.665
+!MESSAGE Reconciled 0. Took 3 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:09:07.667
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:09:07.906
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:09:08.073
+!MESSAGE Reconciled 0. Took 3 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:09:08.517
+!MESSAGE begin problem for /App.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:09:08.518
+!MESSAGE Duplicate local variable strList is of type RedefinedLocal
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:09:08.519
+!MESSAGE 3 problems reported for /App.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:09:08.520
+!MESSAGE Validated 1. Took 41 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:09:08.779
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:09:08.785
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:09:08.789
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:09:08.791
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:09:08.821
+!MESSAGE >> document/signatureHelp
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:09:09.016
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:09:09.020
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:09:09.022
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:09:09.025
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:09:09.035
+!MESSAGE >> document/signatureHelp
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:09:09.257
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:09:09.432
+!MESSAGE Reconciled 0. Took 2 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:09:09.557
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:09:09.866
+!MESSAGE begin problem for /App.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:09:09.867
+!MESSAGE 2 problems reported for /App.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:09:09.868
+!MESSAGE Validated 1. Took 34 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:09:09.924
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:09:10.253
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:09:10.660
+!MESSAGE Reconciled 0. Took 2 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:09:10.775
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:09:10.834
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:09:10.837
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:09:10.839
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:09:10.841
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:09:11.054
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:09:11.248
+!MESSAGE Reconciled 0. Took 3 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:09:11.356
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:09:11.357
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:09:11.730
+!MESSAGE begin problem for /App.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:09:11.731
+!MESSAGE 3 problems reported for /App.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:09:11.732
+!MESSAGE Validated 1. Took 31 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:09:11.770
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:09:11.771
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:09:12.638
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:09:12.652
+!MESSAGE >> document/completion
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:09:12.677
+!MESSAGE Completion request completed
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:09:12.856
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:09:13.044
+!MESSAGE Reconciled 0. Took 3 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:09:13.157
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:09:13.159
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:09:13.227
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:09:13.450
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:09:13.692
+!MESSAGE Reconciled 0. Took 7 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:09:13.747
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:09:13.748
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:09:14.121
+!MESSAGE begin problem for /App.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:09:14.122
+!MESSAGE 3 problems reported for /App.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:09:14.123
+!MESSAGE Validated 1. Took 25 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:09:14.168
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:09:14.951
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:09:15.345
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:09:15.347
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:09:15.350
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:09:15.755
+!MESSAGE Reconciled 0. Took 3 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:09:15.877
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:09:16.177
+!MESSAGE begin problem for /App.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:09:16.178
+!MESSAGE 2 problems reported for /App.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:09:16.179
+!MESSAGE Validated 1. Took 22 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:09:16.238
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:09:16.449
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:09:16.454
+!MESSAGE >> document/onTypeFormatting
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:09:16.523
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:09:16.930
+!MESSAGE Reconciled 0. Took 1 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:09:16.972
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:09:17.351
+!MESSAGE begin problem for /App.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:09:17.352
+!MESSAGE 1 problems reported for /App.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:09:17.356
+!MESSAGE Validated 1. Took 24 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:09:17.364
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:09:17.780
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:09:17.782
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:09:18.188
+!MESSAGE Reconciled 0. Took 1 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:09:18.303
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:09:18.614
+!MESSAGE begin problem for /App.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:09:18.614
+!MESSAGE 1 problems reported for /App.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:09:18.615
+!MESSAGE Validated 1. Took 22 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:09:18.776
+!MESSAGE >> document/willSaveWaitUntil
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:09:18.785
+!MESSAGE >> document/didSave
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:09:19.310
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:09:21.648
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:09:25.093
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:09:36.746
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:11:38.406
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:11:42.047
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:11:42.346
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:11:42.347
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:11:42.350
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:11:46.226
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:11:46.517
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:11:47.758
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:11:48.059
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:11:48.060
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:11:48.062
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:11:48.509
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:11:48.736
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:11:48.738
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:11:48.929
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:11:49.120
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:11:49.344
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:11:49.527
+!MESSAGE Reconciled 0. Took 3 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:11:49.641
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:11:49.642
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:11:49.643
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:11:49.781
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:11:49.813
+!MESSAGE >> document/completion
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:11:50.179
+!MESSAGE Completion request completed
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:11:50.189
+!MESSAGE Reconciled 0. Took 1 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:11:50.236
+!MESSAGE >> document/completion
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:11:50.408
+!MESSAGE Completion request completed
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:11:50.437
+!MESSAGE >> document/completion
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:11:50.580
+!MESSAGE Completion request completed
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:11:50.612
+!MESSAGE begin problem for /App.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:11:50.633
+!MESSAGE 1 problems reported for /App.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:11:50.634
+!MESSAGE Validated 1. Took 43 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:11:50.635
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:11:50.637
+!MESSAGE >> document/completion
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:11:50.693
+!MESSAGE Completion request completed
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:11:50.808
+!MESSAGE >> document/completion
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:11:50.857
+!MESSAGE Completion request completed
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:11:50.861
+!MESSAGE >> document/completion
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:11:50.913
+!MESSAGE Completion request completed
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:11:50.917
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:11:50.920
+!MESSAGE >> document/completion
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:11:50.957
+!MESSAGE Completion request completed
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:11:50.959
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:11:50.960
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:11:50.961
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:11:51.327
+!MESSAGE Reconciled 0. Took 1 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:11:51.792
+!MESSAGE begin problem for /App.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:11:51.792
+!MESSAGE 1 problems reported for /App.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:11:51.793
+!MESSAGE Validated 1. Took 14 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:11:52.149
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:11:52.153
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:11:52.156
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:11:52.159
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:11:52.162
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:11:52.165
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:11:52.395
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:11:52.573
+!MESSAGE Reconciled 0. Took 1 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:11:52.991
+!MESSAGE begin problem for /App.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:11:52.991
+!MESSAGE 1 problems reported for /App.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:11:52.992
+!MESSAGE Validated 1. Took 17 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:11:54.487
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:11:55.411
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:11:57.264
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:11:57.811
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:11:58.042
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:11:58.064
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:11:58.251
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:11:58.414
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:11:58.612
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:11:58.840
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:11:58.922
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:11:59.101
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:11:59.289
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:11:59.472
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:11:59.697
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:11:59.846
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:11:59.952
+!MESSAGE >> document/completion
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:12:00.253
+!MESSAGE Reconciled 0. Took 1 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:12:00.673
+!MESSAGE begin problem for /App.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:12:00.674
+!MESSAGE 1 problems reported for /App.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:12:00.677
+!MESSAGE Validated 1. Took 20 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:12:01.501
+!MESSAGE Completion request completed
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:12:01.553
+!MESSAGE >> document/completion
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:12:02.577
+!MESSAGE Completion request completed
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:12:02.628
+!MESSAGE >> document/completion
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:12:03.535
+!MESSAGE Completion request completed
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:12:03.804
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:12:03.807
+!MESSAGE >> document/completion
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:12:03.920
+!MESSAGE Completion request completed
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:12:03.923
+!MESSAGE >> document/completion
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:12:04.046
+!MESSAGE Completion request completed
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:12:04.127
+!MESSAGE >> document/completion
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:12:04.210
+!MESSAGE Reconciled 0. Took 2 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:12:04.244
+!MESSAGE Completion request completed
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:12:04.249
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:12:04.251
+!MESSAGE >> document/completion
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:12:04.342
+!MESSAGE Completion request completed
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:12:04.344
+!MESSAGE >> document/completion
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:12:04.418
+!MESSAGE Completion request completed
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:12:04.421
+!MESSAGE >> document/completion
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:12:04.521
+!MESSAGE Completion request completed
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:12:04.524
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:12:04.526
+!MESSAGE >> document/completion
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:12:04.618
+!MESSAGE Completion request completed
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:12:04.620
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:12:04.622
+!MESSAGE >> document/completion
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:12:04.730
+!MESSAGE Completion request completed
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:12:04.732
+!MESSAGE >> document/completion
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:12:04.815
+!MESSAGE Completion request completed
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:12:04.818
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:12:04.821
+!MESSAGE >> document/completion
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:12:04.920
+!MESSAGE Completion request completed
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:12:04.958
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:12:04.959
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:12:04.961
+!MESSAGE >> document/completion
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:12:05.047
+!MESSAGE Completion request completed
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:12:05.050
+!MESSAGE >> document/completion
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:12:05.125
+!MESSAGE Completion request completed
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:12:05.128
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:12:05.130
+!MESSAGE >> document/completion
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:12:05.185
+!MESSAGE Completion request completed
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:12:05.188
+!MESSAGE >> document/completion
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:12:05.239
+!MESSAGE Completion request completed
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:12:05.241
+!MESSAGE >> document/completion
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:12:05.288
+!MESSAGE Completion request completed
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:12:05.290
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:12:05.293
+!MESSAGE >> document/completion
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:12:05.338
+!MESSAGE Completion request completed
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:12:05.340
+!MESSAGE >> document/completion
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:12:05.386
+!MESSAGE Completion request completed
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:12:05.387
+!MESSAGE >> document/completion
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:12:05.433
+!MESSAGE Completion request completed
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:12:05.433
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:12:05.435
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:12:05.437
+!MESSAGE >> document/completion
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:12:05.481
+!MESSAGE Completion request completed
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:12:05.482
+!MESSAGE >> document/completion
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:12:05.525
+!MESSAGE Completion request completed
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:12:05.526
+!MESSAGE >> document/completion
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:12:05.572
+!MESSAGE Completion request completed
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:12:05.573
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:12:05.576
+!MESSAGE >> document/completion
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:12:05.620
+!MESSAGE Completion request completed
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:12:05.621
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:12:05.623
+!MESSAGE >> document/completion
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:12:05.690
+!MESSAGE Completion request completed
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:12:05.691
+!MESSAGE >> document/completion
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:12:05.734
+!MESSAGE Completion request completed
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:12:05.736
+!MESSAGE >> document/willSaveWaitUntil
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:12:05.737
+!MESSAGE >> document/didSave
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:12:05.983
+!MESSAGE Reconciled 0. Took 1 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:12:06.071
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:12:06.406
+!MESSAGE begin problem for /App.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:12:06.406
+!MESSAGE 1 problems reported for /App.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:12:06.407
+!MESSAGE Validated 1. Took 22 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:12:16.444
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:12:20.882
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:12:21.652
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:12:30.054
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:12:30.330
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:12:33.599
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:12:39.037
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:12:39.337
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:12:41.038
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:12:41.890
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:12:43.236
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:12:43.663
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:12:43.964
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:12:57.712
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:12:57.975
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:01.155
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:01.422
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:01.445
+!MESSAGE >> document/completion
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:01.453
+!MESSAGE Completion request completed
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:01.650
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:01.688
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:01.838
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:02.062
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:02.245
+!MESSAGE Reconciled 0. Took 2 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:02.659
+!MESSAGE begin problem for /App.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:02.659
+!MESSAGE 2 problems reported for /App.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:02.660
+!MESSAGE Validated 1. Took 13 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:03.359
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:03.659
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:03.660
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:05.317
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:05.340
+!MESSAGE >> document/completion
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:05.343
+!MESSAGE Completion request completed
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:05.544
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:05.724
+!MESSAGE Reconciled 0. Took 2 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:05.807
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:06.033
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:06.114
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:06.324
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:06.550
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:06.731
+!MESSAGE Reconciled 0. Took 2 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:06.855
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:06.857
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:07.146
+!MESSAGE begin problem for /App.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:07.147
+!MESSAGE 2 problems reported for /App.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:07.148
+!MESSAGE Validated 1. Took 13 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:07.196
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:07.928
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:07.951
+!MESSAGE >> document/completion
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:08.063
+!MESSAGE Completion request completed
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:08.333
+!MESSAGE Reconciled 0. Took 2 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:08.344
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:08.367
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:08.526
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:08.642
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:08.975
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:09.048
+!MESSAGE Reconciled 0. Took 2 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:09.490
+!MESSAGE begin problem for /App.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:09.490
+!MESSAGE 2 problems reported for /App.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:09.491
+!MESSAGE Validated 1. Took 39 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:09.498
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:09.527
+!MESSAGE >> document/completion
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:09.587
+!MESSAGE Completion request completed
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:09.903
+!MESSAGE Reconciled 0. Took 1 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:10.321
+!MESSAGE begin problem for /App.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:10.321
+!MESSAGE 2 problems reported for /App.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:10.322
+!MESSAGE Validated 1. Took 14 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:10.474
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:10.709
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:10.849
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:11.009
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:11.027
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:11.208
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:11.528
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:11.614
+!MESSAGE Reconciled 0. Took 1 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:12.058
+!MESSAGE begin problem for /App.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:12.059
+!MESSAGE 2 problems reported for /App.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:12.061
+!MESSAGE Validated 1. Took 42 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:12.176
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:12.391
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:12.530
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:12.764
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:12.936
+!MESSAGE Reconciled 0. Took 1 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:13.326
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:13.562
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:13.659
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:13.678
+!MESSAGE >> document/completion
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:13.743
+!MESSAGE Completion request completed
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:14.064
+!MESSAGE Reconciled 0. Took 1 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:14.295
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:14.421
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:14.643
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:14.853
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:15.085
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:15.259
+!MESSAGE Reconciled 0. Took 2 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:15.733
+!MESSAGE begin problem for /App.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:15.733
+!MESSAGE 2 problems reported for /App.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:15.735
+!MESSAGE Validated 1. Took 21 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:15.776
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:15.779
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:15.781
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:15.787
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:16.190
+!MESSAGE Reconciled 0. Took 1 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:16.609
+!MESSAGE begin problem for /App.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:16.610
+!MESSAGE 1 problems reported for /App.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:16.610
+!MESSAGE Validated 1. Took 17 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:16.867
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:16.869
+!MESSAGE >> document/onTypeFormatting
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:16.906
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:17.309
+!MESSAGE Reconciled 0. Took 1 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:17.734
+!MESSAGE begin problem for /App.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:17.734
+!MESSAGE 1 problems reported for /App.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:17.735
+!MESSAGE Validated 1. Took 14 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:17.796
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:17.818
+!MESSAGE >> document/completion
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:17.820
+!MESSAGE Completion request completed
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:18.023
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:18.202
+!MESSAGE Reconciled 0. Took 2 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:18.214
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:18.619
+!MESSAGE Reconciled 0. Took 1 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:18.694
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:18.714
+!MESSAGE >> document/completion
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:18.721
+!MESSAGE Completion request completed
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:18.916
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:18.928
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:19.161
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:19.335
+!MESSAGE Reconciled 0. Took 1 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:19.767
+!MESSAGE begin problem for /App.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:19.768
+!MESSAGE 2 problems reported for /App.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:19.769
+!MESSAGE Validated 1. Took 29 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:21.542
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:21.544
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:21.578
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:21.581
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:21.584
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:21.586
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:21.814
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:21.994
+!MESSAGE Reconciled 0. Took 1 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:22.421
+!MESSAGE begin problem for /App.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:22.421
+!MESSAGE 2 problems reported for /App.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:22.422
+!MESSAGE Validated 1. Took 26 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:22.684
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:23.092
+!MESSAGE Reconciled 0. Took 2 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:23.138
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:23.159
+!MESSAGE >> document/completion
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:23.220
+!MESSAGE Completion request completed
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:23.230
+!MESSAGE >> document/completion
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:23.278
+!MESSAGE Completion request completed
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:23.285
+!MESSAGE >> document/completion
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:23.336
+!MESSAGE Completion request completed
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:23.339
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:23.341
+!MESSAGE >> document/completion
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:23.373
+!MESSAGE Completion request completed
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:23.459
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:23.490
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:23.728
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:23.760
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:23.990
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:24.122
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:24.123
+!MESSAGE >> document/completion
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:24.163
+!MESSAGE Completion request completed
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:24.409
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:24.579
+!MESSAGE Reconciled 0. Took 2 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:24.618
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:24.703
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:24.727
+!MESSAGE >> document/completion
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:24.784
+!MESSAGE Completion request completed
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:25.034
+!MESSAGE >> document/completion
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:25.098
+!MESSAGE Completion request completed
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:25.106
+!MESSAGE Reconciled 0. Took 1 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:25.127
+!MESSAGE >> document/completion
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:25.204
+!MESSAGE Completion request completed
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:25.328
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:25.330
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:25.333
+!MESSAGE >> document/completion
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:25.379
+!MESSAGE Completion request completed
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:25.468
+!MESSAGE >> document/completion
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:25.506
+!MESSAGE Completion request completed
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:25.512
+!MESSAGE >> document/completion
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:25.566
+!MESSAGE Completion request completed
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:25.658
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:25.661
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:25.663
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:25.665
+!MESSAGE >> document/completion
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:25.709
+!MESSAGE Completion request completed
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:25.746
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:25.747
+!MESSAGE >> document/completion
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:25.788
+!MESSAGE Completion request completed
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:25.899
+!MESSAGE >> document/completion
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:25.945
+!MESSAGE Completion request completed
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:25.955
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:25.957
+!MESSAGE >> document/completion
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:26.015
+!MESSAGE Completion request completed
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:26.274
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:26.450
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:26.566
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:26.714
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:26.950
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:27.000
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:27.066
+!MESSAGE >> document/completion
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:27.115
+!MESSAGE Completion request completed
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:27.405
+!MESSAGE Reconciled 0. Took 2 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:27.828
+!MESSAGE begin problem for /App.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:27.828
+!MESSAGE 2 problems reported for /App.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:27.829
+!MESSAGE Validated 1. Took 18 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:27.949
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:28.156
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:28.333
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:28.400
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:28.645
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:28.808
+!MESSAGE Reconciled 0. Took 1 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:29.228
+!MESSAGE begin problem for /App.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:29.229
+!MESSAGE 2 problems reported for /App.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:29.230
+!MESSAGE Validated 1. Took 18 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:29.574
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:29.744
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:29.746
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:29.783
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:29.785
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:30.191
+!MESSAGE Reconciled 0. Took 1 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:30.632
+!MESSAGE begin problem for /App.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:30.632
+!MESSAGE 1 problems reported for /App.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:30.633
+!MESSAGE Validated 1. Took 39 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:31.023
+!MESSAGE >> document/willSaveWaitUntil
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:31.026
+!MESSAGE >> document/didSave
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:34.116
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:35.796
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:36.771
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:37.318
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:13:42.496
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:14:07.719
+!MESSAGE >> document/didOpen
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:14:07.879
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:14:07.880
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:14:08.084
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:14:08.136
+!MESSAGE Reconciled 0. Took 1 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:14:08.385
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:14:08.559
+!MESSAGE begin problem for /App.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:14:08.560
+!MESSAGE 1 problems reported for /App.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:14:08.571
+!MESSAGE begin problem for /AppTest.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:14:08.572
+!MESSAGE 1 problems reported for /AppTest.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:14:08.572
+!MESSAGE Validated 2. Took 34 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:14:08.614
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:14:11.162
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:14:11.163
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:14:12.150
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:15:05.881
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:15:05.889
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:15:06.348
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:15:07.746
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:15:08.043
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:15:09.881
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:15:10.780
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:15:13.572
+!MESSAGE >> document/definition
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:15:15.607
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:15:16.238
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:15:16.537
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:15:17.212
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:15:19.878
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:15:20.296
+!MESSAGE Reconciled 0. Took 2 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:15:20.375
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:15:20.728
+!MESSAGE begin problem for /App.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:15:20.729
+!MESSAGE 1 problems reported for /App.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:15:20.742
+!MESSAGE begin problem for /AppTest.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:15:20.743
+!MESSAGE 1 problems reported for /AppTest.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:15:20.743
+!MESSAGE Validated 2. Took 46 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:15:20.921
+!MESSAGE >> document/willSaveWaitUntil
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:15:20.928
+!MESSAGE >> document/didSave
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:15:22.150
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:15:24.597
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:15:31.840
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:15:32.482
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:15:35.267
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:15:35.678
+!MESSAGE Reconciled 0. Took 2 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:15:35.802
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:15:36.113
+!MESSAGE begin problem for /App.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:15:36.114
+!MESSAGE 1 problems reported for /App.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:15:36.126
+!MESSAGE begin problem for /AppTest.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:15:36.126
+!MESSAGE 1 problems reported for /AppTest.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:15:36.127
+!MESSAGE Validated 2. Took 44 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:15:36.163
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:15:36.652
+!MESSAGE >> document/willSaveWaitUntil
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:15:36.656
+!MESSAGE >> document/didSave
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:15:37.191
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:15:40.818
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:15:48.316
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:15:49.158
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:15:58.834
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:16:01.220
+!MESSAGE >> document/codeAction
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:16:27.693
+!MESSAGE >> java/buildWorkspace (incremental)
+
+!ENTRY org.eclipse.jdt.ls.core 4 0 2020-10-21 22:16:27.706
+!MESSAGE Error occured while building workspace. Details: 
+ message: StdOut cannot be resolved; code: 570425394; resource: /Users/aqualogic/Workspace/algorithm1/src/main/java/in/palakmathur/coursera/algorithms/ShellSort.java; line: 116
+ message: The import edu cannot be resolved; code: 268435846; resource: /Users/aqualogic/Workspace/algorithm1/src/main/java/in/palakmathur/coursera/algorithms/ShellSort.java; line: 3
+ message: The import edu cannot be resolved; code: 268435846; resource: /Users/aqualogic/Workspace/algorithm1/src/main/java/in/palakmathur/coursera/algorithms/ShellSort.java; line: 4
+ message: Missing artifact org.coursera.algs4.3rdparty:algs4:jar:1; code: 0; resource: /Users/aqualogic/Workspace/coursera-algs4-master/algs4-part1/pom.xml; line: 7
+ message: Missing artifact org.coursera.algs4.3rdparty:stdlib:jar:1; code: 0; resource: /Users/aqualogic/Workspace/coursera-algs4-master/algs4-part1/pom.xml; line: 7
+ message: Missing artifact org.coursera.algs4.3rdparty:algs4:jar:1; code: 0; resource: /Users/aqualogic/Workspace/coursera-algs4-master/algs4-part2/pom.xml; line: 7
+ message: Missing artifact org.coursera.algs4.3rdparty:stdlib:jar:1; code: 0; resource: /Users/aqualogic/Workspace/coursera-algs4-master/algs4-part2/pom.xml; line: 7
+ message: Missing artifact org.coursera.algs4.3rdparty:stdlib:jar:1; code: 0; resource: /Users/aqualogic/Workspace/coursera-algs4-master/pom.xml; line: 37
+ message: Missing artifact org.coursera.algs4.3rdparty:algs4:jar:1; code: 0; resource: /Users/aqualogic/Workspace/coursera-algs4-master/pom.xml; line: 31
+ message: This method must return a result of type int; code: 603979884; resource: /Users/aqualogic/Workspace/datastructure-algorithms/src/main/java/in/palakmathur/datastructures/Anagrams.java; line: 7
+ message: ArrayList cannot be resolved to a type; code: 16777218; resource: /Users/aqualogic/Workspace/experiment/src/main/java/experiment/EventLoggingTask.java; line: 12
+ message: The method run() of type EventLoggingTask must override a superclass method; code: 67109487; resource: /Users/aqualogic/Workspace/experiment/src/main/java/experiment/EventLoggingTask.java; line: 10
+ message: List cannot be resolved to a type; code: 16777218; resource: /Users/aqualogic/Workspace/experiment/src/main/java/experiment/EventLoggingTask.java; line: 12
+ message: '<>' operator is not allowed for source level below 1.7; code: 16778099; resource: /Users/aqualogic/Workspace/experiment/src/main/java/experiment/EventLoggingTask.java; line: 12
+ message: List cannot be resolved to a type; code: 16777218; resource: /Users/aqualogic/Workspace/experiment/src/main/java/experiment/Experiment.java; line: 14
+ message: '<>' operator is not allowed for source level below 1.7; code: 16778099; resource: /Users/aqualogic/Workspace/experiment/src/main/java/experiment/Experiment.java; line: 14
+ message: ArrayList cannot be resolved to a type; code: 16777218; resource: /Users/aqualogic/Workspace/experiment/src/main/java/experiment/Experiment.java; line: 14
+ message: Lambda expressions are allowed only at source level 1.8 or above; code: 1610613381; resource: /Users/aqualogic/Workspace/experiment/src/main/java/experiment/LearnStreams.java; line: 105
+ message: Lambda expressions are allowed only at source level 1.8 or above; code: 1610613381; resource: /Users/aqualogic/Workspace/experiment/src/main/java/experiment/LearnStreams.java; line: 129
+ message: References to interface static methods are allowed only at source level 1.8 or above; code: 1610613404; resource: /Users/aqualogic/Workspace/experiment/src/main/java/experiment/LearnStreams.java; line: 13
+ message: Lambda expressions are allowed only at source level 1.8 or above; code: 1610613381; resource: /Users/aqualogic/Workspace/experiment/src/main/java/experiment/LearnStreams.java; line: 13
+ message: References to interface static methods are allowed only at source level 1.8 or above; code: 1610613404; resource: /Users/aqualogic/Workspace/experiment/src/main/java/experiment/LearnStreams.java; line: 17
+ message: Lambda expressions are allowed only at source level 1.8 or above; code: 1610613381; resource: /Users/aqualogic/Workspace/experiment/src/main/java/experiment/LearnStreams.java; line: 17
+ message: Type mismatch: cannot convert from List<Object> to List<String>; code: 16777233; resource: /Users/aqualogic/Workspace/experiment/src/main/java/experiment/LearnStreams.java; line: 71
+ message: Method references are allowed only at source level 1.8 or above; code: 1610613382; resource: /Users/aqualogic/Workspace/experiment/src/main/java/experiment/LearnStreams.java; line: 71
+ message: Lambda expressions are allowed only at source level 1.8 or above; code: 1610613381; resource: /Users/aqualogic/Workspace/experiment/src/main/java/experiment/LearnStreams.java; line: 72
+ message: Method references are allowed only at source level 1.8 or above; code: 1610613382; resource: /Users/aqualogic/Workspace/experiment/src/main/java/experiment/LearnStreams.java; line: 75
+ message: The method collect(Collector<? super Object,A,R>) in the type Stream<Object> is not applicable for the arguments (Collector<CharSequence,capture#8-of ?,String>); code: 67108979; resource: /Users/aqualogic/Workspace/experiment/src/main/java/experiment/LearnStreams.java; line: 76
+ message: The method averagingInt(ToIntFunction<? super T>) in the type Collectors is not applicable for the arguments (Product::getProdPrice); code: 67108979; resource: /Users/aqualogic/Workspace/experiment/src/main/java/experiment/LearnStreams.java; line: 81
+ message: Method references are allowed only at source level 1.8 or above; code: 1610613382; resource: /Users/aqualogic/Workspace/experiment/src/main/java/experiment/LearnStreams.java; line: 81
+ message: The type LearnStreams.Product does not define getProdPrice(T) that is applicable here; code: 603979903; resource: /Users/aqualogic/Workspace/experiment/src/main/java/experiment/LearnStreams.java; line: 81
+ message: Method references are allowed only at source level 1.8 or above; code: 1610613382; resource: /Users/aqualogic/Workspace/experiment/src/main/java/experiment/LearnStreams.java; line: 85
+ message: Method references are allowed only at source level 1.8 or above; code: 1610613382; resource: /Users/aqualogic/Workspace/experiment/src/main/java/experiment/LearnStreams.java; line: 88
+ message: The method summarizingInt(ToIntFunction<? super T>) in the type Collectors is not applicable for the arguments (Product::getProdPrice); code: 67108979; resource: /Users/aqualogic/Workspace/experiment/src/main/java/experiment/LearnStreams.java; line: 91
+ message: Method references are allowed only at source level 1.8 or above; code: 1610613382; resource: /Users/aqualogic/Workspace/experiment/src/main/java/experiment/LearnStreams.java; line: 91
+ message: The type LearnStreams.Product does not define getProdPrice(T) that is applicable here; code: 603979903; resource: /Users/aqualogic/Workspace/experiment/src/main/java/experiment/LearnStreams.java; line: 91
+ message: The method groupingBy(Function<? super T,? extends K>) in the type Collectors is not applicable for the arguments (Product::getProdPrice); code: 67108979; resource: /Users/aqualogic/Workspace/experiment/src/main/java/experiment/LearnStreams.java; line: 96
+ message: Method references are allowed only at source level 1.8 or above; code: 1610613382; resource: /Users/aqualogic/Workspace/experiment/src/main/java/experiment/LearnStreams.java; line: 96
+ message: The type LearnStreams.Product does not define getProdPrice(T) that is applicable here; code: 603979903; resource: /Users/aqualogic/Workspace/experiment/src/main/java/experiment/LearnStreams.java; line: 96
+ message: Lambda expressions are allowed only at source level 1.8 or above; code: 1610613381; resource: /Users/aqualogic/Workspace/experiment/src/main/java/experiment/LearnStreams.java; line: 98
+ message: Method references are allowed only at source level 1.8 or above; code: 1610613382; resource: /Users/aqualogic/Workspace/experiment/src/main/java/experiment/LearnStreams.java; line: 99
+ message: The method collect(Collector<? super Object,A,R>) in the type Stream<Object> is not applicable for the arguments (Collector<CharSequence,capture#9-of ?,String>); code: 67108979; resource: /Users/aqualogic/Workspace/experiment/src/main/java/experiment/LearnStreams.java; line: 99
+ message: Type mismatch: cannot convert from Object to Set<LearnStreams.Product>; code: 16777233; resource: /Users/aqualogic/Workspace/experiment/src/main/java/experiment/LearnStreams.java; line: 101
+ message: Method references are allowed only at source level 1.8 or above; code: 1610613382; resource: /Users/aqualogic/Workspace/experiment/src/main/java/experiment/LearnStreams.java; line: 103
+ message: Method references are allowed only at source level 1.8 or above; code: 1610613382; resource: /Users/aqualogic/Workspace/experiment/src/test/java/experiment/FactorialTaskTest.java; line: 33
+ message: The container 'Maven Dependencies' references non existing library '/Users/aqualogic/.m2/repository/org/coursera/algs4/3rdparty/algs4/1/algs4-1.jar'; code: 964; resource: /Users/aqualogic/Workspace/coursera-algs4-master/algs4-part1/week1-percolation;
+ message: The project cannot be built until build path errors are resolved; code: 0; resource: /Users/aqualogic/Workspace/coursera-algs4-master/algs4-part1/week1-percolation;
+ message: Missing artifact org.coursera.algs4.3rdparty:algs4:jar:1; code: 0; resource: /Users/aqualogic/Workspace/coursera-algs4-master/algs4-part1/week1-percolation/pom.xml; line: 7
+ message: Missing artifact org.coursera.algs4.3rdparty:stdlib:jar:1; code: 0; resource: /Users/aqualogic/Workspace/coursera-algs4-master/algs4-part1/week1-percolation/pom.xml; line: 7
+ message: The container 'Maven Dependencies' references non existing library '/Users/aqualogic/.m2/repository/org/coursera/algs4/3rdparty/algs4/1/algs4-1.jar'; code: 964; resource: /Users/aqualogic/Workspace/coursera-algs4-master/algs4-part1/week2-queues;
+ message: The project cannot be built until build path errors are resolved; code: 0; resource: /Users/aqualogic/Workspace/coursera-algs4-master/algs4-part1/week2-queues;
+ message: Missing artifact org.coursera.algs4.3rdparty:algs4:jar:1; code: 0; resource: /Users/aqualogic/Workspace/coursera-algs4-master/algs4-part1/week2-queues/pom.xml; line: 7
+ message: Missing artifact org.coursera.algs4.3rdparty:stdlib:jar:1; code: 0; resource: /Users/aqualogic/Workspace/coursera-algs4-master/algs4-part1/week2-queues/pom.xml; line: 7
+ message: The project cannot be built until build path errors are resolved; code: 0; resource: /Users/aqualogic/Workspace/coursera-algs4-master/algs4-part1/week3-collinear;
+ message: The container 'Maven Dependencies' references non existing library '/Users/aqualogic/.m2/repository/org/coursera/algs4/3rdparty/algs4/1/algs4-1.jar'; code: 964; resource: /Users/aqualogic/Workspace/coursera-algs4-master/algs4-part1/week3-collinear;
+ message: Missing artifact org.coursera.algs4.3rdparty:stdlib:jar:1; code: 0; resource: /Users/aqualogic/Workspace/coursera-algs4-master/algs4-part1/week3-collinear/pom.xml; line: 7
+ message: Missing artifact org.coursera.algs4.3rdparty:algs4:jar:1; code: 0; resource: /Users/aqualogic/Workspace/coursera-algs4-master/algs4-part1/week3-collinear/pom.xml; line: 7
+ message: The container 'Maven Dependencies' references non existing library '/Users/aqualogic/.m2/repository/org/coursera/algs4/3rdparty/algs4/1/algs4-1.jar'; code: 964; resource: /Users/aqualogic/Workspace/coursera-algs4-master/algs4-part1/week4-8puzzle;
+ message: The project cannot be built until build path errors are resolved; code: 0; resource: /Users/aqualogic/Workspace/coursera-algs4-master/algs4-part1/week4-8puzzle;
+ message: Missing artifact org.coursera.algs4.3rdparty:algs4:jar:1; code: 0; resource: /Users/aqualogic/Workspace/coursera-algs4-master/algs4-part1/week4-8puzzle/pom.xml; line: 7
+ message: Missing artifact org.coursera.algs4.3rdparty:stdlib:jar:1; code: 0; resource: /Users/aqualogic/Workspace/coursera-algs4-master/algs4-part1/week4-8puzzle/pom.xml; line: 7
+ message: The container 'Maven Dependencies' references non existing library '/Users/aqualogic/.m2/repository/org/coursera/algs4/3rdparty/algs4/1/algs4-1.jar'; code: 964; resource: /Users/aqualogic/Workspace/coursera-algs4-master/algs4-part1/week5-kdtree;
+ message: The project cannot be built until build path errors are resolved; code: 0; resource: /Users/aqualogic/Workspace/coursera-algs4-master/algs4-part1/week5-kdtree;
+ message: Missing artifact org.coursera.algs4.3rdparty:algs4:jar:1; code: 0; resource: /Users/aqualogic/Workspace/coursera-algs4-master/algs4-part1/week5-kdtree/pom.xml; line: 7
+ message: Missing artifact org.coursera.algs4.3rdparty:stdlib:jar:1; code: 0; resource: /Users/aqualogic/Workspace/coursera-algs4-master/algs4-part1/week5-kdtree/pom.xml; line: 7
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:17:50.722
+!MESSAGE >> java/didChangeWorkspaceFolders
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:17:50.727
+!MESSAGE >> shutdown
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:17:50.732
+!MESSAGE >> exit
+!SESSION 2020-10-21 22:20:21.886 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=11.0.2
+java.vendor=Oracle Corporation
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=en_US
+Framework arguments:  --add-modules=ALL-SYSTEM --add-opens java.base/java.util=ALL-UNNAMED --add-opens java.base/java.lang=ALL-UNNAMED
+Command-line arguments:  -data /Users/aqualogic/.emacs.d/eclipse.jdt.ls/workspace/ --add-modules=ALL-SYSTEM --add-opens java.base/java.util=ALL-UNNAMED --add-opens java.base/java.lang=ALL-UNNAMED
+
+!ENTRY org.eclipse.core.resources 2 10035 2020-10-21 22:20:23.287
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:20:24.501
+!MESSAGE class org.eclipse.jdt.ls.core.internal.JavaLanguageServerPlugin is started
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:20:24.739
+!MESSAGE Main thread is waiting
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:20:24.796
+!MESSAGE >> initialize
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:20:24.809
+!MESSAGE Initializing Java Language Server 0.64.0.202010202236
+
+!ENTRY org.eclipse.jdt.ls.core 4 0 2020-10-21 22:20:24.882
+!MESSAGE Failed to load extension bundles 
+!STACK 1
+org.eclipse.core.runtime.CoreException: Load bundle list
+	at org.eclipse.jdt.ls.core.internal.handlers.BundleUtils.loadBundles(BundleUtils.java:169)
+	at org.eclipse.jdt.ls.core.internal.handlers.InitHandler.handleInitializationOptions(InitHandler.java:77)
+	at org.eclipse.jdt.ls.core.internal.handlers.BaseInitHandler.initialize(BaseInitHandler.java:64)
+	at org.eclipse.jdt.ls.core.internal.handlers.JDTLanguageServer.initialize(JDTLanguageServer.java:228)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.lambda$null$0(GenericEndpoint.java:65)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.request(GenericEndpoint.java:120)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.handleRequest(RemoteEndpoint.java:261)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.consume(RemoteEndpoint.java:190)
+	at org.eclipse.jdt.ls.core.internal.ParentProcessWatcher.lambda$0(ParentProcessWatcher.java:123)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.handleMessage(StreamMessageProducer.java:194)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.listen(StreamMessageProducer.java:94)
+	at org.eclipse.lsp4j.jsonrpc.json.ConcurrentMessageProcessor.run(ConcurrentMessageProcessor.java:113)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+Contains: Failed to get bundleInfo for bundle from /Users/aqualogic/.emacs.d/eclipse.jdt.ls/server/bundles/com.microsoft.java.test.runner.jar
+!SUBENTRY 1 org.eclipse.jdt.ls.core 4 0 2020-10-21 22:20:24.884
+!MESSAGE Load bundle list
+!SUBENTRY 2 org.eclipse.jdt.ls.core 4 0 2020-10-21 22:20:24.884
+!MESSAGE Failed to get bundleInfo for bundle from /Users/aqualogic/.emacs.d/eclipse.jdt.ls/server/bundles/com.microsoft.java.test.runner.jar
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:20:24.895
+!MESSAGE Static Commands: []
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:20:24.896
+!MESSAGE Non-Static Commands: [java.edit.organizeImports, java.project.refreshDiagnostics, java.project.import, java.project.removeFromSourcePath, java.project.listSourcePaths, java.project.provideSemanticTokens, java.project.getAll, java.project.isTestFile, java.project.getClasspaths, java.project.getSemanticTokensLegend, java.project.getSettings, java.project.updateSourceAttachment, java.project.resolveSourceAttachment, java.project.addToSourcePath]
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:20:24.897
+!MESSAGE Static Commands: []
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:20:24.898
+!MESSAGE Non-Static Commands: [vscode.java.test.search.codelens, vscode.java.test.search.items.all, vscode.java.test.search.location, vscode.java.test.search.items, vscode.java.test.get.testpath, vscode.java.test.junit.argument]
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:20:24.900
+!MESSAGE Static Commands: []
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:20:24.901
+!MESSAGE Non-Static Commands: [java.project.list, java.getPackageData, java.resolvePath]
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:20:24.903
+!MESSAGE Static Commands: []
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:20:24.904
+!MESSAGE Non-Static Commands: [vscode.java.checkProjectSettings, vscode.java.isOnClasspath, vscode.java.fetchUsageData, vscode.java.validateLaunchConfig, vscode.java.resolveMainMethod, vscode.java.resolveClasspath, vscode.java.resolveBuildFiles, vscode.java.resolveMainClass, vscode.java.updateDebugSettings, vscode.java.buildWorkspace, vscode.java.startDebugSession, vscode.java.inferLaunchCommandLength, vscode.java.resolveElementAtSelection]
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:20:24.905
+!MESSAGE Static Commands: []
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:20:24.907
+!MESSAGE Non-Static Commands: [sts.java.addClasspathListener, sts.java.removeClasspathListener]
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:20:24.908
+!MESSAGE Static Commands: []
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:20:24.909
+!MESSAGE Non-Static Commands: [sts.java.javadoc]
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:20:24.910
+!MESSAGE Static Commands: []
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:20:24.911
+!MESSAGE Non-Static Commands: [sts.java.type]
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:20:24.913
+!MESSAGE Static Commands: []
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:20:24.914
+!MESSAGE Non-Static Commands: [sts.java.javadocHoverLink]
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:20:24.918
+!MESSAGE Static Commands: []
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:20:24.919
+!MESSAGE Non-Static Commands: [sts.java.location]
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:20:24.920
+!MESSAGE Static Commands: []
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:20:24.922
+!MESSAGE Non-Static Commands: [sts.java.search.packages, sts.java.search.types]
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:20:24.923
+!MESSAGE Static Commands: []
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:20:24.939
+!MESSAGE Non-Static Commands: [sts.java.hierarchy.supertypes, sts.java.hierarchy.subtypes]
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:20:24.993
+!MESSAGE >> initialized
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:20:27.878
+!MESSAGE Importing Maven project(s)
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:20:29.200
+!MESSAGE Workspace initialized in 3017ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:20:29.320
+!MESSAGE >> initialization job finished
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:20:29.327
+!MESSAGE >> workspace/didChangeConfiguration
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:20:29.338
+!MESSAGE >> New configuration: {java={codeGeneration={toString={limitElements=0.0, listArrayContents=true, skipNullValues=false, codeStyle=STRING_CONCATENATION, template=${object.className} [${member.name()}=${member.value}, ${otherMembers}]}, generateComments=false, useBlocks=false, hashCodeEquals={useInstanceof=false, useJava7Objects=false}}, format={onType={enabled=true}, comments={enabled=true}, enabled=true}, progressReports={enabled=true}, foldingRange={enabled=true}, completion={importOrder=[java, javax, com, org], favoriteStaticMembers=[org.junit.Assert.*, org.junit.Assume.*, org.junit.jupiter.api.Assertions.*, org.junit.jupiter.api.Assumptions.*, org.junit.jupiter.api.DynamicContainer.*, org.junit.jupiter.api.DynamicTest.*, org.mockito.Mockito.*, org.mockito.ArgumentMatchers.*, org.mockito.Answers.*], guessMethodArguments=true, overwrite=true, enabled=true, filteredTypes=[java.awt.*, com.sun.*], maxResults=0.0}, maxConcurrentBuilds=1.0, autobuild={enabled=true}, selection={enabled=true}, import={exclusions=[**/node_modules/**, **/.metadata/**, **/archetype-resources/**, **/META-INF/maven/**], maven={enabled=true}, gradle={enabled=true, wrapper={enabled=true}, offline={enabled=false}}}, saveActions={organizeImports=false}, implementationsCodeLens={enabled=false}, signatureHelp={enabled=true}, referencesCodeLens={enabled=false}, maven={downloadSources=false, updateSnapshots=false}, trace={server=off}, configuration={updateBuildConfiguration=automatic, checkProjectSettingsExclusions=true}, errors={incompleteClasspath={severity=warning}}, dependency={packagePresentation=flat}, project={importHint=true, importOnFirstTimeStartup=automatic, referencedLibraries=[lib/**/*.jar], resourceFilters=[node_modules, .metadata, archetype-resources, META-INF/maven]}, imports={gradle={wrapper={checksums=[]}}}, sources={organizeImports={staticStarThreshold=99.0, starThreshold=99.0}}, server={launchMode=Hybrid}, showBuildStatusOnStart={enabled=false}, selectionRange={enabled=true}}}
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:20:29.370
+!MESSAGE >> document/didOpen
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:20:29.484
+!MESSAGE >> workspace/didChangeWatchedFiles 
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:20:29.538
+!MESSAGE >> workspace/didChangeWatchedFiles 
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:20:29.912
+!MESSAGE Reconciled 0. Took 1 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:20:29.914
+!MESSAGE >> workspace/didChangeWatchedFiles 
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:20:29.918
+!MESSAGE >> java/buildWorkspace (incremental)
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:20:29.929
+!MESSAGE >> workspace/didChangeWatchedFiles 
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:20:30.731
+!MESSAGE begin problem for /App.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:20:30.732
+!MESSAGE 0 problems reported for /App.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:20:30.742
+!MESSAGE Validated 1. Took 697 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:20:30.750
+!MESSAGE >> build jobs finished
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:20:30.757
+!MESSAGE >> registerWatchers'
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:20:30.761
+!MESSAGE >> registerFeature 'workspace/didChangeWatchedFiles'
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:20:30.763
+!MESSAGE >> watchers registered
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:20:30.915
+!MESSAGE >> workspace/didChangeWatchedFiles 
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:20:30.925
+!MESSAGE >> workspace/didChangeWatchedFiles 
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:20:30.940
+!MESSAGE >> registerWatchers'
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:20:30.946
+!MESSAGE >> workspace/didChangeWatchedFiles 
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:20:30.950
+!MESSAGE >> workspace/didChangeWatchedFiles 
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:20:30.958
+!MESSAGE >> workspace/didChangeWatchedFiles 
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:20:30.962
+!MESSAGE >> workspace/didChangeWatchedFiles 
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:20:44.487
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:20:44.930
+!MESSAGE Reconciled 0. Took 26 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:20:45.486
+!MESSAGE begin problem for /App.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:20:45.487
+!MESSAGE 9 problems reported for /App.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:20:45.490
+!MESSAGE Validated 1. Took 155 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:20:49.312
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:20:57.764
+!MESSAGE >> workspace/didChangeWatchedFiles 
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:20:57.805
+!MESSAGE >> workspace/didChangeWatchedFiles 
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:21:00.107
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:21:00.880
+!MESSAGE >> document/willSaveWaitUntil
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:21:00.889
+!MESSAGE >> document/didSave
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:21:00.957
+!MESSAGE >> workspace/didChangeWatchedFiles 
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:21:00.970
+!MESSAGE >> workspace/didChangeWatchedFiles 
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:21:03.575
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:21:05.525
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:21:05.793
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:21:05.798
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:21:05.801
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:21:05.805
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:21:05.809
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:21:05.813
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:21:05.816
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:21:05.821
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:21:05.826
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:21:05.829
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:21:05.832
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:21:05.835
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:21:05.839
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:21:05.842
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:21:05.847
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:21:05.850
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:21:05.853
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:21:05.859
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:21:05.864
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:21:05.868
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:21:05.872
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:21:05.876
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:21:05.878
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:21:05.881
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:21:05.889
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:21:05.893
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:21:05.896
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:21:05.899
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:21:05.903
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:21:05.928
+!MESSAGE >> workspace/didChangeWatchedFiles 
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:21:05.943
+!MESSAGE >> workspace/didChangeWatchedFiles 
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:21:06.108
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:21:06.310
+!MESSAGE Reconciled 0. Took 3 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:21:06.776
+!MESSAGE begin problem for /App.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:21:06.778
+!MESSAGE 0 problems reported for /App.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:21:06.779
+!MESSAGE Validated 1. Took 63 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:21:07.411
+!MESSAGE >> document/willSaveWaitUntil
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:21:07.415
+!MESSAGE >> document/didSave
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:21:07.467
+!MESSAGE >> workspace/didChangeWatchedFiles 
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:21:07.479
+!MESSAGE >> workspace/didChangeWatchedFiles 
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:21:12.751
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:21:18.371
+!MESSAGE >> document/hover
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2020-10-21 22:21:26.130
+!MESSAGE >> document/hover
