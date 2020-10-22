@@ -104,6 +104,8 @@
       - [[#common-lispslime][Common Lisp/Slime]]
       - [[#rust][Rust]]
       - [[#lsp-java][LSP Java]]
+      - [[#javascript-mode][Javascript Mode]]
+      - [[#typescript][Typescript]]
       - [[#easy-to-add-emacs-lisp-template][Easy-to-add emacs-lisp template]]
 
 * Why Emacs?
@@ -996,32 +998,32 @@ Debug Adapter Protocol Mode, a client/library for the Debug Adapter Protocol.
 *** Languages
 **** C/C++
 #+BEGIN_SRC emacs-lisp :tangle yes
- (add-hook 'c++-mode-hook 'yas-minor-mode)
-(add-hook 'c-mode-hook 'yas-minor-mode)
+  (add-hook 'c++-mode-hook 'yas-minor-mode)
+  (add-hook 'c-mode-hook 'yas-minor-mode)
 
-   (use-package flycheck-clang-analyzer
-     :config
-     (with-eval-after-load 'flycheck
-       (require 'flycheck-clang-analyzer)
-       (flycheck-clang-analyzer-setup)))
+  (use-package flycheck-clang-analyzer
+    :config
+    (with-eval-after-load 'flycheck
+      (require 'flycheck-clang-analyzer)
+      (flycheck-clang-analyzer-setup)))
 
-   (with-eval-after-load 'company
-     (add-hook 'c++-mode-hook 'company-mode)
-     (add-hook 'c-mode-hook 'company-mode))
+  (with-eval-after-load 'company
+    (add-hook 'c++-mode-hook 'company-mode)
+    (add-hook 'c-mode-hook 'company-mode))
 
-   (use-package company-c-headers)
+  (use-package company-c-headers)
 
-   (use-package company-irony
-     :config
-     (setq company-backends '((company-c-headers
-                               company-dabbrev-code
-                               company-irony))))
+  (use-package company-irony
+    :config
+    (setq company-backends '((company-c-headers
+                              company-dabbrev-code
+                              company-irony))))
 
-   (use-package irony
-     :config
-     (add-hook 'c++-mode-hook 'irony-mode)
-     (add-hook 'c-mode-hook 'irony-mode)
-     (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options))
+  (use-package irony
+    :config
+    (add-hook 'c++-mode-hook 'irony-mode)
+    (add-hook 'c-mode-hook 'irony-mode)
+    (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options))
 #+END_SRC
 
 **** Haskell
@@ -1132,6 +1134,33 @@ Slime stands for Superior Lisp Interaction Mode for Emacs. For a quick intro, [[
   (lsp-java-server-install-dir (expand-file-name "~/.emacs.d/eclipse.jdt.ls/server/"))
   (lsp-java-workspace-dir (expand-file-name "~/.emacs.d/eclipse.jdt.ls/workspace/")))
 
+#+end_src
+
+**** Javascript Mode
+#+begin_src emacs-lisp
+(use-package js2-mode
+  :mode "\\.js\\'"
+  :interpreter "node")
+#+end_src
+
+**** Typescript
+
+#+begin_src emacs-lisp
+  (use-package tide
+    :mode "\\.ts\\'"
+    :preface (defun setup-tide-mode ()
+               (tide-setup)
+               (flycheck-mode +1)
+               (setq flycheck-check-syntax-automatically '(save mode-enabled))
+               (eldoc-mode +1)
+               (tide-hl-identifier-mode +1)
+               (company-mode +1))
+    :config
+    (setq company-tooltip-align-annotations t)
+    ;; formats the buffer before saving
+    (add-hook 'before-save-hook 'tide-format-before-save)
+
+    (add-hook 'typescript-mode-hook #'setup-tide-mode))
 #+end_src
 
 **** Easy-to-add emacs-lisp template
