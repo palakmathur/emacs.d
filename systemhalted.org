@@ -587,13 +587,21 @@ Ivy provides quick and easy way to select item from a list when you are searchin
 #+END_SRC
 
 *** Magit
-The magical git client. Let's load magit only when one of the several entry pont
-functions we invoke regularly outside of magit is called.
+The magical git client. 
 
 #+BEGIN_SRC emacs-lisp :tangle yes
 
   (use-package magit
-    :commands (magit-status magit-blame magit-log-buffer-file magit-log-all))
+  :if (executable-find "git")
+  :bind
+  (("C-x g" . magit-status)
+   (:map magit-status-mode-map
+         ("M-RET" . magit-diff-visit-file-other-window)))
+  :config
+  (defun magit-log-follow-current-file ()
+    "A wrapper around `magit-log-buffer-file' with `--follow' argument."
+    (interactive)
+    (magit-log-buffer-file t)))
 
 #+END_SRC
 *** Forge
@@ -1125,14 +1133,14 @@ Slime stands for Superior Lisp Interaction Mode for Emacs. For a quick intro, [[
 **** LSP Java
 
 #+begin_src emacs-lisp
-(use-package lsp-java
-  :after lsp-mode
-  :if (executable-find "mvn")
-  :init
-  (use-package request :defer t)
-  :custom
-  (lsp-java-server-install-dir (expand-file-name "~/.emacs.d/eclipse.jdt.ls/server/"))
-  (lsp-java-workspace-dir (expand-file-name "~/.emacs.d/eclipse.jdt.ls/workspace/")))
+  (use-package lsp-java
+    :after lsp-mode
+    :if (executable-find "mvn")
+    :init
+    (use-package request :defer t)
+    :custom
+    (lsp-java-server-install-dir (expand-file-name "~/.emacs.d/eclipse.jdt.ls/server/"))
+    (lsp-java-workspace-dir (expand-file-name "~/.emacs.d/eclipse.jdt.ls/workspace/")))
 
 #+end_src
 
