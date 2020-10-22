@@ -9,3 +9,6 @@
 ;; OrgBabel
 (org-babel-load-file "~/.emacs.d/systemhalted.org")
 ;; -OrgBabel
+
+(provide 'init);;;init.el ends here
+

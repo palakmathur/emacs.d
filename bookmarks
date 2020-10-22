@@ -19,7 +19,7 @@
  (position . 43189))
 ("org-capture-last-stored"
  (filename . "~/org/inbox.org")
- (front-context-string . "** TODO Help BRE")
- (rear-context-string . "nvited Narsimha\n")
- (position . 1272))
+ (front-context-string . "** TODO Check wi")
+ (rear-context-string . " Sent the email\n")
+ (position . 2176))
 )
