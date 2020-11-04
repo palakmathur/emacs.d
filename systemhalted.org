@@ -1,13 +1,17 @@
+#+title: systemhalted's Emacs
 #+AUTHOR: systemhalted
 #+Language: en
 #+PROPERTY: header-args :tangle yes
+#+OPTIONS: num:nil 
+#+INFOJS_OPT: view:info toc:t ltoc:t
+#+EXPORT_FILE_NAME: emacs-config.html
 
 * sytemhalted's Emacs :noexport:
 :PROPERTIES:
 :VISIBILITY: children
 :END:
   
-* Table of Contents                                                     :toc_5_gh:noexport:
+* Table of Contents                                                     :toc_5:noexport:
 - [[#why-emacs][Why Emacs?]]
 - [[#about][About]]
 - [[#configurations][Configurations]]
@@ -167,7 +171,7 @@ I put some scripts in /customizations/ folder. Lets load this folder.
 
 *** Setup Proxy
 I use Emacs on my work laptop and there is a firewall that I need to pass through. Proxy settings allow me to do that. Save the below code under ~customizations~ and call it ~setup-proxy.el~
-#+INCLUDE: "~/.emacs.d/customizations/setup-proxy-template.el" src emacs-lisp :range-begin "HttpProxy" :range-end "-HttpProxy" :lines "2-13"
+#+INCLUDE: "~/.emacs.d/customizations/setup-proxy-template.el" src emacs-lisp :range-begin "HttpProxy" :range-end "-HttpProxy" :lines "4-13"
 
 *** Custom File
 
@@ -509,7 +513,7 @@ Reference: Somehwhere on Reddit (find the post and link here)
 
 ** Packages
 *** Which Key?
-As a newbie (and also as an experienced) [[https://irreal.org/blog/?p=6026][Emacser]], it is difficult to remember all the keybindings. And I do not think that anyone needs to remember all of them. Here is where [[https://github.com/justbur/emacs-which-key][which-key]] package comes into picture. It is an [[https://www.gnu.org/software/emacs/manual/html_node/emacs/Minor-Modes.html#:~:text=A%20minor%20mode%20is%20an,off%20(disabled)%20in%20others.][Emacs Minor Mode]], that displays the key bindings following your currently entered incomplete command (a prefix).
+As a newbie (and also as an experienced) [[https://irreal.org/blog/?p=6026][Emacser]], it is difficult to remember all the keybindings. And I do not think that anyone needs to remember all of them. Here is where [[https://github.com/justbur/emacs-which-key][which-key]] package comes into picture. It is an [[https://www.gnu.org/software/emacs/manual/html_node/emacs/Minor-Modes.html][Emacs Minor Mode]], that displays the key bindings following your currently entered incomplete command (a prefix).
 
 #+BEGIN_SRC emacs-lisp :tangle yes
   (use-package which-key				   

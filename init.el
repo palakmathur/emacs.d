@@ -3,7 +3,7 @@
 ;; Customizations
 (add-to-list 'load-path "~/.emacs.d/customizations")
 ;; -Customizations
-;;(load "setup-proxy.el")
+(load "setup-proxy.el")
 
 
 ;; OrgBabel
