@@ -84,6 +84,7 @@
       - [[#org-sidebar][Org-sidebar]]
       - [[#git-auto-commit-for-org-files][Git Auto commit for Org files]]
       - [[#htmlize][HTMLIZE]]
+      - [[#org-babel-languages][Org Babel Languages]]
     - [[#markdown-mode][Markdown mode]]
     - [[#yaml-mode][YAML mode]]
     - [[#nov-mode][Nov Mode]]
@@ -678,7 +679,7 @@ Let's include a newer version of org-mode than the one that is built in. We're g
       (visual-line-mode 1))
 
     (defun systemhalted/org-mode-visual-fill ()
-      (setq visual-fill-column-width 100
+      (setq visual-fill-column-width 120
             visual-fill-column-center-text t)
       (visual-fill-column-mode 1))
 
@@ -777,6 +778,19 @@ Org-mode supports HTML export natively but syntax highlighting is added through 
     (setq org-src-fontify-natively t))
 #+end_src
 
+**** Org Babel Languages
+#+begin_src emacs-lisp
+
+      (use-package ob-kotlin)
+
+      (org-babel-do-load-languages
+       'org-babel-load-languages
+       '((java . t)
+         (groovy . t)
+         (kotlin . t)
+         (python . t)))
+
+#+end_src
 *** Markdown mode
 
 #+begin_src emacs-lisp
