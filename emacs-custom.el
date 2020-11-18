@@ -6,6 +6,7 @@
  '(helm-completion-style 'emacs)
  '(package-selected-packages
    '(company flycheck yasnippet markdown-mode projectile magit helm all-the-icons tide js2-mode lsp-java dap-mode lsp-ui lsp-mode dumb-jump racer cargo flycheck-rust rust-mode yasnippet-snippets yaml-mode xclip which-key visual-fill-column use-package try treemacs toc-org spacemacs-theme spaceline smex slime rainbow-delimiters org-sidebar org-plus-contrib org-bullets org-books nova-theme nov leuven-theme ivy irony-eldoc ido-vertical-mode ido-completing-read+ idle-highlight htmlize helm-rg helm-projectile git-auto-commit-mode forge flycheck-clang-analyzer flx-ido ereader doom-themes doom-modeline define-word company-irony company-c-headers ample-theme))
+
  '(safe-local-variable-values
    '((gac-default-message . "Update the worklist")
      (gac-debounce-interval . 120)

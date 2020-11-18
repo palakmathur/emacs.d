@@ -1,13 +1,17 @@
+#+title: systemhalted's Emacs
 #+AUTHOR: systemhalted
 #+Language: en
 #+PROPERTY: header-args :tangle yes
+#+OPTIONS: num:nil 
+#+INFOJS_OPT: view:info toc:t ltoc:t
+#+EXPORT_FILE_NAME: emacs-config.html
 
 * sytemhalted's Emacs :noexport:
 :PROPERTIES:
 :VISIBILITY: children
 :END:
   
-* Table of Contents                                                     :toc_5_gh:noexport:
+* Table of Contents                                                     :toc_5:noexport:
 - [[#why-emacs][Why Emacs?]]
 - [[#about][About]]
 - [[#configurations][Configurations]]
@@ -80,6 +84,7 @@
       - [[#org-sidebar][Org-sidebar]]
       - [[#git-auto-commit-for-org-files][Git Auto commit for Org files]]
       - [[#htmlize][HTMLIZE]]
+      - [[#org-babel-languages][Org Babel Languages]]
     - [[#markdown-mode][Markdown mode]]
     - [[#yaml-mode][YAML mode]]
     - [[#nov-mode][Nov Mode]]
@@ -87,6 +92,7 @@
     - [[#treemacs][Treemacs]]
     - [[#idle-highlight][IDLE-HIGHLIGHT]]
     - [[#font-lock][Font-lock]]
+    - [[#pdf-tools][Pdf Tools]]
   - [[#custom-functions][Custom Functions]]
       - [[#speedtest][SpeedTest]]
   - [[#programming][Programming]]
@@ -167,7 +173,7 @@ I put some scripts in /customizations/ folder. Lets load this folder.
 
 *** Setup Proxy
 I use Emacs on my work laptop and there is a firewall that I need to pass through. Proxy settings allow me to do that. Save the below code under ~customizations~ and call it ~setup-proxy.el~
-#+INCLUDE: "~/.emacs.d/customizations/setup-proxy-template.el" src emacs-lisp :range-begin "HttpProxy" :range-end "-HttpProxy" :lines "2-13"
+#+INCLUDE: "~/.emacs.d/customizations/setup-proxy-template.el" src emacs-lisp :range-begin "HttpProxy" :range-end "-HttpProxy" :lines "4-13"
 
 *** Custom File
 
@@ -509,7 +515,7 @@ Reference: Somehwhere on Reddit (find the post and link here)
 
 ** Packages
 *** Which Key?
-As a newbie (and also as an experienced) [[https://irreal.org/blog/?p=6026][Emacser]], it is difficult to remember all the keybindings. And I do not think that anyone needs to remember all of them. Here is where [[https://github.com/justbur/emacs-which-key][which-key]] package comes into picture. It is an [[https://www.gnu.org/software/emacs/manual/html_node/emacs/Minor-Modes.html#:~:text=A%20minor%20mode%20is%20an,off%20(disabled)%20in%20others.][Emacs Minor Mode]], that displays the key bindings following your currently entered incomplete command (a prefix).
+As a newbie (and also as an experienced) [[https://irreal.org/blog/?p=6026][Emacser]], it is difficult to remember all the keybindings. And I do not think that anyone needs to remember all of them. Here is where [[https://github.com/justbur/emacs-which-key][which-key]] package comes into picture. It is an [[https://www.gnu.org/software/emacs/manual/html_node/emacs/Minor-Modes.html][Emacs Minor Mode]], that displays the key bindings following your currently entered incomplete command (a prefix).
 
 #+BEGIN_SRC emacs-lisp :tangle yes
   (use-package which-key				   
@@ -561,7 +567,7 @@ Try is a package that allows you to try out Emacs packages without installing th
 
   (require 'helm-config)    
   (helm-autoresize-mode 1)
-  (define-key helm-find-files-map (kbd "C-b") 'helm-find-files-up-one-level)
+  (define-key helm-find-files-map (kbd "C-l") 'helm-find-files-up-one-level)
   (define-key helm-find-files-map (kbd "C-f") 'helm-execute-persistent-action)
 
 #+END_SRC
@@ -673,7 +679,7 @@ Let's include a newer version of org-mode than the one that is built in. We're g
       (visual-line-mode 1))
 
     (defun systemhalted/org-mode-visual-fill ()
-      (setq visual-fill-column-width 100
+      (setq visual-fill-column-width 120
             visual-fill-column-center-text t)
       (visual-fill-column-mode 1))
 
@@ -772,15 +778,28 @@ Org-mode supports HTML export natively but syntax highlighting is added through 
     (setq org-src-fontify-natively t))
 #+end_src
 
+**** Org Babel Languages
+#+begin_src emacs-lisp
+
+      (use-package ob-kotlin)
+
+      (org-babel-do-load-languages
+       'org-babel-load-languages
+       '((java . t)
+         (groovy . t)
+         (kotlin . t)
+         (python . t)))
+
+#+end_src
 *** Markdown mode
 
 #+begin_src emacs-lisp
-(use-package markdown-mode
-  :commands (markdown-mode gfm-mode)
-  :mode (("README\\.md\\'" . gfm-mode)
-         ("\\.md\\'" . markdown-mode)
-         ("\\.markdown\\'" . markdown-mode))
-  :init (setq markdown-command "multimarkdown"))
+  (use-package markdown-mode
+    :commands (markdown-mode gfm-mode)
+    :mode (("README\\.md\\'" . gfm-mode)
+           ("\\.md\\'" . markdown-mode)
+           ("\\.markdown\\'" . markdown-mode))
+    :init (setq markdown-command "/usr/local/bin/multimarkdown"))
 #+end_src
 
 *** YAML mode
@@ -839,6 +858,20 @@ Word and their meanings and what better way to have this information at point.
 #+BEGIN_SRC emacs-lisp :tangle yes
   (require 'font-lock)
 #+END_SRC
+
+*** Pdf Tools
+
+PDF Tools is, among other things, a replacement of DocView for PDF files. The key difference is that pages are not pre-rendered by e.g. ghostscript and stored in the file-system, but rather created on-demand and stored in memory.
+
+Read the prerequisite: https://github.com/politza/pdf-tools
+
+#+begin_src emacs-lisp
+
+  (use-package pdf-tools
+    :ensure t)
+  (pdf-tools-install)
+
+#+end_src
 
 ** Communication :noexport:
 **** Slack 
