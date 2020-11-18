@@ -1,0 +1,132 @@
+This is vm.info, produced by makeinfo version 4.8 from vm.texinfo.
+
+INFO-DIR-SECTION Emacs
+START-INFO-DIR-ENTRY
+* VM: (vm).                             A mail reader.
+END-INFO-DIR-ENTRY
+
+   This file documents the VM mail reader.
+Copyright (C) 1989, 1991, 1999 Kyle E. Jones
+
+Copyright (C) 2003 - 2008 Robert Widhopf-Fenk
+
+Copyright (C) 2008 - 2010 Uday S. Reddy
+
+   Permission is granted to make and distribute verbatim copies of this
+manual provided the copyright notice and this permission notice are
+preserved on all copies.
+
+
+Indirect:
+vm.info-1: 530
+vm.info-2: 291725
+
+Tag Table:
+(Indirect)
+Node: Top530
+Node: Preface2971
+Node: Introduction5957
+Node: Starting Up12810
+Node: Local Folders17084
+Node: Spool Files20098
+Node: POP Spool Files24484
+Node: IMAP Spool Files27918
+Node: Index Files33095
+Node: Folder types33615
+Node: POP and IMAP Folders36085
+Ref: maildrop specification37602
+Node: POP Folders42792
+Node: IMAP Folders44753
+Ref: IMAP Synchronization47731
+Ref: UIDVALIDITY49694
+Node: Thunderbird Folders50985
+Node: External Messages54231
+Node: Getting New Mail56728
+Node: Crash Recovery58190
+Node: Selecting Messages62749
+Node: Reading Messages67140
+Node: Previewing67617
+Node: Paging70711
+Node: MIME Messages73840
+Node: Viewing MIME76369
+Node: Attachments79330
+Ref: Operating on MIME attachments79494
+Node: Internal display82142
+Ref: Internal display of MIME attachments82324
+Node: External display85390
+Node: Displaying images90788
+Node: MIME type conversion93208
+Node: Character sets94653
+Node: multipart/alternative99497
+Node: Inferring MIME types102068
+Node: Sending Messages102941
+Node: Sending Options109383
+Node: Sending MIME Messages110904
+Node: MIME attachments111626
+Node: MIME characters115143
+Node: MIME headers117341
+Node: MIME preview118454
+Node: Replying119582
+Node: Forwarding Messages126958
+Node: Saving copies131514
+Node: Saving Messages133059
+Node: Deleting Messages141030
+Node: Editing Messages144864
+Node: Marking Messages145868
+Node: Message Attributes149210
+Node: Sorting Messages152816
+Node: Threading155988
+Node: Digests158012
+Node: Summaries159069
+Node: Summary Format161096
+Node: Threaded Summaries166354
+Node: Thread Folding168920
+Node: Thread Operations171252
+Node: Summary Faces173344
+Ref: predefined summary faces176209
+Node: Virtual Folders177333
+Node: Interactive VFs179049
+Node: Predefined VFs180679
+Ref: Virtual Selectors183397
+Node: Working with VFs189868
+Node: vm-avirtual191835
+Node: Frames and Windows193036
+Node: Frame Configuration194207
+Node: Window Configuration197887
+Node: Toolbar200693
+Node: Menus206628
+Node: Faces209734
+Node: Using the Mouse211518
+Node: Hooks213897
+Node: Preface to Add-ons223998
+Node: Customizations224978
+Node: History and Administration227856
+Node: Highlights235536
+Node: Future Plans236371
+Node: Bugs236957
+Node: Internals238274
+Node: Folder Internals239147
+Node: Message Internals250024
+Ref: Location data vector251099
+Ref: Soft data vector252586
+Ref: Attributes vector255603
+Ref: Cached data vector256448
+Ref: Mirror data vector259773
+Ref: MIME layout260476
+Node: Summary Internals264823
+Node: Threading Internals268097
+Node: Sorting Internals274442
+Node: User Interaction276746
+Node: Coding Systems279189
+Node: MIME Display281550
+Node: MIME Composition283655
+Node: Extents and Overlays287727
+Node: Timers and Concurrency290838
+Node: Concept Index291725
+Node: Key Index305276
+Node: Command Index313408
+Node: Variable Index326260
+Node: Internals Index346303
+Node: License361077
+
+End Tag Table
