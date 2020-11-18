@@ -14,11 +14,4 @@
 	<natures>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 	</natures>
-	<linkedResources>
-		<link>
-			<name>src/in/palakmathur/experiment/AppTest.java</name>
-			<type>1</type>
-			<location>/Users/aqualogic/Workspace/experiments-lsp-java/src/test/java/in/palakmathur/experiment/AppTest.java</location>
-		</link>
-	</linkedResources>
 </projectDescription>
