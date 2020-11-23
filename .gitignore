@@ -35,4 +35,8 @@ systemhalted.el
 request
 url	
 #init.el#
-
+.dap-breakpoints
+.lsp-session-v1
+systemhalted.el
+.cache
+workspace
