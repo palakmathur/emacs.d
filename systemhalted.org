@@ -39,7 +39,6 @@
       - [[#full-screen][Full Screen]]
       - [[#display-line-numbers-on-the-side][Display Line Numbers on the side]]
       - [[#but-disable-line-numbers-for-certain-modes][But disable line numbers for certain modes]]
-    - [[#pdf][PDF]]
     - [[#fonts-theme-and-modeline][Fonts, Theme and Modeline]]
       - [[#font][Font]]
       - [[#theme][Theme]]
@@ -77,8 +76,10 @@
     - [[#nov-mode][Nov Mode]]
     - [[#define-word][define-word]]
     - [[#idle-highlight][Idle Highlight]]
-    - [[#pdf-tools][Pdf Tools]]
-    - [[#pdflatex][PDFLatex]]
+    - [[#pdf][Pdf]]
+      - [[#pdf-tools][Pdf Tools]]
+      - [[#pdf-latex][Pdf Latex]]
+      - [[#docview-continuous-view][DocView continuous view]]
   - [[#org][Org]]
       - [[#org-agenda-and-todo-setup][Org Agenda and Todo Setup]]
       - [[#setup-org-look-and-feel][Setup Org Look and Feel]]
@@ -294,12 +295,6 @@ When you press C-x, for example, and hesitate with a next character, C-x will be
 
 #+end_src
      
-*** PDF
-In DocView mode, by default, C-p and C-n stop scrolling at the beginning and the end of the current page, respectively. That means if you are at the beginning of the page, C-p won't do anything. Most of the time, I want to go back to the previous page. Similarly for C-n. To get this behavior let's set =doc-view-continuous= variable to non-=nill= value.
-#+BEGIN_SRC emacs-lisp :tangle yes
-  (setq doc-view-continuous t)
-#+END_SRC
-
 *** Fonts, Theme and Modeline
 
 **** Font
@@ -644,7 +639,8 @@ Idle highlight mode sets an idle timer that highlights all occurences in the buf
   (use-package idle-highlight)
 #+END_SRC
 
-*** Pdf Tools
+*** Pdf
+**** Pdf Tools
 
 PDF Tools is, among other things, a replacement of DocView for PDF files. The key difference is that pages are not pre-rendered by e.g. ghostscript and stored in the file-system, but rather created on-demand and stored in memory.
 
@@ -658,13 +654,19 @@ Read the prerequisite: https://github.com/politza/pdf-tools
 
 #+end_src
 
-*** PDFLatex
+**** Pdf Latex
 
 #+begin_src emacs-lisp
 
   (setenv "PATH" (concat (getenv "PATH") ":/Library/TeX/texbin/pdflatex"))
 
 #+end_src
+
+**** DocView continuous view
+In DocView mode, by default, C-p and C-n stop scrolling at the beginning and the end of the current page, respectively. That means if you are at the beginning of the page, C-p won't do anything. Most of the time, I want to go back to the previous page. Similarly for C-n. To get this behavior let's set =doc-view-continuous= variable to non-=nill= value.
+#+BEGIN_SRC emacs-lisp :tangle yes
+  (setq doc-view-continuous t)
+#+END_SRC
 
 ** Org
        
