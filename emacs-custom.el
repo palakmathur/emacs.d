@@ -3,9 +3,11 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(custom-safe-themes
+   '("bf387180109d222aee6bb089db48ed38403a1e330c9ec69fe1f52460a8936b66" default))
  '(helm-completion-style 'emacs)
  '(package-selected-packages
-   '(know-your-http-well magit-todos company flycheck yasnippet markdown-mode projectile magit helm all-the-icons tide js2-mode lsp-java dap-mode lsp-ui lsp-mode dumb-jump racer cargo flycheck-rust rust-mode yasnippet-snippets yaml-mode xclip which-key visual-fill-column use-package try treemacs toc-org spacemacs-theme spaceline smex slime rainbow-delimiters org-sidebar org-plus-contrib org-bullets org-books nova-theme nov leuven-theme ivy irony-eldoc ido-vertical-mode ido-completing-read+ idle-highlight htmlize helm-rg helm-projectile git-auto-commit-mode forge flycheck-clang-analyzer flx-ido ereader doom-themes doom-modeline define-word company-irony company-c-headers ample-theme))
+   '(ob-kotlin pdf-tools know-your-http-well magit-todos company flycheck yasnippet markdown-mode projectile magit helm all-the-icons tide js2-mode lsp-java dap-mode lsp-ui lsp-mode dumb-jump racer cargo flycheck-rust rust-mode yasnippet-snippets yaml-mode xclip which-key visual-fill-column use-package try treemacs toc-org spacemacs-theme spaceline smex slime rainbow-delimiters org-sidebar org-plus-contrib org-bullets org-books nova-theme nov leuven-theme ivy irony-eldoc ido-vertical-mode ido-completing-read+ idle-highlight htmlize helm-rg helm-projectile git-auto-commit-mode forge flycheck-clang-analyzer flx-ido ereader doom-themes doom-modeline define-word company-irony company-c-headers ample-theme))
  '(safe-local-variable-values
    '((gac-default-message . "Update the worklist")
      (gac-debounce-interval . 120)

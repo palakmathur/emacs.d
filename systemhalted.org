@@ -863,8 +863,8 @@ going to install it and make sure it's loaded immediately.
     :config
     (projectile-mode)
     :init
-    (when (file-directory-p "~/Workspace")
-      (setq projectile-project-search-path '("~/Workspace")))
+    (when (file-directory-p "~/Workspaces")
+      (setq projectile-project-search-path '("~/Workspaces")))
     (setq projectile-switch-project-action 'helm-projectile)
     (setq projectile-indexing-method 'alien))
 
