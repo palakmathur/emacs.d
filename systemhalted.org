@@ -66,7 +66,7 @@
     - [[#electric][Electric]]
     - [[#show--parens][Show  Parens]]
     - [[#exile-the-backup-files][Exile the backup files]]
-    - [[#try][Try]]
+    - [[#try-emacs-packages][Try Emacs Packages]]
   - [[#directory-and-file-retrieval][Directory and File Retrieval]]
     - [[#emacs-helm][Emacs-Helm]]
     - [[#ibuffer][iBuffer]]
@@ -295,6 +295,7 @@ When you press C-x, for example, and hesitate with a next character, C-x will be
 #+end_src
      
 *** PDF
+In DocView mode, by default, C-p and C-n stop scrolling at the beginning and the end of the current page, respectively. That means if you are at the beginning of the page, C-p won't do anything. Most of the time, I want to go back to the previous page. Similarly for C-n. To get this behavior let's set =doc-view-continuous= variable to non-=nill= value.
 #+BEGIN_SRC emacs-lisp :tangle yes
   (setq doc-view-continuous t)
 #+END_SRC
@@ -528,7 +529,7 @@ Reference: Somehwhere on Reddit (find the post and link here)
         vc-cvs-stay-local nil)
 #+end_src
 
-*** Try
+*** Try Emacs Packages
 Try is a package that allows you to try out Emacs packages without installing them. 
 #+begin_src emacs-lisp
 
