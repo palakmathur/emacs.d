@@ -59,8 +59,6 @@
     - [[#always-kill-the-buffer][Always kill the buffer]]
     - [[#visit-systemhaltedorg][Visit systemhalted.org]]
     - [[#reload-config][Reload Config]]
-    - [[#electric][Electric]]
-    - [[#show--parens][Show  Parens]]
     - [[#exile-the-backup-files][Exile the backup files]]
     - [[#try-emacs-packages][Try Emacs Packages]]
   - [[#directory-and-file-retrieval-bookmarks-search][Directory and File Retrieval, Bookmarks, Search]]
@@ -94,15 +92,15 @@
     - [[#version-control-git-github][Version Control, Git, Github]]
       - [[#magit][Magit]]
       - [[#forge][Forge]]
+      - [[#magit-todos][magit-todos]]
     - [[#projectile][Projectile]]
     - [[#templates][Templates]]
       - [[#yasnippet][yasnippet]]
       - [[#easy-to-add-emacs-lisp-template][Easy-to-add emacs-lisp template]]
-    - [[#rainbow-delimiters][Rainbow Delimiters]]
-    - [[#flycheck][flycheck]]
-    - [[#company-mode][company mode]]
-    - [[#dumb-jump][Dumb Jump]]
-    - [[#font-lock][Font-lock]]
+    - [[#productivity][Productivity]]
+      - [[#company-mode][Company mode]]
+      - [[#syntax-checking-flycheck][Syntax checking flycheck]]
+      - [[#dumb-jump][Dumb Jump]]
     - [[#lsp][LSP]]
       - [[#lsp-mode][LSP Mode]]
       - [[#lsp-ui][LSP UI]]
@@ -115,6 +113,15 @@
       - [[#lsp-java][LSP Java]]
       - [[#javascript-mode][Javascript Mode]]
       - [[#typescript][Typescript]]
+      - [[#markdown-mode-1][Markdown mode]]
+      - [[#yaml-mode-1][YAML mode]]
+    - [[#editing-pleasure][Editing Pleasure]]
+      - [[#electric][Electric]]
+      - [[#show--parens][Show  Parens]]
+      - [[#font-lock][Font-lock]]
+      - [[#rainbow-delimiters][Rainbow Delimiters]]
+    - [[#reference][Reference]]
+      - [[#http][Http]]
 
 * Why Emacs?
 
@@ -485,24 +492,6 @@ Note: currently not using it. But this is the way to do it
     (interactive)
     (org-babel-load-file (expand-file-name "~/.emacs.d/systemhalted.org")))
   (global-set-key (kbd "C-c r") 'systemhalted/config-reload)
-#+END_SRC
-
-*** Electric
-
-#+BEGIN_SRC emacs-lisp :tangle yes
-  (setq electric-pair-pairs '(
-                              (?\{ . ?\})
-                              (?\( . ?\))
-                              (?\[ . ?\])
-                              (?\" . ?\")
-                              ))
-
-  (electric-pair-mode t)
-#+END_SRC
-*** Show  Parens
-
-#+BEGIN_SRC emacs-lisp :tangle yes
-  (show-paren-mode 1)
 #+END_SRC
 
 *** Exile the backup files
@@ -896,6 +885,15 @@ Forge uses access to Github and provides a way to interact with PRs, Issues, etc
   (use-package forge)
 
 #+end_src
+**** magit-todos
+ Extension for magit which shows a TODOs section in Git status buffer containing all line with TODO in files within the repo. More information at [[https://github.com/alphapapa/magit-todos][Github repo]].
+
+#+begin_src emacs-lisp
+
+  (use-package magit-todos
+    :defer t)
+#+end_src
+
 *** Projectile
 Projectile is a quick and easy project management package that "just works". We're
 going to install it and make sure it's loaded immediately.
@@ -909,8 +907,8 @@ going to install it and make sure it's loaded immediately.
     :config
     (projectile-mode)
     :init
-    (when (file-directory-p "~/Workspace")
-      (setq projectile-project-search-path '("~/Workspace")))
+    (when (file-directory-p "~/Workspaces")
+      (setq projectile-project-search-path '("~/Workspaces")))
     (setq projectile-switch-project-action 'helm-projectile)
     (setq projectile-indexing-method 'alien))
 
@@ -935,20 +933,8 @@ Hitting tab after an "<el" in an org-mode file will create a template for elisp 
   (add-to-list 'org-structure-template-alist
                '("el" .  "src emacs-lisp\n"))
 #+END_SRC
-*** Rainbow Delimiters
-#+begin_src emacs-lisp :tangle yes
-  (use-package rainbow-delimiters
-    :hook (prog-mode . rainbow-delimiters-mode))
-#+end_src
-    
-*** flycheck
-#+BEGIN_SRC emacs-lisp :tangle yes
-  (use-package flycheck
-    :ensure t
-    :init (global-flycheck-mode))
-#+END_SRC
-
-*** company mode
+*** Productivity
+**** Company mode
 I set the delay for company mode to kick in to half a second, I also make sure that
 it starts doing its magic after typing in only 2 characters.
 
@@ -966,7 +952,14 @@ it starts doing its magic after typing in only 2 characters.
     (define-key company-active-map (kbd "SPC") #'company-abort))
 #+END_SRC
 
-*** Dumb Jump
+**** Syntax checking flycheck
+#+BEGIN_SRC emacs-lisp :tangle yes
+  (use-package flycheck
+    :ensure t
+    :init (global-flycheck-mode))
+#+END_SRC
+
+**** Dumb Jump
 
 #+begin_src emacs-lisp
 
@@ -978,11 +971,6 @@ it starts doing its magic after typing in only 2 characters.
            ("C-c C-i" . dumb-jump-go-prompt)))
     :custom (dumb-jump-selector 'ivy))
 #+end_src
-
-*** Font-lock
-#+BEGIN_SRC emacs-lisp :tangle yes
-  (require 'font-lock)
-#+END_SRC
 
 *** LSP
 **** LSP Mode
@@ -1217,3 +1205,65 @@ Slime stands for Superior Lisp Interaction Mode for Emacs. For a quick intro, [[
            (before-save . tide-format-before-save)))
 #+end_src
 
+**** Markdown mode
+
+#+begin_src emacs-lisp
+  (use-package markdown-mode
+    :commands (markdown-mode gfm-mode)
+    :mode (("README\\.md\\'" . gfm-mode)
+           ("\\.md\\'" . markdown-mode)
+           ("\\.markdown\\'" . markdown-mode))
+    :init (setq markdown-command "/usr/local/bin/multimarkdown"))
+#+end_src
+
+**** YAML mode
+
+#+begin_src emacs-lisp
+  (use-package yaml-mode
+    :mode (("\\.yml\\'" . yaml-mode)
+           ("Bogiefile" . yaml-mode))
+    :init
+    (add-hook 'yaml-mode-hook
+              '(lambda ()
+                 (define-key yaml-mode-map "\C-m" 'newline-and-indent))))
+
+#+end_src
+
+*** Editing Pleasure
+**** Electric
+
+#+BEGIN_SRC emacs-lisp :tangle yes
+  (setq electric-pair-pairs '(
+                              (?\{ . ?\})
+                              (?\( . ?\))
+                              (?\[ . ?\])
+                              (?\" . ?\")
+                              ))
+
+  (electric-pair-mode t)
+#+END_SRC
+**** Show  Parens
+
+#+BEGIN_SRC emacs-lisp :tangle yes
+  (show-paren-mode 1)
+#+END_SRC
+
+**** Font-lock
+#+BEGIN_SRC emacs-lisp :tangle yes
+  (require 'font-lock)
+#+END_SRC
+
+**** Rainbow Delimiters
+#+begin_src emacs-lisp :tangle yes
+  (use-package rainbow-delimiters
+    :hook (prog-mode . rainbow-delimiters-mode))
+#+end_src
+    
+*** Reference
+**** Http
+  #+begin_src emacs-lisp
+
+  (use-package know-your-http-well
+    :defer t)
+
+#+end_src
