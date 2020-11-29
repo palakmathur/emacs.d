@@ -120,7 +120,7 @@
       - [[#show--parens][Show  Parens]]
       - [[#font-lock][Font-lock]]
       - [[#rainbow-delimiters][Rainbow Delimiters]]
-    - [[#reference][Reference]]
+    - [[#references][References]]
       - [[#http][Http]]
 
 * Why Emacs?
@@ -1259,7 +1259,7 @@ Slime stands for Superior Lisp Interaction Mode for Emacs. For a quick intro, [[
     :hook (prog-mode . rainbow-delimiters-mode))
 #+end_src
     
-*** Reference
+*** References
 **** Http
   #+begin_src emacs-lisp
 
