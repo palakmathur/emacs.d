@@ -793,7 +793,7 @@ Let's include a newer version of org-mode than the one that is built in. We're g
     (define-key global-map (kbd "C-c l") 'org-store-link)
     (define-key global-map (kbd "C-c a") 'org-agenda)
     (define-key global-map (kbd "C-c c") 'org-capture)
-   
+   ;;https://orgmode.org/manual/Conflicts.html
     (systemhalted/org-shift-support-windmove))
 
 #+END_SRC
