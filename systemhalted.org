@@ -554,6 +554,7 @@ Try is a package that allows you to try out Emacs packages without installing th
     ("C-x r b" .   'helm-filtered-bookmarks)
     ("C-c h" . 'helm-command-prefix) ;;remapped as C-x c is almost same as C-x C-x, which asks to exit Emacs
     ("M-y" . 'helm-show-kill-ring) ;;rather than popping, show the kill-ring
+    ("C-s" . 'helm-occur)
     :config
     (setq helm-autoresize-max-height 0
           helm-autoresize-min-height 40
