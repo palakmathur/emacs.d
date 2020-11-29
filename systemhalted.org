@@ -1,3 +1,6 @@
+#+title: systemhalted's Emacs
+#+AUTHOR: systemhalted
+#+Language: en
 #+PROPERTY: header-args :tangle yes
 #+OPTIONS: num:nil 
 #+INFOJS_OPT: view:info toc:t ltoc:t
@@ -60,6 +63,7 @@
     - [[#visit-systemhaltedorg][Visit systemhalted.org]]
     - [[#reload-config][Reload Config]]
     - [[#exile-the-backup-files][Exile the backup files]]
+    - [[#set-process-connection-type-to-nil][Set process-connection-type to nil]]
     - [[#try-emacs-packages][Try Emacs Packages]]
   - [[#directory-and-file-retrieval-bookmarks-search][Directory and File Retrieval, Bookmarks, Search]]
     - [[#emacs-helm][Emacs-Helm]]
@@ -509,6 +513,14 @@ Reference: Somehwhere on Reddit (find the post and link here)
         kept-old-versions 2
         version-control t
         vc-cvs-stay-local nil)
+#+end_src
+
+*** Set process-connection-type to nil
+
+I don't know why but ~xdg-open~ does not work from inside Emacs if this is not set to nil. It might cause issue with org-plot/gnuplot. But till time being this works for me as I do not use org-plot yet.
+
+ #+begin_src emacs-lisp
+(setq process-connection-type nil)
 #+end_src
 
 *** Try Emacs Packages
