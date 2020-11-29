@@ -65,6 +65,7 @@
     - [[#exile-the-backup-files][Exile the backup files]]
     - [[#set-process-connection-type-to-nil][Set process-connection-type to nil]]
     - [[#try-emacs-packages][Try Emacs Packages]]
+  - [[#windows-management][Windows Management]]
   - [[#directory-and-file-retrieval-bookmarks-search][Directory and File Retrieval, Bookmarks, Search]]
     - [[#emacs-helm][Emacs-Helm]]
     - [[#ibuffer][iBuffer]]
@@ -82,7 +83,7 @@
       - [[#docview-continuous-view][DocView continuous view]]
   - [[#org][Org]]
       - [[#org-agenda-and-todo-setup][Org Agenda and Todo Setup]]
-      - [[#setup-org-look-and-feel][Setup Org Look and Feel]]
+      - [[#setup-org-look-and-feel-and-other-hooks-definitions][Setup Org Look and Feel and other Hooks definitions]]
       - [[#org-setup][Org Setup]]
       - [[#org-bullets][Org Bullets]]
       - [[#org-tempo][Org Tempo]]
@@ -530,7 +531,13 @@ Try is a package that allows you to try out Emacs packages without installing th
   (use-package try)
 
 #+end_src
+** Windows Management
+  Emacs comes with ~windmove~ library, which allows move from one window to another using ~shift~ and ~arrow~ keys. Let's activate it here.
 
+   #+begin_src emacs-lisp :tangle yes
+     (when (fboundp 'windmove-default-keybindings)
+       (windmove-default-keybindings))
+   #+end_src
 ** Directory and File Retrieval, Bookmarks, Search
 *** Emacs-Helm
 
@@ -718,7 +725,7 @@ Let's include a newer version of org-mode than the one that is built in. We're g
 
 #+END_SRC 
 
-**** Setup Org Look and Feel
+**** Setup Org Look and Feel and other Hooks definitions
 #+begin_src emacs-lisp
 
   (defun systemhalted/org-mode-look-feel ()
@@ -760,6 +767,16 @@ Let's include a newer version of org-mode than the one that is built in. We're g
     (set-face-attribute 'org-special-keyword nil :inherit '(font-lock-comment-face fixed-pitch))
     (set-face-attribute 'org-meta-line nil :inherit '(font-lock-comment-face fixed-pitch))
     (set-face-attribute 'org-checkbox nil :inherit 'fixed-pitch))
+
+  (defun systemhalted/org-shift-support-windmove()
+    ;; Make windmove work in Org mode:
+    (add-hook 'org-shiftup-final-hook 'windmove-up)
+    (add-hook 'org-shiftleft-final-hook 'windmove-left)
+    (add-hook 'org-shiftdown-final-hook 'windmove-down)
+    (add-hook 'org-shiftright-final-hook 'windmove-right)
+
+    (setq org-support-shift-select 'always)
+    )
 #+end_src
      
 **** Org Setup
@@ -775,7 +792,9 @@ Let's include a newer version of org-mode than the one that is built in. We're g
     :init 
     (define-key global-map (kbd "C-c l") 'org-store-link)
     (define-key global-map (kbd "C-c a") 'org-agenda)
-    (define-key global-map (kbd "C-c c") 'org-capture))
+    (define-key global-map (kbd "C-c c") 'org-capture)
+   
+    (systemhalted/org-shift-support-windmove))
 
 #+END_SRC
           
