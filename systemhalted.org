@@ -21,6 +21,7 @@
       - [[#visibility-settings][Visibility Settings]]
       - [[#table-of-contents][Table of Contents]]
       - [[#org-babel][Org Babel]]
+  - [[#startup-performance][Startup Performance]]
   - [[#global-settings][Global Settings]]
     - [[#load-customizations-from-folder][Load Customizations from folder]]
     - [[#setup-proxy][Setup Proxy]]
@@ -128,6 +129,7 @@
       - [[#rainbow-delimiters][Rainbow Delimiters]]
     - [[#references][References]]
       - [[#http][Http]]
+  - [[#runtime-performance][Runtime Performance]]
 
 * Why Emacs?
 
@@ -178,6 +180,26 @@ works property directly on github.
 This file is loaded using ~org-babel~. Create ~init.el~ file in ~/.emacs.d/~ folder and put following code
  
 #+INCLUDE: "~/.emacs.d/init.el" src emacs-lisp :range-begin "OrgBabel" :range-end "-OrgBabel" :lines "10-11"
+
+** Startup Performance
+
+Make startup faster by reducing the frequency of garbage collection and then use a hook to measure Emacs startup time.
+
+#+begin_src emacs-lisp
+
+;; The default is 800 kilobytes.  Measured in bytes.
+(setq gc-cons-threshold (* 50 1000 1000))
+
+;; Profile emacs startup
+(add-hook 'emacs-startup-hook
+          (lambda ()
+            (message "*** Emacs loaded in %s with %d garbage collections."
+                     (format "%.2f seconds"
+                             (float-time
+                              (time-subtract after-init-time before-init-time)))
+                     gcs-done)))
+
+#+end_src
 
 ** Global Settings
 *** Load Customizations from folder
@@ -1325,5 +1347,16 @@ Slime stands for Superior Lisp Interaction Mode for Emacs. For a quick intro, [[
 
   (use-package know-your-http-well
     :defer t)
+
+#+end_src
+
+** Runtime Performance
+
+Dial the GC threshold back down so that garbage collection happens more frequently but in less time.
+
+#+begin_src emacs-lisp
+
+;; Make gc pauses faster by decreasing the threshold.
+(setq gc-cons-threshold (* 2 1000 1000))
 
 #+end_src
