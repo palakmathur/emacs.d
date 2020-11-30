@@ -520,8 +520,8 @@ Reference: Somehwhere on Reddit (find the post and link here)
 
 I don't know why but ~xdg-open~ does not work from inside Emacs if this is not set to nil. It might cause issue with org-plot/gnuplot. But till time being this works for me as I do not use org-plot yet.
 
- #+begin_src emacs-lisp
-(setq process-connection-type nil)
+#+begin_src emacs-lisp
+  (setq process-connection-type nil)
 #+end_src
 
 *** Try Emacs Packages
@@ -532,12 +532,12 @@ Try is a package that allows you to try out Emacs packages without installing th
 
 #+end_src
 ** Windows Management
-  Emacs comes with ~windmove~ library, which allows move from one window to another using ~shift~ and ~arrow~ keys. Let's activate it here.
+Emacs comes with ~windmove~ library, which allows move from one window to another using ~shift~ and ~arrow~ keys. Let's activate it here.
 
-   #+begin_src emacs-lisp :tangle yes
-     (when (fboundp 'windmove-default-keybindings)
-       (windmove-default-keybindings))
-   #+end_src
+#+begin_src emacs-lisp :tangle yes
+  (when (fboundp 'windmove-default-keybindings)
+    (windmove-default-keybindings))
+#+end_src
 ** Directory and File Retrieval, Bookmarks, Search
 *** Emacs-Helm
 
@@ -602,14 +602,14 @@ Before iPhone, there was iBuffer.
 ** Make Emacs Helpful
 
 #+begin_src emacs-lisp
-    (use-package helpful
-      :bind
-      ("C-h f" . 'helpful-callable)
-      ("C-h v" . 'helpful-variable)
-      ("C-h k" . 'helpful-key)
-      ("C-h F" . 'helpful-function)
-      ("C-h C" . 'helpful-command)
-      ("C-h M-d" . 'helpful-at-point))
+  (use-package helpful
+    :bind
+    ("C-h f" . 'helpful-callable)
+    ("C-h v" . 'helpful-variable)
+    ("C-h k" . 'helpful-key)
+    ("C-h F" . 'helpful-function)
+    ("C-h C" . 'helpful-command)
+    ("C-h M-d" . 'helpful-at-point))
 
 #+end_src
 ** Reading and Writing
@@ -794,7 +794,7 @@ Let's include a newer version of org-mode than the one that is built in. We're g
     (define-key global-map (kbd "C-c l") 'org-store-link)
     (define-key global-map (kbd "C-c a") 'org-agenda)
     (define-key global-map (kbd "C-c c") 'org-capture)
-   ;;https://orgmode.org/manual/Conflicts.html
+    ;;https://orgmode.org/manual/Conflicts.html
     (systemhalted/org-shift-support-windmove))
 
 #+END_SRC
@@ -918,7 +918,7 @@ Forge uses access to Github and provides a way to interact with PRs, Issues, etc
 
 #+end_src
 **** magit-todos
- Extension for magit which shows a TODOs section in Git status buffer containing all line with TODO in files within the repo. More information at [[https://github.com/alphapapa/magit-todos][Github repo]].
+Extension for magit which shows a TODOs section in Git status buffer containing all line with TODO in files within the repo. More information at [[https://github.com/alphapapa/magit-todos][Github repo]].
 
 #+begin_src emacs-lisp
 
@@ -1293,7 +1293,7 @@ Slime stands for Superior Lisp Interaction Mode for Emacs. For a quick intro, [[
     
 *** References
 **** Http
-  #+begin_src emacs-lisp
+#+begin_src emacs-lisp
 
   (use-package know-your-http-well
     :defer t)
