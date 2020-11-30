@@ -548,7 +548,7 @@ Try is a package that allows you to try out Emacs packages without installing th
     :bind
     ("C-x C-f" . 'helm-find-files)
     ("C-x C-b" . 'helm-buffers-list)
-    ("C-c h C-b" . 'helm-mini)
+    ("C-c b" . 'helm-mini)
     ("M-x" . 'helm-M-x)
     ("C-x f" . 'helm-recentf)
     ("C-x r b" .   'helm-filtered-bookmarks)
