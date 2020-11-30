@@ -72,6 +72,7 @@
     - [[#treemacs][Treemacs]]
   - [[#make-emacs-helpful][Make Emacs Helpful]]
   - [[#reading-and-writing][Reading and Writing]]
+    - [[#distraction-free-writing][Distraction free writing]]
     - [[#markdown-mode][Markdown mode]]
     - [[#yaml-mode][YAML mode]]
     - [[#nov-mode][Nov Mode]]
@@ -554,7 +555,7 @@ Emacs comes with ~windmove~ library, which allows move from one window to anothe
     ("C-x r b" .   'helm-filtered-bookmarks)
     ("C-c h" . 'helm-command-prefix) ;;remapped as C-x c is almost same as C-x C-x, which asks to exit Emacs
     ("M-y" . 'helm-show-kill-ring) ;;rather than popping, show the kill-ring
-    ("C-s" . 'helm-occur)
+    ("C-c o" . 'helm-occur)
     :config
     (setq helm-autoresize-max-height 0
           helm-autoresize-min-height 40
@@ -613,6 +614,33 @@ Before iPhone, there was iBuffer.
 
 #+end_src
 ** Reading and Writing
+*** Distraction free writing
+#+begin_src emacs-lisp
+
+   (use-package darkroom
+      :commands darkroom-mode
+      :config
+      (setq darkroom-text-scale-increase 0))
+
+    (defun systemhalted/enter-focus-mode ()
+      (interactive)
+      (darkroom-mode 1)
+      (display-line-numbers-mode 0))
+
+    (defun systemhalted/leave-focus-mode ()
+      (interactive)
+      (darkroom-mode 0)
+      (display-line-numbers-mode 1))
+
+    (defun systemhalted/toggle-focus-mode ()
+      (interactive)
+      (if (symbol-value darkroom-mode)
+        (systemhalted/leave-focus-mode)
+        (systemhalted/enter-focus-mode)))
+
+
+#+end_src
+
 *** Markdown mode
 
 #+begin_src emacs-lisp
