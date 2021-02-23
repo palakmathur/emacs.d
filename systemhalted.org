@@ -513,7 +513,7 @@ Note: currently not using it. But this is the way to do it
   (defun systemhalted/config-visit ()
     (interactive)
     (find-file "~/.emacs.d/systemhalted.org"))
-  (global-set-key (kbd "C-c e") 'systemhalted/config-visit)
+  (global-set-key (kbd "C-c v") 'systemhalted/config-visit)
 #+END_SRC
 *** Reload Config
 #+BEGIN_SRC emacs-lisp :tangle yes
